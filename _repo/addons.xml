@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repository.SpinzPro" name="SpinzTV PRO" version="0.1.1" provider-name="SpinzTV">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="SpinzTV PRO">
+            <info compressed="false">http://raw.github.com/spinztv/pro/master//_repo/addons.xml</info>
+            <checksum>http://raw.github.com/spinztv/pro/master//_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/spinztv/pro/master//_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>SpinzTV PRO</summary>
+            <description>SpinzTV PRO</description>
+            <platform>all</platform>
+    </extension>
+</addon>
+</addons>
