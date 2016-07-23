@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
+<addon id="plugin.program.spinztv" name="SpinzTv Wizard" version="1.0" provider-name="SpinzTv">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">	SpinzTV Wizard</summary>
+    <description lang="en">Easy Update Your Kodi Install</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
     <addon id="repository.SpinzPro" name="SpinzTV PRO" version="0.1.1" provider-name="SpinzTV">
         <requires>
             <import addon="xbmc.addon" version="12.0.0"/>
