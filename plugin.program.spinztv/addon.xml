@@ -8,7 +8,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">	SpinzTV Wizard</summary>
-    <description lang="en">Easy Update Your Kodi Install</description>
+    <description lang="en">General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
     <platform>all</platform> 
   </extension>
 </addon>
