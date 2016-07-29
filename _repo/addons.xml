@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.spinztv" name="SpinzTv Wizard" version="1.0" provider-name="SpinzTv">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV[/B][/COLOR]" version="1.0.0" provider-name="SpinzTV">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
+    <provides>executable</provides>
   </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">	SpinzTV Wizard</summary>
-    <description lang="en">General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
+    <summary lang="en">SpinzTV</summary>
+    <description lang="en">SpinzTV Wizard</description>
     <platform>all</platform>
   </extension>
 </addon>
