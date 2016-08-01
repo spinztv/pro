@@ -12,7 +12,7 @@ BUILDFILE      = 'http://spinztv.com/wizard/spinztvwizard.txt'
 # 0 being every startup of kodi
 UPDATECHECK    = 0
 # Text File with apk info in it.
-APKFILE      = 'http://p.brosgit.pro/spinz/apk/SpinzTV.apk'
+APKFILE      = 'http://spez.tv/APK/SpinzTV-apk.txt'
 # Dont need to edit just here for icons stored locally
 HOME           = xbmc.translatePath('special://home/')
 PLUGIN         = os.path.join(HOME,     'addons',    ADDON_ID)
