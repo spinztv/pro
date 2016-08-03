@@ -496,7 +496,7 @@ def buildWizard(name, type, theme=None):
 		if KODIV < 16.0 and float(wiz.checkBuild(name, 'kodi')) >= 16.0:
 			yes_pressed = DIALOG.yesno("%s - [COLOR red]WARNING!![/COLOR]" % ADDONTITLE, 'There is a chance that the skin will not appear correctly', 'When installing a %s build on a Kodi %s install' % (wiz.checkBuild(name, 'kodi'), KODIV), 'Would you still like to install: %s v%s?' % (name, wiz.checkBuild(name,'version')), nolabel='No, Cancel',yeslabel='Yes, Install')
 		else:
-			yes_pressed = DIALOG.yesno(ADDONTITLE, 'Would you like to install:', '%s v%s?' % (name, wiz.checkBuild(name,'version')), nolabel='No, Cancel',yeslabel='Yes, Install')
+			yes_pressed = DIALOG.yesno(ADDONTITLE, 'By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country. By continuing you are agreeing to the terms and conditions herin. Would you still like to install:', '%s v%s?' % (name, wiz.checkBuild(name,'version')), nolabel='Disagree, Cancel',yeslabel='Agree, Install')
 		if yes_pressed:
 			buildzip = wiz.checkBuild(name, 'url')
 			zipname = name.replace('\\', '').replace('/', '').replace(':', '').replace('*', '').replace('?', '').replace('"', '').replace('<', '').replace('>', '').replace('|', '')
