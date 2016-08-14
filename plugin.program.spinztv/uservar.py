@@ -1,18 +1,26 @@
 import os, xbmc, xbmcaddon
-
+import base64
 #########################################################
 ### User Edit Variables #################################
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE     = 'SpinzTV'
-EXCLUDES       = [ADDON_ID]
+EXCLUDES       = [ADDON_ID, 'repository.SpinzTV']
 # Text File with build info in it.
-BUILDFILE      = 'http://spinztv.com/wizard/spinztvwizard.txt'
+BUILDFILE      = base64.b64decode('aHR0cDovL3NwaW56dHYuY29tL3dpemFyZC9zcGluenR2d2l6YXJkLnR4dA==')
 # How often you would list it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
+# Speed Test File
+SPEEDFILE    = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovc3BlZWQvc3BlZWR0ZXN0LnR4dA==')
+
 # Text File with apk info in it.
-APKFILE      = 'http://spez.tv/APK/SpinzTV-apk.txt'
+APKSPINZFILE = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluemFway50eHQ=')
+APKFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLWFway50eHQ=')
+APKGAMEFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLWdhbWVhcGsudHh0')
+APKVIDFILE   = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLXZpZGVvYXBrLnR4dA==')
+APKSYSFILE   = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLWFuZHJvaWR0b29sc2Fway50eHQ=')
+
 # Dont need to edit just here for icons stored locally
 HOME           = xbmc.translatePath('special://home/')
 PLUGIN         = os.path.join(HOME,     'addons',    ADDON_ID)
@@ -35,6 +43,14 @@ ICONSAVE       = os.path.join(ART, 'saveicon.png')
 ICONTRAKT      = os.path.join(ART, 'trakticon.png')
 ICONREAL       = os.path.join(ART, 'realicon.png')
 ICONSETTINGS   = os.path.join(ART, 'settingsicon.png')
+ICONSPINZ      = os.path.join(ART, 'spinzicon.png')
+ICONKODI       = os.path.join(ART, 'kodiicon.png')
+ICONSPMC       = os.path.join(ART, 'kodiicon.png')
+ICONGAMES      = os.path.join(ART, 'gamesicon.png')
+ICONMOVIES     = os.path.join(ART, 'moviesicon.png')
+ICONANDROID    = os.path.join(ART, 'droidicon.png')
+ICONSPEED      = os.path.join(ART, 'speedicon.png')
+
 # Hide the ====== seperators 'Yes' or 'No'
 HIDESPACERS    = 'No'
 
@@ -73,13 +89,13 @@ WIZARDFILE     = 'http://'
 ### AUTO INSTALL ########################################
 ########## REPO IF NOT INSTALLED ########################
 # Enable Auto Install 'Yes' or 'No'
-AUTOINSTALL    = 'No'
+AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
-REPOID         = 'repository.'
+REPOID         = 'repository.SpinzTV'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'http://'
+REPOADDONXML   = base64.b64decode('aHR0cDovL3Jhdy5naXRodWIuY29tL3NwaW56dHYvcHJvL21hc3Rlci8vX3JlcG8vYWRkb25zLnhtbA==')
 # Url to folder zip is located in
-REPOZIPURL     = 'http://'
+REPOZIPURL     = base64.b64decode('aHR0cDovL3Jhdy5naXRodWIuY29tL3NwaW56dHYvcHJvL21hc3Rlci8vX3JlcG8vcmVwb3NpdG9yeS5TcGluelRWLw==')
 #########################################################
 
 #########################################################

@@ -98,7 +98,9 @@ if AUTOCLEANUP == 'true':
 	if AUTOPACKAGES == 'true': wiz.log('[AUTO CLEAN UP][Packages: on]'); wiz.clearPackages('startup')
 	else: wiz.log('[AUTO CLEAN UP][Packages: off]')
 else: wiz.log('[AUTO CLEAN UP: off]')
-
+#####################
+##REPO AUTO INSTALL##
+#####################
 if AUTOINSTALL == 'Yes' and not os.path.exists(os.path.join(ADDONS, REPOID)):
 	workingxml = wiz.workingURL(REPOADDONXML)
 	if workingxml == True:

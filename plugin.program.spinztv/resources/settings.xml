@@ -62,5 +62,10 @@
 		<setting id="developer" type="bool" label="Show Developer Menu: " enable="true" default=""/>
 		<setting id="auto-view" type="bool" label="Enable Auto View" default="true"/>
 		<setting id="MAIN" type="number" label="MAIN" default="50" enable="!eq(-1,false)"/>
+   	</category>
+
+	<category label="BACKUPS">
+		<setting type="lsep" label="Backups"/>
+		<setting id="zip" type="folder"    label="Choose Backup Storage Location:"      default="special://home/backupdir"/>
    	</category>  	
   </settings>

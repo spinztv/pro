@@ -27,6 +27,7 @@ ADDONDATA      = os.path.join(USERDATA, 'addon_data', ADDON_ID)
 ADVANCED       = os.path.join(USERDATA, 'advancedsettings.xml')
 SOURCES        = os.path.join(USERDATA, 'sources.xml')
 FAVOURITES     = os.path.join(USERDATA, 'favourites.xml')
+GUI            = os.path.join(USERDATA, 'guisettings.xml')
 PROFILES       = os.path.join(USERDATA, 'profiles.xml')
 THUMBS         = os.path.join(USERDATA, 'Thumbnails')
 DATABASE       = os.path.join(USERDATA, 'Database')
@@ -59,7 +60,11 @@ PATHURLRESOLVE = os.path.join(ADDONS, URLRESOLVER)
 PATHTRAKT      = os.path.join(ADDONS, TRAKT)
 EXCLUDES       = uservar.EXCLUDES
 BUILDFILE      = uservar.BUILDFILE
+APKSPINZFILE   = uservar.APKSPINZFILE
 APKFILE        = uservar.APKFILE
+APKGAMEFILE    = uservar.APKGAMEFILE
+APKVIDFILE     = uservar.APKVIDFILE
+SPEEDFILE      = uservar.SPEEDFILE
 NOTIFICATION   = uservar.NOTIFICATION
 ENABLE         = uservar.ENABLE
 AUTOUPDATE     = uservar.AUTOUPDATE
@@ -164,6 +169,21 @@ def checkTheme(name, theme, ret):
 			elif ret == 'fanart': return fanart
 	else: return False
 
+###################################
+#########  APK    #################
+###################################
+def checkSpinzAPK(name, ret):
+	if not workingURL(APKSPINZFILE) == True: return False
+	link = openURL(APKSPINZFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+
 def checkApk(name, ret):
 	if not workingURL(APKFILE) == True: return False
 	link = openURL(APKFILE).replace('\n','').replace('\r','').replace('\t','')
@@ -174,6 +194,53 @@ def checkApk(name, ret):
 			elif ret == 'icon':    return icon
 			elif ret == 'fanart':  return fanart
 	else: return False
+	
+def checkGameApk(name, ret):
+	if not workingURL(APKGAMEFILE) == True: return False
+	link = openURL(APKGAMEFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checkVidApk(name, ret):
+	if not workingURL(APKVIDFILE) == True: return False
+	link = openURL(APKVIDFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checkSysApk(name, ret):
+	if not workingURL(APKSYSFILE) == True: return False
+	link = openURL(APKSYSFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+############################
+##### SPEED TEST ###########
+############################	
+def checkSpeedtest(name, ret):
+	if not workingURL(SPEEDFILE) == True: return False
+	link = openURL(SPEEDFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False	
 
 def checkWizard(ret):
 	if not workingURL(WIZARDFILE) == True: return False
@@ -193,8 +260,8 @@ def buildCount(ver=None):
 		for name, kodi in match:
 			kodi = int(float(kodi))
 			if ver == None: count += 1
-			elif int(ver) == 16 and kodi >= 16: count += 1
-			elif int(ver) == 15 and kodi <= 15: count += 1
+			elif int(ver) == 17 and kodi >= 17: count += 1
+			elif int(ver) == 16 and kodi <= 16: count += 1
 	return count
 
 ###########################
@@ -326,6 +393,9 @@ def convertSpecial(url):
 		LogNotify("Convert Paths to Special", "[COLOR green]Complete![/COLOR]")
 	else: log("Convert Paths to Special: Cancelled")
 
+################################
+#### KODI SPMC INSTALL##########
+################################
 def latestApk(apk, ret=None):
 	if apk == "kodi":
 		kodi  = "https://kodi.tv/download/"
@@ -521,6 +591,84 @@ def killxbmc():
 		try: os.system('sudo initctl stop xbmc')
 		except: pass
 		DIALOG.ok("[COLOR=red][B]WARNING !!![/COLOR][/B]", "If you\'re seeing this message it means the force close", "was unsuccessful. Please force close XBMC/Kodi [COLOR=lime]DO NOT[/COLOR] exit via the menu.","iOS detected. Press and hold both the Sleep/Wake and Home button for at least 10 seconds, until you see the Apple logo.")
+
+def WIPE_BACKUPRESTORE():
+
+	dp.create(AddonTitle,"Restoring Kodi.",'In Progress.............', 'Please Wait')
+	try:
+		for root, dirs, files in os.walk(HOME,topdown=True):
+			dirs[:] = [d for d in dirs if d not in EXCLUDES]
+			for name in files:
+				try:
+					os.remove(os.path.join(root,name))
+					os.rmdir(os.path.join(root,name))
+				except: pass
+			else:
+				continue
+                        
+			for name in dirs:
+				try: os.rmdir(os.path.join(root,name)); os.rmdir(root)
+				except: pass
+	except: pass
+
+	dp.create(AddonTitle,"Wiping Install",'Removing empty folders.', 'Please Wait')
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+	wizard.REMOVE_EMPTY_FOLDERS()
+
+	if os.path.exists(NAVI):
+		try:
+			shutil.rmtree(NAVI)
+		except:
+			pass
+
+	if os.path.exists(DATABASE):
+		try:
+			for root, dirs, files in os.walk(DATABASE,topdown=True):
+				dirs[:] = [d for d in dirs]
+				for name in files:
+					try:
+						os.remove(os.path.join(root,name))
+						os.rmdir(os.path.join(root,name))
+					except: pass
+                        
+				for name in dirs:
+					try: os.rmdir(os.path.join(root,name)); os.rmdir(root)
+					except: pass
+		except: pass
+		
+	if os.path.exists(ADDON_DATA):
+		try:
+			for root, dirs, files in os.walk(ADDON_DATA,topdown=True):
+				dirs[:] = [d for d in dirs]
+				for name in files:
+					try:
+						os.remove(os.path.join(root,name))
+						os.rmdir(os.path.join(root,name))
+					except: pass
+                        
+				for name in dirs:
+					try: os.rmdir(os.path.join(root,name)); os.rmdir(root)
+					except: pass
+		except: pass
+
+def REMOVE_EMPTY_FOLDERS():
+#initialize the counters
+    print"########### Start Removing Empty Folders #########"
+    empty_count = 0
+    used_count = 0
+    for curdir, subdirs, files in os.walk(HOME):
+        if len(subdirs) == 0 and len(files) == 0: #check for empty directories. len(files) == 0 may be overkill
+            empty_count += 1 #increment empty_count
+            os.rmdir(curdir) #delete the directory
+            print "successfully removed: "+curdir
+        elif len(subdirs) > 0 and len(files) > 0: #check for used directories
+            used_count += 1 #increment 
 
 ##########################
 ### PURGE DATABASE #######
