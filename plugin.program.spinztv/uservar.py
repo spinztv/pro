@@ -7,7 +7,7 @@ ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE     = 'SpinzTV'
 EXCLUDES       = [ADDON_ID, 'repository.SpinzTV']
 # Text File with build info in it.
-BUILDFILE      = base64.b64decode('aHR0cDovL3NwaW56dHYuY29tL3dpemFyZC9zcGluenR2d2l6YXJkLnR4dA==')
+BUILDFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovd2l6YXJkdHh0L3NwaW56d2l6YXJkLnR4dA==')
 # How often you would list it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
