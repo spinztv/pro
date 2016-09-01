@@ -1,1 +1,3 @@
 v0.1.1  Test Run
+
+v1.0.8 Added emulators and roms, fire wiz added to protected, fixed restore option in dev menu

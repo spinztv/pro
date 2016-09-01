@@ -19,7 +19,7 @@ ADDON_ID   =  uservar.ADDON_ID
 ADDON      =  xbmcaddon.Addon(id=ADDON_ID)
 HOME       =  ADDON.getAddonInfo('path')
 addon_name="Speed Test"
-AddonTitle="[COLOR orange]SpezTV Wizard[/COLOR]"
+AddonTitle="[COLOR orange]SpinzTV Wizard[/COLOR]"
 
 max_Bps = 0.0
 currently_downloaded_bytes = 0.0

@@ -5,7 +5,7 @@ import base64
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE     = 'SpinzTV'
-EXCLUDES       = [ADDON_ID, 'repository.SpinzTV']
+EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.video.spinztvwiz', 'plugin.video.spinz', 'script.xtcodes.installer']
 # Text File with build info in it.
 BUILDFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovd2l6YXJkdHh0L3NwaW56d2l6YXJkLnR4dA==')
 # How often you would list it to check for build updates in days
@@ -20,7 +20,26 @@ APKFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelR
 APKGAMEFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLWdhbWVhcGsudHh0')
 APKVIDFILE   = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLXZpZGVvYXBrLnR4dA==')
 APKSYSFILE   = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovYXBrdHh0cy9TcGluelRWLWFuZHJvaWR0b29sc2Fway50eHQ=')
-
+SNESFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L3NuZXNyb21zLnR4dA==')
+EMUFILE   = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2VtdWxhdG9yLnR4dA==')
+NESAFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2EtYi50eHQ=')
+NESCFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2MudHh0')
+NESDFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2QtZS50eHQ=')
+NESFFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2YtZy50eHQ=')
+NESHFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2gtay50eHQ=')
+NESLFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc2wtbS50eHQ=')
+NESNFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc24tcS50eHQ=')
+NESRFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc3Itcy50eHQ=')
+NESTFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc3Qtdi50eHQ=')
+NESWFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L25lc3ctei50eHQ=')
+GENAFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbmEtYi50eHQ=')
+GENCFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbmMtZC50eHQ=')
+GENEFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbmUtZy50eHQ=')
+GENHFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbmgtbC50eHQ=')
+GENMFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbm0tby50eHQ=')
+GENPFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbnAtci50eHQ=')
+GENSFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbnMtdC50eHQ=')
+GENUFILE  = base64.b64decode('aHR0cDovL3NwZXoudHYvc3BpbnovZW11bGF0b3Itcm9tdHh0L2dlbnUtei50eHQ=')
 # Dont need to edit just here for icons stored locally
 HOME           = xbmc.translatePath('special://home/')
 PLUGIN         = os.path.join(HOME,     'addons',    ADDON_ID)

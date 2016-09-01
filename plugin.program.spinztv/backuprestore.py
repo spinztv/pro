@@ -13,7 +13,7 @@ from os.path import isfile, join
 from shutil import copyfile
 from resources.libs import extract, downloader, notify, debridit, traktit, skinSwitch, uploadLog, wizard as wiz
 
-dp           =  xbmcgui.DialogProgress()
+DP           =  xbmcgui.DialogProgress()
 AddonTitle= uservar.ADDONTITLE
 AddonID = uservar.ADDON_ID
 selfAddon = xbmcaddon.Addon(id=AddonID)
@@ -129,7 +129,7 @@ def ARCHIVE_CB(sourcefile, destfile, message_header, message1, message2, message
     rootlen = len(sourcefile)
     for_progress = []
     ITEM =[]
-    dp.create(message_header, message1, message2, message3)
+    DP.create(message_header, message1, message2, message3)
     for base, dirs, files in os.walk(sourcefile):
         for file in files:
             ITEM.append(file)
@@ -140,20 +140,20 @@ def ARCHIVE_CB(sourcefile, destfile, message_header, message1, message2, message
         for file in files:
             for_progress.append(file) 
             progress = len(for_progress) / float(N_ITEM) * 100  
-            dp.update(int(progress),"Backing Up",'[COLOR yellow]%s[/COLOR]'%file, 'Please Wait')
+            DP.update(int(progress),"Backing Up",'[COLOR yellow]%s[/COLOR]'%file, 'Please Wait')
             fn = os.path.join(base, file)
             zipobj.write(fn, fn[rootlen:])  
     zipobj.close()
-    dp.close()
+    DP.close()
 
 def FIX_SPECIAL(url):
     HOME         =  xbmc.translatePath('special://home')
     dialog = xbmcgui.Dialog()
-    dp.create(AddonTitle,"Renaming paths...",'', 'Please Wait')
+    DP.create(AddonTitle,"Renaming paths...",'', 'Please Wait')
     for root, dirs, files in os.walk(url):  #Search all xml files and replace physical with special
         for file in files:
             if file.endswith(".xml"):
-                 dp.update(0,"Fixing","[COLOR yellow]" + file + "[/COLOR]", "Please wait.....")
+                 DP.update(0,"Fixing","[COLOR yellow]" + file + "[/COLOR]", "Please wait.....")
                  a=open((os.path.join(root, file))).read()
                  b=a.replace(HOME, 'special://home/')
                  f = open((os.path.join(root, file)), mode='w')
@@ -188,8 +188,8 @@ def READ_ZIP(url):
 			sys.exit(1)
 
 	_in = url
-	dp.create(AddonTitle,"Restoring File:",_in,'Please Wait...')
-	unzip(_in, _out, dp)
+	DP.create(AddonTitle,"Restoring File:",_in,'Please Wait...')
+	unzip(_in, _out, DP)
 	name = "[COLOR ghostwhite][B]RESTORE[/B][/COLOR]"
 	
 	if not "addon_data" in url:
@@ -201,7 +201,7 @@ def READ_ZIP(url):
 	else:
 		dialog.ok(AddonTitle,'Your Addon Data settings have been restored.','','')
 
-def unzip(_in, _out, dp):
+def unzip(_in, _out, DP):
 	__in = zipfile.ZipFile(_in,  'r')
 	
 	nofiles = float(len(__in.infolist()))
@@ -212,15 +212,15 @@ def unzip(_in, _out, dp):
 			count += 1
 			update = (count / nofiles) * 100
 			
-			if dp.iscanceled():
+			if DP.iscanceled():
 				dialog = xbmcgui.Dialog()
 				dialog.ok(AddonTitle, 'Extraction was cancelled.')
 				
 				sys.exit()
-				dp.close()
+				DP.close()
 			
 			try:
-				dp.update(int(update))
+				DP.update(int(update))
 				__in.extract(item, _out)
 			
 			except Exception, e:

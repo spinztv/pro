@@ -19,8 +19,11 @@ DP             = xbmcgui.DialogProgress()
 HOME           = xbmc.translatePath('special://home/')
 LOG            = xbmc.translatePath('special://logpath/')
 PROFILE        = xbmc.translatePath('special://profile/')
-ADDONS         = os.path.join(HOME, 'addons')
+ADDONS         = xbmc.translatePath(os.path.join('special://home','addons',''))
 USERDATA       = os.path.join(HOME, 'userdata')
+ADDON_DATA     = xbmc.translatePath(os.path.join(USERDATA,'addon_data'))
+NAVI           = xbmc.translatePath(os.path.join(ADDONS,'script.navi-x'))
+ADDONS         = os.path.join(HOME, 'addons')
 PLUGIN         = os.path.join(ADDONS, ADDON_ID)
 PACKAGES       = os.path.join(ADDONS, 'packages')
 ADDONDATA      = os.path.join(USERDATA, 'addon_data', ADDON_ID)
@@ -63,6 +66,26 @@ BUILDFILE      = uservar.BUILDFILE
 APKSPINZFILE   = uservar.APKSPINZFILE
 APKFILE        = uservar.APKFILE
 APKGAMEFILE    = uservar.APKGAMEFILE
+SNESFILE       = uservar.SNESFILE
+EMUFILE        = uservar.EMUFILE
+NESAFILE       = uservar.NESAFILE
+NESCFILE       = uservar.NESCFILE
+NESDFILE       = uservar.NESDFILE
+NESFFILE       = uservar.NESFFILE
+NESHFILE       = uservar.NESHFILE
+NESLFILE       = uservar.NESLFILE
+NESNFILE       = uservar.NESNFILE
+NESRFILE       = uservar.NESRFILE
+NESTFILE       = uservar.NESTFILE
+NESWFILE       = uservar.NESWFILE
+GENAFILE       = uservar.GENAFILE
+GENCFILE       = uservar.GENCFILE
+GENEFILE       = uservar.GENEFILE
+GENHFILE       = uservar.GENHFILE
+GENMFILE       = uservar.GENMFILE
+GENPFILE       = uservar.GENPFILE
+GENSFILE       = uservar.GENSFILE
+GENUFILE       = uservar.GENUFILE
 APKVIDFILE     = uservar.APKVIDFILE
 SPEEDFILE      = uservar.SPEEDFILE
 NOTIFICATION   = uservar.NOTIFICATION
@@ -220,6 +243,140 @@ def checkVidApk(name, ret):
 def checkSysApk(name, ret):
 	if not workingURL(APKSYSFILE) == True: return False
 	link = openURL(APKSYSFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+############################
+#####ROM & Emulator#########
+############################
+def checkEMU(name, ret):
+	if not workingURL(EMUFILE) == True: return False
+	link = openURL(EMUFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checksnes(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesa(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesc(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesd(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesf(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesh(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesl(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesn(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesr(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknest(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checknesw(name, ret):
+	if not workingURL(SNESFILE) == True: return False
+	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
 	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
@@ -516,6 +673,7 @@ def killxbmc():
 	if choice == 0: return
 	elif choice == 1: pass
 	myplatform = platform()
+	os._exit(1)
 	log("Platform: " + str(myplatform))
 	if myplatform == 'osx': # OSX
 		log("############ try osx force close #################")
@@ -594,7 +752,7 @@ def killxbmc():
 
 def WIPE_BACKUPRESTORE():
 
-	dp.create(AddonTitle,"Restoring Kodi.",'In Progress.............', 'Please Wait')
+	DP.create(ADDONTITLE,"Restoring Kodi.",'In Progress.............', 'Please Wait')
 	try:
 		for root, dirs, files in os.walk(HOME,topdown=True):
 			dirs[:] = [d for d in dirs if d not in EXCLUDES]
@@ -611,15 +769,15 @@ def WIPE_BACKUPRESTORE():
 				except: pass
 	except: pass
 
-	dp.create(AddonTitle,"Wiping Install",'Removing empty folders.', 'Please Wait')
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
-	wizard.REMOVE_EMPTY_FOLDERS()
+	DP.create(ADDONTITLE,"Wiping Install",'Removing empty folders.', 'Please Wait')
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
+	REMOVE_EMPTY_FOLDERS()
 
 	if os.path.exists(NAVI):
 		try:
