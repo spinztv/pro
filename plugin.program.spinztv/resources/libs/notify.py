@@ -39,7 +39,7 @@ HEADERIMAGE    = uservar.HEADERIMAGE
 ############################
 ###NOTIFICATIONS############
 ####THANKS GUYS @ TVADDONS##
-######MODIFIED BY SpezTV#
+######MODIFIED BY AfterMath#
 ACTION_PREVIOUS_MENU 		    =  10	## ESC action
 ACTION_NAV_BACK 				=  92	## Backspace action
 ACTION_MOVE_UP 					=   3	## Up arrow key
