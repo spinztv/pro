@@ -86,6 +86,22 @@ GENMFILE       = uservar.GENMFILE
 GENPFILE       = uservar.GENPFILE
 GENSFILE       = uservar.GENSFILE
 GENUFILE       = uservar.GENUFILE
+ATRAFILE       = uservar.ATRAFILE
+ATRCFILE       = uservar.ATRCFILE
+ATREFILE       = uservar.ATREFILE
+ATRHFILE       = uservar.ATRHFILE
+ATRMFILE       = uservar.ATRMFILE
+ATRPFILE       = uservar.ATRPFILE
+ATRSFILE       = uservar.ATRSFILE
+ATRVFILE       = uservar.ATRVFILE
+N64FILE		   = uservar.N64FILE
+TGAFILE		   = uservar.TGAFILE
+TGCFILE        = uservar.TGCFILE
+TGFFILE        = uservar.TGFFILE
+TGJFILE        = uservar.TGJFILE
+TGNFILE        = uservar.TGNFILE
+TGRFILE        = uservar.TGRFILE
+TGVFILE        = uservar.TGVFILE
 APKVIDFILE     = uservar.APKVIDFILE
 SPEEDFILE      = uservar.SPEEDFILE
 NOTIFICATION   = uservar.NOTIFICATION
@@ -267,7 +283,7 @@ def checkEMU(name, ret):
 def checksnes(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -278,7 +294,7 @@ def checksnes(name, ret):
 def checknesa(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -289,7 +305,7 @@ def checknesa(name, ret):
 def checknesc(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -300,7 +316,7 @@ def checknesc(name, ret):
 def checknesd(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -311,7 +327,7 @@ def checknesd(name, ret):
 def checknesf(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -322,7 +338,7 @@ def checknesf(name, ret):
 def checknesh(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -333,7 +349,7 @@ def checknesh(name, ret):
 def checknesl(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -344,7 +360,7 @@ def checknesl(name, ret):
 def checknesn(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -355,7 +371,7 @@ def checknesn(name, ret):
 def checknesr(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -366,7 +382,7 @@ def checknesr(name, ret):
 def checknest(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -377,7 +393,7 @@ def checknest(name, ret):
 def checknesw(name, ret):
 	if not workingURL(SNESFILE) == True: return False
 	link = openURL(SNESFILE).replace('\n','').replace('\r','').replace('\t','')
-	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name).findall(link)
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
 	if len(match) > 0:
 		for url, icon, fanart in match:
 			if   ret == 'url':     return url
@@ -385,6 +401,269 @@ def checknesw(name, ret):
 			elif ret == 'fanart':  return fanart
 	else: return False
 
+def checkatra(name, ret):
+	if not workingURL(ATRAFILE) == True: return False
+	link = openURL(ATRAFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrc(name, ret):
+	if not workingURL(ATRCFILE) == True: return False
+	link = openURL(ATRCFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatre(name, ret):
+	if not workingURL(ATREFILE) == True: return False
+	link = openURL(ATREFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrh(name, ret):
+	if not workingURL(ATRHFILE) == True: return False
+	link = openURL(ATRHFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrm(name, ret):
+	if not workingURL(ATRMFILE) == True: return False
+	link = openURL(ATRMFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrp(name, ret):
+	if not workingURL(ATRPFILE) == True: return False
+	link = openURL(ATRPFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrs(name, ret):
+	if not workingURL(ATRSFILE) == True: return False
+	link = openURL(ATRSFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkatrv(name, ret):
+	if not workingURL(ATRVFILE) == True: return False
+	link = openURL(ATRVFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checkn64(name, ret):
+	if not workingURL(N64FILE) == True: return False
+	link = openURL(N64FILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktga(name, ret):
+	if not workingURL(TGAFILE) == True: return False
+	link = openURL(TGAFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgc(name, ret):
+	if not workingURL(TGCFILE) == True: return False
+	link = openURL(TGCFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgf(name, ret):
+	if not workingURL(TGFFILE) == True: return False
+	link = openURL(TGFFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgj(name, ret):
+	if not workingURL(TGJFILE) == True: return False
+	link = openURL(TGJFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgn(name, ret):
+	if not workingURL(TGNFILE) == True: return False
+	link = openURL(TGNFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgr(name, ret):
+	if not workingURL(TGRFILE) == True: return False
+	link = openURL(TGRFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checktgv(name, ret):
+	if not workingURL(TGVFILE) == True: return False
+	link = openURL(TGVFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+
+def checkgena(name, ret):
+	if not workingURL(GENAFILE) == True: return False
+	link = openURL(GENAFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgenc(name, ret):
+	if not workingURL(GENCFILE) == True: return False
+	link = openURL(GENCFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgene(name, ret):
+	if not workingURL(GENEFILE) == True: return False
+	link = openURL(GENEFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgenh(name, ret):
+	if not workingURL(GENHFILE) == True: return False
+	link = openURL(GENHFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgenm(name, ret):
+	if not workingURL(GENMFILE) == True: return False
+	link = openURL(GENMFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgenp(name, ret):
+	if not workingURL(GENPFILE) == True: return False
+	link = openURL(GENPFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgens(name, ret):
+	if not workingURL(GENSFILE) == True: return False
+	link = openURL(GENSFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
+	
+def checkgenu(name, ret):
+	if not workingURL(GENUFILE) == True: return False
+	link = openURL(GENUFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)' % name).findall(link)
+	if len(match) > 0:
+		for url, icon, fanart in match:
+			if   ret == 'url':     return url
+			elif ret == 'icon':    return icon
+			elif ret == 'fanart':  return fanart
+	else: return False
 ############################
 ##### SPEED TEST ###########
 ############################	

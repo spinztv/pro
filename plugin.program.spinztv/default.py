@@ -19,1169 +19,1365 @@ iiiii = wiz . addonInfo ( OO0o , 'version' )
 ooo0OO = xbmcgui . Dialog ( )
 II1 = xbmcgui . DialogProgress ( )
 O00ooooo00 = xbmc . translatePath ( 'special://home/' )
-I1IiiI = xbmc . translatePath ( 'special://logpath/' )
-IIi1IiiiI1Ii = xbmc . translatePath ( 'special://profile/' )
+I1IiiI = xbmc . translatePath ( os . path . join ( '//storage//emulated//0//Download' , '' ) )
+IIi1IiiiI1Ii = xbmc . translatePath ( 'special://logpath/' )
+I11i11Ii = xbmc . translatePath ( 'special://profile/' )
 zip = plugintools . get_setting ( "zip" )
-I11i11Ii = xbmc . translatePath ( os . path . join ( zip ) )
-oO00oOo = os . path . join ( O00ooooo00 , 'addons' )
-OOOo0 = os . path . join ( O00ooooo00 , 'userdata' )
-Oooo000o = os . path . join ( oO00oOo , OO0o )
-IiIi11iIIi1Ii = os . path . join ( oO00oOo , 'packages' )
-Oo0O = os . path . join ( OOOo0 , 'addon_data' )
-IiI = os . path . join ( OOOo0 , 'addon_data' , OO0o )
-ooOo = os . path . join ( OOOo0 , 'advancedsettings.xml' )
-Oo = os . path . join ( OOOo0 , 'sources.xml' )
-o0O = os . path . join ( OOOo0 , 'favourites.xml' )
-IiiIII111iI = os . path . join ( OOOo0 , 'profiles.xml' )
-IiII = os . path . join ( OOOo0 , 'guisettings.xml' )
-iI1Ii11111iIi = os . path . join ( OOOo0 , 'Thumbnails' )
-i1i1II = os . path . join ( OOOo0 , 'Database' )
-O0oo0OO0 = os . path . join ( Oooo000o , 'fanart.jpg' )
-I1i1iiI1 = os . path . join ( Oooo000o , 'icon.png' )
-iiIIIII1i1iI = os . path . join ( Oooo000o , 'resources' , 'art' )
-o0oO0 = os . path . join ( IiI , 'wizard.log' )
-oo00 = xbmc . getSkinDir ( )
-o00 = wiz . getS ( 'buildname' )
-Oo0oO0ooo = wiz . getS ( 'buildversion' )
-o0oOoO00o = wiz . getS ( 'buildtheme' )
-i1 = wiz . getS ( 'latestversion' )
-oOOoo00O0O = wiz . getS ( 'show15' )
-i1111 = wiz . getS ( 'show16' )
-i11 = wiz . getS ( 'autoclean' )
-I11 = wiz . getS ( 'clearcache' )
-Oo0o0000o0o0 = wiz . getS ( 'clearpackages' )
-oOo0oooo00o = wiz . getS ( 'seperate' )
-oO0o0o0ooO0oO = wiz . getS ( 'notify' )
-oo0o0O00 = wiz . getS ( 'noteid' )
-oO = wiz . getS ( 'notedismiss' )
-i1iiIIiiI111 = wiz . getS ( 'traktlastsave' )
-oooOOOOO = wiz . getS ( 'debridlastsave' )
-i1iiIII111ii = wiz . getS ( 'keepfavourites' )
-i1iIIi1 = wiz . getS ( 'keepgui' )
-ii11iIi1I = wiz . getS ( 'keepsources' )
-iI111I11I1I1 = wiz . getS ( 'keepprofiles' )
-OOooO0OOoo = wiz . getS ( 'keepadvanced' )
-iIii1 = wiz . getS ( 'keeptrakt' )
-oOOoO0 = wiz . getS ( 'keepdebrid' )
-O0OoO000O0OO = wiz . getS ( 'exodus' )
-iiI1IiI = wiz . getS ( 'salts' )
-II = wiz . getS ( 'saltshd' )
-ooOoOoo0O = wiz . getS ( 'royalwe' )
-OooO0 = wiz . getS ( 'velocity' )
-II11iiii1Ii = wiz . getS ( 'velocitykids' )
-OO0oOoo = wiz . getS ( 'specto' )
-O0o0Oo = wiz . getS ( 'trakt' )
-Oo00OOOOO = wiz . getS ( 'realexodus' )
-O0O = wiz . getS ( 'realspecto' )
-O00o0OO = wiz . getS ( 'urlresolver' )
-I11i1 = wiz . getS ( 'developer' )
-iIi1ii1I1 = date . today ( )
-o0 = iIi1ii1I1 + timedelta ( days = 1 )
-I11II1i = iIi1ii1I1 + timedelta ( days = 3 )
-IIIII = float ( xbmc . getInfoLabel ( "System.BuildVersion" ) [ : 4 ] )
-ooooooO0oo = 'plugin.video.exodus'
-IIiiiiiiIi1I1 = 'plugin.video.velocity'
-I1IIIii = 'plugin.video.velocitykids'
-oOoOooOo0o0 = 'plugin.video.salts'
-OOOO = 'plugin.video.saltshd.lite'
-OOO00 = 'plugin.video.theroyalwe'
-iiiiiIIii = 'plugin.video.specto'
-O000OO0 = 'script.trakt'
-I11iii1Ii = 'script.module.urlresolver'
-I1IIiiIiii = os . path . join ( oO00oOo , oOoOooOo0o0 )
-O000oo0O = os . path . join ( oO00oOo , OOOO )
-OOOOi11i1 = os . path . join ( oO00oOo , ooooooO0oo )
-IIIii1II1II = os . path . join ( oO00oOo , IIiiiiiiIi1I1 )
-i1I1iI = os . path . join ( oO00oOo , I1IIIii )
-oo0OooOOo0 = os . path . join ( oO00oOo , OOO00 )
-o0OO00oO = os . path . join ( oO00oOo , iiiiiIIii )
-I11i1I1I = os . path . join ( oO00oOo , O000OO0 )
-oO0Oo = os . path . join ( oO00oOo , I11iii1Ii )
-oOOoo0Oo = uservar . EXCLUDES
-o00OO00OoO = uservar . BUILDFILE
-OOOO0OOoO0O0 = uservar . APKSPINZFILE
-O0Oo000ooO00 = uservar . APKFILE
-oO0 = uservar . APKGAMEFILE
-Ii1iIiII1ii1 = uservar . APKVIDFILE
-ooOooo000oOO = uservar . APKSYSFILE
-Oo0oOOo = uservar . SPEEDFILE
-Oo0OoO00oOO0o = uservar . SNESFILE
-OOO00O = uservar . EMUFILE
-OOoOO0oo0ooO = uservar . NESAFILE
-O0o0O00Oo0o0 = uservar . NESCFILE
-O00O0oOO00O00 = uservar . NESDFILE
-i1Oo00 = uservar . NESFFILE
-i1i = uservar . NESHFILE
-iiI111I1iIiI = uservar . NESLFILE
-IIIi1I1IIii1II = uservar . NESNFILE
-O0 = uservar . NESRFILE
-ii1ii1ii = uservar . NESTFILE
-oooooOoo0ooo = uservar . NESWFILE
-I1I1IiI1 = uservar . GENAFILE
-III1iII1I1ii = uservar . GENCFILE
-oOOo0 = uservar . GENEFILE
-oo00O00oO = uservar . GENHFILE
-iIiIIIi = uservar . GENMFILE
-ooo00OOOooO = uservar . GENPFILE
-O00OOOoOoo0O = uservar . GENSFILE
-O000OOo00oo = uservar . GENUFILE
-oo0OOo = wiz . workingURL ( OOO00O )
-ooOOO00Ooo = wiz . workingURL ( Oo0OoO00oOO0o )
-IiIIIi1iIi = wiz . workingURL ( OOoOO0oo0ooO )
-ooOOoooooo = wiz . workingURL ( O0o0O00Oo0o0 )
-II1I = wiz . workingURL ( O00O0oOO00O00 )
-O0i1II1Iiii1I11 = wiz . workingURL ( i1Oo00 )
-IIII = wiz . workingURL ( i1i )
-iiIiI = wiz . workingURL ( iiI111I1iIiI )
-o00oooO0Oo = wiz . workingURL ( IIIi1I1IIii1II )
-o0O0OOO0Ooo = wiz . workingURL ( O0 )
-iiIiII1 = wiz . workingURL ( ii1ii1ii )
-OOO00O0O = wiz . workingURL ( oooooOoo0ooo )
-iii = wiz . workingURL ( I1I1IiI1 )
-oOooOOOoOo = wiz . workingURL ( III1iII1I1ii )
-i1Iii1i1I = wiz . workingURL ( oOOo0 )
-OOoO00 = wiz . workingURL ( oo00O00oO )
-IiI111111IIII = wiz . workingURL ( iIiIIIi )
-i1Ii = wiz . workingURL ( ooo00OOOooO )
-ii111iI1iIi1 = wiz . workingURL ( O00OOOoOoo0O )
-OOO = wiz . workingURL ( O000OOo00oo )
-oo0OOo0 = wiz . workingURL ( o00OO00OoO )
-I11IiI = wiz . workingURL ( OOOO0OOoO0O0 )
-O0ooO0Oo00o = wiz . workingURL ( O0Oo000ooO00 )
-ooO0oOOooOo0 = wiz . workingURL ( oO0 )
-i1I1ii11i1Iii = wiz . workingURL ( Ii1iIiII1ii1 )
-I1IiiiiI = wiz . workingURL ( ooOooo000oOO )
-o0OIiII = wiz . workingURL ( Oo0oOOo )
-ii1iII1II = uservar . UPDATECHECK if str ( uservar . UPDATECHECK ) . isdigit ( ) else 1
-Iii1I1I11iiI1 = iIi1ii1I1 + timedelta ( days = ii1iII1II )
-I1I1i1I = uservar . NOTIFICATION
-ii1I = uservar . ENABLE
-O0oO0 = uservar . HEADERMESSAGE
-oO0O0OO0O = uservar . HIDECONTACT
-OO = uservar . CONTACT
-OoOoO = uservar . HIDESPACERS
-Ii1I1i = uservar . COLOR1
-OOI1iI1ii1II = uservar . COLOR2
-O0O0OOOOoo = uservar . THEME1
-oOooO0 = uservar . THEME2
-Ii1I1Ii = uservar . THEME3
-OOoO0 = uservar . THEME4
-OO0Oooo0oOO0O = uservar . THEME5
-o00O0 = uservar . ICONMAINT if not uservar . ICONMAINT == 'http://' else I1i1iiI1
-oOO0O00Oo0O0o = uservar . ICONBUILDS if not uservar . ICONBUILDS == 'http://' else I1i1iiI1
-ii1 = uservar . ICONSPEED if not uservar . ICONSPEED == 'http://' else I1i1iiI1
-I1iIIiiIIi1i = uservar . ICONAPK if not uservar . ICONAPK == 'http://' else I1i1iiI1
-O0O0ooOOO = uservar . ICONCONTACT if not uservar . ICONCONTACT == 'http://' else I1i1iiI1
-oOOo0O00o = uservar . ICONSAVE if not uservar . ICONSAVE == 'http://' else I1i1iiI1
-iIiIi11 = uservar . ICONREAL if not uservar . ICONREAL == 'http://' else I1i1iiI1
-OOOiiiiI = uservar . ICONTRAKT if not uservar . ICONTRAKT == 'http://' else I1i1iiI1
-oooOo0OOOoo0 = uservar . ICONSETTINGS if not uservar . ICONSETTINGS == 'http://' else I1i1iiI1
-OOoO = uservar . ICONKODI if not uservar . ICONKODI == 'http://' else I1i1iiI1
-OO0O000 = uservar . ICONGAMES if not uservar . ICONGAMES == 'http://' else I1i1iiI1
-iiIiI1i1 = uservar . ICONMOVIES if not uservar . ICONMOVIES == 'http://' else I1i1iiI1
-oO0O00oOOoooO = uservar . ICONANDROID if not uservar . ICONANDROID == 'http://' else I1i1iiI1
-IiIi11iI = uservar . ICONSPMC if not uservar . ICONSPMC == 'http://' else I1i1iiI1
-Oo0O00O000 = uservar . ICONSPINZ if not uservar . ICONSPINZ == 'http://' else I1i1iiI1
+oO00oOo = xbmc . translatePath ( os . path . join ( zip ) )
+OOOo0 = os . path . join ( O00ooooo00 , 'addons' )
+Oooo000o = os . path . join ( O00ooooo00 , 'userdata' )
+IiIi11iIIi1Ii = os . path . join ( OOOo0 , OO0o )
+Oo0O = os . path . join ( OOOo0 , 'packages' )
+IiI = os . path . join ( Oooo000o , 'addon_data' )
+ooOo = os . path . join ( Oooo000o , 'addon_data' , OO0o )
+Oo = os . path . join ( Oooo000o , 'advancedsettings.xml' )
+o0O = os . path . join ( Oooo000o , 'sources.xml' )
+IiiIII111iI = os . path . join ( Oooo000o , 'favourites.xml' )
+IiII = os . path . join ( Oooo000o , 'profiles.xml' )
+iI1Ii11111iIi = os . path . join ( Oooo000o , 'guisettings.xml' )
+i1i1II = os . path . join ( Oooo000o , 'Thumbnails' )
+O0oo0OO0 = os . path . join ( Oooo000o , 'Database' )
+I1i1iiI1 = os . path . join ( IiIi11iIIi1Ii , 'fanart.jpg' )
+iiIIIII1i1iI = os . path . join ( IiIi11iIIi1Ii , 'icon.png' )
+o0oO0 = os . path . join ( IiIi11iIIi1Ii , 'resources' , 'art' )
+oo00 = os . path . join ( ooOo , 'wizard.log' )
+o00 = xbmc . getSkinDir ( )
+Oo0oO0ooo = wiz . getS ( 'buildname' )
+o0oOoO00o = wiz . getS ( 'buildversion' )
+i1 = wiz . getS ( 'buildtheme' )
+oOOoo00O0O = wiz . getS ( 'latestversion' )
+i1111 = wiz . getS ( 'show15' )
+i11 = wiz . getS ( 'show16' )
+I11 = wiz . getS ( 'autoclean' )
+Oo0o0000o0o0 = wiz . getS ( 'clearcache' )
+oOo0oooo00o = wiz . getS ( 'clearpackages' )
+oO0o0o0ooO0oO = wiz . getS ( 'seperate' )
+oo0o0O00 = wiz . getS ( 'notify' )
+oO = wiz . getS ( 'noteid' )
+i1iiIIiiI111 = wiz . getS ( 'notedismiss' )
+oooOOOOO = wiz . getS ( 'traktlastsave' )
+i1iiIII111ii = wiz . getS ( 'debridlastsave' )
+i1iIIi1 = wiz . getS ( 'keepfavourites' )
+ii11iIi1I = wiz . getS ( 'keepgui' )
+iI111I11I1I1 = wiz . getS ( 'keepsources' )
+OOooO0OOoo = wiz . getS ( 'keepprofiles' )
+iIii1 = wiz . getS ( 'keepadvanced' )
+oOOoO0 = wiz . getS ( 'keeptrakt' )
+O0OoO000O0OO = wiz . getS ( 'keepdebrid' )
+iiI1IiI = wiz . getS ( 'exodus' )
+II = wiz . getS ( 'salts' )
+ooOoOoo0O = wiz . getS ( 'saltshd' )
+OooO0 = wiz . getS ( 'royalwe' )
+II11iiii1Ii = wiz . getS ( 'velocity' )
+OO0oOoo = wiz . getS ( 'velocitykids' )
+O0o0Oo = wiz . getS ( 'specto' )
+Oo00OOOOO = wiz . getS ( 'trakt' )
+O0O = wiz . getS ( 'realexodus' )
+O00o0OO = wiz . getS ( 'realspecto' )
+I11i1 = wiz . getS ( 'urlresolver' )
+iIi1ii1I1 = wiz . getS ( 'developer' )
+o0 = date . today ( )
+I11II1i = o0 + timedelta ( days = 1 )
+IIIII = o0 + timedelta ( days = 3 )
+ooooooO0oo = float ( xbmc . getInfoLabel ( "System.BuildVersion" ) [ : 4 ] )
+IIiiiiiiIi1I1 = 'plugin.video.exodus'
+I1IIIii = 'plugin.video.velocity'
+oOoOooOo0o0 = 'plugin.video.velocitykids'
+OOOO = 'plugin.video.salts'
+OOO00 = 'plugin.video.saltshd.lite'
+iiiiiIIii = 'plugin.video.theroyalwe'
+O000OO0 = 'plugin.video.specto'
+I11iii1Ii = 'script.trakt'
+I1IIiiIiii = 'script.module.urlresolver'
+O000oo0O = os . path . join ( OOOo0 , OOOO )
+OOOOi11i1 = os . path . join ( OOOo0 , OOO00 )
+IIIii1II1II = os . path . join ( OOOo0 , IIiiiiiiIi1I1 )
+i1I1iI = os . path . join ( OOOo0 , I1IIIii )
+oo0OooOOo0 = os . path . join ( OOOo0 , oOoOooOo0o0 )
+o0OO00oO = os . path . join ( OOOo0 , iiiiiIIii )
+I11i1I1I = os . path . join ( OOOo0 , O000OO0 )
+oO0Oo = os . path . join ( OOOo0 , I11iii1Ii )
+oOOoo0Oo = os . path . join ( OOOo0 , I1IIiiIiii )
+o00OO00OoO = uservar . EXCLUDES
+OOOO0OOoO0O0 = uservar . BUILDFILE
+O0Oo000ooO00 = uservar . APKSPINZFILE
+oO0 = uservar . APKFILE
+Ii1iIiII1ii1 = uservar . APKGAMEFILE
+ooOooo000oOO = uservar . APKVIDFILE
+Oo0oOOo = uservar . APKSYSFILE
+Oo0OoO00oOO0o = uservar . SPEEDFILE
+OOO00O = uservar . SNESFILE
+OOoOO0oo0ooO = uservar . EMUFILE
+O0o0O00Oo0o0 = uservar . NESAFILE
+O00O0oOO00O00 = uservar . NESCFILE
+i1Oo00 = uservar . NESDFILE
+i1i = uservar . NESFFILE
+iiI111I1iIiI = uservar . NESHFILE
+IIIi1I1IIii1II = uservar . NESLFILE
+O0 = uservar . NESNFILE
+ii1ii1ii = uservar . NESRFILE
+oooooOoo0ooo = uservar . NESTFILE
+I1I1IiI1 = uservar . NESWFILE
+III1iII1I1ii = uservar . GENAFILE
+oOOo0 = uservar . GENCFILE
+oo00O00oO = uservar . GENEFILE
+iIiIIIi = uservar . GENHFILE
+ooo00OOOooO = uservar . GENMFILE
+O00OOOoOoo0O = uservar . GENPFILE
+O000OOo00oo = uservar . GENSFILE
+oo0OOo = uservar . GENUFILE
+ooOOO00Ooo = uservar . ATRAFILE
+IiIIIi1iIi = uservar . ATRCFILE
+ooOOoooooo = uservar . ATREFILE
+II1I = uservar . ATRHFILE
+O0i1II1Iiii1I11 = uservar . ATRMFILE
+IIII = uservar . ATRPFILE
+iiIiI = uservar . ATRSFILE
+o00oooO0Oo = uservar . ATRVFILE
+o0O0OOO0Ooo = uservar . N64FILE
+iiIiII1 = uservar . TGAFILE
+OOO00O0O = uservar . TGCFILE
+iii = uservar . TGFFILE
+oOooOOOoOo = uservar . TGJFILE
+i1Iii1i1I = uservar . TGNFILE
+OOoO00 = uservar . TGRFILE
+IiI111111IIII = uservar . TGVFILE
+i1Ii = wiz . workingURL ( OOoOO0oo0ooO )
+ii111iI1iIi1 = wiz . workingURL ( OOO00O )
+OOO = wiz . workingURL ( O0o0O00Oo0o0 )
+oo0OOo0 = wiz . workingURL ( O00O0oOO00O00 )
+I11IiI = wiz . workingURL ( i1Oo00 )
+O0ooO0Oo00o = wiz . workingURL ( i1i )
+ooO0oOOooOo0 = wiz . workingURL ( iiI111I1iIiI )
+i1I1ii11i1Iii = wiz . workingURL ( IIIi1I1IIii1II )
+I1IiiiiI = wiz . workingURL ( O0 )
+o0OIiII = wiz . workingURL ( ii1ii1ii )
+ii1iII1II = wiz . workingURL ( oooooOoo0ooo )
+Iii1I1I11iiI1 = wiz . workingURL ( I1I1IiI1 )
+I1I1i1I = wiz . workingURL ( III1iII1I1ii )
+ii1I = wiz . workingURL ( oOOo0 )
+O0oO0 = wiz . workingURL ( oo00O00oO )
+oO0O0OO0O = wiz . workingURL ( iIiIIIi )
+OO = wiz . workingURL ( ooo00OOOooO )
+OoOoO = wiz . workingURL ( O00OOOoOoo0O )
+Ii1I1i = wiz . workingURL ( O000OOo00oo )
+OOI1iI1ii1II = wiz . workingURL ( oo0OOo )
+O0O0OOOOoo = wiz . workingURL ( ooOOO00Ooo )
+oOooO0 = wiz . workingURL ( IiIIIi1iIi )
+Ii1I1Ii = wiz . workingURL ( ooOOoooooo )
+OOoO0 = wiz . workingURL ( II1I )
+OO0Oooo0oOO0O = wiz . workingURL ( O0i1II1Iiii1I11 )
+o00O0 = wiz . workingURL ( IIII )
+oOO0O00Oo0O0o = wiz . workingURL ( iiIiI )
+ii1 = wiz . workingURL ( o00oooO0Oo )
+I1iIIiiIIi1i = wiz . workingURL ( o0O0OOO0Ooo )
+O0O0ooOOO = wiz . workingURL ( iiIiII1 )
+oOOo0O00o = wiz . workingURL ( OOO00O0O )
+iIiIi11 = wiz . workingURL ( iii )
+OOOiiiiI = wiz . workingURL ( oOooOOOoOo )
+oooOo0OOOoo0 = wiz . workingURL ( i1Iii1i1I )
+OOoO = wiz . workingURL ( OOoO00 )
+OO0O000 = wiz . workingURL ( IiI111111IIII )
+iiIiI1i1 = wiz . workingURL ( OOOO0OOoO0O0 )
+oO0O00oOOoooO = wiz . workingURL ( O0Oo000ooO00 )
+IiIi11iI = wiz . workingURL ( oO0 )
+Oo0O00O000 = wiz . workingURL ( Ii1iIiII1ii1 )
+i11I1IiII1i1i = wiz . workingURL ( ooOooo000oOO )
+oo = wiz . workingURL ( Oo0oOOo )
+I1111i = wiz . workingURL ( Oo0OoO00oOO0o )
+iIIii = uservar . UPDATECHECK if str ( uservar . UPDATECHECK ) . isdigit ( ) else 1
+o00O0O = o0 + timedelta ( days = iIIii )
+ii1iii1i = uservar . NOTIFICATION
+Iii1I1111ii = uservar . ENABLE
+ooOoO00 = uservar . HEADERMESSAGE
+Ii1IIiI1i = uservar . HIDECONTACT
+o0O00Oo0 = uservar . CONTACT
+IiII111i1i11 = uservar . HIDESPACERS
+i111iIi1i1II1 = uservar . COLOR1
+oooO = uservar . COLOR2
+i1I1i111Ii = uservar . THEME1
+ooo = uservar . THEME2
+i1i1iI1iiiI = uservar . THEME3
+Ooo0oOooo0 = uservar . THEME4
+oOOOoo00 = uservar . THEME5
+iiIiIIIiiI = uservar . ICONMAINT if not uservar . ICONMAINT == 'http://' else iiIIIII1i1iI
+iiI1IIIi = uservar . ICONBUILDS if not uservar . ICONBUILDS == 'http://' else iiIIIII1i1iI
+II11IiIi11 = uservar . ICONSPEED if not uservar . ICONSPEED == 'http://' else iiIIIII1i1iI
+IIOOO0O00O0OOOO = uservar . ICONAPK if not uservar . ICONAPK == 'http://' else iiIIIII1i1iI
+I1iiii1I = uservar . ICONCONTACT if not uservar . ICONCONTACT == 'http://' else iiIIIII1i1iI
+OOo0 = uservar . ICONSAVE if not uservar . ICONSAVE == 'http://' else iiIIIII1i1iI
+oO00ooooO0o = uservar . ICONREAL if not uservar . ICONREAL == 'http://' else iiIIIII1i1iI
+oo0o = uservar . ICONTRAKT if not uservar . ICONTRAKT == 'http://' else iiIIIII1i1iI
+o0oO0oooOoo = uservar . ICONSETTINGS if not uservar . ICONSETTINGS == 'http://' else iiIIIII1i1iI
+I1III1111iIi = uservar . ICONKODI if not uservar . ICONKODI == 'http://' else iiIIIII1i1iI
+I1i111I = uservar . ICONGAMES if not uservar . ICONGAMES == 'http://' else iiIIIII1i1iI
+Ooo = uservar . ICONMOVIES if not uservar . ICONMOVIES == 'http://' else iiIIIII1i1iI
+Oo0oo0O0o00O = uservar . ICONANDROID if not uservar . ICONANDROID == 'http://' else iiIIIII1i1iI
+I1i11 = uservar . ICONSPMC if not uservar . ICONSPMC == 'http://' else iiIIIII1i1iI
+IiIi1I1 = uservar . ICONSPINZ if not uservar . ICONSPINZ == 'http://' else iiIIIII1i1iI
 ###########################
 ###### Menu Items   #######
 ###########################
 #addDir (display,mode,name=None,url=None,menu=None,overwrite=True,fanart=FANART,icon=ICON, themeit=None)
 #addFile(display,mode,name=None,url=None,menu=None,overwrite=True,fanart=FANART,icon=ICON, themeit=None)
-if 3 - 3: O0OoOO0o * Iii % I1111i
-if 14 - 14: Oo0OO / O0OooOo0o
-if 29 - 29: i1ii1I1111ii1 % iIiI1
-if 70 - 70: O0OO
-def ii1iI1I11I ( ) :
- if len ( o00 ) > 0 :
-  II1iI = wiz . checkBuild ( o00 , 'version' )
-  O0o0o00OO0000 = '%s (v%s)' % ( o00 , Oo0oO0ooo )
-  if II1iI > Oo0oO0ooo : O0o0o00OO0000 = '%s [COLOR red][B][UPDATE v%s][/B][/COLOR]' % ( O0o0o00OO0000 , II1iI )
-  I1i ( O0o0o00OO0000 , 'viewbuild' , o00 , themeit = OOoO0 )
-  O00Oooo = wiz . checkBuild ( o00 , 'theme' )
-  if not O00Oooo == 'http://' and wiz . workingURL ( O00Oooo ) == True :
-   i11I ( 'None' if o0oOoO00o == "" else o0oOoO00o , 'theme' , o00 , themeit = OO0Oooo0oOO0O )
- else : I1i ( 'None' , 'builds' , themeit = OOoO0 )
- if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
- I1i ( 'SpinzTV Builds' , 'builds' , icon = oOO0O00Oo0O0o , themeit = O0O0OOOOoo )
- I1i ( 'Maintenance' , 'maint' , icon = o00O0 , themeit = O0O0OOOOoo )
- I1i ( 'Speed Test' , 'speed' , icon = ii1 , themeit = O0O0OOOOoo )
- I1i ( 'Apk Installer (ANDROID ONLY!!!)' , 'apk' , icon = I1iIIiiIIi1i , themeit = O0O0OOOOoo )
- I1i ( 'Emulators And Roms (ANDROID ONLY!)' , 'emurom' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Save Data' , 'savedata' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- if oO0O0OO0O == 'No' : i11I ( 'Contact' , 'contact' , icon = O0O0ooOOO , themeit = O0O0OOOOoo )
- if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
- i11I ( 'Settings' , 'settings' , icon = oooOo0OOOoo0 , themeit = O0O0OOOOoo )
- if I11i1 == 'true' : I1i ( 'Developer Menu' , 'developer' , icon = oooOo0OOOoo0 , themeit = O0O0OOOOoo )
- o00Oo0oooooo ( 'movies' , 'MAIN' )
- if 76 - 76: o0oooOO00 / IIiii / oOOOoo00 % IIIIiiIiiI . OOOoO00 . IIiIi11i1i
- if 41 - 41: O0O00O0 % OoOO0o - iII1iIi11i . IiiiiI1i1Iii % oo00oO0o
- if 31 - 31: OOOoO00
- if 23 - 23: IiiiiI1i1Iii . iII1iIi11i
-def OO0000o ( ) :
- if not oo0OOo0 == True :
-  i11I ( 'Kodi Version: %s' % IIIII , '' , icon = oOO0O00Oo0O0o , themeit = Ii1I1Ii )
-  if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
-  i11I ( 'Url for txt file not valid' , '' , icon = oOO0O00Oo0O0o , themeit = Ii1I1Ii )
-  i11I ( '%s' % oo0OOo0 , '' , icon = oOO0O00Oo0O0o , themeit = Ii1I1Ii )
+if 39 - 39: Ii1I11I + oo0 + iI1II - o0OOo0o0O0O
+if 65 - 65: I11I1i1iIII1I
+if 49 - 49: oo0o0000 . iI1i . iI1i11
+if 66 - 66: iiiiII1I % Ii * ooOo0o0O00 * i1I1 + o0O0oO0O00O0o / II1I1Ii
+def Ooo0O0oooo ( ) :
+ if len ( Oo0oO0ooo ) > 0 :
+  iiI = wiz . checkBuild ( Oo0oO0ooo , 'version' )
+  oOIIiIi = '%s (v%s)' % ( Oo0oO0ooo , o0oOoO00o )
+  if iiI > o0oOoO00o : oOIIiIi = '%s [COLOR red][B][UPDATE v%s][/B][/COLOR]' % ( oOIIiIi , iiI )
+  OOoOooOoOOOoo ( oOIIiIi , 'viewbuild' , Oo0oO0ooo , themeit = Ooo0oOooo0 )
+  Iiii1iI1i = wiz . checkBuild ( Oo0oO0ooo , 'theme' )
+  if not Iiii1iI1i == 'http://' and wiz . workingURL ( Iiii1iI1i ) == True :
+   I1ii1ii11i1I ( 'None' if i1 == "" else i1 , 'theme' , Oo0oO0ooo , themeit = oOOOoo00 )
+ else : OOoOooOoOOOoo ( 'None' , 'builds' , themeit = Ooo0oOooo0 )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+ OOoOooOoOOOoo ( 'SpinzTV Builds' , 'builds' , icon = iiI1IIIi , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Maintenance' , 'maint' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Speed Test' , 'speed' , icon = II11IiIi11 , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Apk Installer (ANDROID ONLY!!!)' , 'apk' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Emulators And Roms (ANDROID ONLY!)' , 'emurom' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Save Data' , 'savedata' , icon = OOo0 , themeit = i1I1i111Ii )
+ if Ii1IIiI1i == 'No' : I1ii1ii11i1I ( 'Contact' , 'contact' , icon = I1iiii1I , themeit = i1I1i111Ii )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Settings' , 'settings' , icon = o0oO0oooOoo , themeit = i1I1i111Ii )
+ if iIi1ii1I1 == 'true' : OOoOooOoOOOoo ( 'Developer Menu' , 'developer' , icon = o0oO0oooOoo , themeit = i1I1i111Ii )
+ o0OoOO ( 'movies' , 'MAIN' )
+ if 55 - 55: oOo000OOOo - O0i11I1I1I - IIIi11I11 - iIIIII1I + ooI1i
+ if 32 - 32: iiiiII1I / iI1i11 + o0O0oO0O00O0o
+ if 32 - 32: oo0 % O0i11I1I1I
+ if 65 - 65: ooI1i . iI1II / ooOo0o0O00 . o0OOo0o0O0O * iI1i11
+def IiIiII1 ( ) :
+ if not iiIiI1i1 == True :
+  I1ii1ii11i1I ( 'Kodi Version: %s' % ooooooO0oo , '' , icon = iiI1IIIi , themeit = i1i1iI1iiiI )
+  if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+  I1ii1ii11i1I ( 'Url for txt file not valid' , '' , icon = iiI1IIIi , themeit = i1i1iI1iiiI )
+  I1ii1ii11i1I ( '%s' % iiIiI1i1 , '' , icon = iiI1IIIi , themeit = i1i1iI1iiiI )
  else :
-  i1I1i1 = wiz . openURL ( o00OO00OoO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-  O0OoooO0 = re . compile ( 'name="(.+?)".+?ersion="(.+?)".+?rl="(.+?)".+?odi="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
-  if len ( O0OoooO0 ) == 1 :
-   ooo0O0o00O ( O0OoooO0 [ 0 ] [ 0 ] )
-  elif len ( O0OoooO0 ) > 1 :
-   i11I ( 'Kodi Version: %s' % IIIII , '' , icon = oOO0O00Oo0O0o , themeit = Ii1I1Ii )
-   if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
-   if oOo0oooo00o == 'true' :
-    for I1i11 , II1iI , IiIi1I1 , IiIIi1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-     ii1I1IIii11 = O0o0oO ( 'install' , I1i11 )
-     I1i ( '[%s] %s (v%s)' % ( float ( IiIIi1 ) , I1i11 , II1iI ) , 'viewbuild' , I1i11 , fanart = II1i11I , icon = IIIIiii1IIii , menu = ii1I1IIii11 , themeit = oOooO0 )
+  Iii1iiIi1II = wiz . openURL ( OOOO0OOoO0O0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  OO0O00oOo = re . compile ( 'name="(.+?)".+?ersion="(.+?)".+?rl="(.+?)".+?odi="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+  if len ( OO0O00oOo ) == 1 :
+   ii1II ( OO0O00oOo [ 0 ] [ 0 ] )
+  elif len ( OO0O00oOo ) > 1 :
+   I1ii1ii11i1I ( 'Kodi Version: %s' % ooooooO0oo , '' , icon = iiI1IIIi , themeit = i1i1iI1iiiI )
+   if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+   if oO0o0o0ooO0oO == 'true' :
+    for iI1I , iiI , OooOoOo , III1I1Iii1iiI , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+     O0Oooo = iiIi1i ( 'install' , iI1I )
+     OOoOooOoOOOoo ( '[%s] %s (v%s)' % ( float ( III1I1Iii1iiI ) , iI1I , iiI ) , 'viewbuild' , iI1I , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , menu = O0Oooo , themeit = ooo )
    else :
-    IIIIiIiIi1 = wiz . buildCount ( '15' ) ; I11iiiiI1i = wiz . buildCount ( '16' )
-    if I11iiiiI1i > 0 :
-     if IIIIiIiIi1 > 0 :
-      iI1i11 = '+' if i1111 == 'false' else '-'
-      i11I ( '[%s] Jarvis and Above(%s)' % ( iI1i11 , I11iiiiI1i ) , 'showupdate' , '16' , themeit = Ii1I1Ii )
+    I1i11111i1i11 = wiz . buildCount ( '15' ) ; OOoOOO0 = wiz . buildCount ( '16' )
+    if OOoOOO0 > 0 :
+     if I1i11111i1i11 > 0 :
+      I1I1i = '+' if i11 == 'false' else '-'
+      I1ii1ii11i1I ( '[%s] Jarvis and Above(%s)' % ( I1I1i , OOoOOO0 ) , 'showupdate' , '16' , themeit = i1i1iI1iiiI )
+     if i11 == 'true' :
+      for iI1I , iiI , OooOoOo , III1I1Iii1iiI , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+       I1IIIiIiIi = int ( float ( III1I1Iii1iiI ) )
+       if I1IIIiIiIi >= 16 :
+        O0Oooo = iiIi1i ( 'install' , iI1I )
+        OOoOooOoOOOoo ( '[%s] %s (v%s)' % ( float ( III1I1Iii1iiI ) , iI1I , iiI ) , 'viewbuild' , iI1I , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , menu = O0Oooo , themeit = ooo )
+    if I1i11111i1i11 > 0 :
+     if OOoOOO0 > 0 :
+      I1I1i = '+' if i1111 == 'false' else '-'
+      I1ii1ii11i1I ( '[%s] Isengard and Below(%s)' % ( I1I1i , I1i11111i1i11 ) , 'showupdate' , '15' , themeit = i1i1iI1iiiI )
      if i1111 == 'true' :
-      for I1i11 , II1iI , IiIi1I1 , IiIIi1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-       OoOOoooOO0O = int ( float ( IiIIi1 ) )
-       if OoOOoooOO0O >= 16 :
-        ii1I1IIii11 = O0o0oO ( 'install' , I1i11 )
-        I1i ( '[%s] %s (v%s)' % ( float ( IiIIi1 ) , I1i11 , II1iI ) , 'viewbuild' , I1i11 , fanart = II1i11I , icon = IIIIiii1IIii , menu = ii1I1IIii11 , themeit = oOooO0 )
-    if IIIIiIiIi1 > 0 :
-     if I11iiiiI1i > 0 :
-      iI1i11 = '+' if oOOoo00O0O == 'false' else '-'
-      i11I ( '[%s] Isengard and Below(%s)' % ( iI1i11 , IIIIiIiIi1 ) , 'showupdate' , '15' , themeit = Ii1I1Ii )
-     if oOOoo00O0O == 'true' :
-      for I1i11 , II1iI , IiIi1I1 , IiIIi1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-       OoOOoooOO0O = int ( float ( IiIIi1 ) )
-       if OoOOoooOO0O <= 15 :
-        ii1I1IIii11 = O0o0oO ( 'install' , I1i11 )
-        I1i ( '[%s] %s (v%s)' % ( float ( IiIIi1 ) , I1i11 , II1iI ) , 'viewbuild' , I1i11 , fanart = II1i11I , icon = IIIIiii1IIii , menu = ii1I1IIii11 , themeit = oOooO0 )
-  else : i11I ( 'Text file for builds not formated correctly.' , '' , icon = oOO0O00Oo0O0o , themeit = Ii1I1Ii )
- o00Oo0oooooo ( 'movies' , 'MAIN' )
- if 86 - 86: IIiii
-def ooo0O0o00O ( name ) :
- if not oo0OOo0 == True :
-  i11I ( 'Url for txt file not valid' , '' , themeit = Ii1I1Ii )
-  i11I ( '%s' % oo0OOo0 , '' , themeit = Ii1I1Ii )
+      for iI1I , iiI , OooOoOo , III1I1Iii1iiI , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+       I1IIIiIiIi = int ( float ( III1I1Iii1iiI ) )
+       if I1IIIiIiIi <= 15 :
+        O0Oooo = iiIi1i ( 'install' , iI1I )
+        OOoOooOoOOOoo ( '[%s] %s (v%s)' % ( float ( III1I1Iii1iiI ) , iI1I , iiI ) , 'viewbuild' , iI1I , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , menu = O0Oooo , themeit = ooo )
+  else : I1ii1ii11i1I ( 'Text file for builds not formated correctly.' , '' , icon = iiI1IIIi , themeit = i1i1iI1iiiI )
+ o0OoOO ( 'movies' , 'MAIN' )
+ if 27 - 27: ooOo0o0O00 + iiiiII1I - o0O0oO0O00O0o + Ii1I11I . oOo000OOOo
+def ii1II ( name ) :
+ if not iiIiI1i1 == True :
+  I1ii1ii11i1I ( 'Url for txt file not valid' , '' , themeit = i1i1iI1iiiI )
+  I1ii1ii11i1I ( '%s' % iiIiI1i1 , '' , themeit = i1i1iI1iiiI )
   return
  if wiz . checkBuild ( name , 'version' ) == False :
-  i11I ( 'Error reading the txt file.' , '' , themeit = Ii1I1Ii )
-  i11I ( '%s was not found in the builds list.' % name , '' , themeit = Ii1I1Ii )
+  I1ii1ii11i1I ( 'Error reading the txt file.' , '' , themeit = i1i1iI1iiiI )
+  I1ii1ii11i1I ( '%s was not found in the builds list.' % name , '' , themeit = i1i1iI1iiiI )
   return
- i1I1i1 = wiz . openURL ( o00OO00OoO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="%s".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name ) . findall ( i1I1i1 )
- for II1iI , IiIi1I1 , i1Iii11Ii1i1 , IiIIi1 , O00Oooo , IIIIiii1IIii , II1i11I in O0OoooO0 :
-  IIIIiii1IIii = IIIIiii1IIii if wiz . workingURL ( IIIIiii1IIii ) else I1i1iiI1
-  II1i11I = II1i11I if wiz . workingURL ( II1i11I ) else O0oo0OO0
-  O0o0o00OO0000 = '%s (v%s)' % ( name , II1iI )
-  if o00 == name and II1iI > Oo0oO0ooo :
-   O0o0o00OO0000 = '%s [COLOR red][B][CURRENT v%s][/B][/COLOR]' % ( O0o0o00OO0000 , Oo0oO0ooo )
-  i11I ( O0o0o00OO0000 , '' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = oOooO0 )
-  i11I ( '===============[ Install ]===================' , '' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = Ii1I1Ii )
-  i11I ( 'Fresh Install' , 'install' , name , 'fresh' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = O0O0OOOOoo )
-  i11I ( 'Standard Install' , 'install' , name , 'normal' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = O0O0OOOOoo )
-  if not i1Iii11Ii1i1 == 'http://' : i11I ( 'Apply guiFix' , 'install' , name , 'gui' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = O0O0OOOOoo )
-  if not O00Oooo == 'http://' :
-   if wiz . workingURL ( O00Oooo ) == True :
-    i11I ( '===============[ Themes ]==================' , '' , fanart = II1i11I , icon = IIIIiii1IIii , themeit = Ii1I1Ii )
-    i1I1i1 = wiz . openURL ( O00Oooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-    O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
-    for OOooo0O0o0 , II1iI1I11I , o0OO0 , IiI11ii1I in O0OoooO0 :
-     o0OO0 = o0OO0 if o0OO0 == 'http://' else IIIIiii1IIii
-     IiI11ii1I = IiI11ii1I if IiI11ii1I == 'http://' else II1i11I
-     i11I ( OOooo0O0o0 if not OOooo0O0o0 == o0oOoO00o else "[B]%s (Installed)[/B]" % OOooo0O0o0 , 'theme' , name , OOooo0O0o0 , fanart = IiI11ii1I , icon = o0OO0 , themeit = Ii1I1Ii )
-     if 74 - 74: i11iIiiIii . i1ii1I1111ii1
-     if 36 - 36: I1111i . O0OO
-     if 56 - 56: iIiI1 . oOOOoo00 . i1ii1I1111ii1
-     if 39 - 39: O0OoOO0o + IiiiiI1i1Iii
-def OoOooOoO ( ) :
- I1i ( 'SpinzTV APKS' , 'apkspinz' , icon = Oo0O00O000 , themeit = O0O0OOOOoo )
- I1i ( 'Kodi and SPMC' , 'apkkodi' , icon = OOoO , themeit = O0O0OOOOoo )
- I1i ( 'Android Games' , 'apkgames' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Movie and Video' , 'apkvid' , icon = iiIiI1i1 , themeit = O0O0OOOOoo )
- I1i ( 'System Tools' , 'apksys' , icon = oO0O00oOOoooO , themeit = O0O0OOOOoo )
- I1i ( 'APK Master List' , 'apkmaster' , icon = I1iIIiiIIi1i , themeit = O0O0OOOOoo )
- if 43 - 43: O0OooOo0o . IIIIiiIiiI / oOOOoo00
- if 20 - 20: i1ii1I1111ii1
-def o0oO000oo ( ) :
- if I11IiI :
-  i1I1i1 = wiz . openURL ( OOOO0OOoO0O0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 95 - 95: oo00oO0o / oo00oO0o
-def IIiI1Ii ( ) :
- i11I ( 'Kodi (v%s)' % wiz . latestApk ( 'kodi' , 'version' ) , 'apkinstall' , 'kodi' , wiz . latestApk ( 'kodi' , 'url' ) , icon = OOoO , themeit = O0O0OOOOoo )
- i11I ( 'SPMC (v%s)' % wiz . latestApk ( 'spmc' , 'version' ) , 'apkinstall' , 'spmc' , wiz . latestApk ( 'spmc' , 'url' ) , icon = IiIi11iI , themeit = O0O0OOOOoo )
- if 57 - 57: OOOoO00 - oo00oO0o - IIiIi11i1i + O0OO
-def I1IIIiI11i1 ( ) :
- if ooO0oOOooOo0 :
-  i1I1i1 = wiz . openURL ( oO0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 48 - 48: IiiiiI1i1Iii - IIiii % O0O00O0
-def IIi1IIIi ( ) :
- I1i ( 'Emulators' , 'emulators' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Roms' , 'roms' , icon = OO0O000 , themeit = O0O0OOOOoo )
- if 99 - 99: O0O00O0 + O0OO * O0OooOo0o . IIiii - oOOOoo00
-def o0OOOo ( ) :
- if oo0OOo :
-  i1I1i1 = wiz . openURL ( OOO00O ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 11 - 11: Iii * Iii * i1ii1I1111ii1
-def iII1ii1 ( ) :
- I1i ( 'SNES' , 'snes' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES' , 'nes' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis' , 'gen' , icon = OO0O000 , themeit = O0O0OOOOoo )
- if 12 - 12: OOOoO00 - oo00oO0o . I1111i / oOOOoo00 . Oo0OO * O0OO
- if 19 - 19: i11iIiiIii + I1111i - iIiI1 - IIiIi11i1i
-def Iii1iiIi1II ( ) :
- if ooOOO00Ooo :
-  i1I1i1 = wiz . openURL ( Oo0OoO00oOO0o ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'snesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 60 - 60: i1ii1I1111ii1 - IIIIiiIiiI * IIiIi11i1i % O0OooOo0o
-def ooo ( ) :
- I1i ( 'NES Titles A Thru B' , 'nesa' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles C' , 'nesc' , icon = I1iIIiiIIi1i , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles D Thru E' , 'nesd' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles F Thru G' , 'nesf' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles H Thru K' , 'nesh' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles L Thru M' , 'nesl' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles N Thru Q' , 'nesn' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles R Thru S' , 'nesr' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles T Thru V' , 'nest' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'NES Titles W Thru Z' , 'nesw' , icon = OO0O000 , themeit = O0O0OOOOoo )
- if 19 - 19: O0OO - iIiI1 . IIIIiiIiiI / IIIIiiIiiI % oo00oO0o
-def ooO ( ) :
- if IiIIIi1iIi :
-  i1I1i1 = wiz . openURL ( OOoOO0oo0ooO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 6 - 6: Iii . oo00oO0o % IIiii
-def I1Iii1 ( ) :
- if ooOOoooooo :
-  i1I1i1 = wiz . openURL ( O0o0O00Oo0o0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 30 - 30: I1111i - o0oooOO00
-def Ooo00O0o ( ) :
- if II1I :
-  i1I1i1 = wiz . openURL ( O00O0oOO00O00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 72 - 72: Iii * O0O00O0 % oo00oO0o / O0OO
-def I11i1II ( ) :
- if O0i1II1Iiii1I11 :
-  i1I1i1 = wiz . openURL ( i1Oo00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 72 - 72: Iii . Oo0OO / iIiI1 . O0OooOo0o
-def ooo000o000 ( ) :
- if IIII :
-  i1I1i1 = wiz . openURL ( i1i ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 100 - 100: iII1iIi11i . IIiIi11i1i / O0O00O0 % o0oooOO00 % O0OooOo0o - O0OO
-def IiIi1I1ii111 ( ) :
- if iiIiI :
-  i1I1i1 = wiz . openURL ( iiI111I1iIiI ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 46 - 46: O0OoOO0o + Oo0OO - Oo0OO + O0OooOo0o
-def oOOO0oo0 ( ) :
- if o00oooO0Oo :
-  i1I1i1 = wiz . openURL ( IIIi1I1IIii1II ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 46 - 46: iII1iIi11i
-def ii1iIi1iIiI1i ( ) :
- if o0O0OOO0Ooo :
-  i1I1i1 = wiz . openURL ( O0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 40 - 40: Oo0OO % OOOoO00
-def ooo0o00 ( ) :
- if iiIiII1 :
-  i1I1i1 = wiz . openURL ( ii1ii1ii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 99 - 99: O0OoOO0o . IIiIi11i1i + Iii
-def I11IIi ( ) :
- if OOO00O0O :
-  i1I1i1 = wiz . openURL ( oooooOoo0ooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'nesrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 66 - 66: IIIIiiIiiI % O0OO . OOOoO00
-def o0OIiiiI ( ) :
- I1i ( 'Genesis Titles A Thru B' , 'gena' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles C Thru D' , 'genc' , icon = I1iIIiiIIi1i , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles E Thru G' , 'gene' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles H Thru L' , 'genh' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles M Thru O' , 'genm' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles P Thru R' , 'genp' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles S Thru T' , 'gens' , icon = OO0O000 , themeit = O0O0OOOOoo )
- I1i ( 'Genesis Titles U Thru Z' , 'genu' , icon = OO0O000 , themeit = O0O0OOOOoo )
- if 61 - 61: OOOoO00 % OOOoO00 * IIiii / IIiii
-def o0oOO ( ) :
- if iii :
-  i1I1i1 = wiz . openURL ( I1I1IiI1 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 53 - 53: IiiiiI1i1Iii * iII1iIi11i . iIiI1 - O0O00O0 % O0O00O0 * i11iIiiIii
-def ii ( ) :
- if oOooOOOoOo :
-  i1I1i1 = wiz . openURL ( III1iII1I1ii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 79 - 79: IIiii - IIiIi11i1i + IIiii . IIIIiiIiiI
+ Iii1iiIi1II = wiz . openURL ( OOOO0OOoO0O0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="%s".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)"' % name ) . findall ( Iii1iiIi1II )
+ for iiI , OooOoOo , iIi1i1iIi1iI , III1I1Iii1iiI , Iiii1iI1i , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+  i1Iii11I1i = i1Iii11I1i if wiz . workingURL ( i1Iii11I1i ) else iiIIIII1i1iI
+  Oo00o0OO0O00o = Oo00o0OO0O00o if wiz . workingURL ( Oo00o0OO0O00o ) else I1i1iiI1
+  oOIIiIi = '%s (v%s)' % ( name , iiI )
+  if Oo0oO0ooo == name and iiI > o0oOoO00o :
+   oOIIiIi = '%s [COLOR red][B][CURRENT v%s][/B][/COLOR]' % ( oOIIiIi , o0oOoO00o )
+  I1ii1ii11i1I ( oOIIiIi , '' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = ooo )
+  I1ii1ii11i1I ( '===============[ Install ]===================' , '' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = i1i1iI1iiiI )
+  I1ii1ii11i1I ( 'Fresh Install' , 'install' , name , 'fresh' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = i1I1i111Ii )
+  I1ii1ii11i1I ( 'Standard Install' , 'install' , name , 'normal' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = i1I1i111Ii )
+  if not iIi1i1iIi1iI == 'http://' : I1ii1ii11i1I ( 'Apply guiFix' , 'install' , name , 'gui' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = i1I1i111Ii )
+  if not Iiii1iI1i == 'http://' :
+   if wiz . workingURL ( Iiii1iI1i ) == True :
+    I1ii1ii11i1I ( '===============[ Themes ]==================' , '' , fanart = Oo00o0OO0O00o , icon = i1Iii11I1i , themeit = i1i1iI1iiiI )
+    Iii1iiIi1II = wiz . openURL ( Iiii1iI1i ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+    OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+    for iiIi1iI1iIii , o00OooO0oo , o0o0oOoOO0O , i1ii1II1ii in OO0O00oOo :
+     o0o0oOoOO0O = o0o0oOoOO0O if o0o0oOoOO0O == 'http://' else i1Iii11I1i
+     i1ii1II1ii = i1ii1II1ii if i1ii1II1ii == 'http://' else Oo00o0OO0O00o
+     I1ii1ii11i1I ( iiIi1iI1iIii if not iiIi1iI1iIii == i1 else "[B]%s (Installed)[/B]" % iiIi1iI1iIii , 'theme' , name , iiIi1iI1iIii , fanart = i1ii1II1ii , icon = o0o0oOoOO0O , themeit = i1i1iI1iiiI )
+     if 28 - 28: ooOo0o0O00
+     if 61 - 61: o0O0oO0O00O0o % o0O0oO0O00O0o * Ii / Ii
+     if 75 - 75: IIIi11I11 . ooI1i
+     if 50 - 50: iiiiII1I
+def O00o0OO0000oo ( ) :
+ OOoOooOoOOOoo ( 'SpinzTV APKS' , 'apkspinz' , icon = IiIi1I1 , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'My Android APPS' , 'apkin' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Kodi and SPMC' , 'apkkodi' , icon = I1III1111iIi , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Android Games' , 'apkgames' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Movie and Video' , 'apkvid' , icon = Ooo , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'System Tools' , 'apksys' , icon = Oo0oo0O0o00O , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'APK Master List' , 'apkmaster' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ if 27 - 27: Ii1I11I
+ if 79 - 79: Ii - II1I1Ii + Ii . i1I1
 def ii1III11 ( ) :
- if i1Iii1i1I :
-  i1I1i1 = wiz . openURL ( oOOo0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 7 - 7: OoOO0o % O0OoOO0o . o0oooOO00 + i1ii1I1111ii1 - IIiIi11i1i
+ if oO0O00oOOoooO :
+  Iii1iiIi1II = wiz . openURL ( O0Oo000ooO00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 7 - 7: O0i11I1I1I % Ii1I11I . iiiiII1I + oo0o0000 - II1I1Ii
 def o0o0O00oo0 ( ) :
- if OOoO00 :
-  i1I1i1 = wiz . openURL ( oo00O00oO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 27 - 27: i11iIiiIii % O0OooOo0o % IIiIi11i1i . O0OoOO0o - iIiI1 + o0oooOO00
+ xbmc . executebuiltin ( 'ActivateWindow(10001,"androidapp://sources/apps/",return)' )
+ if 27 - 27: i11iIiiIii % I11I1i1iIII1I % II1I1Ii . Ii1I11I - iI1i + iiiiII1I
 def ooO0o ( ) :
- if IiI111111IIII :
-  i1I1i1 = wiz . openURL ( iIiIIIi ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 51 - 51: iII1iIi11i
+ I1ii1ii11i1I ( 'Kodi (v%s)' % wiz . latestApk ( 'kodi' , 'version' ) , 'apkinstall' , 'kodi' , wiz . latestApk ( 'kodi' , 'url' ) , icon = I1III1111iIi , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'SPMC (v%s)' % wiz . latestApk ( 'spmc' , 'version' ) , 'apkinstall' , 'spmc' , wiz . latestApk ( 'spmc' , 'url' ) , icon = I1i11 , themeit = i1I1i111Ii )
+ if 51 - 51: IIIi11I11
 def ii11I1 ( ) :
- if i1Ii :
-  i1I1i1 = wiz . openURL ( ooo00OOOooO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 75 - 75: O0OO / O0OooOo0o % O0OoOO0o
+ if Oo0O00O000 :
+  Iii1iiIi1II = wiz . openURL ( Ii1iIiII1ii1 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 75 - 75: iI1i11 / I11I1i1iIII1I % Ii1I11I
 def Ii111iIi1iIi ( ) :
- if ii111iI1iIi1 :
-  i1I1i1 = wiz . openURL ( O00OOOoOoo0O ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 21 - 21: IIIIiiIiiI / oOOOoo00 + O0O00O0 + I1111i
+ OOoOooOoOOOoo ( 'Emulators' , 'emulators' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Roms' , 'roms' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 21 - 21: i1I1 / ooOo0o0O00 + oOo000OOOo + iI1II
 def OoOo ( ) :
- if OOO :
-  i1I1i1 = wiz . openURL ( O000OOo00oo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'genrominstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
+ if i1Ii :
+  Iii1iiIi1II = wiz . openURL ( OOoOO0oo0ooO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for emu list not working." )
+ if 35 - 35: ooI1i * o0O0oO0O00O0o . II1I1Ii * Ii . iiiiII1I / Ii1I11I
+ if 100 - 100: iIIIII1I . Ii * iI1i % Ii1I11I * Ii1I11I
+ if 14 - 14: ooOo0o0O00 . ooI1i + I11I1i1iIII1I / O0i11I1I1I / II1I1Ii
+ if 74 - 74: Ii1I11I / o0OOo0o0O0O
+def OoO ( ) :
+ OOoOooOoOOOoo ( 'SNES' , 'snes' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES' , 'nes' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'N64' , 'n64' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis' , 'gen' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari' , 'atr' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine & Turbo Grafx' , 'tbg' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 41 - 41: o0OOo0o0O0O * I11I1i1iIII1I / iI1II . o0O0oO0O00O0o
+def O0iII1 ( ) :
+ if ii111iI1iIi1 :
+  Iii1iiIi1II = wiz . openURL ( OOO00O ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
   else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[ROM Menu] ERROR: URL for Rom list not working." )
- if 35 - 35: oo00oO0o * OOOoO00 . IIiIi11i1i * IIiii . o0oooOO00 / O0OoOO0o
-def O00 ( ) :
- if i1I1ii11i1Iii :
-  i1I1i1 = wiz . openURL ( Ii1iIiII1ii1 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 52 - 52: oo00oO0o + O0OoOO0o . OoOO0o . oOOOoo00 . O0OO
-def oo000 ( ) :
- if I1IiiiiI :
-  i1I1i1 = wiz . openURL ( ooOooo000oOO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 32 - 32: Oo0OO . O0O00O0
-def oOO ( ) :
+ else : wiz . log ( "[ROM Menu] ERROR: URL for apk list not working." )
+ if 13 - 13: oo0o0000 % iiiiII1I . ooOo0o0O00 / iI1i % o0O0oO0O00O0o . iI1II
+def i1iIi ( ) :
+ OOoOooOoOOOoo ( 'NES Titles A Thru B' , 'nesa' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles C' , 'nesc' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles D Thru E' , 'nesd' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles F Thru G' , 'nesf' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles H Thru K' , 'nesh' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles L Thru M' , 'nesl' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles N Thru Q' , 'nesn' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles R Thru S' , 'nesr' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles T Thru V' , 'nest' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'NES Titles W Thru Z' , 'nesw' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 30 - 30: Ii1I11I - oo0 / iI1II
+def O0000OOO0 ( ) :
+ if OOO :
+  Iii1iiIi1II = wiz . openURL ( O0o0O00Oo0o0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 51 - 51: oo0o0000 / IIIi11I11 / oOo000OOOo
+def I111iIi1 ( ) :
+ if oo0OOo0 :
+  Iii1iiIi1II = wiz . openURL ( O00O0oOO00O00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 92 - 92: ooI1i
+def II11iI111i1 ( ) :
+ if I11IiI :
+  Iii1iiIi1II = wiz . openURL ( i1Oo00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 95 - 95: iI1II - IIIi11I11 * oo0o0000 + iiiiII1I
+def iIi1 ( ) :
  if O0ooO0Oo00o :
-  i1I1i1 = wiz . openURL ( O0Oo000ooO00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'apkinstall' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 54 - 54: i1ii1I1111ii1 / Iii / OOOoO00 . OOOoO00 % OoOO0o . i1ii1I1111ii1
- if 10 - 10: IIiii + OOOoO00
- if 27 - 27: O0OO . IIiIi11i1i + o0oooOO00 / Iii % OoOO0o . oo00oO0o
- if 14 - 14: IIIIiiIiiI + oOOOoo00 - OoOO0o / O0OoOO0o . IiiiiI1i1Iii
-def i1iiIiI1Ii1i ( ) :
- i1iIi = '[COLOR green]ON[/COLOR]' ; iiiii1II = '[COLOR red]OFF[/COLOR]'
- O0OOO0OOooo00 = 'true' if i11 == 'true' else 'false'
- I111iIi1 = 'true' if I11 == 'true' else 'false'
- oo00O00oO000o = 'true' if Oo0o0000o0o0 == 'true' else 'false'
- if 71 - 71: oOOOoo00 - oo00oO0o / o0oooOO00 * o0oooOO00 / Oo0OO . Oo0OO
- i11I ( 'Fresh Start' , 'freshstart' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Clear Cache' , 'clearcache' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Clear Packages' , 'clearpackages' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Clear Thumbnails' , 'clearthumb' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Purge Databases' , 'purgedb' , icon = o00O0 , themeit = O0O0OOOOoo )
- I1i ( 'Remove Addons' , 'removeaddons' , icon = o00O0 , themeit = O0O0OOOOoo )
- I1i ( 'Remove Addon Data' , 'removeaddondata' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Force Update Addons' , 'forceupdate' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Force Close Kodi' , 'forceclose' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Upload Kodi log' , 'uploadlog' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'View Kodi Log File' , 'viewlog' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'View Wizard Log File' , 'viewwizlog' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( 'Clear Wizard Log File' , 'clearwizlog' , icon = o00O0 , themeit = O0O0OOOOoo )
- i11I ( '==============[ Auto Clean ]==============' , '' , fanart = O0oo0OO0 , icon = o00O0 , themeit = Ii1I1Ii )
- i11I ( 'Auto Clean Up On Startup: %s' % O0OOO0OOooo00 . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'autoclean' , icon = o00O0 , themeit = O0O0OOOOoo )
- if O0OOO0OOooo00 == 'true' :
-  i11I ( '--- Clear Cache on Startup: %s' % I111iIi1 . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'clearcache' , icon = o00O0 , themeit = O0O0OOOOoo )
-  i11I ( '--- Clear Packages on Startup: %s' % oo00O00oO000o . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'clearpackages' , icon = o00O0 , themeit = O0O0OOOOoo )
- o00Oo0oooooo ( 'movies' , 'MAIN' )
- if 53 - 53: IiiiiI1i1Iii
- if 21 - 21: IIiIi11i1i
- if 92 - 92: i11iIiiIii / IiiiiI1i1Iii - OoOO0o % oo00oO0o * IiiiiI1i1Iii + iIiI1
- if 11 - 11: I1111i . IiiiiI1i1Iii
-def Oo0000oOo ( ) :
- if o0OIiII :
-  i1I1i1 = wiz . openURL ( Oo0oOOo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- O0OoooO0 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( i1I1i1 )
- if len ( O0OoooO0 ) > 0 :
-  for I1i11 , IiIi1I1 , IIIIiii1IIii , II1i11I in O0OoooO0 :
-   i11I ( I1i11 , 'speedtest' , I1i11 , IiIi1I1 , icon = IIIIiii1IIii , fanart = II1i11I , themeit = O0O0OOOOoo )
-  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
- else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
- if 31 - 31: IIiIi11i1i . IiiiiI1i1Iii * oo00oO0o + i11iIiiIii * IIIIiiIiiI
- if 93 - 93: oOOOoo00 / Iii * Oo0OO % I1111i * O0OoOO0o * IIiIi11i1i
- if 64 - 64: O0OooOo0o + O0OoOO0o / Iii / iIiI1 . oo00oO0o % iII1iIi11i
- if 50 - 50: Iii - iII1iIi11i + OOOoO00
+  Iii1iiIi1II = wiz . openURL ( i1i ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 21 - 21: II1I1Ii
+def OoO00 ( ) :
+ if ooO0oOOooOo0 :
+  Iii1iiIi1II = wiz . openURL ( iiI111I1iIiI ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 85 - 85: iI1i * iI1i * oo0o0000 . iI1II . oOo000OOOo * ooI1i
+def o000oOoo0o000 ( ) :
+ if i1I1ii11i1Iii :
+  Iii1iiIi1II = wiz . openURL ( IIIi1I1IIii1II ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 40 - 40: i11iIiiIii * iIIIII1I - o0OOo0o0O0O * iIIIII1I - II1I1Ii . o0OOo0o0O0O
+def oo0O0Ooooooo ( ) :
+ if I1IiiiiI :
+  Iii1iiIi1II = wiz . openURL ( O0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 39 - 39: IIIi11I11 * iI1i + oo0 - IIIi11I11 + o0O0oO0O00O0o
 def o0iiiI1I1iIIIi1 ( ) :
- i1iIi = '[COLOR green]ON[/COLOR]' ; iiiii1II = '[COLOR red]OFF[/COLOR]'
- IiiI1iiiiI1iI = 'true' if iIii1 == 'true' else 'false'
- iIiiiii1i = 'true' if oOOoO0 == 'true' else 'false'
- iiIi1IIiI = 'true' if ii11iIi1I == 'true' else 'false'
- i1oO0OO0 = 'true' if OOooO0OOoo == 'true' else 'false'
- o0O0Oo00 = 'true' if iI111I11I1I1 == 'true' else 'false'
- O0Oo0o000oO = 'true' if i1iiIII111ii == 'true' else 'false'
- i1Iii11Ii1i1 = 'true' if i1iIIi1 == 'true' else 'false'
- if 99 - 99: IIIIiiIiiI * O0OooOo0o * IiiiiI1i1Iii
- I1i ( 'Keep Trakt Data' , 'trakt' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- I1i ( 'Keep Real Debrid' , 'realdebrid' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( '- Click to toggle settings -' , '' , themeit = Ii1I1Ii )
- i11I ( 'Save Trakt: %s' % IiiI1iiiiI1iI . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keeptrakt' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Save Real Debrid: %s' % iIiiiii1i . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepdebrid' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Keep \'Sources.xml\': %s' % iiIi1IIiI . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepsources' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Keep \'Profiles.xml\': %s' % o0O0Oo00 . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepprofiles' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Keep \'Advancedsettings.xml\': %s' % i1oO0OO0 . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepadvanced' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Keep \'Favourites.xml\': %s' % O0Oo0o000oO . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepfavourites' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- i11I ( 'Keep \'Guisettings.xml\': %s' % i1Iii11Ii1i1 . replace ( 'true' , i1iIi ) . replace ( 'false' , iiiii1II ) , 'togglesetting' , 'keepgui' , icon = oOOo0O00o , themeit = O0O0OOOOoo )
- if 92 - 92: iIiI1
- if 40 - 40: o0oooOO00 / iII1iIi11i
-def OOOoO000 ( ) :
- IiiI1iiiiI1iI = '[COLOR green]ON[/COLOR]' if iIii1 == 'true' else '[COLOR red]OFF[/COLOR]'
- oOOOO = str ( i1iiIIiiI111 ) if not i1iiIIiiI111 == '' else 'Trakt hasnt been saved yet.'
- i11I ( '[I]Register FREE Account at http://trakt.tv[/I]' , '' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- i11I ( 'Save Trakt Data: %s' % IiiI1iiiiI1iI , 'togglesetting' , 'keeptrakt' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- if iIii1 == 'true' : i11I ( 'Last Save: %s' % str ( oOOOO ) , '' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- if OoOoO == 'No' : i11I ( '============================================' , '' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- Ii = os . path . join ( oO00oOo , ooooooO0oo , 'icon.png' ) if os . path . exists ( OOOOi11i1 ) else OOOiiiiI
- Ii1ii111i1 = os . path . join ( oO00oOo , ooooooO0oo , 'fanart.jpg' ) if os . path . exists ( OOOOi11i1 ) else O0oo0OO0
- i11I ( '[+]-- Exodus' , '' , icon = Ii , fanart = Ii1ii111i1 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Exodus' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Exodus' )
- if not os . path . exists ( OOOOi11i1 ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'exodus' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'exodus' ) , 'authtrakt' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- if O0OoO000O0OO == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % O0OoO000O0OO , '' , icon = Ii , fanart = Ii1ii111i1 , menu = i1i1i1I )
- oOoo000 = os . path . join ( oO00oOo , oOoOooOo0o0 , 'icon.png' ) if os . path . exists ( I1IIiiIiii ) else OOOiiiiI
- OooOo00o = os . path . join ( oO00oOo , oOoOooOo0o0 , 'fanart.jpg' ) if os . path . exists ( I1IIiiIiii ) else O0oo0OO0
- i11I ( '[+]-- Salts' , '' , icon = oOoo000 , fanart = OooOo00o , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Salts' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Salts' )
- if not os . path . exists ( I1IIiiIiii ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = oOoo000 , fanart = OooOo00o , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'salts' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'salts' , icon = oOoo000 , fanart = OooOo00o , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'salts' ) , 'authtrakt' , 'salts' , icon = oOoo000 , fanart = OooOo00o , menu = ii1I1IIii11 )
- if iiI1IiI == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'salts' , icon = oOoo000 , fanart = OooOo00o , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % iiI1IiI , '' , icon = oOoo000 , fanart = OooOo00o , menu = i1i1i1I )
- IiI11i1IIiiI = os . path . join ( oO00oOo , OOOO , 'icon.png' ) if os . path . exists ( O000oo0O ) else OOOiiiiI
- oOOo000oOoO0 = os . path . join ( oO00oOo , OOOO , 'fanart.jpg' ) if os . path . exists ( O000oo0O ) else O0oo0OO0
- i11I ( '[+]-- Salts HD' , '' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Salts HD' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Salts HD' )
- if not os . path . exists ( O000oo0O ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'saltshd' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'saltshd' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'saltshd' ) , 'authtrakt' , 'saltshd' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , menu = ii1I1IIii11 )
- if II == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'saltshd' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % II , '' , icon = IiI11i1IIiiI , fanart = oOOo000oOoO0 , menu = i1i1i1I )
- OoOo00o0OO = os . path . join ( oO00oOo , OOO00 , 'icon.png' ) if os . path . exists ( oo0OooOOo0 ) else OOOiiiiI
- ii1IIIIiI11 = os . path . join ( oO00oOo , OOO00 , 'fanart.jpg' ) if os . path . exists ( oo0OooOOo0 ) else O0oo0OO0
- i11I ( '[+]-- Royal We' , '' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Royal We' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Royal We' )
- if not os . path . exists ( oo0OooOOo0 ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'royalwe' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'royalwe' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'royalwe' ) , 'authtrakt' , 'royalwe' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , menu = ii1I1IIii11 )
- if ooOoOoo0O == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'royalwe' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % ooOoOoo0O , '' , icon = OoOo00o0OO , fanart = ii1IIIIiI11 , menu = i1i1i1I )
- iI1IIIii = os . path . join ( oO00oOo , IIiiiiiiIi1I1 , 'icon.png' ) if os . path . exists ( IIIii1II1II ) else OOOiiiiI
- I1i11ii11 = os . path . join ( oO00oOo , IIiiiiiiIi1I1 , 'fanart.jpg' ) if os . path . exists ( IIIii1II1II ) else O0oo0OO0
- i11I ( '[+]-- Velocity' , '' , icon = iI1IIIii , fanart = I1i11ii11 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Velocity' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Velocity' )
- if not os . path . exists ( IIIii1II1II ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = iI1IIIii , fanart = I1i11ii11 , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'velocity' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'velocity' , icon = iI1IIIii , fanart = I1i11ii11 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'velocity' ) , 'authtrakt' , 'velocity' , icon = iI1IIIii , fanart = I1i11ii11 , menu = ii1I1IIii11 )
- if OooO0 == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'velocity' , icon = iI1IIIii , fanart = I1i11ii11 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % OooO0 , '' , icon = iI1IIIii , fanart = I1i11ii11 , menu = i1i1i1I )
- OO00O0oOO = os . path . join ( oO00oOo , I1IIIii , 'icon.png' ) if os . path . exists ( i1I1iI ) else OOOiiiiI
- Ii1iI111 = os . path . join ( oO00oOo , I1IIIii , 'fanart.jpg' ) if os . path . exists ( i1I1iI ) else O0oo0OO0
- i11I ( '[+]-- Velocity Kids' , '' , icon = OO00O0oOO , fanart = Ii1iI111 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Velocity Kids' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Velocity Kids' )
- if not os . path . exists ( i1I1iI ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = OO00O0oOO , fanart = Ii1iI111 , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'velocitykids' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'velocitykids' , icon = OO00O0oOO , fanart = Ii1iI111 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'velocitykids' ) , 'authtrakt' , 'velocitykids' , icon = OO00O0oOO , fanart = Ii1iI111 , menu = ii1I1IIii11 )
- if II11iiii1Ii == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'velocitykids' , icon = OO00O0oOO , fanart = Ii1iI111 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % II11iiii1Ii , '' , icon = OO00O0oOO , fanart = Ii1iI111 , menu = i1i1i1I )
- O0oooo00o0Oo = os . path . join ( oO00oOo , iiiiiIIii , 'icon.png' ) if os . path . exists ( o0OO00oO ) else OOOiiiiI
- I1iii = os . path . join ( oO00oOo , iiiiiIIii , 'fanart.jpg' ) if os . path . exists ( o0OO00oO ) else O0oo0OO0
- i11I ( '[+]-- Specto' , '' , icon = O0oooo00o0Oo , fanart = I1iii , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Specto' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Specto' )
- if not os . path . exists ( o0OO00oO ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'specto' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'specto' ) , 'authtrakt' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- if OO0oOoo == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % OO0oOoo , '' , icon = O0oooo00o0Oo , fanart = I1iii , menu = i1i1i1I )
- oO0o0O0Ooo0o = os . path . join ( oO00oOo , O000OO0 , 'icon.png' ) if os . path . exists ( I11i1I1I ) else OOOiiiiI
- i1Ii11II = os . path . join ( oO00oOo , O000OO0 , 'fanart.jpg' ) if os . path . exists ( I11i1I1I ) else O0oo0OO0
- i11I ( '[+]-- Trakt' , '' , icon = OO00O0oOO , fanart = i1Ii11II , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'traktaddon' , 'Trakt' ) ; i1i1i1I = O0o0oO ( 'trakt' , 'Trakt' )
- if not os . path . exists ( I11i1I1I ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = oO0o0O0Ooo0o , fanart = i1Ii11II , menu = ii1I1IIii11 )
- elif not traktit . traktUser ( 'trakt' ) : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'trakt' , icon = oO0o0O0Ooo0o , fanart = i1Ii11II , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'trakt' ) , 'authtrakt' , 'trakt' , icon = oO0o0O0Ooo0o , fanart = i1Ii11II , menu = ii1I1IIii11 )
- if O0o0Oo == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'trakt' , icon = oO0o0O0Ooo0o , fanart = i1Ii11II , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % O0o0Oo , '' , icon = oO0o0O0Ooo0o , fanart = i1Ii11II , menu = i1i1i1I )
- if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
- i11I ( 'Save All Trakt Data' , 'savetrakt' , 'all' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- i11I ( 'Recover All Saved Trakt Data' , 'restoretrakt' , 'all' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- i11I ( 'Clear All Saved Trakt Data' , 'cleartrakt' , 'all' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- i11I ( 'Clear All Addon Data' , 'addontrakt' , 'all' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- o00Oo0oooooo ( 'movies' , 'MAIN' )
- if 18 - 18: O0OooOo0o . I1111i % o0oooOO00 % O0O00O0
-def II1IiiIii ( ) :
- iIiiiii1i = '[COLOR green]ON[/COLOR]' if oOOoO0 == 'true' else '[COLOR red]OFF[/COLOR]'
- oOOOO = str ( oooOOOOO ) if not oooOOOOO == '' else 'Real Debrid hasnt been saved yet.'
- i11I ( '[I]http://real-debrid.com is a PAID service.[/I]' , '' , icon = OOOiiiiI , themeit = Ii1I1Ii )
- i11I ( 'Save Real Debrid Data: %s' % iIiiiii1i , 'togglesetting' , 'KEEPREAL' , icon = iIiIi11 , themeit = Ii1I1Ii )
- if oOOoO0 == 'true' : i11I ( 'Last Save: %s' % str ( oOOOO ) , '' , icon = iIiIi11 , themeit = Ii1I1Ii )
- if OoOoO == 'No' : i11I ( '============================================' , '' , icon = iIiIi11 , themeit = Ii1I1Ii )
- Ii = os . path . join ( oO00oOo , ooooooO0oo , 'icon.png' ) if os . path . exists ( OOOOi11i1 ) else iIiIi11
- Ii1ii111i1 = os . path . join ( oO00oOo , ooooooO0oo , 'fanart.jpg' ) if os . path . exists ( OOOOi11i1 ) else O0oo0OO0
- oOo0OoOOo0 = debridit . debridUser ( 'exodus' )
- i11I ( '[+]-- Exodus' , '' , icon = Ii , fanart = Ii1ii111i1 , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'debridaddon' , 'Exodus' ) ; i1i1i1I = O0o0oO ( 'debrid' , 'Exodus' )
- if not os . path . exists ( OOOOi11i1 ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- elif not oOo0OoOOo0 : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % oOo0OoOOo0 , 'authdebrid' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = ii1I1IIii11 )
- if Oo00OOOOO == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'exodus' , icon = Ii , fanart = Ii1ii111i1 , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % Oo00OOOOO , '' , icon = Ii , fanart = Ii1ii111i1 , menu = i1i1i1I )
- O0oooo00o0Oo = os . path . join ( oO00oOo , iiiiiIIii , 'icon.png' ) if os . path . exists ( o0OO00oO ) else iIiIi11
- I1iii = os . path . join ( oO00oOo , iiiiiIIii , 'fanart.jpg' ) if os . path . exists ( o0OO00oO ) else O0oo0OO0
- iII11I1Ii1 = debridit . debridUser ( 'specto' )
- i11I ( '[+]-- Specto' , '' , icon = O0oooo00o0Oo , fanart = I1iii , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'debridaddon' , 'Specto' ) ; i1i1i1I = O0o0oO ( 'debrid' , 'Specto' )
- if not os . path . exists ( o0OO00oO ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- elif not iII11I1Ii1 : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % iII11I1Ii1 , 'authdebrid' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = ii1I1IIii11 )
- if O0O == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'specto' , icon = O0oooo00o0Oo , fanart = I1iii , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % O0O , '' , icon = O0oooo00o0Oo , fanart = I1iii , menu = i1i1i1I )
- o0o0 = os . path . join ( oO00oOo , I11iii1Ii , 'icon.png' ) if os . path . exists ( oO0Oo ) else iIiIi11
- oOo0oO = os . path . join ( oO00oOo , I11iii1Ii , 'fanart.jpg' ) if os . path . exists ( oO0Oo ) else O0oo0OO0
- IIi1IIIIi = debridit . debridUser ( 'url' )
- i11I ( '[+]-- URL Resolver' , '' , icon = o0o0 , fanart = oOo0oO , themeit = Ii1I1Ii )
- ii1I1IIii11 = O0o0oO ( 'debridaddon' , 'url' ) ; i1i1i1I = O0o0oO ( 'debrid' , 'url' )
- if not os . path . exists ( oO0Oo ) : i11I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = o0o0 , fanart = oOo0oO , menu = ii1I1IIii11 )
- elif not IIi1IIIIi : i11I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'url' , icon = o0o0 , fanart = oOo0oO , menu = ii1I1IIii11 )
- else : i11I ( '[COLOR green]Addon Data: %s[/COLOR]' % IIi1IIIIi , 'authdebrid' , 'url' , icon = o0o0 , fanart = oOo0oO , menu = ii1I1IIii11 )
- if O00o0OO == "" : i11I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'url' , icon = o0o0 , fanart = oOo0oO , menu = i1i1i1I )
- else : i11I ( '[COLOR green]Saved Data: %s[/COLOR]' % O00o0OO , '' , icon = o0o0 , fanart = oOo0oO , menu = i1i1i1I )
- if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
- i11I ( 'Save All Real Debrid Data' , 'savedebrid' , 'all' , icon = iIiIi11 , themeit = Ii1I1Ii )
- i11I ( 'Recover All Saved Real Debrid Data' , 'restoredebrid' , 'all' , icon = iIiIi11 , themeit = Ii1I1Ii )
- i11I ( 'Clear All Saved Real Debrid Data' , 'cleardebrid' , 'all' , icon = iIiIi11 , themeit = Ii1I1Ii )
- i11I ( 'Clear All Addon Data' , 'addondebrid' , 'all' , icon = iIiIi11 , themeit = Ii1I1Ii )
- o00Oo0oooooo ( 'movies' , 'MAIN' )
- if 70 - 70: OOOoO00 / O0OooOo0o - Iii - OoOO0o
-def IiiiIi1i ( ) :
- for i1ii in glob . glob ( os . path . join ( oO00oOo , '*/' ) ) :
-  O0ooO0ooo0oO = i1ii . replace ( oO00oOo , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
-  IIIIiii1IIii = os . path . join ( i1ii , 'icon.png' )
-  II1i11I = os . path . join ( i1ii , 'fanart.png' )
-  if O0ooO0ooo0oO in oOOoo0Oo : pass
-  elif O0ooO0ooo0oO == 'packages' : pass
+ if o0OIiII :
+  Iii1iiIi1II = wiz . openURL ( ii1ii1ii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 17 - 17: oo0 . iI1II / II1I1Ii % I11I1i1iIII1I % o0OOo0o0O0O / i11iIiiIii
+def OOOIiiiii1iI ( ) :
+ if ii1iII1II :
+  Iii1iiIi1II = wiz . openURL ( oooooOoo0ooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 49 - 49: Ii . IIIi11I11 / iI1i11 + I11I1i1iIII1I
+def ii11i ( ) :
+ if Iii1I1I11iiI1 :
+  Iii1iiIi1II = wiz . openURL ( I1I1IiI1 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 35 - 35: ooOo0o0O00 * O0i11I1I1I - iI1i11 % Ii
+def oOo00O000Oo0 ( ) :
+ OOoOooOoOOOoo ( 'Genesis Titles A Thru B' , 'gena' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles C Thru D' , 'genc' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles E Thru G' , 'gene' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles H Thru L' , 'genh' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles M Thru O' , 'genm' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles P Thru R' , 'genp' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles S Thru T' , 'gens' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Genesis Titles U Thru Z' , 'genu' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 18 - 18: O0i11I1I1I * iI1i11 . iI1i11 * i1I1 * I11I1i1iIII1I * iIIIII1I
+def oOooO0OOOoO000 ( ) :
+ if I1I1i1I :
+  Iii1iiIi1II = wiz . openURL ( III1iII1I1ii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 57 - 57: I11I1i1iIII1I
+def oOOOoo ( ) :
+ if ii1I :
+  Iii1iiIi1II = wiz . openURL ( oOOo0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 15 - 15: i11iIiiIii % oo0o0000 * II1I1Ii / iIIIII1I
+def oooO0o0o0O0 ( ) :
+ if O0oO0 :
+  Iii1iiIi1II = wiz . openURL ( oo00O00oO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 27 - 27: iI1II - O0i11I1I1I / II1I1Ii
+def OOooOo00oo0 ( ) :
+ if oO0O0OO0O :
+  Iii1iiIi1II = wiz . openURL ( iIiIIIi ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 84 - 84: iIIIII1I + II1I1Ii
+def IIiiIIi1 ( ) :
+ if OO :
+  Iii1iiIi1II = wiz . openURL ( ooo00OOOooO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 59 - 59: IIIi11I11 . o0O0oO0O00O0o % I11I1i1iIII1I
+def i11I1iIi ( ) :
+ if OoOoO :
+  Iii1iiIi1II = wiz . openURL ( O00OOOoOoo0O ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 79 - 79: iIIIII1I . i1I1 - I11I1i1iIII1I . oo0o0000 % ooI1i
+def oOoO00 ( ) :
+ if Ii1I1i :
+  Iii1iiIi1II = wiz . openURL ( O000OOo00oo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 40 - 40: Ii
+def OOOooo ( ) :
+ if OOI1iI1ii1II :
+  Iii1iiIi1II = wiz . openURL ( oo0OOo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 99 - 99: I11I1i1iIII1I * IIIi11I11 % oo0 / oOo000OOOo
+def OOO00O0oOOo ( ) :
+ OOoOooOoOOOoo ( 'Atari Titles A Thru B' , 'atra' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles C Thru D' , 'atrc' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles E Thru G' , 'atre' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles H Thru L' , 'atrh' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles M Thru O' , 'atrm' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles P Thru R' , 'atrp' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles S Thru U' , 'atrs' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Atari Titles V Thru Z' , 'atrv' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 71 - 71: II1I1Ii / Ii / iIIIII1I % o0O0oO0O00O0o
+def O0oooo00o0Oo ( ) :
+ if O0O0OOOOoo :
+  Iii1iiIi1II = wiz . openURL ( ooOOO00Ooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 36 - 36: oOo000OOOo / I11I1i1iIII1I / IIIi11I11 / IIIi11I11 + ooOo0o0O00
+def oO0Ooo0ooOO0 ( ) :
+ if oOooO0 :
+  Iii1iiIi1II = wiz . openURL ( IiIIIi1iIi ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 46 - 46: oOo000OOOo % iiiiII1I
+def ooo0o0O0o ( ) :
+ if Ii1I1Ii :
+  Iii1iiIi1II = wiz . openURL ( ooOOoooooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 62 - 62: ooI1i + i11iIiiIii + iI1i / i11iIiiIii
+def I1Ii ( ) :
+ if OOoO0 :
+  Iii1iiIi1II = wiz . openURL ( II1I ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 70 - 70: iI1i . iI1II - O0i11I1I1I
+def iII11I1Ii1 ( ) :
+ if OO0Oooo0oOO0O :
+  Iii1iiIi1II = wiz . openURL ( O0i1II1Iiii1I11 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 92 - 92: II1I1Ii / II1I1Ii . ooOo0o0O00
+def ii1iIi1II ( ) :
+ if o00O0 :
+  Iii1iiIi1II = wiz . openURL ( IIII ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 2 - 2: iI1i + iiiiII1I - o0O0oO0O00O0o . oo0o0000 - o0O0oO0O00O0o
+def oo0o0oooo ( ) :
+ if oOO0O00Oo0O0o :
+  Iii1iiIi1II = wiz . openURL ( iiIiI ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 20 - 20: o0OOo0o0O0O - II1I1Ii
+def ii1ii11 ( ) :
+ if ii1 :
+  Iii1iiIi1II = wiz . openURL ( o00oooO0Oo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 84 - 84: Ii1I11I . II1I1Ii - I11I1i1iIII1I . ooI1i / I11I1i1iIII1I
+def iii1 ( ) :
+ if I1iIIiiIIi1i :
+  Iii1iiIi1II = wiz . openURL ( o0O0OOO0Ooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 32 - 32: oOo000OOOo . IIIi11I11 . iI1II - iI1i11 + i1I1
+def ooO0oO00O0o ( ) :
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles A Thru B' , 'tga' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles C Thru E' , 'tgc' , icon = IIOOO0O00O0OOOO , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles F Thru I' , 'tgf' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles J Thru M' , 'tgj' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles N Thru Q' , 'tgn' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles R Thru U' , 'tgr' , icon = I1i111I , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'PC Engine And Turbo Grafx Titles V Thru Z' , 'tgv' , icon = I1i111I , themeit = i1I1i111Ii )
+ if 70 - 70: iIIIII1I
+def i11iIIi11 ( ) :
+ if O0O0ooOOO :
+  Iii1iiIi1II = wiz . openURL ( iiIiII1 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 98 - 98: iIIIII1I
+def ii ( ) :
+ if oOOo0O00o :
+  Iii1iiIi1II = wiz . openURL ( OOO00O0O ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 32 - 32: oOo000OOOo % ooOo0o0O00 - o0O0oO0O00O0o * Ii + II1I1Ii
+def II1IOoOo000oOo0oo ( ) :
+ if iIiIi11 :
+  Iii1iiIi1II = wiz . openURL ( iii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 65 - 65: iiiiII1I / iI1i11 % IIIi11I11
+def iIiIIii ( ) :
+ if OOOiiiiI :
+  Iii1iiIi1II = wiz . openURL ( oOooOOOoOo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 61 - 61: Ii / o0O0oO0O00O0o / iI1i * Ii1I11I
+def iIII1i1i ( ) :
+ if oooOo0OOOoo0 :
+  Iii1iiIi1II = wiz . openURL ( i1Iii1i1I ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 35 - 35: I11I1i1iIII1I * II1I1Ii - iI1II . II1I1Ii . II1I1Ii
+def I1II ( ) :
+ if OOoO :
+  Iii1iiIi1II = wiz . openURL ( OOoO00 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 79 - 79: iI1i11 . O0i11I1I1I * oOo000OOOo - o0O0oO0O00O0o + ooI1i
+def ii11II1i ( ) :
+ if OO0O000 :
+  Iii1iiIi1II = wiz . openURL ( IiI111111IIII ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( '.+?ame="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"description="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o , IIII1i in OO0O00oOo :
+   Ii1IIIIi1ii1I ( iI1I , 'rominstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , description = IIII1i , themeit = i1I1i111Ii )
+  else : wiz . log ( "[ROM Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[ROM Menu] ERROR: URL for rom list not working." )
+ if 58 - 58: iI1i . IIIi11I11 - iI1i - iIIIII1I * oOo000OOOo
+ if 28 - 28: iiiiII1I * iI1i11 . II1I1Ii % II1I1Ii / II1I1Ii * iIIIII1I
+ if 64 - 64: I11I1i1iIII1I - oo0o0000
+ if 68 - 68: ooI1i - o0O0oO0O00O0o - oo0 / iiiiII1I + o0O0oO0O00O0o - iI1i11
+def O00Oo ( ) :
+ if i11I1IiII1i1i :
+  Iii1iiIi1II = wiz . openURL ( ooOooo000oOO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 15 - 15: oOo000OOOo / I11I1i1iIII1I . O0i11I1I1I / I11I1i1iIII1I % oOo000OOOo
+def I11Oo00oO0O ( ) :
+ if oo :
+  Iii1iiIi1II = wiz . openURL ( Oo0oOOo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 96 - 96: ooOo0o0O00 / I11I1i1iIII1I . oOo000OOOo - O0i11I1I1I * II1I1Ii * i1I1
+def O00oo0ooO ( ) :
+ if IiIi11iI :
+  Iii1iiIi1II = wiz . openURL ( oO0 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'apkinstall' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 38 - 38: oo0 - I11I1i1iIII1I - oo0o0000
+ if 71 - 71: iI1II
+ if 33 - 33: iIIIII1I
+ if 62 - 62: ooOo0o0O00 + oOo000OOOo + o0OOo0o0O0O / iI1II
+ if 7 - 7: Ii + o0OOo0o0O0O . oo0o0000 / iI1i
+def I111i1I1 ( ) :
+ O0o00OOo00O0O = '[COLOR green]ON[/COLOR]' ; II1i = '[COLOR red]OFF[/COLOR]'
+ OoOOoO000O00oO = 'true' if I11 == 'true' else 'false'
+ i1OoOO = 'true' if Oo0o0000o0o0 == 'true' else 'false'
+ iIII1I1i1i = 'true' if oOo0oooo00o == 'true' else 'false'
+ if 79 - 79: oOo000OOOo . iI1i11
+ I1ii1ii11i1I ( 'Fresh Start' , 'freshstart' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Clear Cache' , 'clearcache' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Clear Packages' , 'clearpackages' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Clear Thumbnails' , 'clearthumb' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Purge Databases' , 'purgedb' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Remove Addons' , 'removeaddons' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Remove Addon Data' , 'removeaddondata' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Force Update Addons' , 'forceupdate' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Force Close Kodi' , 'forceclose' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Upload Kodi log' , 'uploadlog' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'View Kodi Log File' , 'viewlog' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'View Wizard Log File' , 'viewwizlog' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Clear Wizard Log File' , 'clearwizlog' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( '==============[ Auto Clean ]==============' , '' , fanart = I1i1iiI1 , icon = iiIiIIIiiI , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Auto Clean Up On Startup: %s' % OoOOoO000O00oO . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'autoclean' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ if OoOOoO000O00oO == 'true' :
+  I1ii1ii11i1I ( '--- Clear Cache on Startup: %s' % i1OoOO . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'clearcache' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+  I1ii1ii11i1I ( '--- Clear Packages on Startup: %s' % iIII1I1i1i . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'clearpackages' , icon = iiIiIIIiiI , themeit = i1I1i111Ii )
+ o0OoOO ( 'movies' , 'MAIN' )
+ if 40 - 40: Ii + iI1i . Ii % ooI1i
+ if 15 - 15: oOo000OOOo * iI1i % ooOo0o0O00 * oo0 - i11iIiiIii
+ if 60 - 60: oo0o0000 * iIIIII1I % iI1i11 + i1I1
+ if 52 - 52: o0OOo0o0O0O
+def o000 ( ) :
+ if I1111i :
+  Iii1iiIi1II = wiz . openURL ( Oo0OoO00oOO0o ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ OO0O00oOo = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)"' ) . findall ( Iii1iiIi1II )
+ if len ( OO0O00oOo ) > 0 :
+  for iI1I , OooOoOo , i1Iii11I1i , Oo00o0OO0O00o in OO0O00oOo :
+   I1ii1ii11i1I ( iI1I , 'speedtest' , iI1I , OooOoOo , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = i1I1i111Ii )
+  else : wiz . log ( "[APK Menu] ERROR: Invalid Format." )
+ else : wiz . log ( "[APK Menu] ERROR: URL for apk list not working." )
+ if 94 - 94: Ii + Ii1I11I / II1I1Ii . oo0o0000 + o0O0oO0O00O0o . oo0
+ if 62 - 62: iiiiII1I / oo0o0000 - ooOo0o0O00 - oo0o0000 + i11iIiiIii + o0OOo0o0O0O
+ if 23 - 23: O0i11I1I1I + II1I1Ii . iiiiII1I * oo0o0000 + ooOo0o0O00
+ if 18 - 18: IIIi11I11 * Ii . IIIi11I11 / Ii1I11I
+def iiIII1II ( ) :
+ O0o00OOo00O0O = '[COLOR green]ON[/COLOR]' ; II1i = '[COLOR red]OFF[/COLOR]'
+ oOo00oOOOOO = 'true' if oOOoO0 == 'true' else 'false'
+ OoOOo0O00 = 'true' if O0OoO000O0OO == 'true' else 'false'
+ iIiI = 'true' if iI111I11I1I1 == 'true' else 'false'
+ iIIIi1i1I11i = 'true' if iIii1 == 'true' else 'false'
+ oOO0OO0OO = 'true' if OOooO0OOoo == 'true' else 'false'
+ oOOoooO = 'true' if i1iIIi1 == 'true' else 'false'
+ iIi1i1iIi1iI = 'true' if ii11iIi1I == 'true' else 'false'
+ if 22 - 22: II1I1Ii + oo0
+ OOoOooOoOOOoo ( 'Keep Trakt Data' , 'trakt' , icon = OOo0 , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Keep Real Debrid' , 'realdebrid' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( '- Click to toggle settings -' , '' , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Save Trakt: %s' % oOo00oOOOOO . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keeptrakt' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Save Real Debrid: %s' % OoOOo0O00 . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepdebrid' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Keep \'Sources.xml\': %s' % iIiI . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepsources' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Keep \'Profiles.xml\': %s' % oOO0OO0OO . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepprofiles' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Keep \'Advancedsettings.xml\': %s' % iIIIi1i1I11i . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepadvanced' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Keep \'Favourites.xml\': %s' % oOOoooO . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepfavourites' , icon = OOo0 , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Keep \'Guisettings.xml\': %s' % iIi1i1iIi1iI . replace ( 'true' , O0o00OOo00O0O ) . replace ( 'false' , II1i ) , 'togglesetting' , 'keepgui' , icon = OOo0 , themeit = i1I1i111Ii )
+ if 24 - 24: iiiiII1I % o0OOo0o0O0O + O0i11I1I1I . i11iIiiIii . ooOo0o0O00
+ if 17 - 17: ooOo0o0O00 . I11I1i1iIII1I . ooI1i / ooOo0o0O00
+def oOooO00o0O ( ) :
+ oOo00oOOOOO = '[COLOR green]ON[/COLOR]' if oOOoO0 == 'true' else '[COLOR red]OFF[/COLOR]'
+ OOo0iiIii1IIi = str ( oooOOOOO ) if not oooOOOOO == '' else 'Trakt hasnt been saved yet.'
+ I1ii1ii11i1I ( '[I]Register FREE Account at http://trakt.tv[/I]' , '' , icon = oo0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Save Trakt Data: %s' % oOo00oOOOOO , 'togglesetting' , 'keeptrakt' , icon = oo0o , themeit = i1i1iI1iiiI )
+ if oOOoO0 == 'true' : I1ii1ii11i1I ( 'Last Save: %s' % str ( OOo0iiIii1IIi ) , '' , icon = oo0o , themeit = i1i1iI1iiiI )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , icon = oo0o , themeit = i1i1iI1iiiI )
+ ii1IiIiI1 = os . path . join ( OOOo0 , IIiiiiiiIi1I1 , 'icon.png' ) if os . path . exists ( IIIii1II1II ) else oo0o
+ OOOoOo00O = os . path . join ( OOOo0 , IIiiiiiiIi1I1 , 'fanart.jpg' ) if os . path . exists ( IIIii1II1II ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Exodus' , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Exodus' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Exodus' )
+ if not os . path . exists ( IIIii1II1II ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ elif not traktit . traktUser ( 'exodus' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'exodus' ) , 'authtrakt' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ if iiI1IiI == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % iiI1IiI , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0ooOo0o0Oo )
+ OooO0oOo = os . path . join ( OOOo0 , OOOO , 'icon.png' ) if os . path . exists ( O000oo0O ) else oo0o
+ oOOo00O0OOOo = os . path . join ( OOOo0 , OOOO , 'fanart.jpg' ) if os . path . exists ( O000oo0O ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Salts' , '' , icon = OooO0oOo , fanart = oOOo00O0OOOo , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Salts' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Salts' )
+ if not os . path . exists ( O000oo0O ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = OooO0oOo , fanart = oOOo00O0OOOo , menu = O0Oooo )
+ elif not traktit . traktUser ( 'salts' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'salts' , icon = OooO0oOo , fanart = oOOo00O0OOOo , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'salts' ) , 'authtrakt' , 'salts' , icon = OooO0oOo , fanart = oOOo00O0OOOo , menu = O0Oooo )
+ if II == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'salts' , icon = OooO0oOo , fanart = oOOo00O0OOOo , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % II , '' , icon = OooO0oOo , fanart = oOOo00O0OOOo , menu = O0ooOo0o0Oo )
+ i11I1I1iiI = os . path . join ( OOOo0 , OOO00 , 'icon.png' ) if os . path . exists ( OOOOi11i1 ) else oo0o
+ I1i1iii1Ii = os . path . join ( OOOo0 , OOO00 , 'fanart.jpg' ) if os . path . exists ( OOOOi11i1 ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Salts HD' , '' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Salts HD' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Salts HD' )
+ if not os . path . exists ( OOOOi11i1 ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , menu = O0Oooo )
+ elif not traktit . traktUser ( 'saltshd' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'saltshd' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'saltshd' ) , 'authtrakt' , 'saltshd' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , menu = O0Oooo )
+ if ooOoOoo0O == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'saltshd' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % ooOoOoo0O , '' , icon = i11I1I1iiI , fanart = I1i1iii1Ii , menu = O0ooOo0o0Oo )
+ iI = os . path . join ( OOOo0 , iiiiiIIii , 'icon.png' ) if os . path . exists ( o0OO00oO ) else oo0o
+ O0O00OOo = os . path . join ( OOOo0 , iiiiiIIii , 'fanart.jpg' ) if os . path . exists ( o0OO00oO ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Royal We' , '' , icon = iI , fanart = O0O00OOo , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Royal We' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Royal We' )
+ if not os . path . exists ( o0OO00oO ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = iI , fanart = O0O00OOo , menu = O0Oooo )
+ elif not traktit . traktUser ( 'royalwe' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'royalwe' , icon = iI , fanart = O0O00OOo , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'royalwe' ) , 'authtrakt' , 'royalwe' , icon = iI , fanart = O0O00OOo , menu = O0Oooo )
+ if OooO0 == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'royalwe' , icon = iI , fanart = O0O00OOo , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % OooO0 , '' , icon = iI , fanart = O0O00OOo , menu = O0ooOo0o0Oo )
+ OoOOo = os . path . join ( OOOo0 , I1IIIii , 'icon.png' ) if os . path . exists ( i1I1iI ) else oo0o
+ iii1oOO0oo = os . path . join ( OOOo0 , I1IIIii , 'fanart.jpg' ) if os . path . exists ( i1I1iI ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Velocity' , '' , icon = OoOOo , fanart = iii1oOO0oo , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Velocity' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Velocity' )
+ if not os . path . exists ( i1I1iI ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = OoOOo , fanart = iii1oOO0oo , menu = O0Oooo )
+ elif not traktit . traktUser ( 'velocity' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'velocity' , icon = OoOOo , fanart = iii1oOO0oo , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'velocity' ) , 'authtrakt' , 'velocity' , icon = OoOOo , fanart = iii1oOO0oo , menu = O0Oooo )
+ if II11iiii1Ii == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'velocity' , icon = OoOOo , fanart = iii1oOO0oo , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % II11iiii1Ii , '' , icon = OoOOo , fanart = iii1oOO0oo , menu = O0ooOo0o0Oo )
+ II1iIi1IiIii = os . path . join ( OOOo0 , oOoOooOo0o0 , 'icon.png' ) if os . path . exists ( oo0OooOOo0 ) else oo0o
+ I111I11I111 = os . path . join ( OOOo0 , oOoOooOo0o0 , 'fanart.jpg' ) if os . path . exists ( oo0OooOOo0 ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Velocity Kids' , '' , icon = II1iIi1IiIii , fanart = I111I11I111 , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Velocity Kids' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Velocity Kids' )
+ if not os . path . exists ( oo0OooOOo0 ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = II1iIi1IiIii , fanart = I111I11I111 , menu = O0Oooo )
+ elif not traktit . traktUser ( 'velocitykids' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'velocitykids' , icon = II1iIi1IiIii , fanart = I111I11I111 , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'velocitykids' ) , 'authtrakt' , 'velocitykids' , icon = II1iIi1IiIii , fanart = I111I11I111 , menu = O0Oooo )
+ if OO0oOoo == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'velocitykids' , icon = II1iIi1IiIii , fanart = I111I11I111 , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % OO0oOoo , '' , icon = II1iIi1IiIii , fanart = I111I11I111 , menu = O0ooOo0o0Oo )
+ iiiiI11ii = os . path . join ( OOOo0 , O000OO0 , 'icon.png' ) if os . path . exists ( I11i1I1I ) else oo0o
+ O0i1i1II1i11 = os . path . join ( OOOo0 , O000OO0 , 'fanart.jpg' ) if os . path . exists ( I11i1I1I ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Specto' , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Specto' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Specto' )
+ if not os . path . exists ( I11i1I1I ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ elif not traktit . traktUser ( 'specto' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'specto' ) , 'authtrakt' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ if O0o0Oo == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % O0o0Oo , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0ooOo0o0Oo )
+ o00o = os . path . join ( OOOo0 , I11iii1Ii , 'icon.png' ) if os . path . exists ( oO0Oo ) else oo0o
+ iii11II1I = os . path . join ( OOOo0 , I11iii1Ii , 'fanart.jpg' ) if os . path . exists ( oO0Oo ) else I1i1iiI1
+ I1ii1ii11i1I ( '[+]-- Trakt' , '' , icon = II1iIi1IiIii , fanart = iii11II1I , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'traktaddon' , 'Trakt' ) ; O0ooOo0o0Oo = iiIi1i ( 'trakt' , 'Trakt' )
+ if not os . path . exists ( oO0Oo ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = o00o , fanart = iii11II1I , menu = O0Oooo )
+ elif not traktit . traktUser ( 'trakt' ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authtrakt' , 'trakt' , icon = o00o , fanart = iii11II1I , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % traktit . traktUser ( 'trakt' ) , 'authtrakt' , 'trakt' , icon = o00o , fanart = iii11II1I , menu = O0Oooo )
+ if Oo00OOOOO == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savetrakt' , 'trakt' , icon = o00o , fanart = iii11II1I , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % Oo00OOOOO , '' , icon = o00o , fanart = iii11II1I , menu = O0ooOo0o0Oo )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Save All Trakt Data' , 'savetrakt' , 'all' , icon = oo0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Recover All Saved Trakt Data' , 'restoretrakt' , 'all' , icon = oo0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Clear All Saved Trakt Data' , 'cleartrakt' , 'all' , icon = oo0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Clear All Addon Data' , 'addontrakt' , 'all' , icon = oo0o , themeit = i1i1iI1iiiI )
+ o0OoOO ( 'movies' , 'MAIN' )
+ if 5 - 5: iiiiII1I - IIIi11I11 * IIIi11I11
+def IiiIi1IIII1i ( ) :
+ OoOOo0O00 = '[COLOR green]ON[/COLOR]' if O0OoO000O0OO == 'true' else '[COLOR red]OFF[/COLOR]'
+ OOo0iiIii1IIi = str ( i1iiIII111ii ) if not i1iiIII111ii == '' else 'Real Debrid hasnt been saved yet.'
+ I1ii1ii11i1I ( '[I]http://real-debrid.com is a PAID service.[/I]' , '' , icon = oo0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Save Real Debrid Data: %s' % OoOOo0O00 , 'togglesetting' , 'KEEPREAL' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ if O0OoO000O0OO == 'true' : I1ii1ii11i1I ( 'Last Save: %s' % str ( OOo0iiIii1IIi ) , '' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ ii1IiIiI1 = os . path . join ( OOOo0 , IIiiiiiiIi1I1 , 'icon.png' ) if os . path . exists ( IIIii1II1II ) else oO00ooooO0o
+ OOOoOo00O = os . path . join ( OOOo0 , IIiiiiiiIi1I1 , 'fanart.jpg' ) if os . path . exists ( IIIii1II1II ) else I1i1iiI1
+ O0ooOoO = debridit . debridUser ( 'exodus' )
+ I1ii1ii11i1I ( '[+]-- Exodus' , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'debridaddon' , 'Exodus' ) ; O0ooOo0o0Oo = iiIi1i ( 'debrid' , 'Exodus' )
+ if not os . path . exists ( IIIii1II1II ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ elif not O0ooOoO : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % O0ooOoO , 'authdebrid' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0Oooo )
+ if O0O == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'exodus' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % O0O , '' , icon = ii1IiIiI1 , fanart = OOOoOo00O , menu = O0ooOo0o0Oo )
+ iiiiI11ii = os . path . join ( OOOo0 , O000OO0 , 'icon.png' ) if os . path . exists ( I11i1I1I ) else oO00ooooO0o
+ O0i1i1II1i11 = os . path . join ( OOOo0 , O000OO0 , 'fanart.jpg' ) if os . path . exists ( I11i1I1I ) else I1i1iiI1
+ IIIIiI1iiiIiii = debridit . debridUser ( 'specto' )
+ I1ii1ii11i1I ( '[+]-- Specto' , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'debridaddon' , 'Specto' ) ; O0ooOo0o0Oo = iiIi1i ( 'debrid' , 'Specto' )
+ if not os . path . exists ( I11i1I1I ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ elif not IIIIiI1iiiIiii : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % IIIIiI1iiiIiii , 'authdebrid' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0Oooo )
+ if O00o0OO == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'specto' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % O00o0OO , '' , icon = iiiiI11ii , fanart = O0i1i1II1i11 , menu = O0ooOo0o0Oo )
+ ii1i1i = os . path . join ( OOOo0 , I1IIiiIiii , 'icon.png' ) if os . path . exists ( oOOoo0Oo ) else oO00ooooO0o
+ II11iIII1i1I = os . path . join ( OOOo0 , I1IIiiIiii , 'fanart.jpg' ) if os . path . exists ( oOOoo0Oo ) else I1i1iiI1
+ oOO0oo = debridit . debridUser ( 'url' )
+ I1ii1ii11i1I ( '[+]-- URL Resolver' , '' , icon = ii1i1i , fanart = II11iIII1i1I , themeit = i1i1iI1iiiI )
+ O0Oooo = iiIi1i ( 'debridaddon' , 'url' ) ; O0ooOo0o0Oo = iiIi1i ( 'debrid' , 'url' )
+ if not os . path . exists ( oOOoo0Oo ) : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Installed[/COLOR]' , '' , icon = ii1i1i , fanart = II11iIII1i1I , menu = O0Oooo )
+ elif not oOO0oo : I1ii1ii11i1I ( '[COLOR red]Addon Data: Not Registered[/COLOR]' , 'authdebrid' , 'url' , icon = ii1i1i , fanart = II11iIII1i1I , menu = O0Oooo )
+ else : I1ii1ii11i1I ( '[COLOR green]Addon Data: %s[/COLOR]' % oOO0oo , 'authdebrid' , 'url' , icon = ii1i1i , fanart = II11iIII1i1I , menu = O0Oooo )
+ if I11i1 == "" : I1ii1ii11i1I ( '[COLOR red]Saved Data: Not Saved[/COLOR]' , 'savedebrid' , 'url' , icon = ii1i1i , fanart = II11iIII1i1I , menu = O0ooOo0o0Oo )
+ else : I1ii1ii11i1I ( '[COLOR green]Saved Data: %s[/COLOR]' % I11i1 , '' , icon = ii1i1i , fanart = II11iIII1i1I , menu = O0ooOo0o0Oo )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Save All Real Debrid Data' , 'savedebrid' , 'all' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Recover All Saved Real Debrid Data' , 'restoredebrid' , 'all' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Clear All Saved Real Debrid Data' , 'cleardebrid' , 'all' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Clear All Addon Data' , 'addondebrid' , 'all' , icon = oO00ooooO0o , themeit = i1i1iI1iiiI )
+ o0OoOO ( 'movies' , 'MAIN' )
+ if 13 - 13: iI1II * i1I1 - oOo000OOOo / o0O0oO0O00O0o + II1I1Ii + IIIi11I11
+def iii1III1i ( ) :
+ for iiiIi in glob . glob ( os . path . join ( OOOo0 , '*/' ) ) :
+  II1Iii = iiiIi . replace ( OOOo0 , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
+  i1Iii11I1i = os . path . join ( iiiIi , 'icon.png' )
+  Oo00o0OO0O00o = os . path . join ( iiiIi , 'fanart.png' )
+  if II1Iii in o00OO00OoO : pass
+  elif II1Iii == 'packages' : pass
   else :
-   iioo0o0OoOOO = O0ooO0ooo0oO
-   ooO0oO00O0o = { 'audio.' : '[COLOR orange][AUDIO] [/COLOR]' , 'metadata.' : '[COLOR cyan][METADATA] [/COLOR]' , 'module.' : '[COLOR orange][MODULE] [/COLOR]' , 'plugin.' : '[COLOR blue][PLUGIN] [/COLOR]' , 'program.' : '[COLOR orange][PROGRAM] [/COLOR]' , 'repository.' : '[COLOR gold][REPO] [/COLOR]' , 'script.' : '[COLOR green][SCRIPT] [/COLOR]' , 'service.' : '[COLOR green][SERVICE] [/COLOR]' , 'skin.' : '[COLOR dodgerblue][SKIN] [/COLOR]' , 'video.' : '[COLOR orange][VIDEO] [/COLOR]' , 'weather.' : '[COLOR yellow][WEATHER] [/COLOR]' }
-   for ooOO00oOOo000 in ooO0oO00O0o :
-    iioo0o0OoOOO = iioo0o0OoOOO . replace ( ooOO00oOOo000 , ooO0oO00O0o [ ooOO00oOOo000 ] )
-   i11I ( '[COLOR red][B][REMOVE][/B][/COLOR] %s' % iioo0o0OoOOO , 'removeaddon' , O0ooO0ooo0oO , icon = IIIIiii1IIii , fanart = II1i11I , themeit = oOooO0 )
-   if 14 - 14: O0OO . O0OooOo0o . IIiIi11i1i / O0O00O0 % oOOOoo00 - oo00oO0o
-def o0oOoO0O ( ) :
- if os . path . exists ( Oo0O ) :
-  i11I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Addon_Data' , 'removedata' , 'all' , themeit = oOooO0 )
-  i11I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Addon_Data for Uninstalled Addons' , 'removedata' , 'uninstalled' , themeit = oOooO0 )
-  i11I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Empty Folders in Addon_Data' , 'removedata' , 'empty' , themeit = oOooO0 )
-  i11I ( '[COLOR red][B][REMOVE][/B][/COLOR] %s Addon_Data' % Oo0Ooo , 'resetaddon' , themeit = oOooO0 )
-  if OoOoO == 'No' : i11I ( '============================================' , '' , themeit = Ii1I1Ii )
-  for i1ii in glob . glob ( os . path . join ( Oo0O , '*' ) ) :
-   O0ooO0ooo0oO = i1ii . replace ( Oo0O , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
-   IIIIiii1IIii = os . path . join ( i1ii . replace ( Oo0O , oO00oOo ) , 'icon.png' )
-   II1i11I = os . path . join ( i1ii . replace ( Oo0O , oO00oOo ) , 'fanart.png' )
-   iioo0o0OoOOO = O0ooO0ooo0oO
-   ooO0oO00O0o = { 'audio.' : '[COLOR orange][AUDIO] [/COLOR]' , 'metadata.' : '[COLOR cyan][METADATA] [/COLOR]' , 'module.' : '[COLOR orange][MODULE] [/COLOR]' , 'plugin.' : '[COLOR blue][PLUGIN] [/COLOR]' , 'program.' : '[COLOR orange][PROGRAM] [/COLOR]' , 'repository.' : '[COLOR gold][REPO] [/COLOR]' , 'script.' : '[COLOR green][SCRIPT] [/COLOR]' , 'service.' : '[COLOR green][SERVICE] [/COLOR]' , 'skin.' : '[COLOR dodgerblue][SKIN] [/COLOR]' , 'video.' : '[COLOR orange][VIDEO] [/COLOR]' , 'weather.' : '[COLOR yellow][WEATHER] [/COLOR]' }
-   for ooOO00oOOo000 in ooO0oO00O0o :
-    iioo0o0OoOOO = iioo0o0OoOOO . replace ( ooOO00oOOo000 , ooO0oO00O0o [ ooOO00oOOo000 ] )
-   if O0ooO0ooo0oO in oOOoo0Oo : iioo0o0OoOOO = '[COLOR green][B][PROTECTED][/B][/COLOR] %s' % iioo0o0OoOOO
-   else : iioo0o0OoOOO = '[COLOR red][B][REMOVE][/B][/COLOR] %s' % iioo0o0OoOOO
-   i11I ( ' %s' % iioo0o0OoOOO , 'removedata' , O0ooO0ooo0oO , icon = IIIIiii1IIii , fanart = II1i11I , themeit = oOooO0 )
+   O0oooo0OoO0oo = II1Iii
+   IiiiIi1iI1iI = { 'audio.' : '[COLOR orange][AUDIO] [/COLOR]' , 'metadata.' : '[COLOR cyan][METADATA] [/COLOR]' , 'module.' : '[COLOR orange][MODULE] [/COLOR]' , 'plugin.' : '[COLOR blue][PLUGIN] [/COLOR]' , 'program.' : '[COLOR orange][PROGRAM] [/COLOR]' , 'repository.' : '[COLOR gold][REPO] [/COLOR]' , 'script.' : '[COLOR green][SCRIPT] [/COLOR]' , 'service.' : '[COLOR green][SERVICE] [/COLOR]' , 'skin.' : '[COLOR dodgerblue][SKIN] [/COLOR]' , 'video.' : '[COLOR orange][VIDEO] [/COLOR]' , 'weather.' : '[COLOR yellow][WEATHER] [/COLOR]' }
+   for OO00o in IiiiIi1iI1iI :
+    O0oooo0OoO0oo = O0oooo0OoO0oo . replace ( OO00o , IiiiIi1iI1iI [ OO00o ] )
+   I1ii1ii11i1I ( '[COLOR red][B][REMOVE][/B][/COLOR] %s' % O0oooo0OoO0oo , 'removeaddon' , II1Iii , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = ooo )
+   if 60 - 60: ooOo0o0O00 - i1I1 - oo0o0000 / Ii
+def oooo00 ( ) :
+ if os . path . exists ( IiI ) :
+  I1ii1ii11i1I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Addon_Data' , 'removedata' , 'all' , themeit = ooo )
+  I1ii1ii11i1I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Addon_Data for Uninstalled Addons' , 'removedata' , 'uninstalled' , themeit = ooo )
+  I1ii1ii11i1I ( '[COLOR red][B][REMOVE][/B][/COLOR] All Empty Folders in Addon_Data' , 'removedata' , 'empty' , themeit = ooo )
+  I1ii1ii11i1I ( '[COLOR red][B][REMOVE][/B][/COLOR] %s Addon_Data' % Oo0Ooo , 'resetaddon' , themeit = ooo )
+  if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '============================================' , '' , themeit = i1i1iI1iiiI )
+  for iiiIi in glob . glob ( os . path . join ( IiI , '*' ) ) :
+   II1Iii = iiiIi . replace ( IiI , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
+   i1Iii11I1i = os . path . join ( iiiIi . replace ( IiI , OOOo0 ) , 'icon.png' )
+   Oo00o0OO0O00o = os . path . join ( iiiIi . replace ( IiI , OOOo0 ) , 'fanart.png' )
+   O0oooo0OoO0oo = II1Iii
+   IiiiIi1iI1iI = { 'audio.' : '[COLOR orange][AUDIO] [/COLOR]' , 'metadata.' : '[COLOR cyan][METADATA] [/COLOR]' , 'module.' : '[COLOR orange][MODULE] [/COLOR]' , 'plugin.' : '[COLOR blue][PLUGIN] [/COLOR]' , 'program.' : '[COLOR orange][PROGRAM] [/COLOR]' , 'repository.' : '[COLOR gold][REPO] [/COLOR]' , 'script.' : '[COLOR green][SCRIPT] [/COLOR]' , 'service.' : '[COLOR green][SERVICE] [/COLOR]' , 'skin.' : '[COLOR dodgerblue][SKIN] [/COLOR]' , 'video.' : '[COLOR orange][VIDEO] [/COLOR]' , 'weather.' : '[COLOR yellow][WEATHER] [/COLOR]' }
+   for OO00o in IiiiIi1iI1iI :
+    O0oooo0OoO0oo = O0oooo0OoO0oo . replace ( OO00o , IiiiIi1iI1iI [ OO00o ] )
+   if II1Iii in o00OO00OoO : O0oooo0OoO0oo = '[COLOR green][B][PROTECTED][/B][/COLOR] %s' % O0oooo0OoO0oo
+   else : O0oooo0OoO0oo = '[COLOR red][B][REMOVE][/B][/COLOR] %s' % O0oooo0OoO0oo
+   I1ii1ii11i1I ( ' %s' % O0oooo0OoO0oo , 'removedata' , II1Iii , icon = i1Iii11I1i , fanart = Oo00o0OO0O00o , themeit = ooo )
  else :
-  i11I ( 'No Addon data folder found.' , '' , themeit = Ii1I1Ii )
-  if 84 - 84: O0OoOO0o * I1111i - iII1iIi11i * iII1iIi11i
-  if 8 - 8: oo00oO0o / Oo0OO . IIIIiiIiiI
-  if 41 - 41: OoOO0o + O0OO
-def oOOiiiIIiIi ( ) :
- I1i ( 'Backup Restore' , 'bre' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Convert Paths to special' , 'convertpath' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Test Notifications' , 'testnotify' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- if 68 - 68: O0OoOO0o + o0oooOO00 / IIIIiiIiiI - OOOoO00 + Iii % O0O00O0
- if 23 - 23: oo00oO0o % IIiii / IIiIi11i1i
- if 5 - 5: Iii
- if 72 - 72: IIIIiiIiiI . IiiiiI1i1Iii / o0oooOO00 + IIiIi11i1i % Iii
- if 42 - 42: oOOOoo00 * o0oooOO00 % oo00oO0o - o0oooOO00 . i11iIiiIii - IiiiiI1i1Iii
-def o0oO0oOO ( name , type , theme = None ) :
+  I1ii1ii11i1I ( 'No Addon data folder found.' , '' , themeit = i1i1iI1iiiI )
+  if 35 - 35: iIIIII1I . iiiiII1I * i11iIiiIii
+  if 44 - 44: i11iIiiIii / iI1i
+  if 42 - 42: iI1II + iI1i % I11I1i1iIII1I + iI1i11
+def I11i11I1iiII ( ) :
+ OOoOooOoOOOoo ( 'Backup Restore' , 'bre' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Convert Paths to special' , 'convertpath' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Test Notifications' , 'testnotify' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ if 28 - 28: i11iIiiIii / Ii . oo0 / I11I1i1iIII1I
+ if 72 - 72: iI1II / oo0o0000 + oOo000OOOo / iiiiII1I * oOo000OOOo
+ if 34 - 34: Ii1I11I * Ii1I11I % iI1II + O0i11I1I1I * oo0 % oOo000OOOo
+ if 25 - 25: II1I1Ii + iiiiII1I . Ii % iiiiII1I * o0O0oO0O00O0o
+ if 32 - 32: i11iIiiIii - iIIIII1I
+def oo00ooOoo ( name , type , theme = None ) :
  if type == 'gui' :
-  if name == o00 :
-   O000o0 = ooo0OO . yesno ( Oo0Ooo , 'Would you like to apply the guifix for:' , '%s?' % name , nolabel = 'No, Cancel' , yeslabel = 'Yes, Apply Fix' )
+  if name == Oo0oO0ooo :
+   iii1IIIiiiI = ooo0OO . yesno ( Oo0Ooo , 'Would you like to apply the guifix for:' , '%s?' % name , nolabel = 'No, Cancel' , yeslabel = 'Yes, Apply Fix' )
   else :
-   O000o0 = ooo0OO . yesno ( "%s - [COLOR red]WARNING!![/COLOR]" % Oo0Ooo , "%s SpinzTV build is not currently installed." % name , "Would you like to apply the guiFix anyways?." , yeslabel = "Yes, Apply" , nolabel = "No, Cancel" )
-  if O000o0 :
-   oO0o000OoOoO0 = wiz . checkBuild ( name , 'gui' )
-   OO0ooOOO0O00o = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
-   if not wiz . workingURL ( oO0o000OoOoO0 ) == True : wiz . LogNotify ( Oo0Ooo , 'guiFix: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
-   if not os . path . exists ( IiIi11iIIi1Ii ) : os . makedirs ( IiIi11iIIi1Ii )
+   iii1IIIiiiI = ooo0OO . yesno ( "%s - [COLOR red]WARNING!![/COLOR]" % Oo0Ooo , "%s SpinzTV build is not currently installed." % name , "Would you like to apply the guiFix anyways?." , yeslabel = "Yes, Apply" , nolabel = "No, Cancel" )
+  if iii1IIIiiiI :
+   OoO00oo00 = wiz . checkBuild ( name , 'gui' )
+   Oo0Oo0O = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
+   if not wiz . workingURL ( OoO00oo00 ) == True : wiz . LogNotify ( Oo0Ooo , 'guiFix: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
+   if not os . path . exists ( Oo0O ) : os . makedirs ( Oo0O )
    II1 . create ( Oo0Ooo , 'Downloading %s GuiFix' % name , '' , 'Please Wait' )
-   Ooo0o0oo = os . path . join ( IiIi11iIIi1Ii , '%s_guisettings.zip' % OO0ooOOO0O00o )
-   try : os . remove ( Ooo0o0oo )
+   iiiI1i11Ii = os . path . join ( Oo0O , '%s_guisettings.zip' % Oo0Oo0O )
+   try : os . remove ( iiiI1i11Ii )
    except : pass
-   downloader . download ( oO0o000OoOoO0 , Ooo0o0oo , II1 )
+   downloader . download ( OoO00oo00 , iiiI1i11Ii , II1 )
    xbmc . sleep ( 500 )
    II1 . update ( 0 , "" , "Installing %s GuiFix" % name )
-   extract . all ( Ooo0o0oo , OOOo0 , II1 )
+   extract . all ( iiiI1i11Ii , Oooo000o , II1 )
    II1 . close ( )
    wiz . killxbmc ( )
   else :
    wiz . LogNotify ( Oo0Ooo , 'guiFix: [COLOR red]Cancelled![/COLOR]' )
  elif type == 'fresh' :
-  Ii1i1i1111 ( name )
+  iIiII ( name )
  elif type == 'normal' :
-  if IiIi1I1 == 'normal' :
-   if iIii1 == 'true' :
-    traktit . autoUpdate ( 'all' )
-    wiz . setS ( 'traktlastsave' , str ( I11II1i ) )
+  if OooOoOo == 'normal' :
    if oOOoO0 == 'true' :
+    traktit . autoUpdate ( 'all' )
+    wiz . setS ( 'traktlastsave' , str ( IIIII ) )
+   if O0OoO000O0OO == 'true' :
     debridit . autoUpdate ( 'all' )
-    wiz . setS ( 'debridlastsave' , str ( I11II1i ) )
-  if IIIII < 17.0 and float ( wiz . checkBuild ( name , 'kodi' ) ) >= 17.0 :
-   O000o0 = ooo0OO . yesno ( "%s - [COLOR red]WARNING!![/COLOR]" % Oo0Ooo , 'There is a chance that the skin will not appear correctly' , 'When installing a %s build on a Kodi %s install' % ( wiz . checkBuild ( name , 'kodi' ) , IIIII ) , 'Would you still like to install: %s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'No, Cancel' , yeslabel = 'Yes, Install' )
+    wiz . setS ( 'debridlastsave' , str ( IIIII ) )
+  if ooooooO0oo < 17.0 and float ( wiz . checkBuild ( name , 'kodi' ) ) >= 17.0 :
+   iii1IIIiiiI = ooo0OO . yesno ( "%s - [COLOR red]WARNING!![/COLOR]" % Oo0Ooo , 'There is a chance that the skin will not appear correctly' , 'When installing a %s build on a Kodi %s install' % ( wiz . checkBuild ( name , 'kodi' ) , ooooooO0oo ) , 'Would you still like to install: %s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'No, Cancel' , yeslabel = 'Yes, Install' )
   else :
-   O000o0 = ooo0OO . yesno ( Oo0Ooo , 'By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country. By continuing you are agreeing to the terms and conditions herin. Would you still like to install:' , '%s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'Disagree, Cancel' , yeslabel = 'Agree, Install' )
-  if O000o0 :
-   oO0o000OoOoO0 = wiz . checkBuild ( name , 'url' )
-   OO0ooOOO0O00o = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
-   if not wiz . workingURL ( oO0o000OoOoO0 ) == True : wiz . LogNotify ( Oo0Ooo , 'Build Install: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
-   if not os . path . exists ( IiIi11iIIi1Ii ) : os . makedirs ( IiIi11iIIi1Ii )
+   iii1IIIiiiI = ooo0OO . yesno ( Oo0Ooo , 'By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country. By continuing you are agreeing to the terms and conditions herin. Would you still like to install:' , '%s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'Disagree, Cancel' , yeslabel = 'Agree, Install' )
+  if iii1IIIiiiI :
+   OoO00oo00 = wiz . checkBuild ( name , 'url' )
+   Oo0Oo0O = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
+   if not wiz . workingURL ( OoO00oo00 ) == True : wiz . LogNotify ( Oo0Ooo , 'Build Install: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
+   if not os . path . exists ( Oo0O ) : os . makedirs ( Oo0O )
    II1 . create ( Oo0Ooo , 'Downloading %s ' % name , '' , 'Please Wait' )
-   Ooo0o0oo = os . path . join ( IiIi11iIIi1Ii , '%s.zip' % OO0ooOOO0O00o )
-   try : os . remove ( Ooo0o0oo )
+   iiiI1i11Ii = os . path . join ( Oo0O , '%s.zip' % Oo0Oo0O )
+   try : os . remove ( iiiI1i11Ii )
    except : pass
-   downloader . download ( oO0o000OoOoO0 , Ooo0o0oo , II1 )
+   downloader . download ( OoO00oo00 , iiiI1i11Ii , II1 )
    xbmc . sleep ( 500 )
    II1 . update ( 0 , "" , "Installing %s " % name )
-   o0oO0O00oOo = extract . all ( Ooo0o0oo , O00ooooo00 , II1 )
-   I1111I1II11 , iiiIIIIiIi , IiiIIIII1iii = o0oO0O00oOo . split ( '/' , 3 )
+   i1i1IIIIIIIi = extract . all ( iiiI1i11Ii , O00ooooo00 , II1 )
+   oo0o0oOo , OO0oOOo0o , I1 = i1i1IIIIIIIi . split ( '/' , 3 )
    wiz . setS ( 'buildname' , name )
    wiz . setS ( 'buildversion' , wiz . checkBuild ( name , 'version' ) )
    wiz . setS ( 'buildtheme' , '' )
    wiz . setS ( 'latestversion' , wiz . checkBuild ( name , 'version' ) )
-   wiz . setS ( 'lastbuildcheck' , str ( Iii1I1I11iiI1 ) )
+   wiz . setS ( 'lastbuildcheck' , str ( o00O0O ) )
    wiz . setS ( 'installed' , 'true' )
-   wiz . setS ( 'extract' , str ( I1111I1II11 ) )
-   wiz . setS ( 'errors' , str ( iiiIIIIiIi ) )
-   wiz . log ( 'INSTALLED %s: [ERRORS:%s]' % ( I1111I1II11 , iiiIIIIiIi ) )
-   if int ( iiiIIIIiIi ) >= 1 :
-    IIiiii = ooo0OO . yesno ( Oo0Ooo , 'INSTALLED %s: [ERRORS:%s]' % ( I1111I1II11 , iiiIIIIiIi ) , 'Would you like to view the errors?' , nolabel = 'No, Cancel' , yeslabel = 'Yes, View' )
-    if IIiiii :
-     wiz . TextBoxes ( Oo0Ooo , IiiIIIII1iii . replace ( '\t' , '' ) ) ; xbmc . sleep ( 3000 )
+   wiz . setS ( 'extract' , str ( oo0o0oOo ) )
+   wiz . setS ( 'errors' , str ( OO0oOOo0o ) )
+   wiz . log ( 'INSTALLED %s: [ERRORS:%s]' % ( oo0o0oOo , OO0oOOo0o ) )
+   if int ( OO0oOOo0o ) >= 1 :
+    III11iiii11i1 = ooo0OO . yesno ( Oo0Ooo , 'INSTALLED %s: [ERRORS:%s]' % ( oo0o0oOo , OO0oOOo0o ) , 'Would you like to view the errors?' , nolabel = 'No, Cancel' , yeslabel = 'Yes, View' )
+    if III11iiii11i1 :
+     wiz . TextBoxes ( Oo0Ooo , I1 . replace ( '\t' , '' ) ) ; xbmc . sleep ( 3000 )
    II1 . close ( )
-   O00Oooo = wiz . checkBuild ( name , 'theme' )
-   if not O00Oooo == 'http://' and wiz . workingURL ( O00Oooo ) == True : o0oO0oOO ( name , 'theme' )
+   Iiii1iI1i = wiz . checkBuild ( name , 'theme' )
+   if not Iiii1iI1i == 'http://' and wiz . workingURL ( Iiii1iI1i ) == True : oo00ooOoo ( name , 'theme' )
    ooo0OO . ok ( Oo0Ooo , "To save changes you now need to force close Kodi, Press OK to force close Kodi" )
    wiz . killxbmc ( )
   else :
    wiz . LogNotify ( Oo0Ooo , 'Build Install: [COLOR red]Cancelled![/COLOR]' )
  elif type == 'theme' :
   if theme == None :
-   O00Oooo = wiz . checkBuild ( name , 'theme' )
-   iI111i1I1II = [ ]
-   if not O00Oooo == 'http://' and wiz . workingURL ( O00Oooo ) == True :
-    i1I1i1 = wiz . openURL ( O00Oooo ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-    O0OoooO0 = re . compile ( 'name="(.+?)"' ) . findall ( i1I1i1 )
-    if len ( O0OoooO0 ) > 0 :
-     if ooo0OO . yesno ( Oo0Ooo , "The Build [%s] comes with %s different themes" % ( name , len ( O0OoooO0 ) ) , "Would you like to install one now?" , yeslabel = "Yes, Install" , nolabel = "No Thanks" ) :
-      for OOooo0O0o0 in O0OoooO0 :
-       iI111i1I1II . append ( OOooo0O0o0 )
-      wiz . log ( "Theme List: %s " % str ( iI111i1I1II ) )
-      O00OO = ooo0OO . select ( Oo0Ooo , iI111i1I1II )
-      wiz . log ( "Theme install selected: %s" % O00OO )
-      if not O00OO == - 1 : theme = iI111i1I1II [ O00OO ] ; II1Ii1iI1i1 = True
+   Iiii1iI1i = wiz . checkBuild ( name , 'theme' )
+   ooOo0OoO = [ ]
+   if not Iiii1iI1i == 'http://' and wiz . workingURL ( Iiii1iI1i ) == True :
+    Iii1iiIi1II = wiz . openURL ( Iiii1iI1i ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+    OO0O00oOo = re . compile ( 'name="(.+?)"' ) . findall ( Iii1iiIi1II )
+    if len ( OO0O00oOo ) > 0 :
+     if ooo0OO . yesno ( Oo0Ooo , "The Build [%s] comes with %s different themes" % ( name , len ( OO0O00oOo ) ) , "Would you like to install one now?" , yeslabel = "Yes, Install" , nolabel = "No Thanks" ) :
+      for iiIi1iI1iIii in OO0O00oOo :
+       ooOo0OoO . append ( iiIi1iI1iIii )
+      wiz . log ( "Theme List: %s " % str ( ooOo0OoO ) )
+      i1iiIIi1I = ooo0OO . select ( Oo0Ooo , ooOo0OoO )
+      wiz . log ( "Theme install selected: %s" % i1iiIIi1I )
+      if not i1iiIIi1I == - 1 : theme = ooOo0OoO [ i1iiIIi1I ] ; iiI1I1IIi11i1 = True
       else : wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]Cancelled![/COLOR]' ) ; return
      else : wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]Cancelled![/COLOR]' ) ; return
    else : wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]None Found![/COLOR]' )
-  else : II1Ii1iI1i1 = ooo0OO . yesno ( Oo0Ooo , 'Would you like to install the theme:' , theme , 'for %s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'No, Cancel' , yeslabel = 'Yes, Install' )
-  if II1Ii1iI1i1 :
-   o0OoO000O = wiz . checkTheme ( name , theme , 'url' )
-   OO0ooOOO0O00o = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
-   if not wiz . workingURL ( o0OoO000O ) == True : wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
-   if not os . path . exists ( IiIi11iIIi1Ii ) : os . makedirs ( IiIi11iIIi1Ii )
+  else : iiI1I1IIi11i1 = ooo0OO . yesno ( Oo0Ooo , 'Would you like to install the theme:' , theme , 'for %s v%s?' % ( name , wiz . checkBuild ( name , 'version' ) ) , nolabel = 'No, Cancel' , yeslabel = 'Yes, Install' )
+  if iiI1I1IIi11i1 :
+   i1II1iii1i = wiz . checkTheme ( name , theme , 'url' )
+   Oo0Oo0O = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
+   if not wiz . workingURL ( i1II1iii1i ) == True : wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]Invalid Zip Url![/COLOR]' ) ; return
+   if not os . path . exists ( Oo0O ) : os . makedirs ( Oo0O )
    II1 . create ( Oo0Ooo , 'Downloading %s ' % name , '' , 'Please Wait' )
-   Ooo0o0oo = os . path . join ( IiIi11iIIi1Ii , '%s.zip' % OO0ooOOO0O00o )
-   try : os . remove ( Ooo0o0oo )
+   iiiI1i11Ii = os . path . join ( Oo0O , '%s.zip' % Oo0Oo0O )
+   try : os . remove ( iiiI1i11Ii )
    except : pass
-   downloader . download ( o0OoO000O , Ooo0o0oo , II1 )
+   downloader . download ( i1II1iii1i , iiiI1i11Ii , II1 )
    xbmc . sleep ( 500 )
    II1 . update ( 0 , "" , "Installing %s " % name )
-   o0oO0O00oOo = extract . all ( Ooo0o0oo , O00ooooo00 , II1 )
-   I1111I1II11 , iiiIIIIiIi , IiiIIIII1iii = o0oO0O00oOo . split ( '/' , 3 )
+   i1i1IIIIIIIi = extract . all ( iiiI1i11Ii , O00ooooo00 , II1 )
+   oo0o0oOo , OO0oOOo0o , I1 = i1i1IIIIIIIi . split ( '/' , 3 )
    wiz . setS ( 'buildtheme' , theme )
-   wiz . log ( 'INSTALLED %s: [ERRORS:%s]' % ( I1111I1II11 , iiiIIIIiIi ) )
+   wiz . log ( 'INSTALLED %s: [ERRORS:%s]' % ( oo0o0oOo , OO0oOOo0o ) )
    II1 . close ( )
-   if IiIi1I1 not in [ "fresh" , "normal" ] : xbmc . executebuiltin ( "ReloadSkin()" ) ; xbmc . sleep ( 1000 ) ; xbmc . executebuiltin ( "Container.Refresh" )
+   if OooOoOo not in [ "fresh" , "normal" ] : xbmc . executebuiltin ( "ReloadSkin()" ) ; xbmc . sleep ( 1000 ) ; xbmc . executebuiltin ( "Container.Refresh" )
   else :
    wiz . LogNotify ( Oo0Ooo , 'Theme Install: [COLOR red]Cancelled![/COLOR]' )
-   if 94 - 94: o0oooOO00 . O0OoOO0o / O0O00O0 . oOOOoo00 - Oo0OO
-   if 26 - 26: O0OO - OOOoO00 . IIiii
-   if 65 - 65: oOOOoo00 % O0OoOO0o % Iii * O0O00O0
-   if 31 - 31: O0O00O0
-def iIIiI1I1i ( apk , url ) :
+   if 83 - 83: ooOo0o0O00 / iIIIII1I - i11iIiiIii . oo0 + iI1i
+   if 59 - 59: Ii1I11I % iI1i
+   if 92 - 92: oOo000OOOo % O0i11I1I1I / ooOo0o0O00 % ooOo0o0O00 * oo0o0000
+   if 74 - 74: Ii1I11I . oo0o0000 % iI1i11 % IIIi11I11
+def oOo0OooOo ( apk , url ) :
  if wiz . platform ( ) == 'android' :
   if apk in [ 'kodi' , 'spmc' ] :
-   IIiiii = ooo0OO . yesno ( Oo0Ooo , "Would you like to download and install:" , "%s (v%s)" % ( apk . upper ( ) , wiz . latestApk ( apk , 'version' ) ) )
-   if not IIiiii : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] Install Cancelled' ) ; return
-   O0O0OOooOO0 = "%s v%s" % ( apk . upper ( ) , wiz . latestApk ( apk , 'version' ) )
+   III11iiii11i1 = ooo0OO . yesno ( Oo0Ooo , "Would you like to download and install:" , "%s (v%s)" % ( apk . upper ( ) , wiz . latestApk ( apk , 'version' ) ) )
+   if not III11iiii11i1 : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] Install Cancelled' ) ; return
+   o0iIiiIiiIi = "%s v%s" % ( apk . upper ( ) , wiz . latestApk ( apk , 'version' ) )
   else :
-   IIiiii = ooo0OO . yesno ( Oo0Ooo , "Would you like to download and install:" , "%s" % apk )
-   if not IIiiii : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] Install Cancelled' ) ; return
-   O0O0OOooOO0 = apk
-  if IIiiii :
-   if not os . path . exists ( IiIi11iIIi1Ii ) : os . makedirs ( IiIi11iIIi1Ii )
+   III11iiii11i1 = ooo0OO . yesno ( Oo0Ooo , "Would you like to download and install:" , "%s" % apk )
+   if not III11iiii11i1 : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] Install Cancelled' ) ; return
+   o0iIiiIiiIi = apk
+  if III11iiii11i1 :
+   if not os . path . exists ( Oo0O ) : os . makedirs ( Oo0O )
    if not wiz . workingURL ( url ) == True : wiz . LogNotify ( Oo0Ooo , 'APK Installer: [COLOR red]Invalid Apk Url![/COLOR]' ) ; return
-   II1 . create ( Oo0Ooo , 'Downloading %s' % O0O0OOooOO0 , '' , 'Please Wait' )
-   Ooo0o0oo = os . path . join ( IiIi11iIIi1Ii , "%s.apk" % apk )
-   try : os . remove ( Ooo0o0oo )
+   II1 . create ( Oo0Ooo , 'Downloading %s' % o0iIiiIiiIi , '' , 'Please Wait' )
+   iiiI1i11Ii = os . path . join ( Oo0O , "%s.apk" % apk )
+   try : os . remove ( iiiI1i11Ii )
    except : pass
-   downloader . download ( url , Ooo0o0oo , II1 )
+   downloader . download ( url , iiiI1i11Ii , II1 )
    xbmc . sleep ( 500 )
    II1 . close ( )
    ooo0OO . ok ( Oo0Ooo , "Launching the APK to be installed" , "Follow the install process to complete." )
-   xbmc . executebuiltin ( 'StartAndroidActivity("","android.intent.action.VIEW","application/vnd.android.package-archive","file:' + Ooo0o0oo + '")' )
+   xbmc . executebuiltin ( 'StartAndroidActivity("","android.intent.action.VIEW","application/vnd.android.package-archive","file:' + iiiI1i11Ii + '")' )
   else : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] Install Cancelled' )
  else : wiz . LogNotify ( Oo0Ooo , '[COLOR red]ERROR:[/COLOR] None Android Device' )
- if 31 - 31: i1ii1I1111ii1 * IIIIiiIiiI + I1111i - OoOO0o / I1111i
- if 19 - 19: iII1iIi11i * oo00oO0o * IIiii + O0OoOO0o / O0OoOO0o
- if 73 - 73: Iii / Iii - IIIIiiIiiI
- if 91 - 91: IIIIiiIiiI + i1ii1I1111ii1
-def OoOooo ( name , url , ) :
+ if 40 - 40: Ii
+ if 78 - 78: oo0
+ if 56 - 56: iI1II - II1I1Ii - o0OOo0o0O0O
+ if 8 - 8: iIIIII1I / o0O0oO0O00O0o . oo0o0000 + ooOo0o0O00 / i11iIiiIii
+def I1Iii1iI1 ( name , url , ) :
  if "NULL" in url :
-  oo00OOoOoO00 = xbmcgui . Dialog ( )
   ooo0OO . ok ( Oo0Ooo , "[COLOR ghostwhite]Not a valid selection, please try again.[/COLOR]" )
   sys . exit ( 1 )
-  if 15 - 15: iII1iIi11i / O0OoOO0o . IIiii . i11iIiiIii
- o0OO0O0Oo = xbmc . translatePath ( os . path . join ( '/storage/emulated/0/Download' , '' ) )
- OOOOO = xbmcgui . DialogProgress ( )
- OOOOO . create ( Oo0Ooo , "" , "" , 'APK: ' + name )
- Ooo0o0oo = os . path . join ( o0OO0O0Oo , name + '.smc' )
- downloader . download ( url , Ooo0o0oo , OOOOO )
- oo00OOoOoO00 = xbmcgui . Dialog ( )
- oo00OOoOoO00 . ok ( Oo0Ooo , "[COLOR yellow]Download complete, ROM Location: [/COLOR][COLOR white]" + Ooo0o0oo + "[/COLOR]" )
- if 67 - 67: IIIIiiIiiI % IIiii . I1111i + OOOoO00 * IIiIi11i1i * o0oooOO00
-def iiIii1I ( name , url , ) :
- if "NULL" in url :
-  oo00OOoOoO00 = xbmcgui . Dialog ( )
-  ooo0OO . ok ( Oo0Ooo , "[COLOR ghostwhite]Not a valid selection, please try again.[/COLOR]" )
-  sys . exit ( 1 )
-  if 47 - 47: oo00oO0o . IIiIi11i1i / IIiii
- o0OO0O0Oo = xbmc . translatePath ( os . path . join ( '/storage/emulated/0/Download' , '' ) )
- OOOOO = xbmcgui . DialogProgress ( )
- OOOOO . create ( Oo0Ooo , "" , "" , 'APK: ' + name )
- Ooo0o0oo = os . path . join ( o0OO0O0Oo , name + '.nes' )
- downloader . download ( url , Ooo0o0oo , OOOOO )
- oo00OOoOoO00 = xbmcgui . Dialog ( )
- oo00OOoOoO00 . ok ( Oo0Ooo , "[COLOR yellow]Download complete, ROM Location: [/COLOR][COLOR white]" + Ooo0o0oo + "[/COLOR]" )
- if 83 - 83: IIiii / OOOoO00 / OOOoO00 + IIiii * IiiiiI1i1Iii + IIiii
-def IIIIiii ( name , url , ) :
- if "NULL" in url :
-  oo00OOoOoO00 = xbmcgui . Dialog ( )
-  ooo0OO . ok ( Oo0Ooo , "[COLOR ghostwhite]Not a valid selection, please try again.[/COLOR]" )
-  sys . exit ( 1 )
-  if 65 - 65: iIiI1 / IIiIi11i1i
- o0OO0O0Oo = xbmc . translatePath ( os . path . join ( '/storage/emulated/0/Download' , '' ) )
- OOOOO = xbmcgui . DialogProgress ( )
- OOOOO . create ( Oo0Ooo , "" , "" , 'APK: ' + name )
- Ooo0o0oo = os . path . join ( o0OO0O0Oo , name + '.gen' )
- downloader . download ( url , Ooo0o0oo , OOOOO )
- oo00OOoOoO00 = xbmcgui . Dialog ( )
- oo00OOoOoO00 . ok ( Oo0Ooo , "[COLOR yellow]Download complete, ROM Location: [/COLOR][COLOR white]" + Ooo0o0oo + "[/COLOR]" )
- if 12 - 12: IIiIi11i1i % o0oooOO00
- if 48 - 48: OoOO0o . i11iIiiIii
- if 5 - 5: IIIIiiIiiI . oOOOoo00 . O0OooOo0o . I1111i
- if 96 - 96: i11iIiiIii - OOOoO00 % O0OoOO0o / O0OO
- if 100 - 100: OoOO0o / O0O00O0 - I1111i % O0OooOo0o - i1ii1I1111ii1 % o0oooOO00
-def ooo0OOiIi1IiI ( ver ) :
- if ver == '15' : wiz . setS ( 'show15' , 'true' if oOOoo00O0O == 'false' else 'false' )
- elif ver == '16' : wiz . setS ( 'show16' , 'true' if i1111 == 'false' else 'false' )
+  if 86 - 86: Ii1I11I
+ O0o0oOooOoOo = xbmcgui . DialogProgress ( )
+ O0o0oOooOoOo . create ( Oo0Ooo , "" , "" , 'ROM: ' + name )
+ Oo0Oo0O = name . replace ( '\\' , '' ) . replace ( '/' , '' ) . replace ( ':' , '' ) . replace ( '*' , '' ) . replace ( '?' , '' ) . replace ( '"' , '' ) . replace ( '<' , '' ) . replace ( '>' , '' ) . replace ( '|' , '' )
+ iiiI1i11Ii = os . path . join ( Oo0O , '%s.zip' % Oo0Oo0O )
+ downloader . download ( url , iiiI1i11Ii , O0o0oOooOoOo )
+ i1i1IIIIIIIi = extract . all ( iiiI1i11Ii , I1IiiI , O0o0oOooOoOo )
+ ooo0OO . ok ( Oo0Ooo , "[COLOR yellow]Download complete, ROM Location: [/COLOR][COLOR white]" + iiiI1i11Ii + "[/COLOR]" )
+ if 49 - 49: o0O0oO0O00O0o . ooOo0o0O00 . i11iIiiIii - I11I1i1iIII1I / oOo000OOOo
+ if 62 - 62: o0O0oO0O00O0o
+ if 1 - 1: IIIi11I11 / IIIi11I11 - i11iIiiIii
+ if 87 - 87: iI1i / Ii1I11I * IIIi11I11 / Ii
+ if 19 - 19: iIIIII1I + o0OOo0o0O0O . oo0o0000 - iI1i
+def iIi1I1 ( ver ) :
+ if ver == '15' : wiz . setS ( 'show15' , 'true' if i1111 == 'false' else 'false' )
+ elif ver == '16' : wiz . setS ( 'show16' , 'true' if i11 == 'false' else 'false' )
  xbmc . executebuiltin ( 'Container.Refresh' )
- if 14 - 14: iII1iIi11i % IIIIiiIiiI % iIiI1 - i11iIiiIii
-def o0OO000ooOo ( part , whole ) :
+ if 63 - 63: O0i11I1I1I * ooOo0o0O00 . iI1II / o0O0oO0O00O0o * iI1i . ooI1i
+def Ooo0 ( part , whole ) :
  return 100 * float ( part ) / float ( whole )
- if 86 - 86: O0OO * I1111i
-def O0o0oO ( type , name ) :
+ if 91 - 91: o0OOo0o0O0O - oo0
+def iiIi1i ( type , name ) :
  if type == 'trakt' :
-  OooO0oOo = [ ]
-  oOOo00O0OOOo = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
-  OooO0oOo . append ( ( oOooO0 % name , ' ' ) )
-  OooO0oOo . append ( ( oOooO0 % 'Save Trakt Data' , 'RunPlugin(plugin://%s/?mode=savetrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Restore Trakt Data' , 'RunPlugin(plugin://%s/?mode=restoretrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Clear Trakt Data' , 'RunPlugin(plugin://%s/?mode=cleartrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
+  Oo0Oo00o00oO = [ ]
+  o0000 = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
+  Oo0Oo00o00oO . append ( ( ooo % name , ' ' ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Save Trakt Data' , 'RunPlugin(plugin://%s/?mode=savetrakt&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Restore Trakt Data' , 'RunPlugin(plugin://%s/?mode=restoretrakt&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Clear Trakt Data' , 'RunPlugin(plugin://%s/?mode=cleartrakt&name=%s)' % ( OO0o , o0000 ) ) )
  if type == 'traktaddon' :
-  OooO0oOo = [ ]
-  oOOo00O0OOOo = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
-  OooO0oOo . append ( ( oOooO0 % name , ' ' ) )
-  OooO0oOo . append ( ( oOooO0 % 'Register Trakt' , 'RunPlugin(plugin://%s/?mode=authtrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Save Trakt Data' , 'RunPlugin(plugin://%s/?mode=savetrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Restore Trakt Data' , 'RunPlugin(plugin://%s/?mode=restoretrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Clear Addon Trakt Data' , 'RunPlugin(plugin://%s/?mode=addontrakt&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
+  Oo0Oo00o00oO = [ ]
+  o0000 = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
+  Oo0Oo00o00oO . append ( ( ooo % name , ' ' ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Register Trakt' , 'RunPlugin(plugin://%s/?mode=authtrakt&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Save Trakt Data' , 'RunPlugin(plugin://%s/?mode=savetrakt&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Restore Trakt Data' , 'RunPlugin(plugin://%s/?mode=restoretrakt&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Clear Addon Trakt Data' , 'RunPlugin(plugin://%s/?mode=addontrakt&name=%s)' % ( OO0o , o0000 ) ) )
  if type == 'debrid' :
-  OooO0oOo = [ ]
-  oOOo00O0OOOo = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
-  OooO0oOo . append ( ( oOooO0 % name , ' ' ) )
-  OooO0oOo . append ( ( oOooO0 % 'Save Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=savedebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Restore Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=restoredebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Clear Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=cleardebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
+  Oo0Oo00o00oO = [ ]
+  o0000 = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
+  Oo0Oo00o00oO . append ( ( ooo % name , ' ' ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Save Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=savedebrid&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Restore Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=restoredebrid&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Clear Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=cleardebrid&name=%s)' % ( OO0o , o0000 ) ) )
  if type == 'debridaddon' :
-  OooO0oOo = [ ]
-  oOOo00O0OOOo = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
-  OooO0oOo . append ( ( oOooO0 % name , ' ' ) )
-  OooO0oOo . append ( ( oOooO0 % 'Register Real Debrid' , 'RunPlugin(plugin://%s/?mode=authdebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Save Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=savedebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Restore Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=restoredebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Clear Addon Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=addondebrid&name=%s)' % ( OO0o , oOOo00O0OOOo ) ) )
+  Oo0Oo00o00oO = [ ]
+  o0000 = urllib . quote_plus ( name . lower ( ) . replace ( ' ' , '' ) )
+  Oo0Oo00o00oO . append ( ( ooo % name , ' ' ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Register Real Debrid' , 'RunPlugin(plugin://%s/?mode=authdebrid&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Save Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=savedebrid&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Restore Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=restoredebrid&name=%s)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Clear Addon Real Debrid Data' , 'RunPlugin(plugin://%s/?mode=addondebrid&name=%s)' % ( OO0o , o0000 ) ) )
  if type == 'install' :
-  OooO0oOo = [ ]
-  oOOo00O0OOOo = urllib . quote_plus ( name )
-  OooO0oOo . append ( ( oOooO0 % name , ' ' ) )
-  OooO0oOo . append ( ( oOooO0 % 'Fresh Install' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=fresh)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Normal Install Use On Updates' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=normal)' % ( OO0o , oOOo00O0OOOo ) ) )
-  OooO0oOo . append ( ( oOooO0 % 'Apply guiFix' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=gui)' % ( OO0o , oOOo00O0OOOo ) ) )
- OooO0oOo . append ( ( oOooO0 % 'SpinzTV Settings' , 'RunPlugin(plugin://%s/?mode=settings)' % OO0o ) )
- return OooO0oOo
- if 31 - 31: IIiIi11i1i % OOOoO00 * IIiIi11i1i
-def IiII1i1iii1Ii ( ) :
- iI = wiz . log_check ( )
- O0O00OOo = iI . replace ( I1IiiI , "" )
- if os . path . exists ( iI ) or not iI == False :
-  OoOOo = open ( iI , mode = 'r' ) ; iii1 = OoOOo . read ( ) ; OoOOo . close ( )
-  wiz . TextBoxes ( "%s - %s" % ( Oo0Ooo , O0O00OOo ) , iii1 )
+  Oo0Oo00o00oO = [ ]
+  o0000 = urllib . quote_plus ( name )
+  Oo0Oo00o00oO . append ( ( ooo % name , ' ' ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Fresh Install' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=fresh)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Normal Install Use On Updates' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=normal)' % ( OO0o , o0000 ) ) )
+  Oo0Oo00o00oO . append ( ( ooo % 'Apply guiFix' , 'RunPlugin(plugin://%s/?mode=install&name=%s&url=gui)' % ( OO0o , o0000 ) ) )
+ Oo0Oo00o00oO . append ( ( ooo % 'SpinzTV Settings' , 'RunPlugin(plugin://%s/?mode=settings)' % OO0o ) )
+ return Oo0Oo00o00oO
+ if 42 - 42: iIIIII1I + iIIIII1I * I11I1i1iIII1I
+def o0Oo ( ) :
+ o0O0 = wiz . log_check ( )
+ I1I1Iiii1 = o0O0 . replace ( IIi1IiiiI1Ii , "" )
+ if os . path . exists ( o0O0 ) or not o0O0 == False :
+  i111i1 = open ( o0O0 , mode = 'r' ) ; OoOoOo0 = i111i1 . read ( ) ; i111i1 . close ( )
+  wiz . TextBoxes ( "%s - %s" % ( Oo0Ooo , I1I1Iiii1 ) , OoOoOo0 )
  else :
   wiz . LogNotify ( 'View Log' , 'No Log File Found!' )
-  if 78 - 78: oOOOoo00 + IIiIi11i1i - O0OoOO0o
-def i1I1iIi1IiI ( ) :
- if os . path . exists ( o0oO0 ) :
-  OoOOo = open ( o0oO0 , mode = 'r' ) ; iii1 = OoOOo . read ( ) ; OoOOo . close ( )
-  wiz . TextBoxes ( "%s - Wizard.log" % Oo0Ooo , iii1 )
+  if 39 - 39: II1I1Ii - ooOo0o0O00
+def OOO0o0OO0OO ( ) :
+ if os . path . exists ( oo00 ) :
+  i111i1 = open ( oo00 , mode = 'r' ) ; OoOoOo0 = i111i1 . read ( ) ; i111i1 . close ( )
+  wiz . TextBoxes ( "%s - Wizard.log" % Oo0Ooo , OoOoOo0 )
  else :
   wiz . LogNotify ( 'View Log' , 'Wizard.log not found!' )
-  if 11 - 11: O0OooOo0o
-def O00O00O000OOO ( addon ) :
+  if 64 - 64: I11I1i1iIII1I
+def iIIIiIi1I1i ( addon ) :
  if ooo0OO . yesno ( Oo0Ooo , 'Are you sure you want to delete the addon:' , '[COLOR yellow]%s[/COLOR]' % addon , yeslabel = 'Yes, Remove' , nolabel = 'No, Cancel' ) :
-  wiz . cleanHouse ( os . path . join ( oO00oOo , addon ) )
-  iIOo0O ( addon )
+  wiz . cleanHouse ( os . path . join ( OOOo0 , addon ) )
+  OoOOoO0oOo ( addon )
   wiz . LogNotify ( 'Remove Addon' , 'Complete!' )
   ooo0OO . ok ( Oo0Ooo , 'The addon has been removed but will remain in the addons list until the next time you reload Kodi.' )
  else : wiz . LogNotify ( 'Remove Addon' , 'Cancelled!' )
  xbmc . executebuiltin ( 'Container.Refresh' )
- if 1 - 1: O0OoOO0o / OoOO0o % IiiiiI1i1Iii . iIiI1 + iII1iIi11i
-def iIOo0O ( addon ) :
+ if 70 - 70: II1I1Ii % oo0 . iI1i + iI1i - Ii % iIIIII1I
+def OoOOoO0oOo ( addon ) :
  if addon == 'all' :
   if ooo0OO . yesno ( Oo0Ooo , 'Would you like to remove ALL addon data stored in you Userdata folder?' , yeslabel = 'Yes, Remove' , nolabel = 'No, Cancel' ) :
-   wiz . cleanHouse ( Oo0O )
+   wiz . cleanHouse ( IiI )
   else : wiz . LogNotify ( 'Remove Addon Data' , 'Cancelled!' )
  elif addon == 'uninstalled' :
   if ooo0OO . yesno ( Oo0Ooo , 'Would you like to remove ALL addon data stored in you Userdata folder for uninstalled addons?' , yeslabel = 'Yes, Remove' , nolabel = 'No, Cancel' ) :
-   I1Ii11iiiI = 0
-   for i1ii in glob . glob ( os . path . join ( Oo0O , '*' ) ) :
-    O0ooO0ooo0oO = i1ii . replace ( Oo0O , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
-    if O0ooO0ooo0oO in oOOoo0Oo : pass
-    elif os . path . exists ( os . path . join ( oO00oOo , O0ooO0ooo0oO ) ) : pass
-    else : wiz . cleanHouse ( i1ii ) ; I1Ii11iiiI += 1 ; wiz . log ( i1ii ) ; shutil . rmtree ( i1ii )
-   wiz . LogNotify ( 'Clean up Uninstalled' , '[COLOR yellow]%s[/COLOR] Folders(s) Removed' % I1Ii11iiiI )
+   i1IIi1i1Ii1 = 0
+   for iiiIi in glob . glob ( os . path . join ( IiI , '*' ) ) :
+    II1Iii = iiiIi . replace ( IiI , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
+    if II1Iii in o00OO00OoO : pass
+    elif os . path . exists ( os . path . join ( OOOo0 , II1Iii ) ) : pass
+    else : wiz . cleanHouse ( iiiIi ) ; i1IIi1i1Ii1 += 1 ; wiz . log ( iiiIi ) ; shutil . rmtree ( iiiIi )
+   wiz . LogNotify ( 'Clean up Uninstalled' , '[COLOR yellow]%s[/COLOR] Folders(s) Removed' % i1IIi1i1Ii1 )
   else : wiz . LogNotify ( 'Remove Addon Data' , 'Cancelled!' )
  elif addon == 'empty' :
   if ooo0OO . yesno ( Oo0Ooo , 'Would you like to remove ALL empty addon data folders in you Userdata folder?' , yeslabel = 'Yes, Remove' , nolabel = 'No, Cancel' ) :
-   I1Ii11iiiI = wiz . emptyfolder ( Oo0O )
-   wiz . LogNotify ( 'Remove Empty Folders' , '[COLOR yellow]%s[/COLOR] Folders(s) Removed' % I1Ii11iiiI )
+   i1IIi1i1Ii1 = wiz . emptyfolder ( IiI )
+   wiz . LogNotify ( 'Remove Empty Folders' , '[COLOR yellow]%s[/COLOR] Folders(s) Removed' % i1IIi1i1Ii1 )
   else : wiz . LogNotify ( 'Remove Empty Folders' , 'Cancelled!' )
  else :
-  i1II1IiIII111 = os . path . join ( OOOo0 , 'addon_data' , addon )
-  if addon in oOOoo0Oo :
+  Iii = os . path . join ( Oooo000o , 'addon_data' , addon )
+  if addon in o00OO00OoO :
    wiz . LogNotify ( "Protected Plugin" , "Not allowed to remove Addon_Data" )
-  elif os . path . exists ( i1II1IiIII111 ) :
+  elif os . path . exists ( Iii ) :
    if ooo0OO . yesno ( Oo0Ooo , 'Would you also like to remove the addon data for:' , '[COLOR yellow]%s[/COLOR]' % addon , yeslabel = 'Yes, Remove' , nolabel = 'No, Cancel' ) :
-    wiz . cleanHouse ( i1II1IiIII111 )
+    wiz . cleanHouse ( Iii )
     try :
-     shutil . rmtree ( i1II1IiIII111 )
+     shutil . rmtree ( Iii )
     except :
-     wiz . log ( "Error deleting: %s" % i1II1IiIII111 )
+     wiz . log ( "Error deleting: %s" % Iii )
    else :
     wiz . log ( 'Addon data for %s was not removed' % addon )
  xbmc . executebuiltin ( 'Container.Refresh' )
- if 50 - 50: O0OooOo0o * oOOOoo00 / O0O00O0 . IIiii + iIiI1 - OOOoO00
- if 18 - 18: o0oooOO00 % i11iIiiIii % oOOOoo00 / IIIIiiIiiI / IIiii / Oo0OO
- if 48 - 48: o0oooOO00 + IIiIi11i1i / iII1iIi11i + O0OooOo0o
- if 18 - 18: oOOOoo00
- if 23 - 23: O0OooOo0o
-def Ii1i1i1111 ( install = None ) :
- if iIii1 == 'true' :
-  traktit . autoUpdate ( 'all' )
-  wiz . setS ( 'traktlastsave' , str ( I11II1i ) )
+ if 63 - 63: IIIi11I11 + Ii
+ if 1 - 1: ooOo0o0O00 / iI1i11 + i1I1 . Ii / ooOo0o0O00 - O0i11I1I1I
+ if 5 - 5: o0O0oO0O00O0o
+ if 4 - 4: O0i11I1I1I % iIIIII1I / iI1i11 . o0O0oO0O00O0o / o0O0oO0O00O0o - ooOo0o0O00
+ if 79 - 79: ooOo0o0O00 + iIIIII1I
+def iIiII ( install = None ) :
  if oOOoO0 == 'true' :
+  traktit . autoUpdate ( 'all' )
+  wiz . setS ( 'traktlastsave' , str ( IIIII ) )
+ if O0OoO000O0OO == 'true' :
   debridit . autoUpdate ( 'all' )
-  wiz . setS ( 'debridlastsave' , str ( I11II1i ) )
- if oo00 not in [ 'skin.confluence' ] :
-  ii1i1i = 'skin.confluence'
-  IIiiii = ooo0OO . yesno ( Oo0Ooo , "The skin needs to be set back to [COLOR yellow]%s[/COLOR]" % ii1i1i [ 5 : ] , "Before doing a fresh install to clear all Texture files!" , "Would you like us to do that for you?" , nolabel = "No, Thanks" , yeslabel = "Yes, Swap Skin" ) ;
-  if IIiiii :
-   skinSwitch . swapSkins ( ii1i1i )
+  wiz . setS ( 'debridlastsave' , str ( IIIII ) )
+ if o00 not in [ 'skin.confluence' ] :
+  iIiIIi = 'skin.confluence'
+  III11iiii11i1 = ooo0OO . yesno ( Oo0Ooo , "The skin needs to be set back to [COLOR yellow]%s[/COLOR]" % iIiIIi [ 5 : ] , "Before doing a fresh install to clear all Texture files!" , "Would you like us to do that for you?" , nolabel = "No, Thanks" , yeslabel = "Yes, Swap Skin" ) ;
+  if III11iiii11i1 :
+   skinSwitch . swapSkins ( iIiIIi )
    while not xbmc . getCondVisibility ( "Window.isVisible(yesnodialog)" ) :
     xbmc . sleep ( 200 )
    xbmc . executebuiltin ( "Action(Left)" )
    xbmc . executebuiltin ( "Action(Select)" )
   else : wiz . LogNotify ( Oo0Ooo , 'Fresh Install: [COLOR red]Cancelled![/COLOR]' ) ; return
- if install : O000o0 = ooo0OO . yesno ( Oo0Ooo , "Do you wish to restore your" , "Kodi configuration to default settings" , "Before installing %s?" % install , nolabel = 'No, Cancel' , yeslabel = 'Yes, Continue' )
- else : O000o0 = ooo0OO . yesno ( Oo0Ooo , "Do you wish to restore your" , "Kodi configuration to default settings?" , nolabel = 'No, Cancel' , yeslabel = 'Yes, Continue' )
- if O000o0 :
-  II11iIII1i1I = os . path . abspath ( O00ooooo00 )
+ if install : iii1IIIiiiI = ooo0OO . yesno ( Oo0Ooo , "Do you wish to restore your" , "Kodi configuration to default settings" , "Before installing %s?" % install , nolabel = 'No, Cancel' , yeslabel = 'Yes, Continue' )
+ else : iii1IIIiiiI = ooo0OO . yesno ( Oo0Ooo , "Do you wish to restore your" , "Kodi configuration to default settings?" , nolabel = 'No, Cancel' , yeslabel = 'Yes, Continue' )
+ if iii1IIIiiiI :
+  III1I = os . path . abspath ( O00ooooo00 )
   II1 . create ( Oo0Ooo , "Clearing all files and folders:" , '' , '' )
-  oOO0oo = sum ( [ len ( IiIIi1I1I11Ii ) for o0OO , OoiiIiI , IiIIi1I1I11Ii in os . walk ( II11iIII1i1I ) ] ) ; o0Ooo0O00 = 0 ;
+  I1I111iIi = sum ( [ len ( OoOOOO ) for I1iiIi111I , Iiii1iIii , OoOOOO in os . walk ( III1I ) ] ) ; oOoooO000O = 0 ;
   try :
-   for ii1o0oooO , ooOoo0oO0OoO0 , IiIIi1I1I11Ii in os . walk ( II11iIII1i1I , topdown = True ) :
-    ooOoo0oO0OoO0 [ : ] = [ OoiiIiI for OoiiIiI in ooOoo0oO0OoO0 if OoiiIiI not in oOOoo0Oo ]
-    for I1i11 in IiIIi1I1I11Ii :
-     o0Ooo0O00 += 1
-     oOOOOOoOO = ii1o0oooO . split ( '\\' )
-     oooo00 = len ( oOOOOOoOO ) - 1
-     if I1i11 == 'sources.xml' and oOOOOOoOO [ oooo00 ] == 'userdata' and ii11iIi1I == 'true' : wiz . log ( "Keep Sources: %s\\%s" % ( ii1o0oooO , I1i11 ) )
-     elif I1i11 == 'favourites.xml' and oOOOOOoOO [ oooo00 ] == 'userdata' and i1iiIII111ii == 'true' : wiz . log ( "Keep Favourites: %s\\%s" % ( ii1o0oooO , I1i11 ) )
-     elif I1i11 == 'profiles.xml' and oOOOOOoOO [ oooo00 ] == 'userdata' and iI111I11I1I1 == 'true' : wiz . log ( "Keep Profiles: %s\\%s" % ( ii1o0oooO , I1i11 ) )
-     elif I1i11 == 'advancedsettings.xml' and oOOOOOoOO [ oooo00 ] == 'userdata' and OOooO0OOoo == 'true' : wiz . log ( "Keep Advanced Settings: %s\\%s" % ( ii1o0oooO , I1i11 ) )
-     elif I1i11 in [ 'xbmc.log' , 'kodi.log' , 'spmc.log' , 'tvmc.log' ] : wiz . log ( "Keep Log File: %s" % I1i11 )
-     elif I1i11 . endswith ( '.db' ) :
-      try : os . remove ( os . path . join ( ii1o0oooO , I1i11 ) )
-      except : wiz . log ( 'Failed to delete, Purging DB.' ) ; wiz . purgeDb ( os . path . join ( ii1o0oooO , I1i11 ) )
+   for III1I11i1iIi , OO0oo0O0OOO0 , OoOOOO in os . walk ( III1I , topdown = True ) :
+    OO0oo0O0OOO0 [ : ] = [ Iiii1iIii for Iiii1iIii in OO0oo0O0OOO0 if Iiii1iIii not in o00OO00OoO ]
+    for iI1I in OoOOOO :
+     oOoooO000O += 1
+     OoOOoIii1 = III1I11i1iIi . split ( '\\' )
+     OoOOo00 = len ( OoOOoIii1 ) - 1
+     if iI1I == 'sources.xml' and OoOOoIii1 [ OoOOo00 ] == 'userdata' and iI111I11I1I1 == 'true' : wiz . log ( "Keep Sources: %s\\%s" % ( III1I11i1iIi , iI1I ) )
+     elif iI1I == 'favourites.xml' and OoOOoIii1 [ OoOOo00 ] == 'userdata' and i1iIIi1 == 'true' : wiz . log ( "Keep Favourites: %s\\%s" % ( III1I11i1iIi , iI1I ) )
+     elif iI1I == 'profiles.xml' and OoOOoIii1 [ OoOOo00 ] == 'userdata' and OOooO0OOoo == 'true' : wiz . log ( "Keep Profiles: %s\\%s" % ( III1I11i1iIi , iI1I ) )
+     elif iI1I == 'advancedsettings.xml' and OoOOoIii1 [ OoOOo00 ] == 'userdata' and iIii1 == 'true' : wiz . log ( "Keep Advanced Settings: %s\\%s" % ( III1I11i1iIi , iI1I ) )
+     elif iI1I in [ 'xbmc.log' , 'kodi.log' , 'spmc.log' , 'tvmc.log' ] : wiz . log ( "Keep Log File: %s" % iI1I )
+     elif iI1I . endswith ( '.db' ) :
+      try : os . remove ( os . path . join ( III1I11i1iIi , iI1I ) )
+      except : wiz . log ( 'Failed to delete, Purging DB.' ) ; wiz . purgeDb ( os . path . join ( III1I11i1iIi , iI1I ) )
      else :
-      II1 . update ( int ( o0OO000ooOo ( o0Ooo0O00 , oOO0oo ) ) , '' , 'File: [COLOR yellow]%s[/COLOR]' % I1i11 , '' )
-      try : os . remove ( os . path . join ( ii1o0oooO , I1i11 ) )
-      except : wiz . log ( "Error removing %s\\%s" % ( ii1o0oooO , I1i11 ) )
-   for ii1o0oooO , ooOoo0oO0OoO0 , IiIIi1I1I11Ii in os . walk ( II11iIII1i1I , topdown = True ) :
-    ooOoo0oO0OoO0 [ : ] = [ OoiiIiI for OoiiIiI in ooOoo0oO0OoO0 if OoiiIiI not in oOOoo0Oo ]
-    for I1i11 in ooOoo0oO0OoO0 :
-     II1 . update ( 100 , '' , 'Cleaning Up Empty Folder: [COLOR yellow]%s[/COLOR]' % I1i11 , '' )
-     if I1i11 not in [ "Database" , "userdata" , "temp" , "addons" , "addon_data" ] :
-      shutil . rmtree ( os . path . join ( ii1o0oooO , I1i11 ) , ignore_errors = True , onerror = None )
+      II1 . update ( int ( Ooo0 ( oOoooO000O , I1I111iIi ) ) , '' , 'File: [COLOR yellow]%s[/COLOR]' % iI1I , '' )
+      try : os . remove ( os . path . join ( III1I11i1iIi , iI1I ) )
+      except : wiz . log ( "Error removing %s\\%s" % ( III1I11i1iIi , iI1I ) )
+   for III1I11i1iIi , OO0oo0O0OOO0 , OoOOOO in os . walk ( III1I , topdown = True ) :
+    OO0oo0O0OOO0 [ : ] = [ Iiii1iIii for Iiii1iIii in OO0oo0O0OOO0 if Iiii1iIii not in o00OO00OoO ]
+    for iI1I in OO0oo0O0OOO0 :
+     II1 . update ( 100 , '' , 'Cleaning Up Empty Folder: [COLOR yellow]%s[/COLOR]' % iI1I , '' )
+     if iI1I not in [ "Database" , "userdata" , "temp" , "addons" , "addon_data" ] :
+      shutil . rmtree ( os . path . join ( III1I11i1iIi , iI1I ) , ignore_errors = True , onerror = None )
    II1 . close ( )
    wiz . clearS ( 'build' )
   except :
@@ -1192,274 +1388,306 @@ def Ii1i1i1111 ( install = None ) :
   II1 . close ( )
   if install :
    ooo0OO . ok ( Oo0Ooo , "Your current setup for kodi has been cleared!" , "Now we will install: %s v%s" % ( install , wiz . checkBuild ( install , 'version' ) ) )
-   o0oO0oOO ( install , 'normal' )
+   oo00ooOoo ( install , 'normal' )
   else :
    ooo0OO . ok ( Oo0Ooo , "The process is complete, you're now back to a fresh Kodi configuration with SpinzTV Wizard" , "Please reboot your system or restart Kodi in order for the changes to be applied." )
    wiz . killxbmc ( )
  else : wiz . LogNotify ( Oo0Ooo , 'Fresh Install: [COLOR red]Cancelled![/COLOR]' ) ; xbmc . executebuiltin ( 'Container.Refresh' )
- if 35 - 35: IiiiiI1i1Iii . o0oooOO00 * i11iIiiIii
- if 44 - 44: i11iIiiIii / iIiI1
- if 42 - 42: I1111i + iIiI1 % O0OooOo0o + O0OO
- if 24 - 24: OoOO0o * O0OooOo0o % OoOO0o % iII1iIi11i + I1111i
-def IiIiiiIii ( ) :
+ if 53 - 53: IIIi11I11 . iIIIII1I % oo0 % iiiiII1I % II1I1Ii
+ if 53 - 53: iIIIII1I
+ if 69 - 69: iiiiII1I . Ii . oo0o0000 - ooOo0o0O00
+ if 32 - 32: iI1II / oo0o0000 / oo0 + I11I1i1iIII1I . i1I1 . Ii
+def ii1ii ( ) :
  if ooo0OO . yesno ( Oo0Ooo , 'Would you like to clear cache?' , nolabel = 'Cancel' , yeslabel = 'Delete' ) :
   wiz . clearCache ( )
-  IiiIIi11I1 ( )
-  if 34 - 34: O0OoOO0o * O0OoOO0o % I1111i + OoOO0o * Iii % O0O00O0
-def IiiIIi11I1 ( ) :
- I1iI1I1 = wiz . latestDB ( 'Textures' )
- if ooo0OO . yesno ( Oo0Ooo , "Would you like to delete the %s and Thumbnails folder?" % I1iI1I1 , "They will repopulate on startup" , nolabel = 'No, Cancel' , yeslabel = 'Yes, Remove' ) :
-  try : wiz . removeFile ( os . join ( i1i1II , I1iI1I1 ) )
-  except : wiz . log ( 'Failed to delete, Purging DB.' ) ; wiz . purgeDb ( I1iI1I1 )
-  wiz . removeFolder ( iI1Ii11111iIi )
+  IIiI1i ( )
+  if 6 - 6: ooOo0o0O00 / O0i11I1I1I - o0O0oO0O00O0o
+def IIiI1i ( ) :
+ o00O00Oo00O = wiz . latestDB ( 'Textures' )
+ if ooo0OO . yesno ( Oo0Ooo , "Would you like to delete the %s and Thumbnails folder?" % o00O00Oo00O , "They will repopulate on startup" , nolabel = 'No, Cancel' , yeslabel = 'Yes, Remove' ) :
+  try : wiz . removeFile ( os . join ( O0oo0OO0 , o00O00Oo00O ) )
+  except : wiz . log ( 'Failed to delete, Purging DB.' ) ; wiz . purgeDb ( o00O00Oo00O )
+  wiz . removeFolder ( i1i1II )
   wiz . killxbmc ( )
  else : wiz . log ( 'Clear thumbnames cancelled' )
- if 48 - 48: i1ii1I1111ii1 / i11iIiiIii - IIiii * IIIIiiIiiI / I1111i
-def OoOoi1i ( ) :
- IIIiiiI = [ ] ; O0O0OOooOO0 = [ ]
- for OoO00oo00 , Oo0Oo0O , IiIIi1I1I11Ii in os . walk ( O00ooooo00 ) :
-  for OoOOo in fnmatch . filter ( IiIIi1I1I11Ii , '*.db' ) :
-   if OoOOo != 'Thumbs.db' :
-    iiiI1i11Ii = os . path . join ( OoO00oo00 , OoOOo )
-    IIIiiiI . append ( iiiI1i11Ii )
-    dir = iiiI1i11Ii . replace ( '\\' , '/' ) . split ( '/' )
-    O0O0OOooOO0 . append ( '(%s) %s' % ( dir [ len ( dir ) - 2 ] , dir [ len ( dir ) - 1 ] ) )
- if IIIII >= 16 :
-  iIiII = ooo0OO . multiselect ( "Select DB File to Purge" , O0O0OOooOO0 )
-  if iIiII == None : wiz . LogNotify ( "Purge Database" , "Cancelled" )
-  elif len ( iIiII ) == 0 : wiz . LogNotify ( "Purge Database" , "Cancelled" )
+ if 46 - 46: iiiiII1I % o0OOo0o0O0O / i1I1 * iI1i * o0O0oO0O00O0o
+def OOoOOOo0Ooo0 ( ) :
+ o0OOOOO0O = [ ] ; o0iIiiIiiIi = [ ]
+ for I1I1IiIi1 , oOO0o0oo0 , OoOOOO in os . walk ( O00ooooo00 ) :
+  for i111i1 in fnmatch . filter ( OoOOOO , '*.db' ) :
+   if i111i1 != 'Thumbs.db' :
+    oOo000O = os . path . join ( I1I1IiIi1 , i111i1 )
+    o0OOOOO0O . append ( oOo000O )
+    dir = oOo000O . replace ( '\\' , '/' ) . split ( '/' )
+    o0iIiiIiiIi . append ( '(%s) %s' % ( dir [ len ( dir ) - 2 ] , dir [ len ( dir ) - 1 ] ) )
+ if ooooooO0oo >= 16 :
+  iII = ooo0OO . multiselect ( "Select DB File to Purge" , o0iIiiIiiIi )
+  if iII == None : wiz . LogNotify ( "Purge Database" , "Cancelled" )
+  elif len ( iII ) == 0 : wiz . LogNotify ( "Purge Database" , "Cancelled" )
   else :
-   for i1i1IIIIIIIi in iIiII : wiz . purgeDb ( IIIiiiI [ i1i1IIIIIIIi ] )
+   for ooO0o0O0Oo in iII : wiz . purgeDb ( o0OOOOO0O [ ooO0o0O0Oo ] )
  else :
-  iIiII = ooo0OO . select ( "Select DB File to Purge" , O0O0OOooOO0 )
-  if iIiII == - 1 : wiz . LogNotify ( "Purge Database" , "Cancelled" )
-  else : wiz . purgeDb ( IIIiiiI [ i1i1IIIIIIIi ] )
-  if 65 - 65: IIiii
-  if 7 - 7: iII1iIi11i . o0oooOO00 / oOOOoo00 . OOOoO00 * IIiIi11i1i - O0OooOo0o
-  if 37 - 37: IiiiiI1i1Iii . o0oooOO00 / O0OoOO0o * OoOO0o
-  if 7 - 7: O0OO * IIiIi11i1i + O0OooOo0o % i11iIiiIii
-def i1i1IiIiIi1Ii ( ) :
- IiIi1I1 = wiz . workingURL ( I1I1i1I )
- if IiIi1I1 == True :
-  i1I1i1 = wiz . openURL ( I1I1i1I ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-  id , iii1 = i1I1i1 . split ( '|||' )
-  notify . TestNotification ( msg = iii1 , title = O0oO0 , BorderWidth = 10 )
+  iII = ooo0OO . select ( "Select DB File to Purge" , o0iIiiIiiIi )
+  if iII == - 1 : wiz . LogNotify ( "Purge Database" , "Cancelled" )
+  else : wiz . purgeDb ( o0OOOOO0O [ ooO0o0O0Oo ] )
+  if 1 - 1: oo0 + iI1i / Ii1I11I - O0i11I1I1I % IIIi11I11 + IIIi11I11
+  if 24 - 24: oo0o0000 + iI1i + o0O0oO0O00O0o - iI1II + iI1i
+  if 93 - 93: ooI1i . oo0 % i11iIiiIii . iiiiII1I % ooI1i + Ii1I11I
+  if 65 - 65: oOo000OOOo + iI1i11 - iI1II
+def OOoOO0o ( ) :
+ OooOoOo = wiz . workingURL ( ii1iii1i )
+ if OooOoOo == True :
+  Iii1iiIi1II = wiz . openURL ( ii1iii1i ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  id , OoOoOo0 = Iii1iiIi1II . split ( '|||' )
+  notify . TestNotification ( msg = OoOoOo0 , title = ooOoO00 , BorderWidth = 10 )
  else : wiz . LogNotify ( Oo0Ooo , "Invalid URL for Notification" )
- if 64 - 64: OOOoO00 + I1111i * I1111i
-def i1I ( ) :
- if OoOoO == 'No' : i11I ( '==============BackUp Options===============' , '' , themeit = Ii1I1Ii )
- i11I ( 'Full Backup' , 'full' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Backup for Builds (Exc: Thumbnails, Databases)' , 'backb' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Backup addon data' , 'backad' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- if OoOoO == 'No' : i11I ( '==============Restore Options===============' , '' , themeit = Ii1I1Ii )
- I1i ( 'Restore Full Backup' , 'refull' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- I1i ( 'Restore Addon Data' , 'refull' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- if OoOoO == 'No' : i11I ( '==============Other Options===============' , '' , themeit = Ii1I1Ii )
- I1i ( 'Delete A Backup' , 'delbu' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Delete All Backups' , 'delall' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- i11I ( 'Select Backup Location' , 'settings' , icon = I1i1iiI1 , themeit = O0O0OOOOoo )
- if 36 - 36: i1ii1I1111ii1 * iIiI1
- if 77 - 77: IIIIiiIiiI % Oo0OO - O0O00O0
- if 93 - 93: O0OO * iIiI1
- if 73 - 73: IIiii - i1ii1I1111ii1 * Oo0OO / i11iIiiIii * OOOoO00 % O0OooOo0o
- if 56 - 56: I1111i * iIiI1 . iIiI1 . oOOOoo00
- if 24 - 24: iIiI1 . IIiIi11i1i * O0O00O0 % OoOO0o / OOOoO00
-def I1i ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = O0oo0OO0 , icon = I1i1iiI1 , themeit = None ) :
- Oo0Ooo0O0 = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
- if not name == None : Oo0Ooo0O0 += "&name=" + urllib . quote_plus ( name )
- if not url == None : Oo0Ooo0O0 += "&url=" + urllib . quote_plus ( url )
- IiIIi1IiiIiI = True
+ if 51 - 51: iI1i - ooOo0o0O00 * II1I1Ii
+def ii1111Ii1i ( ) :
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '==============BackUp Options===============' , '' , themeit = i1i1iI1iiiI )
+ I1ii1ii11i1I ( 'Full Backup' , 'full' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Backup for Builds (Exc: Thumbnails, Databases)' , 'backb' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Backup addon data' , 'backad' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '==============Restore Options===============' , '' , themeit = i1i1iI1iiiI )
+ OOoOooOoOOOoo ( 'Restore Full Backup' , 'refull' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ OOoOooOoOOOoo ( 'Restore Addon Data' , 'refull' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ if IiII111i1i11 == 'No' : I1ii1ii11i1I ( '==============Other Options===============' , '' , themeit = i1i1iI1iiiI )
+ OOoOooOoOOOoo ( 'Delete A Backup' , 'delbu' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Delete All Backups' , 'delall' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ I1ii1ii11i1I ( 'Select Backup Location' , 'settings' , icon = iiIIIII1i1iI , themeit = i1I1i111Ii )
+ if 48 - 48: Ii1I11I * oOo000OOOo - Ii1I11I / oOo000OOOo + iiiiII1I
+ if 52 - 52: iI1i11 % oOo000OOOo * I11I1i1iIII1I
+ if 4 - 4: II1I1Ii % Ii1I11I - iI1II + ooI1i . i1I1 % I11I1i1iIII1I
+ if 9 - 9: I11I1i1iIII1I * I11I1i1iIII1I . i11iIiiIii * oo0
+ if 18 - 18: iI1i11 . I11I1i1iIII1I % iiiiII1I % oOo000OOOo
+ if 87 - 87: oo0 . iI1II * iiiiII1I
+def OOoOooOoOOOoo ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = I1i1iiI1 , icon = iiIIIII1i1iI , themeit = None ) :
+ OOOo = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
+ if not name == None : OOOo += "&name=" + urllib . quote_plus ( name )
+ if not url == None : OOOo += "&url=" + urllib . quote_plus ( url )
+ o0ooOo00O = True
  if themeit : display = themeit % display
- iIIIIiiIii = xbmcgui . ListItem ( display , iconImage = "DefaultFolder.png" , thumbnailImage = icon )
- iIIIIiiIii . setInfo ( type = "Video" , infoLabels = { "Title" : display , "Plot" : Oo0Ooo } )
- iIIIIiiIii . setProperty ( "Fanart_Image" , fanart )
- if not menu == None : iIIIIiiIii . addContextMenuItems ( menu , replaceItems = overwrite )
- IiIIi1IiiIiI = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Oo0Ooo0O0 , listitem = iIIIIiiIii , isFolder = True )
- return IiIIi1IiiIiI
- if 58 - 58: iIiI1
-def i11I ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = O0oo0OO0 , icon = I1i1iiI1 , themeit = None ) :
- Oo0Ooo0O0 = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
- if not name == None : Oo0Ooo0O0 += "&name=" + urllib . quote_plus ( name )
- if not url == None : Oo0Ooo0O0 += "&url=" + urllib . quote_plus ( url )
- IiIIi1IiiIiI = True
+ Ii1i1I1 = xbmcgui . ListItem ( display , iconImage = "DefaultFolder.png" , thumbnailImage = icon )
+ Ii1i1I1 . setInfo ( type = "Video" , infoLabels = { "Title" : display , "Plot" : Oo0Ooo } )
+ Ii1i1I1 . setProperty ( "Fanart_Image" , fanart )
+ if not menu == None : Ii1i1I1 . addContextMenuItems ( menu , replaceItems = overwrite )
+ o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = True )
+ return o0ooOo00O
+ if 97 - 97: iIIIII1I . ooI1i - iIIIII1I + oo0o0000 * I11I1i1iIII1I
+ if 10 - 10: oOo000OOOo + II1I1Ii % iI1II - oo0o0000
+def Ii1IIIIi1ii1I ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = I1i1iiI1 , icon = iiIIIII1i1iI , description = None , themeit = None ) :
+ OOOo = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
+ if not name == None : OOOo += "&name=" + urllib . quote_plus ( name )
+ if not url == None : OOOo += "&url=" + urllib . quote_plus ( url )
+ if not description == None : OOOo += "&description=" + urllib . quote_plus ( description )
+ o0ooOo00O = True
  if themeit : display = themeit % display
- iIIIIiiIii = xbmcgui . ListItem ( display , iconImage = "DefaultFolder.png" , thumbnailImage = icon )
- iIIIIiiIii . setInfo ( type = "Video" , infoLabels = { "Title" : display , "Plot" : Oo0Ooo } )
- iIIIIiiIii . setProperty ( "Fanart_Image" , fanart )
- if not menu == None : iIIIIiiIii . addContextMenuItems ( menu , replaceItems = overwrite )
- IiIIi1IiiIiI = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Oo0Ooo0O0 , listitem = iIIIIiiIii , isFolder = False )
- return IiIIi1IiiIiI
- if 9 - 9: Iii % oOOOoo00 . OOOoO00 + I1111i
-def Oo0o ( name , url , mode , iconimage , fanart , description ) :
- Oo0Ooo0O0 = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&fanart=" + urllib . quote_plus ( fanart )
- IiIIi1IiiIiI = True
- iIIIIiiIii = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
- iIIIIiiIii . setInfo ( type = "Video" , infoLabels = { "Title" : name } )
- iIIIIiiIii . setProperty ( "Fanart_Image" , fanart )
- IiIIi1IiiIiI = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Oo0Ooo0O0 , listitem = iIIIIiiIii , isFolder = False )
- return IiIIi1IiiIiI
- if 93 - 93: OOOoO00
-def iIii1Ooo0oO0 ( name , url , mode , iconimage , fanart , description ) :
- Oo0Ooo0O0 = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
- IiIIi1IiiIiI = True
- iIIIIiiIii = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
- iIIIIiiIii . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
- iIIIIiiIii . setProperty ( "Fanart_Image" , fanart )
+ Ii1i1I1 = xbmcgui . ListItem ( description , iconImage = "DefaultFolder.png" , thumbnailImage = icon )
+ Ii1i1I1 . setInfo ( type = "Video" , infoLabels = { "Title" : description , "Plot" : Oo0Ooo } )
+ Ii1i1I1 . setProperty ( "Fanart_Image" , fanart )
+ if not menu == None : Ii1i1I1 . addContextMenuItems ( menu , replaceItems = overwrite )
+ o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = False )
+ return o0ooOo00O
+ if 70 - 70: o0O0oO0O00O0o - O0i11I1I1I
+def I1ii1ii11i1I ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = I1i1iiI1 , icon = iiIIIII1i1iI , themeit = None ) :
+ OOOo = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
+ if not name == None : OOOo += "&name=" + urllib . quote_plus ( name )
+ if not url == None : OOOo += "&url=" + urllib . quote_plus ( url )
+ o0ooOo00O = True
+ if themeit : display = themeit % display
+ Ii1i1I1 = xbmcgui . ListItem ( display , iconImage = "DefaultFolder.png" , thumbnailImage = icon )
+ Ii1i1I1 . setInfo ( type = "Video" , infoLabels = { "Title" : display , "Plot" : Oo0Ooo } )
+ Ii1i1I1 . setProperty ( "Fanart_Image" , fanart )
+ if not menu == None : Ii1i1I1 . addContextMenuItems ( menu , replaceItems = overwrite )
+ o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = False )
+ return o0ooOo00O
+ if 2 - 2: oo0
+def iiii1 ( name , url , mode , iconimage , fanart , description ) :
+ OOOo = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&fanart=" + urllib . quote_plus ( fanart )
+ o0ooOo00O = True
+ Ii1i1I1 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
+ Ii1i1I1 . setInfo ( type = "Video" , infoLabels = { "Title" : name } )
+ Ii1i1I1 . setProperty ( "Fanart_Image" , fanart )
+ o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = False )
+ return o0ooOo00O
+ if 66 - 66: i1I1 * oo0 % oo0 * IIIi11I11 - ooI1i - IIIi11I11
+def o0O0oO0 ( name , url , mode , iconimage , fanart , description ) :
+ OOOo = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
+ o0ooOo00O = True
+ Ii1i1I1 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
+ Ii1i1I1 . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
+ Ii1i1I1 . setProperty ( "Fanart_Image" , fanart )
  if mode == 90 :
-  IiIIi1IiiIiI = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Oo0Ooo0O0 , listitem = iIIIIiiIii , isFolder = False )
+  o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = False )
  else :
-  IiIIi1IiiIiI = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Oo0Ooo0O0 , listitem = iIIIIiiIii , isFolder = True )
- return IiIIi1IiiIiI
- if 86 - 86: O0OoOO0o
- if 95 - 95: OoOO0o * OOOoO00 . o0oooOO00 . Oo0OO . Oo0OO - IIiii
-def ii1iIIiii1 ( ) :
- ooOo0O0o0 = [ ]
- o0oo0O = sys . argv [ 2 ]
- if len ( o0oo0O ) >= 2 :
-  I1iiIII = sys . argv [ 2 ]
-  iIi1I1 = I1iiIII . replace ( '?' , '' )
-  if ( I1iiIII [ len ( I1iiIII ) - 1 ] == '/' ) :
-   I1iiIII = I1iiIII [ 0 : len ( I1iiIII ) - 2 ]
-  O0oOoo0OoO0O = iIi1I1 . split ( '&' )
-  ooOo0O0o0 = { }
-  for oo00IiI1 in range ( len ( O0oOoo0OoO0O ) ) :
-   oOo00o00oO = { }
-   oOo00o00oO = O0oOoo0OoO0O [ oo00IiI1 ] . split ( '=' )
-   if ( len ( oOo00o00oO ) ) == 2 :
-    ooOo0O0o0 [ oOo00o00oO [ 0 ] ] = oOo00o00oO [ 1 ]
-    if 95 - 95: i1ii1I1111ii1
-  return ooOo0O0o0
-  if 88 - 88: iII1iIi11i % O0OO + IiiiiI1i1Iii + IiiiiI1i1Iii * O0OooOo0o
-I1iiIII = ii1iIIiii1 ( )
-IiIi1I1 = None
-I1i11 = None
-o0Oo = None
-if 57 - 57: OOOoO00 / iIiI1
-try : o0Oo = urllib . unquote_plus ( I1iiIII [ "mode" ] )
+  o0ooOo00O = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOo , listitem = Ii1i1I1 , isFolder = True )
+ return o0ooOo00O
+ if 77 - 77: Ii1I11I . oOo000OOOo
+ if 39 - 39: ooI1i . I11I1i1iIII1I
+def iIiIi1iI11iiI ( ) :
+ iiI1Ii11II1I = [ ]
+ I1Ii11II1I1 = sys . argv [ 2 ]
+ if len ( I1Ii11II1I1 ) >= 2 :
+  IiI1iI1IiiIi1 = sys . argv [ 2 ]
+  OoO0oo = IiI1iI1IiiIi1 . replace ( '?' , '' )
+  if ( IiI1iI1IiiIi1 [ len ( IiI1iI1IiiIi1 ) - 1 ] == '/' ) :
+   IiI1iI1IiiIi1 = IiI1iI1IiiIi1 [ 0 : len ( IiI1iI1IiiIi1 ) - 2 ]
+  OoOoO0O = OoO0oo . split ( '&' )
+  iiI1Ii11II1I = { }
+  for o0i1I11iI1iiI in range ( len ( OoOoO0O ) ) :
+   I1ii = { }
+   I1ii = OoOoO0O [ o0i1I11iI1iiI ] . split ( '=' )
+   if ( len ( I1ii ) ) == 2 :
+    iiI1Ii11II1I [ I1ii [ 0 ] ] = I1ii [ 1 ]
+    if 80 - 80: ooOo0o0O00 / oo0 % iiiiII1I
+  return iiI1Ii11II1I
+  if 80 - 80: iI1i11 % O0i11I1I1I
+IiI1iI1IiiIi1 = iIiIi1iI11iiI ( )
+OooOoOo = None
+iI1I = None
+O0Oo0 = None
+if 80 - 80: oo0o0000 - oo0 . o0O0oO0O00O0o + iI1i11 - iIIIII1I
+try : O0Oo0 = urllib . unquote_plus ( IiI1iI1IiiIi1 [ "mode" ] )
 except : pass
-try : I1i11 = urllib . unquote_plus ( I1iiIII [ "name" ] )
+try : iI1I = urllib . unquote_plus ( IiI1iI1IiiIi1 [ "name" ] )
 except : pass
-try : IiIi1I1 = urllib . unquote_plus ( I1iiIII [ "url" ] )
+try : OooOoOo = urllib . unquote_plus ( IiI1iI1IiiIi1 [ "url" ] )
 except : pass
-if 69 - 69: IIIIiiIiiI - iIiI1 % iII1iIi11i
-wiz . log ( '[ Version : \'%s\' ] [ Mode : \'%s\' ] [ Name : \'%s\' ] [ Url : \'%s\' ]' % ( iiiii , o0Oo if not o0Oo == '' else None , I1i11 , IiIi1I1 ) )
-def ii1i ( ) :
- if 27 - 27: oo00oO0o % O0OoOO0o % IiiiiI1i1Iii
- for file in os . listdir ( I11i11Ii ) :
+if 5 - 5: O0i11I1I1I
+wiz . log ( '[ Version : \'%s\' ] [ Mode : \'%s\' ] [ Name : \'%s\' ] [ Url : \'%s\' ]' % ( iiiii , O0Oo0 if not O0Oo0 == '' else None , iI1I , OooOoOo ) )
+def OOiI1 ( ) :
+ if 42 - 42: o0O0oO0O00O0o % i1I1 / iI1i11 - i1I1 * i11iIiiIii
+ for file in os . listdir ( oO00oOo ) :
   if file . endswith ( ".zip" ) :
-   IiIi1I1 = xbmc . translatePath ( os . path . join ( I11i11Ii , file ) )
-   Oo0o ( file , IiIi1I1 , 'read' , I1i1iiI1 , I1i1iiI1 , '' )
-   if 99 - 99: i1ii1I1111ii1 + Oo0OO + i11iIiiIii + iIiI1 % IIIIiiIiiI / IIiIi11i1i
-def O0OO0o0OO0OO ( ) :
- oOo0O = xbmc . translatePath ( os . path . join ( 'special://' , 'home' ) )
- for file in os . listdir ( I11i11Ii ) :
+   OooOoOo = xbmc . translatePath ( os . path . join ( oO00oOo , file ) )
+   iiii1 ( file , OooOoOo , 'read' , iiIIIII1i1iI , iiIIIII1i1iI , '' )
+   if 19 - 19: i1I1 * oo0o0000 % i11iIiiIii
+def iiI1Ii1I ( ) :
+ i11Ii1iIiII = xbmc . translatePath ( os . path . join ( 'special://' , 'home' ) )
+ for file in os . listdir ( oO00oOo ) :
   if file . endswith ( ".zip" ) :
-   IiIi1I1 = xbmc . translatePath ( os . path . join ( I11i11Ii , file ) )
-   iIii1Ooo0oO0 ( file , IiIi1I1 , 'dell' , I1i1iiI1 , I1i1iiI1 , '' )
-   if 43 - 43: IIiii . OoOO0o . IIiIi11i1i + Iii
-   if 78 - 78: Iii % o0oooOO00 + oOOOoo00 / Oo0OO % O0OooOo0o + OOOoO00
-def o00Oo0oooooo ( content , viewType ) :
+   OooOoOo = xbmc . translatePath ( os . path . join ( oO00oOo , file ) )
+   o0O0oO0 ( file , OooOoOo , 'dell' , iiIIIII1i1iI , iiIIIII1i1iI , '' )
+   if 81 - 81: II1I1Ii . iI1II * iiiiII1I % IIIi11I11 . II1I1Ii
+   if 60 - 60: o0O0oO0O00O0o / oo0o0000
+def o0OoOO ( content , viewType ) :
  if content :
   xbmcplugin . setContent ( int ( sys . argv [ 1 ] ) , content )
  if wiz . getS ( 'auto-view' ) == 'true' :
   xbmc . executebuiltin ( "Container.SetViewMode(%s)" % wiz . getS ( viewType ) )
-  if 91 - 91: Iii % O0OO . IIiii + O0O00O0 + IIiii
-if o0Oo == None : ii1iI1I11I ( )
-if 95 - 95: O0O00O0 + oOOOoo00 * OOOoO00
-elif o0Oo == 'builds' : OO0000o ( )
-elif o0Oo == 'showupdate' : ooo0OOiIi1IiI ( I1i11 )
-elif o0Oo == 'viewbuild' : ooo0O0o00O ( I1i11 )
-elif o0Oo == 'install' : o0oO0oOO ( I1i11 , IiIi1I1 )
-elif o0Oo == 'theme' : o0oO0oOO ( I1i11 , o0Oo , IiIi1I1 )
-if 16 - 16: IIiIi11i1i / i1ii1I1111ii1 + O0OO % Iii - Oo0OO . IIIIiiIiiI
-elif o0Oo == 'maint' : i1iiIiI1Ii1i ( )
-elif o0Oo == 'speed' : Oo0000oOo ( )
-elif o0Oo == 'speedtest' : speedtest . runtest ( IiIi1I1 )
-elif o0Oo == 'clearcache' : IiIiiiIii ( )
-elif o0Oo == 'clearpackages' : wiz . clearPackages ( )
-elif o0Oo == 'clearthumb' : IiiIIi11I1 ( )
-elif o0Oo == 'freshstart' : Ii1i1i1111 ( )
-elif o0Oo == 'forceupdate' : wiz . forceUpdate ( )
-elif o0Oo == 'forceclose' : wiz . killxbmc ( )
-elif o0Oo == 'uploadlog' : uploadLog . LogUploader ( )
-elif o0Oo == 'viewlog' : IiII1i1iii1Ii ( )
-elif o0Oo == 'viewwizlog' : i1I1iIi1IiI ( )
-elif o0Oo == 'clearwizlog' : OoOOo = open ( o0oO0 , 'w' ) ; OoOOo . close ( ) ; wiz . LogNotify ( Oo0Ooo , "Wizard Log Cleared!" )
-elif o0Oo == 'purgedb' : OoOoi1i ( )
-elif o0Oo == 'removeaddons' : IiiiIi1i ( )
-elif o0Oo == 'removeaddon' : O00O00O000OOO ( I1i11 )
-elif o0Oo == 'removeaddondata' : o0oOoO0O ( )
-elif o0Oo == 'removedata' : iIOo0O ( I1i11 )
-elif o0Oo == 'resetaddon' : I1Ii11iiiI = wiz . cleanHouse ( IiI , ignore = True ) ; wiz . LogNotify ( Oo0Ooo , "Addon_Data reset" )
-if 26 - 26: IIiii * iII1iIi11i . Oo0OO
-elif o0Oo == 'apkspinz' : o0oO000oo ( )
-elif o0Oo == 'apk' : OoOooOoO ( )
-elif o0Oo == 'apkkodi' : IIiI1Ii ( )
-elif o0Oo == 'apkmaster' : oOO ( )
-elif o0Oo == 'apkgames' : I1IIIiI11i1 ( )
-elif o0Oo == 'emurom' : IIi1IIIi ( )
-elif o0Oo == 'emulators' : o0OOOo ( )
-elif o0Oo == 'roms' : iII1ii1 ( )
-elif o0Oo == 'snes' : Iii1iiIi1II ( )
-elif o0Oo == 'nes' : ooo ( )
-elif o0Oo == 'nesa' : ooO ( )
-elif o0Oo == 'nesc' : I1Iii1 ( )
-elif o0Oo == 'nesd' : Ooo00O0o ( )
-elif o0Oo == 'nesf' : I11i1II ( )
-elif o0Oo == 'nesh' : ooo000o000 ( )
-elif o0Oo == 'nesl' : IiIi1I1ii111 ( )
-elif o0Oo == 'nesn' : oOOO0oo0 ( )
-elif o0Oo == 'nesr' : ii1iIi1iIiI1i ( )
-elif o0Oo == 'nest' : ooo0o00 ( )
-elif o0Oo == 'nesw' : I11IIi ( )
-elif o0Oo == 'gen' : o0OIiiiI ( )
-elif o0Oo == 'gena' : o0oOO ( )
-elif o0Oo == 'genc' : ii ( )
-elif o0Oo == 'gene' : ii1III11 ( )
-elif o0Oo == 'genh' : o0o0O00oo0 ( )
-elif o0Oo == 'genm' : ooO0o ( )
-elif o0Oo == 'genp' : ii11I1 ( )
-elif o0Oo == 'gens' : Ii111iIi1iIi ( )
-elif o0Oo == 'genu' : OoOo ( )
-elif o0Oo == 'apkvid' : O00 ( )
-elif o0Oo == 'apksys' : oo000 ( )
-elif o0Oo == 'apkinstall' : iIIiI1I1i ( I1i11 , IiIi1I1 )
-elif o0Oo == 'snesrominstall' : OoOooo ( I1i11 , IiIi1I1 , )
-elif o0Oo == 'nesrominstall' : iiIii1I ( I1i11 , IiIi1I1 )
-elif o0Oo == 'genrominstall' : IIIIiii ( I1i11 , IiIi1I1 )
-if 59 - 59: O0OoOO0o + Oo0OO - IIiii
-if 62 - 62: i11iIiiIii % OOOoO00 . iII1iIi11i . OOOoO00
-elif o0Oo == 'savedata' : o0iiiI1I1iIIIi1 ( )
-elif o0Oo == 'togglesetting' : wiz . setS ( I1i11 , 'false' if wiz . getS ( I1i11 ) == 'true' else 'true' ) ; xbmc . executebuiltin ( 'Container.Refresh' )
-if 84 - 84: i11iIiiIii * O0OO
-elif o0Oo == 'trakt' : OOOoO000 ( )
-elif o0Oo == 'savetrakt' : traktit . traktIt ( 'update' , I1i11 )
-elif o0Oo == 'restoretrakt' : traktit . traktIt ( 'restore' , I1i11 )
-elif o0Oo == 'addontrakt' : traktit . traktIt ( 'clearaddon' , I1i11 )
-elif o0Oo == 'cleartrakt' : traktit . clearSaved ( I1i11 )
-elif o0Oo == 'authtrakt' : traktit . activateTrakt ( I1i11 ) ; xbmc . executebuiltin ( 'Container.Refresh' )
-if 18 - 18: OOOoO00 - O0O00O0 - o0oooOO00 / IiiiiI1i1Iii - O0OoOO0o
-elif o0Oo == 'realdebrid' : II1IiiIii ( )
-elif o0Oo == 'savedebrid' : debridit . debridIt ( 'update' , I1i11 )
-elif o0Oo == 'restoredebrid' : debridit . debridIt ( 'restore' , I1i11 )
-elif o0Oo == 'addondebrid' : debridit . debridIt ( 'clearaddon' , I1i11 )
-elif o0Oo == 'cleardebrid' : debridit . clearSaved ( I1i11 )
-elif o0Oo == 'authdebrid' : debridit . activateDebrid ( I1i11 ) ; xbmc . executebuiltin ( 'Container.Refresh' )
-if 30 - 30: O0OoOO0o + oOOOoo00 + O0OooOo0o
-elif o0Oo == 'contact' : wiz . TextBoxes ( Oo0Ooo , OO )
-elif o0Oo == 'settings' : wiz . openS ( ) ; xbmc . executebuiltin ( 'Container.Refresh' )
-if 14 - 14: IIiii / OOOoO00 - Iii - IIIIiiIiiI % oo00oO0o
-elif o0Oo == 'developer' : oOOiiiIIiIi ( )
-elif o0Oo == 'convertpath' : wiz . convertSpecial ( O00ooooo00 )
-elif o0Oo == 'testnotify' : i1i1IiIiIi1Ii ( )
-elif o0Oo == 'bre' : i1I ( )
-elif o0Oo == 'full' : backuprestore . FullBackup ( )
-elif o0Oo == 'backb' : backuprestore . Backup ( )
-elif o0Oo == 'backad' : backuprestore . ADDON_DATA_BACKUP ( )
-elif o0Oo == 'refull' : ii1i ( )
-elif o0Oo == 'delbu' : O0OO0o0OO0OO ( )
-elif o0Oo == 'delall' : backuprestore . DeleteAllBackups ( )
-elif o0Oo == 'read' : backuprestore . READ_ZIP ( IiIi1I1 )
-elif o0Oo == 'dell' : backuprestore . DeleteBackup ( IiIi1I1 )
-if o0Oo not in [ '' , 'togglesettings' , 'settings' , 'contact' ] : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) )
+  if 78 - 78: II1I1Ii . IIIi11I11
+if O0Oo0 == None : Ooo0O0oooo ( )
+if 38 - 38: iiiiII1I + IIIi11I11
+elif O0Oo0 == 'builds' : IiIiII1 ( )
+elif O0Oo0 == 'showupdate' : iIi1I1 ( iI1I )
+elif O0Oo0 == 'viewbuild' : ii1II ( iI1I )
+elif O0Oo0 == 'install' : oo00ooOoo ( iI1I , OooOoOo )
+elif O0Oo0 == 'theme' : oo00ooOoo ( iI1I , O0Oo0 , OooOoOo )
+if 15 - 15: iI1i + II1I1Ii . ooI1i - oo0 / Ii1I11I % oo0
+elif O0Oo0 == 'maint' : I111i1I1 ( )
+elif O0Oo0 == 'speed' : o000 ( )
+elif O0Oo0 == 'speedtest' : speedtest . runtest ( OooOoOo )
+elif O0Oo0 == 'clearcache' : ii1ii ( )
+elif O0Oo0 == 'clearpackages' : wiz . clearPackages ( )
+elif O0Oo0 == 'clearthumb' : IIiI1i ( )
+elif O0Oo0 == 'freshstart' : iIiII ( )
+elif O0Oo0 == 'forceupdate' : wiz . forceUpdate ( )
+elif O0Oo0 == 'forceclose' : wiz . killxbmc ( )
+elif O0Oo0 == 'uploadlog' : uploadLog . LogUploader ( )
+elif O0Oo0 == 'viewlog' : o0Oo ( )
+elif O0Oo0 == 'viewwizlog' : OOO0o0OO0OO ( )
+elif O0Oo0 == 'clearwizlog' : i111i1 = open ( oo00 , 'w' ) ; i111i1 . close ( ) ; wiz . LogNotify ( Oo0Ooo , "Wizard Log Cleared!" )
+elif O0Oo0 == 'purgedb' : OOoOOOo0Ooo0 ( )
+elif O0Oo0 == 'removeaddons' : iii1III1i ( )
+elif O0Oo0 == 'removeaddon' : iIIIiIi1I1i ( iI1I )
+elif O0Oo0 == 'removeaddondata' : oooo00 ( )
+elif O0Oo0 == 'removedata' : OoOOoO0oOo ( iI1I )
+elif O0Oo0 == 'resetaddon' : i1IIi1i1Ii1 = wiz . cleanHouse ( ooOo , ignore = True ) ; wiz . LogNotify ( Oo0Ooo , "Addon_Data reset" )
+if 86 - 86: oo0o0000 / i1I1 * oOo000OOOo
+elif O0Oo0 == 'apkspinz' : ii1III11 ( )
+elif O0Oo0 == 'apkin' : o0o0O00oo0 ( )
+elif O0Oo0 == 'apk' : O00o0OO0000oo ( )
+elif O0Oo0 == 'apkkodi' : ooO0o ( )
+elif O0Oo0 == 'apkmaster' : O00oo0ooO ( )
+elif O0Oo0 == 'apkgames' : ii11I1 ( )
+elif O0Oo0 == 'emurom' : Ii111iIi1iIi ( )
+elif O0Oo0 == 'emulators' : OoOo ( )
+elif O0Oo0 == 'roms' : OoO ( )
+elif O0Oo0 == 'snes' : O0iII1 ( )
+elif O0Oo0 == 'nes' : i1iIi ( )
+elif O0Oo0 == 'nesa' : O0000OOO0 ( )
+elif O0Oo0 == 'nesc' : I111iIi1 ( )
+elif O0Oo0 == 'nesd' : II11iI111i1 ( )
+elif O0Oo0 == 'nesf' : iIi1 ( )
+elif O0Oo0 == 'nesh' : OoO00 ( )
+elif O0Oo0 == 'nesl' : o000oOoo0o000 ( )
+elif O0Oo0 == 'nesn' : oo0O0Ooooooo ( )
+elif O0Oo0 == 'nesr' : o0iiiI1I1iIIIi1 ( )
+elif O0Oo0 == 'nest' : OOOIiiiii1iI ( )
+elif O0Oo0 == 'nesw' : ii11i ( )
+elif O0Oo0 == 'gen' : oOo00O000Oo0 ( )
+elif O0Oo0 == 'gena' : oOooO0OOOoO000 ( )
+elif O0Oo0 == 'genc' : oOOOoo ( )
+elif O0Oo0 == 'gene' : oooO0o0o0O0 ( )
+elif O0Oo0 == 'genh' : OOooOo00oo0 ( )
+elif O0Oo0 == 'genm' : IIiiIIi1 ( )
+elif O0Oo0 == 'genp' : i11I1iIi ( )
+elif O0Oo0 == 'gens' : oOoO00 ( )
+elif O0Oo0 == 'genu' : OOOooo ( )
+elif O0Oo0 == 'atr' : OOO00O0oOOo ( )
+elif O0Oo0 == 'atra' : O0oooo00o0Oo ( )
+elif O0Oo0 == 'atrc' : oO0Ooo0ooOO0 ( )
+elif O0Oo0 == 'atre' : ooo0o0O0o ( )
+elif O0Oo0 == 'atrh' : I1Ii ( )
+elif O0Oo0 == 'atrm' : iII11I1Ii1 ( )
+elif O0Oo0 == 'atrp' : ii1iIi1II ( )
+elif O0Oo0 == 'atrs' : oo0o0oooo ( )
+elif O0Oo0 == 'atrv' : ii1ii11 ( )
+elif O0Oo0 == 'n64' : iii1 ( )
+elif O0Oo0 == 'tbg' : ooO0oO00O0o ( )
+elif O0Oo0 == 'tga' : i11iIIi11 ( )
+elif O0Oo0 == 'tgc' : ii ( )
+elif O0Oo0 == 'tgf' : II1IOoOo000oOo0oo ( )
+elif O0Oo0 == 'tgj' : iIiIIii ( )
+elif O0Oo0 == 'tgn' : iIII1i1i ( )
+elif O0Oo0 == 'tgr' : I1II ( )
+elif O0Oo0 == 'tgv' : ii11II1i ( )
+elif O0Oo0 == 'apkvid' : O00Oo ( )
+elif O0Oo0 == 'apksys' : I11Oo00oO0O ( )
+elif O0Oo0 == 'apkinstall' : oOo0OooOo ( iI1I , OooOoOo )
+elif O0Oo0 == 'rominstall' : I1Iii1iI1 ( iI1I , OooOoOo , )
+if 64 - 64: ooI1i / Ii1I11I * iiiiII1I * ooI1i
+if 60 - 60: II1I1Ii / o0OOo0o0O0O % ooOo0o0O00 / ooOo0o0O00 * ooOo0o0O00 . i11iIiiIii
+elif O0Oo0 == 'savedata' : iiIII1II ( )
+elif O0Oo0 == 'togglesetting' : wiz . setS ( iI1I , 'false' if wiz . getS ( iI1I ) == 'true' else 'true' ) ; xbmc . executebuiltin ( 'Container.Refresh' )
+if 99 - 99: iiiiII1I
+elif O0Oo0 == 'trakt' : oOooO00o0O ( )
+elif O0Oo0 == 'savetrakt' : traktit . traktIt ( 'update' , iI1I )
+elif O0Oo0 == 'restoretrakt' : traktit . traktIt ( 'restore' , iI1I )
+elif O0Oo0 == 'addontrakt' : traktit . traktIt ( 'clearaddon' , iI1I )
+elif O0Oo0 == 'cleartrakt' : traktit . clearSaved ( iI1I )
+elif O0Oo0 == 'authtrakt' : traktit . activateTrakt ( iI1I ) ; xbmc . executebuiltin ( 'Container.Refresh' )
+if 77 - 77: Ii
+elif O0Oo0 == 'realdebrid' : IiiIi1IIII1i ( )
+elif O0Oo0 == 'savedebrid' : debridit . debridIt ( 'update' , iI1I )
+elif O0Oo0 == 'restoredebrid' : debridit . debridIt ( 'restore' , iI1I )
+elif O0Oo0 == 'addondebrid' : debridit . debridIt ( 'clearaddon' , iI1I )
+elif O0Oo0 == 'cleardebrid' : debridit . clearSaved ( iI1I )
+elif O0Oo0 == 'authdebrid' : debridit . activateDebrid ( iI1I ) ; xbmc . executebuiltin ( 'Container.Refresh' )
+if 48 - 48: iiiiII1I % ooOo0o0O00 / II1I1Ii . oo0 * I11I1i1iIII1I
+elif O0Oo0 == 'contact' : wiz . TextBoxes ( Oo0Ooo , o0O00Oo0 )
+elif O0Oo0 == 'settings' : wiz . openS ( ) ; xbmc . executebuiltin ( 'Container.Refresh' )
+if 65 - 65: iiiiII1I
+elif O0Oo0 == 'developer' : I11i11I1iiII ( )
+elif O0Oo0 == 'convertpath' : wiz . convertSpecial ( O00ooooo00 )
+elif O0Oo0 == 'testnotify' : OOoOO0o ( )
+elif O0Oo0 == 'bre' : ii1111Ii1i ( )
+elif O0Oo0 == 'full' : backuprestore . FullBackup ( )
+elif O0Oo0 == 'backb' : backuprestore . Backup ( )
+elif O0Oo0 == 'backad' : backuprestore . ADDON_DATA_BACKUP ( )
+elif O0Oo0 == 'refull' : OOiI1 ( )
+elif O0Oo0 == 'delbu' : iiI1Ii1I ( )
+elif O0Oo0 == 'delall' : backuprestore . DeleteAllBackups ( )
+elif O0Oo0 == 'read' : backuprestore . READ_ZIP ( OooOoOo )
+elif O0Oo0 == 'dell' : backuprestore . DeleteBackup ( OooOoOo )
+if O0Oo0 not in [ '' , 'togglesettings' , 'settings' , 'contact' ] : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) )
 # dd678faae9ac167bc83abf78e5cb2f3f0688d3a3
