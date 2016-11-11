@@ -7,15 +7,14 @@ import plugintools
 import zipfile
 import ntpath
 import base64
-import uservar
 from os import listdir
 from os.path import isfile, join
 from shutil import copyfile
 from resources.libs import extract, downloader, notify, debridit, traktit, skinSwitch, uploadLog, wizard as wiz
 
 DP           =  xbmcgui.DialogProgress()
-AddonTitle= uservar.ADDONTITLE
-AddonID = uservar.ADDON_ID
+ADDONTITLE     = 'SpinzTV'
+AddonID       = xbmcaddon.Addon().getAddonInfo('id')
 selfAddon = xbmcaddon.Addon(id=AddonID)
 backupfull = selfAddon.getSetting('backup_database')
 backupaddons = selfAddon.getSetting('backup_addon_data')
@@ -257,7 +256,7 @@ def skinswap():
 
 	#SWITCH THE SKIN IF THE CURRENT SKIN IS NOT CONFLUENCE
 	if skin not in ['skin.confluence','skin.estuary']:
-		choice = xbmcgui.Dialog().yesno(AddonTitle, '[COLOR red][B]We can see that you are not using the default confluence skin.[/B][/COLOR]','[COLOR red][B]CLICK YES TO ATTEMPT TO AUTO SWITCH TO CONFLUENCE[/B][/COLOR]','[COLOR red][B]PLEASE DO NOT DO PRESS ANY BUTTONS OR MOVE THE MOUSE WHILE THIS PROCESS IS TAKING PLACE, IT IS AUTOMATIC[/B][/COLOR]', yeslabel='[B][COLOR green]YES[/COLOR][/B]',nolabel='[B][COLOR red]NO[/COLOR][/B]')
+		choice = xbmcgui.Dialog().yesno(AddonTitle, '[COLOR red]We can see that you are not using the default confluence skin.[/COLOR]','[COLOR red]CLICK YES TO ATTEMPT TO AUTO SWITCH TO CONFLUENCE[/COLOR]','[COLOR red]PLEASE DO NOT DO PRESS ANY BUTTONS OR MOVE THE MOUSE WHILE THIS PROCESS IS TAKING PLACE, IT IS AUTOMATIC[/COLOR]', yeslabel='[COLOR green]YES[/COLOR]',nolabel='[COLOR red]NO[/COLOR]')
 		if choice == 0:
 			sys.exit(1)
 		skin = 'skin.estuary' if KODIV >= 17 else 'skin.confluence'
