@@ -4,7 +4,7 @@ import urllib2,urllib
 import re
 import base64
 from datetime import date, datetime, timedelta
-from resources.libs import extract, downloader, notify, debridit, traktit, skinSwitch, uploadLog, wizard as wiz
+from resources.libs import extract, downloader, notify, loginit, debridit, traktit, skinSwitch, uploadLog, wizard as wiz
 
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE     = 'SpinzTV'

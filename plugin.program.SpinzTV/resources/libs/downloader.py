@@ -18,6 +18,7 @@
 ################################################################################
 
 import xbmcgui, urllib, sys, time, xbmcaddon
+import xbmc
 import wizard as wiz
 
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
