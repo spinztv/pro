@@ -15,16 +15,26 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.0" provider-name="MikkM">
+<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.2" provider-name="The Boss">
   <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
+  	<import addon="script.module.beautifulsoup" version="3.2.1"/>
+	<import addon="script.module.beautifulsoup4" />
+    <import addon="xbmc.python" version="2.19.0"/>
+	<import addon="script.module.beautifulsoup4" />
+	<import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.module.requests"/>
 	<import addon="script.module.addon.common" />
+	<import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.buggalo" version="1.1.2"/>
   </requires>
-  <extension point="xbmc.python.pluginsource" library="init.py">
-        <provides>video</provides>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video executable</provides>
   </extension>
+  <extension point="xbmc.service" library="service.py" start="login" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
+    <summary lang="en">Spinz Tv Pro. Brought to you by Spinz</summary>
+    <description lang="en">A Plugin for Spinz Tv Pro's amazing iptv service</description>
+	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
