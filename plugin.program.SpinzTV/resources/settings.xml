@@ -30,6 +30,11 @@
 		<setting id="default.stereostrength" type="text" label="Default lookandfeel.stereostrength:" enable="false" default="false" visible="false"/>
 	</category>
 
+	<category label="Login">
+		<setting id="User" type="text" label="[COLORsteelblue] User =[/COLOR]" default="insert_username" visible="true"/>
+		<setting id="Pass" type="text" label="[COLORsteelblue] Pass =[/COLOR]" default="insert_password" visible="true"/>
+    </category>	
+
 	<category label="Maintenance">
 		<setting type="lsep" label="Upload Log: "/>
 		<setting id="email" type="text" label="E-Mail Address" />
@@ -120,4 +125,15 @@
 		<setting id="wizlogcleanlines" type="enum" label="Keep how many lines of wizard.log?" visible="eq(-3,2)+!eq(-4,false)" values="100|200|300|400|500" default="2"/>
 		<setting id="nextcleandate" type="text" label="Next Time Wizard Log Cleaned:" visible="false" default=""/>
 	</category>
+	
+	<category label="Auto-View">
+		<setting id="auto-view" type="bool" label="Enable Auto View" default="true"/>
+		<setting id="MAIN" type="number" label="MAIN" default="500" enable="!eq(-1,false)"/>
+		<setting id="INFO" type="number" label="INFO" default="515" enable="!eq(-1,false)"/>
+        <setting id="message" type="bool" label="for messages" default="false" visible="false"/>
+        <setting id="pop_time" type="text" label="For POP UP" default="2000-01-01 00:00:00" visible="false"/>
+        <setting id="ga_time" type="text" label="GA Called" default="2000-01-01 00:00:00" visible="false"/>
+        <setting id="visitor_ga" type="text" label="GA visitor" default="" visible="false"/>
+   	</category>
+	
 </settings>

@@ -63,7 +63,7 @@ TWODAYS        = TODAY + timedelta(days=2)
 THREEDAYS      = TODAY + timedelta(days=3)
 ONEWEEK        = TODAY + timedelta(days=7)
 KODIV          = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
-EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.video.spinztvwiz', 'plugin.video.spinz', 'script.xtcodes.installer']
+EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.program.SpinzTV', 'script.module.beautifulsoup', 'script.module.beautifulsoup4', 'script.module.urlresolver', 'script.module.requests', 'script.module.addon.common', 'script.module.simplejson', 'script.module.buggalo', 'script.module.t0mm0.common']
 BUILDFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovd2l6YXJkdHh0L3NwaW56d2l6YXJkMS50eHQ=')
 UPDATECHECK    = 0
 NEXTCHECK      = TODAY + timedelta(days=UPDATECHECK)

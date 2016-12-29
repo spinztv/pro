@@ -34,13 +34,7 @@ def download(url, dest, dp = None):
 		dp.create(ADDONTITLE ,"Downloading Content",' ', ' ')
 	dp.update(0)
 	start_time=time.time()
-	try:
-		urllib.urlretrieve(url, dest, lambda nb, bs, fs: _pbhook(nb, bs, fs, dp, start_time))
-	except Exception, e:
-		wiz.log("ERROR Downloading(%s): %s" % (dest, str(e)), xbmc.LOGERROR)
-		wiz.LogNotify(ADDONTITLE, "Download Timed Out")
-		sys.exit()
-
+	urllib.urlretrieve(url, dest, lambda nb, bs, fs: _pbhook(nb, bs, fs, dp, start_time))
 def _pbhook(numblocks, blocksize, filesize, dp, start_time):
 	try: 
 		percent = min(numblocks * blocksize * 100 / filesize, 100) 

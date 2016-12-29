@@ -90,7 +90,7 @@ PATHROYALWE    = os.path.join(ADDONS, ROYALWE)
 PATHSPECTO     = os.path.join(ADDONS, SPECTO)
 PATHURLRESOLVE = os.path.join(ADDONS, URLRESOLVER)
 PATHTRAKT      = os.path.join(ADDONS, TRAKT)
-EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.video.spinztvwiz', 'plugin.video.spinz', 'script.xtcodes.installer']
+EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.program.SpinzTV', 'script.module.beautifulsoup', 'script.module.beautifulsoup4', 'script.module.urlresolver', 'script.module.requests', 'script.module.addon.common', 'script.module.simplejson', 'script.module.buggalo', 'script.module.t0mm0.common']
 BUILDFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovd2l6YXJkdHh0L3NwaW56d2l6YXJkMS50eHQ=')
 SPACER         = '='
 # Url to notification file
@@ -182,7 +182,7 @@ def TextBoxes(heading,announce):
 	while xbmc.getCondVisibility('Window.IsVisible(10147)'):
 		xbmc.sleep(500)
 
-def LogNotify(title,message,times=2000,icon=ICON):
+def LogNotify(title,message,times=2000,icon=None):
 	ebi('XBMC.Notification(%s, %s, %s, %s)' % (title , message , times, icon))
 
 def percentage(part, whole):
