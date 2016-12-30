@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV[/B][/COLOR]" version="1.2.0" provider-name="SpinzTV">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV[/B][/COLOR]" version="1.2.1" provider-name="SpinzTV">
   <requires>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
 	<import addon="script.module.beautifulsoup4" />
