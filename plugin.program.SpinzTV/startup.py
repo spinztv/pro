@@ -68,10 +68,10 @@ BUILDFILE      = base64.b64decode('aHR0cDovL3NwZXoudHYvc3Bpbnovd2l6YXJkdHh0L3Nwa
 UPDATECHECK    = 0
 NEXTCHECK      = TODAY + timedelta(days=UPDATECHECK)
 # Url to notification file
-NOTIFICATION   = ''
+NOTIFICATION   = 'http://spez.tv/spinz/wizardtxt/notify.txt'
 # Enable Notification screen Yes or No
-ENABLE         = 'No'
-HEADERMESSAGE  = ''
+ENABLE         = 'Yes'
+HEADERMESSAGE  = 'SpinzTV'
 # Enable Auto Update 'Yes' or 'No'
 AUTOUPDATE     = 'No'
 # Url to wizard version

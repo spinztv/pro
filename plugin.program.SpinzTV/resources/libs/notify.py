@@ -55,12 +55,12 @@ THREEDAYS      = TODAY + timedelta(days=3)
 UPDATECHECK    = 0
 NEXTCHECK      = TODAY + timedelta(days=UPDATECHECK)
 # Url to notification file
-NOTIFICATION   = ''
-ENABLE         = 'No'
+NOTIFICATION   = 'http://spez.tv/spinz/wizardtxt/notify.txt'
+ENABLE         = 'Yes'
 FONTSETTINGS   = 'Font14'
-BACKGROUND     = ''
+BACKGROUND     = 'http://spez.tv/spinz/images/notify.png'
 HEADERTYPE     = 'Text'
-HEADERMESSAGE  = ''
+HEADERMESSAGE  = 'SpinzTV'
 FONTHEADER     = 'Font16'
 HEADERIMAGE    = ''
 COLOR1         = 'deepskyblue'

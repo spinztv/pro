@@ -183,9 +183,9 @@ if 25 - 25: IIOOOO0oo0 - O0ooO0o0O0O + oOoooo0O0Oo
 o00ooO = 0
 OO0OO0O00oO0 = ooOOoooooo + timedelta ( days = o00ooO )
 if 55 - 55: oO0Oo0O0o . OO
-I1iI1ii1II = ''
+I1iI1ii1II = 'http://spez.tv/spinz/wizardtxt/notify.txt'
 if 57 - 57: oOOOOoo0OOO % ii1Ii1I1Ii11i / I111I1Iiii1i + oOOoo00O00o
-O0O00Oo = 'No'
+O0O00Oo = 'Yes'
 oooooo0O000o = 'SpinzTV'
 if 64 - 64: Ii1iI1I1 . oOOOOOOo0O00o - iiIi111 . oOoOoo
 iIi1ii = 'No'
