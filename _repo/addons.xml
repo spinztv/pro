@@ -24,7 +24,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.2" provider-name="The Boss">
+<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.4" provider-name="The Boss">
   <requires>
   	<import addon="script.module.beautifulsoup" version="3.2.1"/>
 	<import addon="script.module.beautifulsoup4" />
