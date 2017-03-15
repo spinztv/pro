@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV[/B][/COLOR]" version="1.2.2" provider-name="SpinzTV">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.3" provider-name="Spez">
   <requires>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
 	<import addon="script.module.beautifulsoup4" />
@@ -13,15 +13,32 @@
     <import addon="script.module.buggalo" version="1.1.2"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-	<provides>program executable</provides>
+    <provides>executable</provides>
   </extension>
   <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">SpinzTV</summary>
-    <description lang="en">SpinzTV Wizard</description>
-	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
+    <summary lang="en">SpinzTV Wizard</summary>
+    <description lang="en">Home Of The Spinz-TV Builds and Much More</description>
+    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>
+</addon>
+
+    <addon id="repository.SpinzTV" name="SpinzTV" version="0.1.1" provider-name="SpinzTV">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="SpinzTV">
+            <info compressed="false">http://raw.github.com/spinztv/pro/master//_repo/addons.xml</info>
+            <checksum>http://raw.github.com/spinztv/pro/master//_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/spinztv/pro/master//_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>SpinzTV</summary>
+            <description>SpinzTV - General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
+            <platform>all</platform>
+    </extension>
 </addon>
 
 <addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.4" provider-name="The Boss">
@@ -46,22 +63,5 @@
 	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>
-</addon>
-
-    <addon id="repository.SpinzTV" name="SpinzTV" version="0.1.1" provider-name="SpinzTV">
-        <requires>
-            <import addon="xbmc.addon" version="12.0.0"/>
-        </requires>
-        <extension point="xbmc.addon.repository" name="SpinzTV">
-            <info compressed="false">http://raw.github.com/spinztv/pro/master//_repo/addons.xml</info>
-            <checksum>http://raw.github.com/spinztv/pro/master//_repo/addons.xml.md5</checksum>
-            <datadir zip="true">http://raw.github.com/spinztv/pro/master//_repo/</datadir>
-            <hashes>false</hashes>
-        </extension>
-        <extension point="xbmc.addon.metadata">
-            <summary>SpinzTV</summary>
-            <description>SpinzTV - General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
-            <platform>all</platform>
-    </extension>
 </addon>
 </addons>

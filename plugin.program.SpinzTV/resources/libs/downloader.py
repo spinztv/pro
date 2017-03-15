@@ -17,14 +17,12 @@
 #  http://www.gnu.org/copyleft/gpl.html                                        #
 ################################################################################
 
-import xbmcgui, urllib, sys, time, xbmcaddon
-import xbmc
+import xbmc, xbmcgui, urllib, sys, time, uservar
 import wizard as wiz
 
-ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
-ADDONTITLE     = 'SpinzTV'
-COLOR1         = 'deepskyblue'
-COLOR2         = 'white'
+ADDONTITLE     = uservar.ADDONTITLE
+COLOR1         = uservar.COLOR1
+COLOR2         = uservar.COLOR2
 
 urllib.URLopener.version = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0'
 
@@ -35,6 +33,7 @@ def download(url, dest, dp = None):
 	dp.update(0)
 	start_time=time.time()
 	urllib.urlretrieve(url, dest, lambda nb, bs, fs: _pbhook(nb, bs, fs, dp, start_time))
+
 def _pbhook(numblocks, blocksize, filesize, dp, start_time):
 	try: 
 		percent = min(numblocks * blocksize * 100 / filesize, 100) 
@@ -59,5 +58,5 @@ def _pbhook(numblocks, blocksize, filesize, dp, start_time):
 		return str(e)
 	if dp.iscanceled(): 
 		dp.close()
-		wiz.LogNotify(ADDONTITLE, "Download Cancelled")
+		wiz.LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), "[COLOR %s]Download Cancelled[/COLOR]" % COLOR2)
 		sys.exit()

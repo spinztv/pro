@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV[/B][/COLOR]" version="1.2.2" provider-name="SpinzTV">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.3" provider-name="Spez">
   <requires>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
 	<import addon="script.module.beautifulsoup4" />
@@ -12,13 +12,13 @@
     <import addon="script.module.buggalo" version="1.1.2"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-	<provides>program executable</provides>
+    <provides>executable</provides>
   </extension>
   <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">SpinzTV</summary>
-    <description lang="en">SpinzTV Wizard</description>
-	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
+    <summary lang="en">SpinzTV Wizard</summary>
+    <description lang="en">Home Of The Spinz-TV Builds and Much More</description>
+    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
