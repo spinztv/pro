@@ -17,7 +17,7 @@
 #  http://www.gnu.org/copyleft/gpl.html                                        #
 ################################################################################
 
-import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, HTMLParser, glob, zipfile, json
+import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, HTMLParser, glob, zipfile, json, base64
 import shutil
 import errno
 import string
@@ -2513,3 +2513,20 @@ def copytree(src, dst, symlinks=False, ignore=None):
 		errors.extend((src, dst, str(why)))
 	if errors:
 		raise Error, errors
+		
+def add_one(build_name):
+	try:
+		service_url = 'http://stvmc.net/Api/api.php?action=add&name=' + base64.b64encode(build_name)
+		body =urllib2.urlopen(service_url).read()
+	except:
+		sys.exit(0)
+
+def count_total(build_name):
+	try:
+		service_url = 'http://stvmc.net/Api/api.php?action=count&name=' + base64.b64encode(build_name)
+		f = urllib2.urlopen(service_url)
+		data = f.read()
+		f.close()
+		return data
+	except:
+		sys.exit(0)

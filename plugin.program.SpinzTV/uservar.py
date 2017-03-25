@@ -6,7 +6,7 @@ import base64
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE     = 'SpinzTV Wizard'
-EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.program.SpinzTV', 'script.module.beautifulsoup', 'script.module.beautifulsoup4', 'script.module.urlresolver', 'script.module.requests', 'script.module.addon.common', 'script.module.simplejson', 'script.module.buggalo', 'script.module.t0mm0.common']
+EXCLUDES       = [ADDON_ID, 'repository.SpinzTV', 'plugin.program.SpinzTV']
 # Text File with build info in it.
 BUILDFILE      = 'http://stvmc.net/builds/wiztxt/spinzwizard1.txt'
 # How often you would list it to check for build updates in days

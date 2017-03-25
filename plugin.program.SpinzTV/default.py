@@ -371,52 +371,57 @@ def OoO00 ( ) :
      if not O0Oo000ooO00 == 'true' and oOoo000 . lower ( ) == 'yes' : continue
      if not iii == 'true' and wiz . strTest ( O0Oo0o000oO ) : continue
      OoOo00o0OO = ii1IIIIiI11 ( 'install' , '' , O0Oo0o000oO )
-     oo00O00oO000o ( '[%s] %s (v%s)' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
+     iI1IIIii = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( O0Oo0o000oO ) ) + "[/COLOR]"
+     oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 , iI1IIIii ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
    else :
     if iiiI1I1iIIIi1 > 0 :
-     iI1IIIii = '+' if OOOO0OOoO0O0 == 'false' else '-'
-     iiiii1II ( '[B]%s Leia Builds(%s)[/B]' % ( iI1IIIii , iiiI1I1iIIIi1 ) , 'togglesetting' , 'show17' , themeit = OOoO )
+     I1i11ii11 = '+' if OOOO0OOoO0O0 == 'false' else '-'
+     iiiii1II ( '[B]%s Leia Builds(%s)[/B]' % ( I1i11ii11 , iiiI1I1iIIIi1 ) , 'togglesetting' , 'show17' , themeit = OOoO )
      if OOOO0OOoO0O0 == 'true' :
       for O0Oo0o000oO , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o in o0O0Oo00 :
        if not O0Oo000ooO00 == 'true' and oOoo000 . lower ( ) == 'yes' : continue
        if not iii == 'true' and wiz . strTest ( O0Oo0o000oO ) : continue
-       I1i11ii11 = int ( float ( oOOOO ) )
-       if I1i11ii11 == 18 :
+       OO00O0oOO = int ( float ( oOOOO ) )
+       if OO00O0oOO == 18 :
         OoOo00o0OO = ii1IIIIiI11 ( 'install' , '' , O0Oo0o000oO )
-        oo00O00oO000o ( '[%s] %s (v%s)' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
+        iI1IIIii = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( O0Oo0o000oO ) ) + "[/COLOR]"
+        oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 , iI1IIIii ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
     if I1IIIiI1I1ii1 > 0 :
-     iI1IIIii = '+' if o00OO00OoO == 'false' else '-'
-     iiiii1II ( '[B]%s Krypton Builds(%s)[/B]' % ( iI1IIIii , I1IIIiI1I1ii1 ) , 'togglesetting' , 'show17' , themeit = OOoO )
+     I1i11ii11 = '+' if o00OO00OoO == 'false' else '-'
+     iiiii1II ( '[B]%s Krypton Builds(%s)[/B]' % ( I1i11ii11 , I1IIIiI1I1ii1 ) , 'togglesetting' , 'show17' , themeit = OOoO )
      if o00OO00OoO == 'true' :
       for O0Oo0o000oO , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o in o0O0Oo00 :
        if not O0Oo000ooO00 == 'true' and oOoo000 . lower ( ) == 'yes' : continue
        if not iii == 'true' and wiz . strTest ( O0Oo0o000oO ) : continue
-       I1i11ii11 = int ( float ( oOOOO ) )
-       if I1i11ii11 == 17 :
+       OO00O0oOO = int ( float ( oOOOO ) )
+       if OO00O0oOO == 17 :
         OoOo00o0OO = ii1IIIIiI11 ( 'install' , '' , O0Oo0o000oO )
-        oo00O00oO000o ( '[%s] %s (v%s)' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
+        iI1IIIii = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( O0Oo0o000oO ) ) + "[/COLOR]"
+        oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 , iI1IIIii ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
     if oo0O0Ooooooo > 0 :
-     iI1IIIii = '+' if oOOoo0Oo == 'false' else '-'
-     iiiii1II ( '[B]%s Jarvis Builds(%s)[/B]' % ( iI1IIIii , oo0O0Ooooooo ) , 'togglesetting' , 'show16' , themeit = OOoO )
+     I1i11ii11 = '+' if oOOoo0Oo == 'false' else '-'
+     iiiii1II ( '[B]%s Jarvis Builds(%s)[/B]' % ( I1i11ii11 , oo0O0Ooooooo ) , 'togglesetting' , 'show16' , themeit = OOoO )
      if oOOoo0Oo == 'true' :
       for O0Oo0o000oO , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o in o0O0Oo00 :
        if not O0Oo000ooO00 == 'true' and oOoo000 . lower ( ) == 'yes' : continue
        if not iii == 'true' and wiz . strTest ( O0Oo0o000oO ) : continue
-       I1i11ii11 = int ( float ( oOOOO ) )
-       if I1i11ii11 == 16 :
+       OO00O0oOO = int ( float ( oOOOO ) )
+       if OO00O0oOO == 16 :
         OoOo00o0OO = ii1IIIIiI11 ( 'install' , '' , O0Oo0o000oO )
-        oo00O00oO000o ( '[%s] %s (v%s)' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
+        iI1IIIii = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( O0Oo0o000oO ) ) + "[/COLOR]"
+        oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 , iI1IIIii ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
     if o00oO0o0o > 0 :
-     iI1IIIii = '+' if oO0Oo == 'false' else '-'
-     iiiii1II ( '[B]%s Isengard and Below Builds(%s)[/B]' % ( iI1IIIii , o00oO0o0o ) , 'togglesetting' , 'show15' , themeit = OOoO )
+     I1i11ii11 = '+' if oO0Oo == 'false' else '-'
+     iiiii1II ( '[B]%s Isengard and Below Builds(%s)[/B]' % ( I1i11ii11 , o00oO0o0o ) , 'togglesetting' , 'show15' , themeit = OOoO )
      if oO0Oo == 'true' :
       for O0Oo0o000oO , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o in o0O0Oo00 :
        if not O0Oo000ooO00 == 'true' and oOoo000 . lower ( ) == 'yes' : continue
        if not iii == 'true' and wiz . strTest ( O0Oo0o000oO ) : continue
-       I1i11ii11 = int ( float ( oOOOO ) )
-       if I1i11ii11 <= 15 :
+       OO00O0oOO = int ( float ( oOOOO ) )
+       if OO00O0oOO <= 15 :
         OoOo00o0OO = ii1IIIIiI11 ( 'install' , '' , O0Oo0o000oO )
-        oo00O00oO000o ( '[%s] %s (v%s)' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
+        iI1IIIii = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( O0Oo0o000oO ) ) + "[/COLOR]"
+        oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( oOOOO ) , O0Oo0o000oO , O0OOO0OOooo00 , iI1IIIii ) , 'viewbuild' , O0Oo0o000oO , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , menu = OoOo00o0OO , themeit = oooOo0OOOoo0 )
   elif I1iiiiI1iI > 0 :
    if Iii > 0 :
     iiiii1II ( 'There is currently only Adult builds' , '' , icon = oO0O00oOOoooO , themeit = OOoO )
@@ -425,7 +430,7 @@ def OoO00 ( ) :
     iiiii1II ( 'Currently No Builds Offered from %s' % o0OOO , '' , icon = oO0O00oOOoooO , themeit = OOoO )
   else : iiiii1II ( 'Text file for builds not formated correctly.' , '' , icon = oO0O00oOOoooO , themeit = OOoO )
  iIi1 ( 'files' , 'viewType' )
- if 81 - 81: iii11iiII - i11IiIiiIIIII % OOoooooO - I1111 / Ooo0O
+ if 4 - 4: OoooooooOO - i1IIi % IiiIII111ii - iii11iiII * I1I1i1
 def IiI11i1IIiiI ( name ) :
  OO0Ooooo000Oo = wiz . workingURL ( I1I1i1I )
  if not OO0Ooooo000Oo == True :
@@ -438,7 +443,7 @@ def IiI11i1IIiiI ( name ) :
   return
  i1oO0OO0 = wiz . openURL ( I1I1i1I ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' ) . replace ( 'gui=""' , 'gui="http://"' ) . replace ( 'theme=""' , 'theme="http://"' )
  o0O0Oo00 = re . compile ( 'name="%s".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?review="(.+?)".+?dult="(.+?)".+?escription="(.+?)"' % name ) . findall ( i1oO0OO0 )
- for O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , OOo00OoO , Ii1ii111i1 , i1i1i1I , Ii1iI111 , oOoo000 , OooOo00o in o0O0Oo00 :
+ for O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , OOo00OoO , Ii1ii111i1 , i1i1i1I , Ooooo00o0OoO , oOoo000 , OooOo00o in o0O0Oo00 :
   Ii1ii111i1 = Ii1ii111i1 if wiz . workingURL ( Ii1ii111i1 ) else iiiiiIIii
   i1i1i1I = i1i1i1I if wiz . workingURL ( i1i1i1I ) else OOO00
   I111iIi1 = '%s (v%s)' % ( name , O0OOO0OOooo00 )
@@ -448,13 +453,13 @@ def IiI11i1IIiiI ( name ) :
   if O0O0ooOOO == 'No' : iiiii1II ( wiz . sep ( ) , '' , themeit = OOoO )
   oo00O00oO000o ( 'Save Data Menu' , 'savedata' , icon = I1111i , themeit = OOoO )
   iiiii1II ( 'Build Information' , 'buildinfo' , name , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
-  if not Ii1iI111 == "http://" : iiiii1II ( 'View Video Preview' , 'buildpreview' , name , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
-  O0oooo00o0Oo = int ( float ( o0OIiII ) ) ; I1iii = int ( float ( oOOOO ) )
-  if not O0oooo00o0Oo == I1iii :
-   if O0oooo00o0Oo == 16 and I1iii <= 15 : oO0o0O0Ooo0o = False
-   else : oO0o0O0Ooo0o = True
-  else : oO0o0O0Ooo0o = False
-  if oO0o0O0Ooo0o == True :
+  if not Ooooo00o0OoO == "http://" : iiiii1II ( 'View Video Preview' , 'buildpreview' , name , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
+  oooo0O0O0o0 = int ( float ( o0OIiII ) ) ; Ooo0oo = int ( float ( oOOOO ) )
+  if not oooo0O0O0o0 == Ooo0oo :
+   if oooo0O0O0o0 == 16 and Ooo0oo <= 15 : IIi11IIiIii1 = False
+   else : IIi11IIiIii1 = True
+  else : IIi11IIiIii1 = False
+  if IIi11IIiIii1 == True :
    iiiii1II ( '[I]Build designed for kodi version %s(installed: %s)[/I]' % ( str ( oOOOO ) , str ( o0OIiII ) ) , '' , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
   iiiii1II ( wiz . sep ( 'INSTALL' ) , '' , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
   iiiii1II ( 'Fresh Install' , 'install' , name , 'fresh' , description = OooOo00o , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOOiiiiI )
@@ -465,11 +470,11 @@ def IiI11i1IIiiI ( name ) :
     iiiii1II ( wiz . sep ( 'THEMES' ) , '' , fanart = i1i1i1I , icon = Ii1ii111i1 , themeit = OOoO )
     i1oO0OO0 = wiz . openURL ( OOo00OoO ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
     o0O0Oo00 = re . compile ( 'name="(.+?)".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?dult="(.+?)".+?escription="(.+?)"' ) . findall ( i1oO0OO0 )
-    for i1Ii11II , IioO0oOOO0Ooo , i1i1I , IiIIi1iII11I1Ii1 , o0o0 , OooOo00o in o0O0Oo00 :
+    for I1iIII1 , iIii , oOo0OoOOo0 , iII11I1Ii1 , o0o0 , OooOo00o in o0O0Oo00 :
      if not O0Oo000ooO00 == 'true' and o0o0 . lower ( ) == 'yes' : continue
-     i1i1I = i1i1I if i1i1I == 'http://' else Ii1ii111i1
-     IiIIi1iII11I1Ii1 = IiIIi1iII11I1Ii1 if IiIIi1iII11I1Ii1 == 'http://' else i1i1i1I
-     iiiii1II ( i1Ii11II if not i1Ii11II == o0O else "[B]%s (Installed)[/B]" % i1Ii11II , 'theme' , name , i1Ii11II , description = OooOo00o , fanart = IiIIi1iII11I1Ii1 , icon = i1i1I , themeit = OOoO )
+     oOo0OoOOo0 = oOo0OoOOo0 if oOo0OoOOo0 == 'http://' else Ii1ii111i1
+     iII11I1Ii1 = iII11I1Ii1 if iII11I1Ii1 == 'http://' else i1i1i1I
+     iiiii1II ( I1iIII1 if not I1iIII1 == o0O else "[B]%s (Installed)[/B]" % I1iIII1 , 'theme' , name , I1iIII1 , description = OooOo00o , fanart = iII11I1Ii1 , icon = oOo0OoOOo0 , themeit = OOoO )
  iIi1 ( 'files' , 'viewType' )
  if 59 - 59: iii11iiII + i11iIiiIii
 def oo0OOo0O ( number ) :
@@ -507,8 +512,8 @@ def ooO0oO00O0o ( name = "" ) :
   i11II11II1 = wiz . openURL ( ooOO00oOOo000 ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
   oO0i1iI = wiz . openURL ( IIi ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
   II1IOoOo000oOo0oo = 0
-  oO0O = re . compile ( '<tr><td><a href="(.+?)">(.+?)</a></td><td>(.+?)</td><td>(.+?)</td></tr>' ) . findall ( i11II11II1 )
-  oOOiiiIIiIi = re . compile ( '<tr><td><a href="(.+?)">(.+?)</a></td><td>(.+?)</td><td>(.+?)</td></tr>' ) . findall ( oO0i1iI )
+  oO0O = re . compile ( '<tr><td><a href="(.+?)".+?>(.+?)</a></td><td>(.+?)</td><td>(.+?)</td></tr>' ) . findall ( i11II11II1 )
+  oOOiiiIIiIi = re . compile ( '<tr><td><a href="(.+?)".+?>(.+?)</a></td><td>(.+?)</td><td>(.+?)</td></tr>' ) . findall ( oO0i1iI )
   if 68 - 68: O0 + o0o0Oo0oooo0 / IIIi1i1I - iii11iiII + iIii1I11I1II1 % IiiIII111ii
   iiiii1II ( "Official Kodi Apk\'s" , themeit = OOOiiiiI )
   i1iI1iii11i = False
@@ -1726,15 +1731,15 @@ def o0o0oo0Ooo ( ) :
     continue
    try :
     IiI1iiI1III1I = xbmcaddon . Addon ( id = oo0oO )
-    iI1IIIii = "[COLOR green][Enabled][/COLOR]"
+    I1i11ii11 = "[COLOR green][Enabled][/COLOR]"
     i11I = "false"
    except :
-    iI1IIIii = "[COLOR red][Disabled][/COLOR]"
+    I1i11ii11 = "[COLOR red][Disabled][/COLOR]"
     i11I = "true"
     pass
    Ii1ii111i1 = os . path . join ( I111IIiIII , 'icon.png' ) if os . path . exists ( os . path . join ( I111IIiIII , 'icon.png' ) ) else iiiiiIIii
    i1i1i1I = os . path . join ( I111IIiIII , 'fanart.jpg' ) if os . path . exists ( os . path . join ( I111IIiIII , 'fanart.jpg' ) ) else OOO00
-   iiiii1II ( "%s %s" % ( iI1IIIii , O0Oo0o000oO ) , 'toggleaddon' , O0OoO0o , i11I , icon = Ii1ii111i1 , fanart = i1i1i1I )
+   iiiii1II ( "%s %s" % ( I1i11ii11 , O0Oo0o000oO ) , 'toggleaddon' , O0OoO0o , i11I , icon = Ii1ii111i1 , fanart = i1i1i1I )
    IIi1i . close ( )
  if II1IOoOo000oOo0oo == 0 :
   iiiii1II ( "No Addons Found to Enable or Disable." , '' , icon = IiIi11iI )
@@ -1816,10 +1821,10 @@ def Oooooooo00o00 ( name , type , theme = None , over = False ) :
     wiz . setS ( 'loginlastsave' , str ( I1IiiiiI ) )
   Iii1iiI = int ( o0OIiII ) ; ii1IiiII = int ( float ( wiz . checkBuild ( name , 'kodi' ) ) )
   if not Iii1iiI == ii1IiiII :
-   if Iii1iiI == 16 and ii1IiiII <= 15 : oO0o0O0Ooo0o = False
-   else : oO0o0O0Ooo0o = True
-  else : oO0o0O0Ooo0o = False
-  if oO0o0O0Ooo0o == True :
+   if Iii1iiI == 16 and ii1IiiII <= 15 : IIi11IIiIii1 = False
+   else : IIi11IIiIii1 = True
+  else : IIi11IIiIii1 = False
+  if IIi11IIiIii1 == True :
    IiiI1II1II1i = iiIIIII1i1iI . yesno ( "%s - [COLOR red]WARNING!![/COLOR]" % o0OOO , '[COLOR %s]There is a chance that the skin will not appear correctly' % iIiIi11 , 'When installing a %s build on a Kodi %s install' % ( wiz . checkBuild ( name , 'kodi' ) , o0OIiII ) , 'Would you still like to install: [COLOR %s]%s v%s[/COLOR]?[/COLOR]' % ( oOOo0O00o , name , wiz . checkBuild ( name , 'version' ) ) , nolabel = '[B][COLOR red]No, Cancel[/COLOR][/B]' , yeslabel = '[B][COLOR green]Yes, Install[/COLOR][/B]' )
   else :
    if not over == False : IiiI1II1II1i = 1
@@ -1834,6 +1839,7 @@ def Oooooooo00o00 ( name , type , theme = None , over = False ) :
    Oo0 = os . path . join ( o0o0OOO0o0 , '%s.zip' % O0oO00oOOooO )
    try : os . remove ( Oo0 )
    except : pass
+   wiz . add_one ( name )
    downloader . download ( o0O0Ooo , Oo0 , oo00 )
    xbmc . sleep ( 500 )
    OOoOoO00O0O0o = '[COLOR %s][B]Installing:[/B][/COLOR] [COLOR %s]%s v%s[/COLOR]' % ( iIiIi11 , oOOo0O00o , name , wiz . checkBuild ( name , 'version' ) )
@@ -2364,7 +2370,7 @@ def i11iiI ( type ) :
 def o0O00OooooO ( name ) :
  if wiz . workingURL ( I1I1i1I ) == True :
   if wiz . checkBuild ( name , 'url' ) :
-   name , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , Ii1iI111 , oOoo000 , OooOo00o = wiz . checkBuild ( name , 'all' )
+   name , O0OOO0OOooo00 , oO0o00oOOooO0 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , Ooooo00o0OoO , oOoo000 , OooOo00o = wiz . checkBuild ( name , 'all' )
    oOoo000 = 'Yes' if oOoo000 . lower ( ) == 'yes' else 'No'
    i1i1I11i1I = "[COLOR %s]Build Name:[/COLOR] [COLOR %s]%s[/COLOR][CR]" % ( iIiIi11 , oOOo0O00o , name )
    i1i1I11i1I += "[COLOR %s]Build Version:[/COLOR] [COLOR %s]%s[/COLOR][CR]" % ( iIiIi11 , oOOo0O00o , O0OOO0OOooo00 )
