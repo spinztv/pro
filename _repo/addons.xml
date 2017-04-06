@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.5" provider-name="Spez">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.6" provider-name="Spez">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

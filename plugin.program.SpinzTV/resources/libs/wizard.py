@@ -142,7 +142,7 @@ def openS(name=""):
 	ADDON.openSettings()
 
 def clearS(type):
-	build    = {'buildname':'', 'buildversion':'', 'buildtheme':'', 'latestversion':'', 'lastbuildcheck':'2016-01-01'}
+	build    = {'buildname':'', 'buildcounter':'', 'buildversion':'', 'buildtheme':'', 'latestversion':'', 'lastbuildcheck':'2016-01-01'}
 	install  = {'installed':'false', 'extract':'', 'errors':''}
 	default  = {'defaultskinignore':'false', 'defaultskin':'', 'defaultskinname':''}
 	lookfeel = ['default.enablerssfeeds', 'default.font', 'default.rssedit', 'default.skincolors', 'default.skintheme', 'default.skinzoom', 'default.soundskin', 'default.startupwindow', 'default.stereostrength']
@@ -275,9 +275,9 @@ def addonUpdates(do=None):
 def checkBuild(name, ret):
 	if not workingURL(BUILDFILE) == True: return False
 	link = openURL(BUILDFILE).replace('\n','').replace('\r','').replace('\t','').replace('gui=""', 'gui="http://"').replace('theme=""', 'theme="http://"')
-	match = re.compile('name="%s".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?review="(.+?)".+?dult="(.+?)".+?escription="(.+?)"' % name).findall(link)
+	match = re.compile('name="%s".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?review="(.+?)".+?dult="(.+?)".+?escription="(.+?)".+?ounter="(.+?)"' % name).findall(link)
 	if len(match) > 0:
-		for version, url, gui, kodi, theme, icon, fanart, preview, adult, description in match:
+		for version, url, gui, kodi, theme, icon, fanart, preview, adult, description, counter in match:
 			if ret   == 'version':       return version
 			elif ret == 'url':           return url
 			elif ret == 'gui':           return gui
@@ -288,7 +288,8 @@ def checkBuild(name, ret):
 			elif ret == 'preview':       return preview
 			elif ret == 'adult':         return adult
 			elif ret == 'description':   return description
-			elif ret == 'all':           return name, version, url, gui, kodi, theme, icon, fanart, preview, adult, description
+			elif ret == 'counter':		 return counter
+			elif ret == 'all':           return name, version, url, gui, kodi, theme, icon, fanart, preview, adult, description, counter
 	else: return False
 
 def checkTheme(name, theme, ret):
@@ -2513,17 +2514,31 @@ def copytree(src, dst, symlinks=False, ignore=None):
 		errors.extend((src, dst, str(why)))
 	if errors:
 		raise Error, errors
-		
-def add_one(build_name):
+
+def add_one(name):
+	counter = checkBuild(name, 'counter')
+	link = openURL(BUILDFILE).replace('\n','').replace('\r','').replace('\t','')
+	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?dult="(.+?)".+?escription="(.+?)".+?ounter="(.+?)"' % name).findall(link)
 	try:
-		service_url = 'http://stvmc.net/Api/api.php?action=add&name=' + base64.b64encode(build_name)
-		body =urllib2.urlopen(service_url).read()
+		counter = counter
+		service_url = 'http://spez.tv/Api/Download.php?id='+(counter)
+		f = urllib2.urlopen(service_url)
+		data = f.read()
+		f.close()
+		return data
 	except:
 		sys.exit(0)
+	
+#def add_one(counter):
+#	try:
+#		service_url = 'http://spez.tv/Api/Download.php?id='+(counter)
+#		body =urllib2.urlopen(service_url)
+#	except:
+#		sys.exit(0)
 
-def count_total(build_name):
+def count_total(counter):
 	try:
-		service_url = 'http://stvmc.net/Api/api.php?action=count&name=' + base64.b64encode(build_name)
+		service_url = 'http://spez.tv/Api/Download.php?id='+(counter)+'&count=true'
 		f = urllib2.urlopen(service_url)
 		data = f.read()
 		f.close()
