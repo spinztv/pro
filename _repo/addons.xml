@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.6" provider-name="Spez">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.service" library="startup.py" start="startup" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">SpinzTV Wizard</summary>
-    <description lang="en">Spinz-TV Wizard</description>
-    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
-    <platform>all</platform>
-  </extension>
-</addon>
-
     <addon id="repository.SpinzTV" name="SpinzTV" version="0.1.1" provider-name="SpinzTV">
         <requires>
             <import addon="xbmc.addon" version="12.0.0"/>
@@ -33,26 +17,32 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="1.4" provider-name="The Boss">
+<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="3.0" provider-name="MikkM">
   <requires>
-  	<import addon="script.module.beautifulsoup" version="3.2.1"/>
-	<import addon="script.module.beautifulsoup4" />
-    <import addon="xbmc.python" version="2.19.0"/>
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.urlresolver"  version="2.1.2"/>
-    <import addon="script.module.requests"/>
+    <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
-	<import addon="script.module.simplejson" version="3.3.0"/>
-    <import addon="script.module.buggalo" version="1.1.2"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="init.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.2.6" provider-name="Spez">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video executable</provides>
+    <provides>executable</provides>
   </extension>
-  <extension point="xbmc.service" library="service.py" start="login" />
+  <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Spinz Tv Pro. Brought to you by Spinz</summary>
-    <description lang="en">A Plugin for Spinz Tv Pro's amazing iptv service</description>
-	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
+    <summary lang="en">SpinzTV Wizard</summary>
+    <description lang="en">Spinz-TV Wizard</description>
+    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
