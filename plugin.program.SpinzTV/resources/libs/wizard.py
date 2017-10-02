@@ -2521,7 +2521,7 @@ def add_one(name):
 	match = re.compile('name="%s".+?rl="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?dult="(.+?)".+?escription="(.+?)".+?ounter="(.+?)"' % name).findall(link)
 	try:
 		counter = counter
-		service_url = 'http://spez.tv/Api/Download.php?id='+(counter)
+		service_url = 'http://stvmc.net/Api/Download.php?id='+(counter)
 		f = urllib2.urlopen(service_url)
 		data = f.read()
 		f.close()
@@ -2538,7 +2538,7 @@ def add_one(name):
 
 def count_total(counter):
 	try:
-		service_url = 'http://spez.tv/Api/Download.php?id='+(counter)+'&count=true'
+		service_url = 'http://stvmc.net/Api/Download.php?id='+(counter)+'&count=true'
 		f = urllib2.urlopen(service_url)
 		data = f.read()
 		f.close()
