@@ -140,6 +140,7 @@
 		<setting id="notify" type="bool" label="Disable Notification on Startup" />
 		<setting id="noteid" type="text" label="Latest Notification" visible="false" />
 		<setting id="notedismiss" type="bool" label="Dismiss or Remind me later" visible="false" />
+		<setting id="pin" type="text" visible="false" />
 	</category>
 
 	<category label="Logging Settings">
