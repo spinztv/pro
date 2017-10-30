@@ -337,16 +337,16 @@ def i1iiIiI1Ii1i ( ) :
  iIi1 ( 'files' , 'viewType' )
  if 21 - 21: i11IiIiiIIIII
 def OoO00 ( ) :
- if 85 - 85: Ooo0O * Ooo0O * ooOo . OoooooooOO . IiiIII111ii * OOoooooO
- o000oOoo0o000 = wiz . workingURL ( I1I1i1I )
- if not o000oOoo0o000 == True :
+ OO0Ooooo000Oo ( )
+ O0oOoo0o000O0 = wiz . workingURL ( I1I1i1I )
+ if not O0oOoo0o000O0 == True :
   iiiii1II ( '%s Version: %s' % ( ii1iII1II , o0OIiII ) , '' , icon = oO0O00oOOoooO , themeit = OOoO )
   oo00O00oO000o ( 'Save Data Menu' , 'savedata' , icon = I1111i , themeit = OOoO )
   if O0O0ooOOO == 'No' : iiiii1II ( wiz . sep ( ) , '' , themeit = OOoO )
   iiiii1II ( 'Url for txt file not valid' , '' , icon = oO0O00oOOoooO , themeit = OOoO )
-  iiiii1II ( '%s' % o000oOoo0o000 , '' , icon = oO0O00oOOoooO , themeit = OOoO )
+  iiiii1II ( '%s' % O0oOoo0o000O0 , '' , icon = oO0O00oOOoooO , themeit = OOoO )
  else :
-  IiI11iI1i1i1i , oO0Ooooooo , I1IIIiI1I1ii1 , iiiI1I1iIIIi1 , Iii , I1iiiiI1iI , iIiiiii1i = wiz . buildCount ( )
+  o00oO0o0o , oo0O0Ooooooo , I1IIIiI1I1ii1 , iiiI1I1iIIIi1 , Iii , I1iiiiI1iI , iIiiiii1i = wiz . buildCount ( )
   iiIi1IIiI = False ; i1oO0OO0 = [ ]
   if oOooOOOoOo == 'true' :
    if not i1Iii1i1I == '' and not OOoO00 == '' : iiIi1IIiI = True ; i1oO0OO0 . append ( '1' )
@@ -354,7 +354,7 @@ def OoO00 ( ) :
    if not OOO == '' and not oo0OOo0 == '' : iiIi1IIiI = True ; i1oO0OO0 . append ( '3' )
   o0O0Oo00 = wiz . openURL ( I1I1i1I ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' ) . replace ( 'gui=""' , 'gui="http://"' ) . replace ( 'theme=""' , 'theme="http://"' ) . replace ( 'adult=""' , 'adult="no"' )
   O0Oo0o000oO = re . compile ( 'name="(.+?)".+?ersion="(.+?)".+?rl="(.+?)".+?ui="(.+?)".+?odi="(.+?)".+?heme="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?dult="(.+?)".+?escription="(.+?)".+?ounter="(.+?)"' ) . findall ( o0O0Oo00 )
-  if IiI11iI1i1i1i == 1 and iiIi1IIiI == False :
+  if o00oO0o0o == 1 and iiIi1IIiI == False :
    for oO0o00oOOooO0 , O0OOO0OOooo00 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o , IiI11i1IIiiI , oOOo000oOoO0 in O0Oo0o000oO :
     if not O0Oo000ooO00 == 'true' and OooOo00o . lower ( ) == 'yes' : continue
     if not iii == 'true' and wiz . strTest ( oO0o00oOOooO0 ) : continue
@@ -412,9 +412,9 @@ def OoO00 ( ) :
         iI1IIIii = I1i11ii11 ( 'install' , '' , oO0o00oOOooO0 )
         OO00O0oOO = " | [COLOR powderblue] Downloads:[/COLOR][COLOR white] Total:[/COLOR] [COLOR yellow]" + str ( wiz . count_total ( oOOo000oOoO0 ) ) + "[/COLOR]"
         oo00O00oO000o ( '[%s] %s (v%s) %s' % ( float ( Ii ) , oO0o00oOOooO0 , O0OOO0OOooo00 , OO00O0oOO ) , 'viewbuild' , oO0o00oOOooO0 , description = IiI11i1IIiiI , fanart = oOoo000 , icon = i1i1i1I , menu = iI1IIIii , themeit = oooOo0OOOoo0 )
-    if oO0Ooooooo > 0 :
+    if oo0O0Ooooooo > 0 :
      Ii1iI111 = '+' if oO0Oo == 'false' else '-'
-     iiiii1II ( '[B]%s Isengard and Below Builds(%s)[/B]' % ( Ii1iI111 , oO0Ooooooo ) , 'togglesetting' , 'show15' , themeit = OOoO )
+     iiiii1II ( '[B]%s Isengard and Below Builds(%s)[/B]' % ( Ii1iI111 , oo0O0Ooooooo ) , 'togglesetting' , 'show15' , themeit = OOoO )
      if oO0Oo == 'true' :
       for oO0o00oOOooO0 , O0OOO0OOooo00 , OOOoO000 , oOOOO , Ii , Ii1ii111i1 , i1i1i1I , oOoo000 , OooOo00o , IiI11i1IIiiI , oOOo000oOoO0 in O0Oo0o000oO :
        if not O0Oo000ooO00 == 'true' and OooOo00o . lower ( ) == 'yes' : continue
@@ -433,30 +433,30 @@ def OoO00 ( ) :
   else : iiiii1II ( 'Text file for builds not formated correctly.' , '' , icon = oO0O00oOOoooO , themeit = OOoO )
  iIi1 ( 'files' , 'viewType' )
  if 36 - 36: IiiIII111ii / II111iiii / i1Ii / i1Ii + oO0
-def oO0Ooo0ooOO0 ( ) :
- if 46 - 46: IiiIII111ii % o0o0Oo0oooo0
- if 64 - 64: i11iIiiIii - II111iiii
+def OO0Ooooo000Oo ( ) :
+ if 95 - 95: i1Ii
+ if 51 - 51: II111iiii + i1Ii . i1IIi . oO0 + o0o0Oo0oooo0 * ooOo
  import sys
  import webbrowser
  import time
- if 77 - 77: o0o0Oo0oooo0 % IiiIII111ii
- II1IiiIii = 'System.Platform.Android'
- oOo0OoOOo0 = 'system.platform.ios'
- iII11I1Ii1 = 'system.platform.osx'
- o0o0 = 'system.platform.atv2'
- oOo0oO = 'aHR0cDovL3d3dy5zdHZtYy5uZXQvcGlu'
- IIi1IIIIi = 'MGZlYTY4MGY5NmVjY2E0'
- OOOoO = base64 . b64decode ( 'aHR0cDovL29mZnNob3JlcGx1Z2lucy5jb20vcG9ydGFsL2FwaS5waHA/cGluPSVzJmtleT0=' ) + base64 . b64decode ( IIi1IIIIi )
- I1i = 'W0NPTE9SIGJsdWVdSW4gb3JkZXIgdG8gY29udGludWUgcGxlYXNlWy9DT0xPUl0gW0NPTE9SIHdoaXRlXVtCXVZFUklGWVsvQl1bL0NPTE9SXSBbQ09MT1IgYmx1ZV15b3VyIGRldmljZSBieSBnZXR0aW5nIGFbL0NPTE9SXVtDT0xPUiB3aGl0ZV1bQl0gRlJFRSBQSU5bL0JdWy9DT0xPUl1bQ09MT1IgYmx1ZV0gZnJvbSBvdXIgd2Vic2l0ZSBhbmQgZW50ZXJpbmcgdGhlIHBpbiBvbiB0aGUgbmV4dCBwcm9tcHQuICBbL0NPTE9SXVtDT0xPUiB3aGl0ZV1bQl18ICAgd3d3LnN0dm1jLm5ldC9waW5bL0JdWy9DT0xPUl0NCltDT0xPUiByZWRdW0JdRklSRSBERVZJQ0VTIERPIE5PVCBISVQgR0VUIFBJTi4gVVNFIEEgUEhPTkUgT1IgQ09NUFVURVIgVE8gR0VUIFlPVSBQSU4gTlVNQkVSWy9CXVsvQ09MT1JdDQoNCg=='
- if 12 - 12: OoooooooOO
+ if 72 - 72: IIIi1i1I + IIIi1i1I / II111iiii . OoooooooOO % IiiIII111ii
+ III = 'System.Platform.Android'
+ IiiIii = 'system.platform.ios'
+ oOo0OoOOo0 = 'system.platform.osx'
+ iII11I1Ii1 = 'system.platform.atv2'
+ o0o0 = 'aHR0cDovL3d3dy5zdHZtYy5uZXQvcGlu'
+ oOo0oO = 'MGZlYTY4MGY5NmVjY2E0'
+ IIi1IIIIi = base64 . b64decode ( 'aHR0cDovL29mZnNob3JlcGx1Z2lucy5jb20vcG9ydGFsL2FwaS5waHA/cGluPSVzJmtleT0=' ) + base64 . b64decode ( oOo0oO )
+ OOOoO = 'W0NPTE9SIGJsdWVdSW4gb3JkZXIgdG8gY29udGludWUgcGxlYXNlWy9DT0xPUl0gW0NPTE9SIHdoaXRlXVtCXVZFUklGWVsvQl1bL0NPTE9SXSBbQ09MT1IgYmx1ZV15b3VyIGRldmljZSBieSBnZXR0aW5nIGFbL0NPTE9SXVtDT0xPUiB3aGl0ZV1bQl0gRlJFRSBQSU5bL0JdWy9DT0xPUl1bQ09MT1IgYmx1ZV0gZnJvbSBvdXIgd2Vic2l0ZSBhbmQgZW50ZXJpbmcgdGhlIHBpbiBvbiB0aGUgbmV4dCBwcm9tcHQuICBbL0NPTE9SXVtDT0xPUiB3aGl0ZV1bQl18ICAgd3d3LnN0dm1jLm5ldC9waW5bL0JdWy9DT0xPUl0NCltDT0xPUiByZWRdW0JdRklSRSBERVZJQ0VTIERPIE5PVCBISVQgR0VUIFBJTi4gVVNFIEEgUEhPTkUgT1IgQ09NUFVURVIgVE8gR0VUIFlPVVIgUElOIE5VTUJFUlsvQl1bL0NPTE9SXQ0K'
+ if 14 - 14: i11IiIiiIIIII . iIii1I11I1II1 . OoooooooOO . II111iiii / I1I1i1
  o0oO0 = xbmcgui . Dialog ( )
- ii1iiIi1 = webbrowser . open
+ IiIi1 = webbrowser . open
  i111iiI1ii = xbmc . executebuiltin
- IIiii = base64 . b64decode ( I1i )
+ IIiii = base64 . b64decode ( OOOoO )
  I1i1i = xbmcaddon . Addon ( ) . getAddonInfo
  OOOOooO0oO00O0o = xbmcaddon . Addon ( ) . getSetting ( 'pin' )
  IiiIII111iI = lambda ooOO00oOOo000 : base64 . b64decode ( str ( ooOO00oOOo000 ) )
- IIi = lambda ooOO00oOOo000 : requests . get ( OOOoO % ( ooOO00oOOo000 ) ) . text . strip ( )
+ IIi = lambda ooOO00oOOo000 : requests . get ( IIi1IIIIi % ( ooOO00oOOo000 ) ) . text . strip ( )
  i11II11II1 = lambda ooOO00oOOo000 : xbmcaddon . Addon ( ) . setSetting ( base64 . b64decode ( 'cGlu' ) , ooOO00oOOo000 )
  II1IOoOo000oOo0oo = lambda ooOO00oOOo000 : xbmc . getCondVisibility ( str ( ooOO00oOOo000 ) )
  oO0O = lambda ooOO00oOOo000 : i111iiI1ii ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( ooOO00oOOo000 ) )
@@ -471,23 +471,23 @@ def oO0Ooo0ooOO0 ( ) :
    ii11II1i = OOOO000o0 ( 'Type Your Pin Here' )
    i11II11II1 ( ii11II1i )
    time . sleep ( 5 )
-   oO0Ooo0ooOO0 ( )
+   OO0Ooooo000Oo ( )
    if 98 - 98: I1111 . i11IiIiiIIIII % II111iiii
   if i11I1II == 1 :
    if 71 - 71: OO00O0O0O00Oo % i1IIi - II111iiii - iii11iiII + iii11iiII * OOoooooO
-   if II1IOoOo000oOo0oo ( II1IiiIii ) :
-    oO0O ( base64 . b64decode ( oOo0oO ) )
+   if II1IOoOo000oOo0oo ( III ) :
+    oO0O ( base64 . b64decode ( o0o0 ) )
     ii11II1i = OOOO000o0 ( 'Type Your Pin Here' )
     i11II11II1 ( ii11II1i )
     time . sleep ( 7 )
-    oO0Ooo0ooOO0 ( )
+    OO0Ooooo000Oo ( )
     if 51 - 51: iIii1I11I1II1 / o0o0Oo0oooo0 + iii11iiII - i11IiIiiIIIII + iiIIi1IiIi11
    else :
-    ii1iiIi1 ( base64 . b64decode ( oOo0oO ) )
+    IiIi1 ( base64 . b64decode ( o0o0 ) )
     ii11II1i = OOOO000o0 ( 'Type Your Pin Here' )
     i11II11II1 ( ii11II1i )
     time . sleep ( 7 )
-    oO0Ooo0ooOO0 ( )
+    OO0Ooooo000Oo ( )
     if 29 - 29: I1I1i1 % iIii1I11I1II1 . OoooooooOO % OoooooooOO % II111iiii / iiIIi1IiIi11
   if i11I1II == 2 :
    sys . exit ( )
@@ -518,22 +518,22 @@ def iI111i1I1II ( url ) :
  if 96 - 96: OO00O0O0O00Oo / Ooo0O * II111iiii - iiIIi1IiIi11 * Ooo0O
  import webbrowser
  if 81 - 81: i1Ii . I1I1i1 / OO00O0O0O00Oo
- ii1iiIi1 = webbrowser . open
+ IiIi1 = webbrowser . open
  i111iiI1ii = xbmc . executebuiltin
  II1IOoOo000oOo0oo = lambda ooOO00oOOo000 : xbmc . getCondVisibility ( str ( ooOO00oOOo000 ) )
  oO0O = lambda ooOO00oOOo000 : i111iiI1ii ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( ooOO00oOOo000 ) )
  if 17 - 17: i11iIiiIii - iii11iiII . i1Ii % iIii1I11I1II1 + i11IiIiiIIIII - OOoooooO
- II1IiiIii = 'System.Platform.Android'
+ III = 'System.Platform.Android'
  if 78 - 78: i11IiIiiIIIII * o0o0Oo0oooo0 . O0 / O0
- if II1IOoOo000oOo0oo ( II1IiiIii ) : oO0O ( base64 . b64decode ( url ) )
- else : ii1iiIi1 ( base64 . b64decode ( url ) )
+ if II1IOoOo000oOo0oo ( III ) : oO0O ( base64 . b64decode ( url ) )
+ else : IiIi1 ( base64 . b64decode ( url ) )
  if 80 - 80: i1IIi - Ooo0O / I1111 - i11iIiiIii
  if 68 - 68: IIIi1i1I - oO0 % O0 % OO00O0O0O00Oo
 def OoOo00o0OO ( name , counter ) :
- o000oOoo0o000 = wiz . workingURL ( I1I1i1I )
- if not o000oOoo0o000 == True :
+ O0oOoo0o000O0 = wiz . workingURL ( I1I1i1I )
+ if not O0oOoo0o000O0 == True :
   iiiii1II ( 'Url for txt file not valid' , '' , themeit = OOoO )
-  iiiii1II ( '%s' % o000oOoo0o000 , '' , themeit = OOoO )
+  iiiii1II ( '%s' % O0oOoo0o000O0 , '' , themeit = OOoO )
   return
  if wiz . checkBuild ( name , 'version' ) == False :
   iiiii1II ( 'Error reading the txt file.' , '' , themeit = OOoO )
@@ -715,20 +715,20 @@ def iIiI1iiiI1ii ( url ) :
   oOoOoO000OO = url . split ( '?' ) [ 0 ]
  O0Oo0o000oO = re . compile ( '<a href="([^"]*)".+?<img src="([^"]*)" class="file_list_icon".+?alt="([^"]*)"' , re . DOTALL ) . findall ( ooO00O00oOO )
  oOooOo00OooO0oO = re . compile ( 'class="[^"]*".+?ref="([^"]*)".+?yle=.+?</a>' ) . findall ( ooO00O00oOO )
- for url , I1iOO0Oo , oO0o00oOOooO0 in O0Oo0o000oO :
+ for url , I1i , oO0o00oOOooO0 in O0Oo0o000oO :
   if 'apk' in url :
-   IiIIi1I1I11Ii ( ( oO0o00oOOooO0 ) . replace ( '&#39;' , '' ) . replace ( '&amp;' , ' - ' ) . replace ( '&#174;:' , ': ' ) . replace ( '&#174;' , ' ' ) , 'https://www.apkfiles.com' + url , 'grab' , 'http:' + I1iOO0Oo )
+   IiIIi1I1I11Ii ( ( oO0o00oOOooO0 ) . replace ( '&#39;' , '' ) . replace ( '&amp;' , ' - ' ) . replace ( '&#174;:' , ': ' ) . replace ( '&#174;' , ' ' ) , 'https://www.apkfiles.com' + url , 'grab' , 'http:' + I1i )
  if len ( oOooOo00OooO0oO ) > 1 :
   oOooOo00OooO0oO = str ( oOooOo00OooO0oO [ len ( oOooOo00OooO0oO ) - 1 ] )
  IiIIi1I1I11Ii ( 'Next Page' , oOoOoO000OO + str ( oOooOo00OooO0oO ) , 'select' , O000OO0 + 'Next.png' )
- if 45 - 45: OoooooooOO % IIIi1i1I - oO0 - IIIi1i1I - ooOo / I1I1i1
-def oooo00 ( name , url ) :
+ if 67 - 67: o0o0Oo0oooo0 / I1I1i1 * I1111 / iii11iiII * oO0 / IIIi1i1I
+def OOoOO0OO ( name , url ) :
  ooO00O00oOO = I1 ( url )
  name = name
  O0Oo0o000oO = re . compile ( 'href="([^"]*)".+?lass="yellow_button".+?itle=' ) . findall ( ooO00O00oOO )
  for url in O0Oo0o000oO :
   url = 'https://www.apkfiles.com' + url
-  i1oO ( name , url , 'Brackets' )
+  i1oo00OoO ( name , url , 'Brackets' )
   if 30 - 30: Ooo0O . I1111
   if 57 - 57: i11IiIiiIIIII . Ooo0O + II111iiii
   if 43 - 43: OO00O0O0O00Oo % iiIIi1IiIi11
@@ -2127,7 +2127,7 @@ def o0ooOO0OOO00o ( path ) :
    return True
  return False
  if 71 - 71: IIIi1i1I - OoooooooOO * Ooo0O * i11IiIiiIIIII + I1I1i1 * oO0
-def i1oO ( apk , url , Brackets ) :
+def i1oo00OoO ( apk , url , Brackets ) :
  wiz . log ( apk )
  wiz . log ( url )
  if wiz . platform ( ) == 'android' :
@@ -2423,18 +2423,18 @@ def Ii1i1 ( addon , name = None , over = False ) :
   else : wiz . LogNotify ( '[COLOR %s]Remove Addon Data[/COLOR]' % oOOo0O00o , '[COLOR %s]Cancelled![/COLOR]' % iIiIi11 )
  elif addon == 'uninstalled' :
   if iiIIIII1i1iI . yesno ( o0OOO , '[COLOR %s]Would you like to remove [COLOR %s]ALL[/COLOR] addon data stored in you Userdata folder for uninstalled addons?[/COLOR]' % ( iIiIi11 , oOOo0O00o ) , yeslabel = '[B][COLOR green]Remove Data[/COLOR][/B]' , nolabel = '[B][COLOR red]Don\'t Remove[/COLOR][/B]' ) :
-   IiI11iI1i1i1i = 0
+   o00oO0o0o = 0
    for Oo0O in glob . glob ( os . path . join ( ooOOOo0oo0O0 , '*' ) ) :
     OOOO0Oo = Oo0O . replace ( ooOOOo0oo0O0 , '' ) . replace ( '\\' , '' ) . replace ( '/' , '' )
     if OOOO0Oo in Iii1I1I11iiI1 : pass
     elif os . path . exists ( os . path . join ( O0O , OOOO0Oo ) ) : pass
-    else : wiz . cleanHouse ( Oo0O ) ; IiI11iI1i1i1i += 1 ; wiz . log ( Oo0O ) ; shutil . rmtree ( Oo0O )
-   wiz . LogNotify ( '[COLOR %s]Clean up Uninstalled[/COLOR]' % oOOo0O00o , '[COLOR %s]%s Folders(s) Removed[/COLOR]' % ( iIiIi11 , IiI11iI1i1i1i ) )
+    else : wiz . cleanHouse ( Oo0O ) ; o00oO0o0o += 1 ; wiz . log ( Oo0O ) ; shutil . rmtree ( Oo0O )
+   wiz . LogNotify ( '[COLOR %s]Clean up Uninstalled[/COLOR]' % oOOo0O00o , '[COLOR %s]%s Folders(s) Removed[/COLOR]' % ( iIiIi11 , o00oO0o0o ) )
   else : wiz . LogNotify ( '[COLOR %s]Remove Addon Data[/COLOR]' % oOOo0O00o , '[COLOR %s]Cancelled![/COLOR]' % iIiIi11 )
  elif addon == 'empty' :
   if iiIIIII1i1iI . yesno ( o0OOO , '[COLOR %s]Would you like to remove [COLOR %s]ALL[/COLOR] empty addon data folders in you Userdata folder?[/COLOR]' % ( iIiIi11 , oOOo0O00o ) , yeslabel = '[B][COLOR green]Remove Data[/COLOR][/B]' , nolabel = '[B][COLOR red]Don\'t Remove[/COLOR][/B]' ) :
-   IiI11iI1i1i1i = wiz . emptyfolder ( ooOOOo0oo0O0 )
-   wiz . LogNotify ( '[COLOR %s]Remove Empty Folders[/COLOR]' % oOOo0O00o , '[COLOR %s]%s Folders(s) Removed[/COLOR]' % ( iIiIi11 , IiI11iI1i1i1i ) )
+   o00oO0o0o = wiz . emptyfolder ( ooOOOo0oo0O0 )
+   wiz . LogNotify ( '[COLOR %s]Remove Empty Folders[/COLOR]' % oOOo0O00o , '[COLOR %s]%s Folders(s) Removed[/COLOR]' % ( iIiIi11 , o00oO0o0o ) )
   else : wiz . LogNotify ( '[COLOR %s]Remove Empty Folders[/COLOR]' % oOOo0O00o , '[COLOR %s]Cancelled![/COLOR]' % iIiIi11 )
  else :
   Oooo0ooOoo0 = os . path . join ( oOo00Oo00O , 'addon_data' , addon )
@@ -2830,15 +2830,15 @@ def oo0O ( display , mode = None , name = None , url = None , menu = None , desc
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = True )
  return iIiiI111I11
  if 55 - 55: iii11iiII / o0o0Oo0oooo0 * iii11iiII
-def III ( name , url , mode , iconimage , fanart , description ) :
- if 3 - 3: i11iIiiIii - IIIi1i1I / i1Ii
+def IIIiiiI1Ii1 ( name , url , mode , iconimage , fanart , description ) :
+ if 97 - 97: II111iiii % Ooo0O * i1Ii
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
  iIiiI111I11 = True
  OOo0Oo0 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
  OOo0Oo0 . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
  OOo0Oo0 . setProperty ( "Fanart_Image" , fanart )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
- if 62 - 62: OO00O0O0O00Oo
+ if 51 - 51: Ooo0O % iii11iiII . Ooo0O
 def oo00O00oO000o ( display , mode = None , name = None , url = None , menu = None , description = o0OOO , overwrite = True , fanart = OOO00 , icon = iiiiiIIii , themeit = None ) :
  Iii1iI1iiIii = sys . argv [ 0 ]
  if not mode == None : Iii1iI1iiIii += "?mode=%s" % urllib . quote_plus ( mode )
@@ -2852,7 +2852,7 @@ def oo00O00oO000o ( display , mode = None , name = None , url = None , menu = No
  if not menu == None : OOo0Oo0 . addContextMenuItems ( menu , replaceItems = overwrite )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = True )
  return iIiiI111I11
- if 97 - 97: II111iiii % Ooo0O * i1Ii
+ if 72 - 72: IiiIII111ii % IiiIII111ii / ooOo
 def iiiii1II ( display , mode = None , name = None , url = None , menu = None , description = o0OOO , overwrite = True , fanart = OOO00 , icon = iiiiiIIii , themeit = None ) :
  Iii1iI1iiIii = sys . argv [ 0 ]
  if not mode == None : Iii1iI1iiIii += "?mode=%s" % urllib . quote_plus ( mode )
@@ -2866,7 +2866,7 @@ def iiiii1II ( display , mode = None , name = None , url = None , menu = None , 
  if not menu == None : OOo0Oo0 . addContextMenuItems ( menu , replaceItems = overwrite )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
  return iIiiI111I11
- if 51 - 51: Ooo0O % iii11iiII . Ooo0O
+ if 40 - 40: Ooo0O - iii11iiII + OO00O0O0O00Oo - I1I1i1 % ooOo . OOoooooO
 def IiIIi1I1I11Ii ( name , url , mode , iconimage ) :
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage )
  iIiiI111I11 = True
@@ -2874,7 +2874,7 @@ def IiIIi1I1I11Ii ( name , url , mode , iconimage ) :
  OOo0Oo0 . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : name } )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = True )
  return iIiiI111I11
- if 72 - 72: IiiIII111ii % IiiIII111ii / ooOo
+ if 35 - 35: i11iIiiIii + OoooooooOO * iIii1I11I1II1 . OO00O0O0O00Oo
 def oooOOOoOOOo0O ( name , url , mode , iconimage , fanart , description , installRating ) :
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description ) + "&installRating=" + urllib . quote_plus ( installRating )
  iIiiI111I11 = True
@@ -2883,8 +2883,8 @@ def oooOOOoOOOo0O ( name , url , mode , iconimage , fanart , description , insta
  OOo0Oo0 . setProperty ( "Fanart_Image" , fanart )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
  return iIiiI111I11
- if 40 - 40: Ooo0O - iii11iiII + OO00O0O0O00Oo - I1I1i1 % ooOo . OOoooooO
-def Ii1iii ( display , mode = None , name = None , url = None , menu = None , description = o0OOO , overwrite = True , fanart = OOO00 , icon = iiiiiIIii , themeit = None ) :
+ if 48 - 48: iiIIi1IiIi11 * i1IIi % OoooooooOO * IiiIII111ii * I1111
+def I1iO0o0O0OooOoo ( display , mode = None , name = None , url = None , menu = None , description = o0OOO , overwrite = True , fanart = OOO00 , icon = iiiiiIIii , themeit = None ) :
  Iii1iI1iiIii = sys . argv [ 0 ]
  if not mode == None : Iii1iI1iiIii += "?mode=%s" % urllib . quote_plus ( mode )
  if not name == None : Iii1iI1iiIii += "&name=" + urllib . quote_plus ( name )
@@ -2897,7 +2897,7 @@ def Ii1iii ( display , mode = None , name = None , url = None , menu = None , de
  if not menu == None : OOo0Oo0 . addContextMenuItems ( menu , replaceItems = overwrite )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
  return iIiiI111I11
- if 94 - 94: OOoooooO % i11IiIiiIIIII % i1IIi
+ if 17 - 17: OoooooooOO % IIIi1i1I - i1IIi % i1Ii % Ooo0O
 def oO0O0oO0 ( display , mode , name = None , url = None , menu = None , overwrite = True , fanart = OOO00 , icon = iiiiiIIii , description = None , themeit = None ) :
  Iii1iI1iiIii = '%s?mode=%s' % ( sys . argv [ 0 ] , urllib . quote_plus ( mode ) )
  if not name == None : Iii1iI1iiIii += "&name=" + urllib . quote_plus ( name )
@@ -2911,8 +2911,8 @@ def oO0O0oO0 ( display , mode , name = None , url = None , menu = None , overwri
  if not menu == None : OOo0Oo0 . addContextMenuItems ( menu , replaceItems = overwrite )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
  return iIiiI111I11
- if 90 - 90: IiiIII111ii * I1111
-def I1iO0o0O0OooOoo ( name , url , mode , iconimage , fanart , description ) :
+ if 41 - 41: OoooooooOO . OO00O0O0O00Oo % o0o0Oo0oooo0 - iiIIi1IiIi11
+def oOOooO ( name , url , mode , iconimage , fanart , description ) :
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&fanart=" + urllib . quote_plus ( fanart )
  iIiiI111I11 = True
  OOo0Oo0 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
@@ -2920,9 +2920,9 @@ def I1iO0o0O0OooOoo ( name , url , mode , iconimage , fanart , description ) :
  OOo0Oo0 . setProperty ( "Fanart_Image" , fanart )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = False )
  return iIiiI111I11
- if 17 - 17: OoooooooOO % IIIi1i1I - i1IIi % i1Ii % Ooo0O
-def IiOO0OOOOOo ( name , url , mode , iconimage , fanart , description ) :
- if 7 - 7: O0 + IiiIII111ii . II111iiii
+ if 38 - 38: O0
+def ooOi1i1i11iI11II ( name , url , mode , iconimage , fanart , description ) :
+ if 6 - 6: o0o0Oo0oooo0 . II111iiii * ooOo . ooOo / IiiIII111ii
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
  iIiiI111I11 = True
  OOo0Oo0 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
@@ -2930,10 +2930,10 @@ def IiOO0OOOOOo ( name , url , mode , iconimage , fanart , description ) :
  OOo0Oo0 . setProperty ( "Fanart_Image" , fanart )
  iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = True )
  return iIiiI111I11
- if 12 - 12: ooOo - i1IIi
- if 95 - 95: i11IiIiiIIIII / i1Ii . O0 * i1Ii - I1I1i1 * Ooo0O
- if 6 - 6: o0o0Oo0oooo0 . II111iiii * ooOo . ooOo / IiiIII111ii
-def I1I1ii1111 ( name , url , mode , iconimage , fanart , description ) :
+ if 14 - 14: OO00O0O0O00Oo % i1Ii - O0 / OO00O0O0O00Oo
+ if 91 - 91: i11iIiiIii % OO00O0O0O00Oo * IIIi1i1I - oO0 . OO00O0O0O00Oo
+ if 28 - 28: i11iIiiIii
+def Oo00oo0 ( name , url , mode , iconimage , fanart , description ) :
  Iii1iI1iiIii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
  iIiiI111I11 = True
  OOo0Oo0 = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
@@ -2944,243 +2944,243 @@ def I1I1ii1111 ( name , url , mode , iconimage , fanart , description ) :
  else :
   iIiiI111I11 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = Iii1iI1iiIii , listitem = OOo0Oo0 , isFolder = True )
  return iIiiI111I11
- if 4 - 4: oO0 * O0 - OO00O0O0O00Oo - i11iIiiIii / I1I1i1 . iii11iiII
-def i1ii11I111Ii ( ) :
- OOoO00O = [ ]
- iio00O0o00oo = sys . argv [ 2 ]
- if len ( iio00O0o00oo ) >= 2 :
-  iIiiII = sys . argv [ 2 ]
-  iII1I = iIiiII . replace ( '?' , '' )
-  if ( iIiiII [ len ( iIiiII ) - 1 ] == '/' ) :
-   iIiiII = iIiiII [ 0 : len ( iIiiII ) - 2 ]
-  o00oOOo0Oo = iII1I . split ( '&' )
-  OOoO00O = { }
-  for oO0ooOoO in range ( len ( o00oOOo0Oo ) ) :
-   Oooo0o0oO = { }
-   Oooo0o0oO = o00oOOo0Oo [ oO0ooOoO ] . split ( '=' )
-   if ( len ( Oooo0o0oO ) ) == 2 :
-    OOoO00O [ Oooo0o0oO [ 0 ] ] = Oooo0o0oO [ 1 ]
-    if 82 - 82: OOoooooO
-  return OOoO00O
-  if 70 - 70: iIii1I11I1II1 + i11iIiiIii + Ooo0O / iiIIi1IiIi11
-iIiiII = i1ii11I111Ii ( )
+ if 82 - 82: iii11iiII * oO0 % IiiIII111ii . iii11iiII
+def iI1oOoo ( ) :
+ o00O0o00oo = [ ]
+ iIiiII = sys . argv [ 2 ]
+ if len ( iIiiII ) >= 2 :
+  iII1I = sys . argv [ 2 ]
+  o00oOOo0Oo = iII1I . replace ( '?' , '' )
+  if ( iII1I [ len ( iII1I ) - 1 ] == '/' ) :
+   iII1I = iII1I [ 0 : len ( iII1I ) - 2 ]
+  Oooo0o0oO = o00oOOo0Oo . split ( '&' )
+  o00O0o00oo = { }
+  for oO0ooOoO in range ( len ( Oooo0o0oO ) ) :
+   o0OOoOooO0ooO = { }
+   o0OOoOooO0ooO = Oooo0o0oO [ oO0ooOoO ] . split ( '=' )
+   if ( len ( o0OOoOooO0ooO ) ) == 2 :
+    o00O0o00oo [ o0OOoOooO0ooO [ 0 ] ] = o0OOoOooO0ooO [ 1 ]
+    if 50 - 50: i11iIiiIii + OoooooooOO / O0 + I1I1i1 / i11iIiiIii + IIIi1i1I
+  return o00O0o00oo
+  if 90 - 90: iiIIi1IiIi11 * IiiIII111ii - iiIIi1IiIi11 + I1111 + i11IiIiiIIIII % O0
+iII1I = iI1oOoo ( )
 OOOoO000 = None
 oO0o00oOOooO0 = None
-iI1IiiiIi = None
+i111IIIIiI = None
 IiIiIi1I1 = None
 oOoo000 = None
 IiI11i1IIiiI = None
-IiI111 = None
+Oo0oOOO = None
 oOOo000oOoO0 = None
 try :
- IiI111 = int ( iIiiII [ "fav_mode" ] )
+ Oo0oOOO = int ( iII1I [ "fav_mode" ] )
 except :
  pass
-try : iI1IiiiIi = urllib . unquote_plus ( iIiiII [ "mode" ] )
+try : i111IIIIiI = urllib . unquote_plus ( iII1I [ "mode" ] )
 except : pass
-try : oO0o00oOOooO0 = urllib . unquote_plus ( iIiiII [ "name" ] )
+try : oO0o00oOOooO0 = urllib . unquote_plus ( iII1I [ "name" ] )
 except : pass
-try : OOOoO000 = urllib . unquote_plus ( iIiiII [ "url" ] )
+try : OOOoO000 = urllib . unquote_plus ( iII1I [ "url" ] )
 except : pass
-try : IiIiIi1I1 = urllib . unquote_plus ( iIiiII [ "iconimage" ] )
+try : IiIiIi1I1 = urllib . unquote_plus ( iII1I [ "iconimage" ] )
 except : pass
-try : oOoo000 = urllib . unquote_plus ( iIiiII [ "fanart" ] )
+try : oOoo000 = urllib . unquote_plus ( iII1I [ "fanart" ] )
 except : pass
-try : IiI11i1IIiiI = urllib . unquote_plus ( iIiiII [ "description" ] )
+try : IiI11i1IIiiI = urllib . unquote_plus ( iII1I [ "description" ] )
 except : pass
-if 82 - 82: ooOo % I1111 % i11IiIiiIIIII + i11IiIiiIIIII
-print "Mode: " + str ( iI1IiiiIi )
+if 62 - 62: IiiIII111ii - IIIi1i1I % iIii1I11I1II1
+print "Mode: " + str ( i111IIIIiI )
 print "URL: " + str ( OOOoO000 )
 print "Name: " + str ( oO0o00oOOooO0 )
 print "IconImage: " + str ( IiIiIi1I1 )
-if 6 - 6: Ooo0O
-wiz . log ( '[ Version : \'%s\' ] [ Mode : \'%s\' ] [ Name : \'%s\' ] [ Url : \'%s\' ]' % ( O0oo0OO0 , iI1IiiiIi if not iI1IiiiIi == '' else None , oO0o00oOOooO0 , OOOoO000 ) )
-if 73 - 73: OO00O0O0O00Oo * oO0 + I1I1i1 - Ooo0O . i11IiIiiIIIII
-def o0oOOO ( ) :
- if 62 - 62: IiiIII111ii - IIIi1i1I % iIii1I11I1II1
+if 57 - 57: OoooooooOO / o0o0Oo0oooo0
+wiz . log ( '[ Version : \'%s\' ] [ Mode : \'%s\' ] [ Name : \'%s\' ] [ Url : \'%s\' ]' % ( O0oo0OO0 , i111IIIIiI if not i111IIIIiI == '' else None , oO0o00oOOooO0 , OOOoO000 ) )
+if 44 - 44: o0o0Oo0oooo0 * i1IIi * O0
+def oooo0o0oO ( ) :
+ if 15 - 15: iIii1I11I1II1 . iii11iiII . oO0 * i11iIiiIii
  for file in os . listdir ( Ii11iii11I ) :
   if file . endswith ( ".zip" ) :
    OOOoO000 = xbmc . translatePath ( os . path . join ( Ii11iii11I , file ) )
-   I1iO0o0O0OooOoo ( file , OOOoO000 , 'read' , iiiiiIIii , iiiiiIIii , '' )
-   if 57 - 57: OoooooooOO / o0o0Oo0oooo0
-def iI1ii1iIiii1i ( ) :
- ooOooo00O = xbmc . translatePath ( os . path . join ( 'special://' , 'home' ) )
+   oOOooO ( file , OOOoO000 , 'read' , iiiiiIIii , iiiiiIIii , '' )
+   if 72 - 72: i11IiIiiIIIII
+def i1I1IIiIIi ( ) :
+ iII1ii1IIII = xbmc . translatePath ( os . path . join ( 'special://' , 'home' ) )
  for file in os . listdir ( Ii11iii11I ) :
   if file . endswith ( ".zip" ) :
    OOOoO000 = xbmc . translatePath ( os . path . join ( Ii11iii11I , file ) )
-   I1I1ii1111 ( file , OOOoO000 , 'dell' , iiiiiIIii , iiiiiIIii , '' )
-   if 5 - 5: i11IiIiiIIIII . II111iiii / i1Ii % i11IiIiiIIIII + IIIi1i1I
+   Oo00oo0 ( file , OOOoO000 , 'dell' , iiiiiIIii , iiiiiIIii , '' )
+   if 98 - 98: i11iIiiIii . OO00O0O0O00Oo * IIIi1i1I . iiIIi1IiIi11
 def iIi1 ( content , viewType ) :
- if 35 - 35: I1111
+ if 52 - 52: oO0 - i1IIi + i11iIiiIii % Ooo0O % OOoooooO
  if content :
   xbmcplugin . setContent ( int ( sys . argv [ 1 ] ) , content )
  if ADDON . getSetting ( 'auto-view' ) == 'true' :
   xbmc . executebuiltin ( "Container.SetViewMode(%s)" % ADDON . getSetting ( viewType ) )
-  if 52 - 52: Ooo0O / iiIIi1IiIi11
-  if 42 - 42: iIii1I11I1II1 * IiiIII111ii / I1111 + iii11iiII
-  if 48 - 48: OoooooooOO - OO00O0O0O00Oo . i11iIiiIii * iiIIi1IiIi11 - IiiIII111ii - I1I1i1
-  if 59 - 59: iiIIi1IiIi11 / i11IiIiiIIIII . Ooo0O
-  if 100 - 100: O0
-  if 94 - 94: oO0 - I1I1i1
-  if 42 - 42: I1I1i1 * o0o0Oo0oooo0 . I1111 - iiIIi1IiIi11 / II111iiii
+  if 8 - 8: OO00O0O0O00Oo
+  if 23 - 23: I1I1i1 - i11IiIiiIIIII + I1I1i1 * O0
+  if 48 - 48: II111iiii + II111iiii * i1IIi / IiiIII111ii
+  if 37 - 37: iIii1I11I1II1 % i11IiIiiIIIII / i1Ii
+  if 37 - 37: OO00O0O0O00Oo - IIIi1i1I - I1111
+  if 42 - 42: iIii1I11I1II1 % IiiIII111ii - oO0 + iIii1I11I1II1
+  if 27 - 27: O0 / I1111
 def iIi1 ( content , viewType ) :
  if wiz . getS ( 'auto-view' ) == 'true' :
-  iII1ii11III = wiz . getS ( viewType )
-  if iII1ii11III == '50' and o0OIiII >= 17 and I1IIiiIiii == 'skin.estuary' : iII1ii11III = '55'
-  if iII1ii11III == '500' and o0OIiII >= 17 and I1IIiiIiii == 'skin.estuary' : iII1ii11III = '50'
-  wiz . ebi ( "Container.SetViewMode(%s)" % iII1ii11III )
-  if 92 - 92: I1111 - oO0 + iIii1I11I1II1 % I1I1i1
-if iI1IiiiIi == None : i1iiIiI1Ii1i ( )
-if 78 - 78: iIii1I11I1II1 - II111iiii / ooOo
-elif iI1IiiiIi == 'wizardupdate' : wiz . wizardUpdate ( )
-elif iI1IiiiIi == 'builds' : OoO00 ( )
-elif iI1IiiiIi == 'viewbuild' : OoOo00o0OO ( oO0o00oOOooO0 , oOOo000oOoO0 )
-elif iI1IiiiIi == 'buildinfo' : Oooo0O0Oooo ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'buildpreview' : IiI ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'install' : o0OOOOOo00 ( oO0o00oOOooO0 , OOOoO000 )
-elif iI1IiiiIi == 'theme' : o0OOOOOo00 ( oO0o00oOOooO0 , oOOo000oOoO0 , iI1IiiiIi , OOOoO000 )
-elif iI1IiiiIi == 'viewthirdparty' : oO00OoOO ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'installthird' : IIIi1IiIiii ( oO0o00oOOooO0 , OOOoO000 )
-elif iI1IiiiIi == 'editthird' : O0OO0O ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-if 9 - 9: oO0 * IiiIII111ii - i1Ii
-elif iI1IiiiIi == 'pro' : Main_Menu ( )
-if 88 - 88: iIii1I11I1II1
-elif iI1IiiiIi == 'maint' : Oo0oo0oOO0oOo ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'speed' : oOOoO ( )
-elif iI1IiiiIi == 'kodi17fix' : wiz . kodi17Fix ( )
-elif iI1IiiiIi == 'advancedsetting' : IiIIII1iiIIi ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'autoadvanced' : Ii1III1 ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'removeadvanced' : OooOO0oOOo0O ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'asciicheck' : wiz . asciiCheck ( )
-elif iI1IiiiIi == 'backupbuild' : wiz . backUpOptions ( 'build' )
-elif iI1IiiiIi == 'backupgui' : wiz . backUpOptions ( 'guifix' )
-elif iI1IiiiIi == 'backuptheme' : wiz . backUpOptions ( 'theme' )
-elif iI1IiiiIi == 'backupaddon' : wiz . backUpOptions ( 'addondata' )
-elif iI1IiiiIi == 'oldThumbs' : wiz . oldThumbs ( )
-elif iI1IiiiIi == 'clearbackup' : wiz . cleanupBackup ( )
-elif iI1IiiiIi == 'convertpath' : wiz . convertSpecial ( o00 )
-elif iI1IiiiIi == 'currentsettings' : oOooOO ( )
-elif iI1IiiiIi == 'fullclean' : o00O0o ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'clearcache' : Oo0o ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'clearpackages' : wiz . clearPackages ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'clearcrash' : wiz . clearCrash ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'clearthumb' : i1Ii1 ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'checksources' : wiz . checkSources ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'checkrepos' : wiz . checkRepos ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'freshstart' : ii1OO0 ( )
-elif iI1IiiiIi == 'forceupdate' : wiz . forceUpdate ( )
-elif iI1IiiiIi == 'forceprofile' : wiz . reloadProfile ( wiz . getInfo ( 'System.ProfileName' ) )
-elif iI1IiiiIi == 'forceclose' : wiz . killxbmc ( )
-elif iI1IiiiIi == 'forceskin' : wiz . ebi ( "ReloadSkin()" ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'hidepassword' : wiz . hidePassword ( )
-elif iI1IiiiIi == 'unhidepassword' : wiz . unhidePassword ( )
-elif iI1IiiiIi == 'enableaddons' : I1IIIIIi1IIiI ( )
-elif iI1IiiiIi == 'toggleaddon' : wiz . toggleAddon ( oO0o00oOOooO0 , OOOoO000 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'togglecache' : iiI1ii1Iii ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'toggleadult' : wiz . toggleAdult ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'changefeq' : iIIiI11iI1Ii1 ( ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'uploadlog' : uploadLog . Main ( )
-elif iI1IiiiIi == 'viewlog' : o0OoOoo ( )
-elif iI1IiiiIi == 'viewwizlog' : o0OoOoo ( I11iii1Ii )
-elif iI1IiiiIi == 'viewerrorlog' : oOOoooO0O0 ( all = True )
-elif iI1IiiiIi == 'clearwizlog' : iiI1iiii1 = open ( I11iii1Ii , 'w' ) ; iiI1iiii1 . close ( ) ; wiz . LogNotify ( "[COLOR %s]%s[/COLOR]" % ( oOOo0O00o , o0OOO ) , "[COLOR %s]Wizard Log Cleared![/COLOR]" % iIiIi11 )
-elif iI1IiiiIi == 'purgedb' : iiiiI ( )
-elif iI1IiiiIi == 'fixaddonupdate' : i1I11Iii1i ( )
-elif iI1IiiiIi == 'removeaddons' : Ii11iI ( )
-elif iI1IiiiIi == 'removeaddon' : Ii11IiIiiii1 ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'removeaddondata' : o0Iiii ( )
-elif iI1IiiiIi == 'removedata' : Ii1i1 ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'resetaddon' : IiI11iI1i1i1i = wiz . cleanHouse ( o0 , ignore = True ) ; wiz . LogNotify ( "[COLOR %s]%s[/COLOR]" % ( oOOo0O00o , o0OOO ) , "[COLOR %s]Addon_Data reset[/COLOR]" % iIiIi11 )
-elif iI1IiiiIi == 'systeminfo' : ii11iiI11I ( )
-elif iI1IiiiIi == 'restorezip' : oO00oO00O0Oo ( 'build' )
-elif iI1IiiiIi == 'restoregui' : oO00oO00O0Oo ( 'gui' )
-elif iI1IiiiIi == 'restoreaddon' : oO00oO00O0Oo ( 'addondata' )
-elif iI1IiiiIi == 'restoreextzip' : iIiII1 ( 'build' )
-elif iI1IiiiIi == 'restoreextgui' : iIiII1 ( 'gui' )
-elif iI1IiiiIi == 'restoreextaddon' : iIiII1 ( 'addondata' )
-elif iI1IiiiIi == 'writeadvanced' : ooooOoo0OO ( oO0o00oOOooO0 , OOOoO000 )
-if 27 - 27: i11IiIiiIIIII * i11iIiiIii . iii11iiII + OOoooooO
-elif iI1IiiiIi == 'apk1' : iiiiiIIi ( )
-elif iI1IiiiIi == 'apkgame' : Ooo0O0 ( OOOoO000 )
-elif iI1IiiiIi == 'select' : iIiI1iiiI1ii ( OOOoO000 )
-elif iI1IiiiIi == 'grab' : oooo00 ( oO0o00oOOooO0 , OOOoO000 )
-elif iI1IiiiIi == 'rom' : OOoOO0o ( OOOoO000 )
-elif iI1IiiiIi == 'apkscrape1' : APK ( )
-elif iI1IiiiIi == 'apkscrape' : Oo0OooO0 ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'apkshow' : oO0oooooo ( OOOoO000 )
-elif iI1IiiiIi == 'intellaunch' : i11i1i1I1iI1 ( )
-elif iI1IiiiIi == 'intelselect' : oo0ooooO ( oO0o00oOOooO0 , OOOoO000 , IiIiIi1I1 , oOoo000 , IiI11i1IIiiI )
-elif iI1IiiiIi == 'emurom' : ooO ( )
-elif iI1IiiiIi == 'roms' : Ii11iii1II1i ( )
-elif iI1IiiiIi == 'snes' : OOoOoo00Oo ( )
-elif iI1IiiiIi == 'nes' : i11II ( )
-elif iI1IiiiIi == 'gen' : OO0o0oO0O000o ( )
-elif iI1IiiiIi == 'atr' : O00OO ( )
-elif iI1IiiiIi == 'n64' : o0OO ( )
-elif iI1IiiiIi == 'tbg' : O0Oo0 ( )
-elif iI1IiiiIi == 'nds' : Ii1Iii11 ( )
-elif iI1IiiiIi == 'ps' : iI1i1II ( )
-elif iI1IiiiIi == 'apkinstall' : i1oO ( oO0o00oOOooO0 , OOOoO000 , "None" )
-elif iI1IiiiIi == 'rominstall' : i1IiI1iIIIIIi ( oO0o00oOOooO0 , OOOoO000 , )
-if 14 - 14: OO00O0O0O00Oo * I1111 + i11IiIiiIIIII - i1Ii . oO0 * IIIi1i1I
-elif iI1IiiiIi == 'youtube' : oOOOoo0o ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'viewVideo' : O00oO0O ( OOOoO000 )
-if 100 - 100: i11IiIiiIIIII
-elif iI1IiiiIi == 'addons' : iI1IIi11i1I1 ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'addoninstall' : iIIi11 ( oO0o00oOOooO0 , OOOoO000 )
-if 36 - 36: I1111 + II111iiii * o0o0Oo0oooo0
-elif iI1IiiiIi == 'savedata' : i11i11i ( )
-elif iI1IiiiIi == 'togglesetting' : wiz . setS ( oO0o00oOOooO0 , 'false' if wiz . getS ( oO0o00oOOooO0 ) == 'true' else 'true' ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'managedata' : IIiII11 ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'whitelist' : wiz . whiteList ( oO0o00oOOooO0 )
-if 14 - 14: OO00O0O0O00Oo % OO00O0O0O00Oo
-elif iI1IiiiIi == 'trakt' : Iii11111iiI ( )
-elif iI1IiiiIi == 'savetrakt' : traktit . traktIt ( 'update' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'restoretrakt' : traktit . traktIt ( 'restore' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'addontrakt' : traktit . traktIt ( 'clearaddon' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'cleartrakt' : traktit . clearSaved ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'authtrakt' : traktit . activateTrakt ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'updatetrakt' : traktit . autoUpdate ( 'all' )
-elif iI1IiiiIi == 'importtrakt' : traktit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+  O000oooO0 = wiz . getS ( viewType )
+  if O000oooO0 == '50' and o0OIiII >= 17 and I1IIiiIiii == 'skin.estuary' : O000oooO0 = '55'
+  if O000oooO0 == '500' and o0OIiII >= 17 and I1IIiiIiii == 'skin.estuary' : O000oooO0 = '50'
+  wiz . ebi ( "Container.SetViewMode(%s)" % O000oooO0 )
+  if 75 - 75: i11iIiiIii
+if i111IIIIiI == None : i1iiIiI1Ii1i ( )
+if 44 - 44: iIii1I11I1II1 * OO00O0O0O00Oo * Ooo0O * oO0 + i11IiIiiIIIII
+elif i111IIIIiI == 'wizardupdate' : wiz . wizardUpdate ( )
+elif i111IIIIiI == 'builds' : OoO00 ( )
+elif i111IIIIiI == 'viewbuild' : OoOo00o0OO ( oO0o00oOOooO0 , oOOo000oOoO0 )
+elif i111IIIIiI == 'buildinfo' : Oooo0O0Oooo ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'buildpreview' : IiI ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'install' : o0OOOOOo00 ( oO0o00oOOooO0 , OOOoO000 )
+elif i111IIIIiI == 'theme' : o0OOOOOo00 ( oO0o00oOOooO0 , oOOo000oOoO0 , i111IIIIiI , OOOoO000 )
+elif i111IIIIiI == 'viewthirdparty' : oO00OoOO ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'installthird' : IIIi1IiIiii ( oO0o00oOOooO0 , OOOoO000 )
+elif i111IIIIiI == 'editthird' : O0OO0O ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+if 12 - 12: oO0 * OOoooooO - i11IiIiiIIIII . I1111 + I1111 + iiIIi1IiIi11
+elif i111IIIIiI == 'pro' : Main_Menu ( )
+if 29 - 29: OoooooooOO . OO00O0O0O00Oo % OO00O0O0O00Oo
+elif i111IIIIiI == 'maint' : Oo0oo0oOO0oOo ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'speed' : oOOoO ( )
+elif i111IIIIiI == 'kodi17fix' : wiz . kodi17Fix ( )
+elif i111IIIIiI == 'advancedsetting' : IiIIII1iiIIi ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'autoadvanced' : Ii1III1 ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'removeadvanced' : OooOO0oOOo0O ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'asciicheck' : wiz . asciiCheck ( )
+elif i111IIIIiI == 'backupbuild' : wiz . backUpOptions ( 'build' )
+elif i111IIIIiI == 'backupgui' : wiz . backUpOptions ( 'guifix' )
+elif i111IIIIiI == 'backuptheme' : wiz . backUpOptions ( 'theme' )
+elif i111IIIIiI == 'backupaddon' : wiz . backUpOptions ( 'addondata' )
+elif i111IIIIiI == 'oldThumbs' : wiz . oldThumbs ( )
+elif i111IIIIiI == 'clearbackup' : wiz . cleanupBackup ( )
+elif i111IIIIiI == 'convertpath' : wiz . convertSpecial ( o00 )
+elif i111IIIIiI == 'currentsettings' : oOooOO ( )
+elif i111IIIIiI == 'fullclean' : o00O0o ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'clearcache' : Oo0o ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'clearpackages' : wiz . clearPackages ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'clearcrash' : wiz . clearCrash ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'clearthumb' : i1Ii1 ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'checksources' : wiz . checkSources ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'checkrepos' : wiz . checkRepos ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'freshstart' : ii1OO0 ( )
+elif i111IIIIiI == 'forceupdate' : wiz . forceUpdate ( )
+elif i111IIIIiI == 'forceprofile' : wiz . reloadProfile ( wiz . getInfo ( 'System.ProfileName' ) )
+elif i111IIIIiI == 'forceclose' : wiz . killxbmc ( )
+elif i111IIIIiI == 'forceskin' : wiz . ebi ( "ReloadSkin()" ) ; wiz . refresh ( )
+elif i111IIIIiI == 'hidepassword' : wiz . hidePassword ( )
+elif i111IIIIiI == 'unhidepassword' : wiz . unhidePassword ( )
+elif i111IIIIiI == 'enableaddons' : I1IIIIIi1IIiI ( )
+elif i111IIIIiI == 'toggleaddon' : wiz . toggleAddon ( oO0o00oOOooO0 , OOOoO000 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'togglecache' : iiI1ii1Iii ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'toggleadult' : wiz . toggleAdult ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'changefeq' : iIIiI11iI1Ii1 ( ) ; wiz . refresh ( )
+elif i111IIIIiI == 'uploadlog' : uploadLog . Main ( )
+elif i111IIIIiI == 'viewlog' : o0OoOoo ( )
+elif i111IIIIiI == 'viewwizlog' : o0OoOoo ( I11iii1Ii )
+elif i111IIIIiI == 'viewerrorlog' : oOOoooO0O0 ( all = True )
+elif i111IIIIiI == 'clearwizlog' : iiI1iiii1 = open ( I11iii1Ii , 'w' ) ; iiI1iiii1 . close ( ) ; wiz . LogNotify ( "[COLOR %s]%s[/COLOR]" % ( oOOo0O00o , o0OOO ) , "[COLOR %s]Wizard Log Cleared![/COLOR]" % iIiIi11 )
+elif i111IIIIiI == 'purgedb' : iiiiI ( )
+elif i111IIIIiI == 'fixaddonupdate' : i1I11Iii1i ( )
+elif i111IIIIiI == 'removeaddons' : Ii11iI ( )
+elif i111IIIIiI == 'removeaddon' : Ii11IiIiiii1 ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'removeaddondata' : o0Iiii ( )
+elif i111IIIIiI == 'removedata' : Ii1i1 ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'resetaddon' : o00oO0o0o = wiz . cleanHouse ( o0 , ignore = True ) ; wiz . LogNotify ( "[COLOR %s]%s[/COLOR]" % ( oOOo0O00o , o0OOO ) , "[COLOR %s]Addon_Data reset[/COLOR]" % iIiIi11 )
+elif i111IIIIiI == 'systeminfo' : ii11iiI11I ( )
+elif i111IIIIiI == 'restorezip' : oO00oO00O0Oo ( 'build' )
+elif i111IIIIiI == 'restoregui' : oO00oO00O0Oo ( 'gui' )
+elif i111IIIIiI == 'restoreaddon' : oO00oO00O0Oo ( 'addondata' )
+elif i111IIIIiI == 'restoreextzip' : iIiII1 ( 'build' )
+elif i111IIIIiI == 'restoreextgui' : iIiII1 ( 'gui' )
+elif i111IIIIiI == 'restoreextaddon' : iIiII1 ( 'addondata' )
+elif i111IIIIiI == 'writeadvanced' : ooooOoo0OO ( oO0o00oOOooO0 , OOOoO000 )
 if 9 - 9: Ooo0O - Ooo0O - I1I1i1 + OO00O0O0O00Oo - II111iiii . ooOo
-elif iI1IiiiIi == 'realdebrid' : O0oO00oOOooO ( )
-elif iI1IiiiIi == 'savedebrid' : debridit . debridIt ( 'update' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'restoredebrid' : debridit . debridIt ( 'restore' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'addondebrid' : debridit . debridIt ( 'clearaddon' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'cleardebrid' : debridit . clearSaved ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'authdebrid' : debridit . activateDebrid ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'updatedebrid' : debridit . autoUpdate ( 'all' )
-elif iI1IiiiIi == 'importdebrid' : debridit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'apk1' : iiiiiIIi ( )
+elif i111IIIIiI == 'apkgame' : Ooo0O0 ( OOOoO000 )
+elif i111IIIIiI == 'select' : iIiI1iiiI1ii ( OOOoO000 )
+elif i111IIIIiI == 'grab' : OOoOO0OO ( oO0o00oOOooO0 , OOOoO000 )
+elif i111IIIIiI == 'rom' : OOoOO0o ( OOOoO000 )
+elif i111IIIIiI == 'apkscrape1' : APK ( )
+elif i111IIIIiI == 'apkscrape' : Oo0OooO0 ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'apkshow' : oO0oooooo ( OOOoO000 )
+elif i111IIIIiI == 'intellaunch' : i11i1i1I1iI1 ( )
+elif i111IIIIiI == 'intelselect' : oo0ooooO ( oO0o00oOOooO0 , OOOoO000 , IiIiIi1I1 , oOoo000 , IiI11i1IIiiI )
+elif i111IIIIiI == 'emurom' : ooO ( )
+elif i111IIIIiI == 'roms' : Ii11iii1II1i ( )
+elif i111IIIIiI == 'snes' : OOoOoo00Oo ( )
+elif i111IIIIiI == 'nes' : i11II ( )
+elif i111IIIIiI == 'gen' : OO0o0oO0O000o ( )
+elif i111IIIIiI == 'atr' : O00OO ( )
+elif i111IIIIiI == 'n64' : o0OO ( )
+elif i111IIIIiI == 'tbg' : O0Oo0 ( )
+elif i111IIIIiI == 'nds' : Ii1Iii11 ( )
+elif i111IIIIiI == 'ps' : iI1i1II ( )
+elif i111IIIIiI == 'apkinstall' : i1oo00OoO ( oO0o00oOOooO0 , OOOoO000 , "None" )
+elif i111IIIIiI == 'rominstall' : i1IiI1iIIIIIi ( oO0o00oOOooO0 , OOOoO000 , )
 if 57 - 57: iiIIi1IiIi11 - ooOo + OoooooooOO / iiIIi1IiIi11 . OOoooooO % i1IIi
-elif iI1IiiiIi == 'login' : OO0oo ( )
-elif iI1IiiiIi == 'savelogin' : loginit . loginIt ( 'update' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'restorelogin' : loginit . loginIt ( 'restore' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'addonlogin' : loginit . loginIt ( 'clearaddon' , oO0o00oOOooO0 )
-elif iI1IiiiIi == 'clearlogin' : loginit . clearSaved ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'authlogin' : loginit . activateLogin ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'updatelogin' : loginit . autoUpdate ( 'all' )
-elif iI1IiiiIi == 'importlogin' : loginit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'youtube' : oOOOoo0o ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'viewVideo' : O00oO0O ( OOOoO000 )
 if 52 - 52: O0 - iIii1I11I1II1 / I1111 / i1Ii
-elif iI1IiiiIi == 'contact' : notify . contact ( oOO0O00Oo0O0o )
-elif iI1IiiiIi == 'settings' : wiz . openS ( oO0o00oOOooO0 ) ; wiz . refresh ( )
-elif iI1IiiiIi == 'opensettings' : id = eval ( OOOoO000 . upper ( ) + 'ID' ) [ oO0o00oOOooO0 ] [ 'plugin' ] ; I11Iii11i11I1 = wiz . addonId ( id ) ; I11Iii11i11I1 . openSettings ( ) ; wiz . refresh ( )
-if 1 - 1: i1IIi . oO0 * I1I1i1 % II111iiii % iIii1I11I1II1
-elif iI1IiiiIi == 'developer' : oooo0o0OOO0 ( )
-elif iI1IiiiIi == 'converttext' : wiz . convertText ( )
-elif iI1IiiiIi == 'createqr' : wiz . createQR ( )
-elif iI1IiiiIi == 'testnotify' : Ii1IIii ( )
-elif iI1IiiiIi == 'testupdate' : IiIi ( )
-elif iI1IiiiIi == 'testfirst' : i1iIii1II1i ( )
-elif iI1IiiiIi == 'testfirstrun' : IiiIiiIIII ( )
-elif iI1IiiiIi == 'testapk' : notify . apkInstaller ( 'SPMC' )
-if 71 - 71: I1111 + i1Ii / i11IiIiiIIIII * Ooo0O . IiiIII111ii . i11IiIiiIIIII
-elif iI1IiiiIi == 'guide' : TvGuide ( )
-if 33 - 33: IIIi1i1I / IiiIII111ii - ooOo % OO00O0O0O00Oo
-elif iI1IiiiIi == 'recreateaddon' : ReCreate_Addon_ini ( )
-elif iI1IiiiIi == 'getlistplay' : Get_List_playlinks ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'resolve' : RESOLVER ( OOOoO000 )
-elif iI1IiiiIi == 'streams' : Streams_Menu ( )
-elif iI1IiiiIi == 'liveevent' : Live_Events ( oO0o00oOOooO0 )
-elif iI1IiiiIi == 'addonopen' : I1ii11iIi11i . openSettings ( sys . argv [ 0 ] )
+elif i111IIIIiI == 'addons' : iI1IIi11i1I1 ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'addoninstall' : iIIi11 ( oO0o00oOOooO0 , OOOoO000 )
+if 29 - 29: IiiIII111ii * iii11iiII * i1IIi . IiiIII111ii * OO00O0O0O00Oo . OOoooooO
+elif i111IIIIiI == 'savedata' : i11i11i ( )
+elif i111IIIIiI == 'togglesetting' : wiz . setS ( oO0o00oOOooO0 , 'false' if wiz . getS ( oO0o00oOOooO0 ) == 'true' else 'true' ) ; wiz . refresh ( )
+elif i111IIIIiI == 'managedata' : IIiII11 ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'whitelist' : wiz . whiteList ( oO0o00oOOooO0 )
+if 54 - 54: iiIIi1IiIi11 . i1IIi . oO0 * I1I1i1 % iiIIi1IiIi11
+elif i111IIIIiI == 'trakt' : Iii11111iiI ( )
+elif i111IIIIiI == 'savetrakt' : traktit . traktIt ( 'update' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'restoretrakt' : traktit . traktIt ( 'restore' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'addontrakt' : traktit . traktIt ( 'clearaddon' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'cleartrakt' : traktit . clearSaved ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'authtrakt' : traktit . activateTrakt ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'updatetrakt' : traktit . autoUpdate ( 'all' )
+elif i111IIIIiI == 'importtrakt' : traktit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+if 30 - 30: i11IiIiiIIIII
+elif i111IIIIiI == 'realdebrid' : O0oO00oOOooO ( )
+elif i111IIIIiI == 'savedebrid' : debridit . debridIt ( 'update' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'restoredebrid' : debridit . debridIt ( 'restore' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'addondebrid' : debridit . debridIt ( 'clearaddon' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'cleardebrid' : debridit . clearSaved ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'authdebrid' : debridit . activateDebrid ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'updatedebrid' : debridit . autoUpdate ( 'all' )
+elif i111IIIIiI == 'importdebrid' : debridit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+if 85 - 85: II111iiii + OOoooooO * i11IiIiiIIIII
+elif i111IIIIiI == 'login' : OO0oo ( )
+elif i111IIIIiI == 'savelogin' : loginit . loginIt ( 'update' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'restorelogin' : loginit . loginIt ( 'restore' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'addonlogin' : loginit . loginIt ( 'clearaddon' , oO0o00oOOooO0 )
+elif i111IIIIiI == 'clearlogin' : loginit . clearSaved ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'authlogin' : loginit . activateLogin ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'updatelogin' : loginit . autoUpdate ( 'all' )
+elif i111IIIIiI == 'importlogin' : loginit . importlist ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+if 12 - 12: IiiIII111ii . ooOo % I1I1i1
+elif i111IIIIiI == 'contact' : notify . contact ( oOO0O00Oo0O0o )
+elif i111IIIIiI == 'settings' : wiz . openS ( oO0o00oOOooO0 ) ; wiz . refresh ( )
+elif i111IIIIiI == 'opensettings' : id = eval ( OOOoO000 . upper ( ) + 'ID' ) [ oO0o00oOOooO0 ] [ 'plugin' ] ; I11i1I11 = wiz . addonId ( id ) ; I11i1I11 . openSettings ( ) ; wiz . refresh ( )
+if 32 - 32: i1Ii - IIIi1i1I . iIii1I11I1II1 . OO00O0O0O00Oo + II111iiii % OoooooooOO
+elif i111IIIIiI == 'developer' : oooo0o0OOO0 ( )
+elif i111IIIIiI == 'converttext' : wiz . convertText ( )
+elif i111IIIIiI == 'createqr' : wiz . createQR ( )
+elif i111IIIIiI == 'testnotify' : Ii1IIii ( )
+elif i111IIIIiI == 'testupdate' : IiIi ( )
+elif i111IIIIiI == 'testfirst' : i1iIii1II1i ( )
+elif i111IIIIiI == 'testfirstrun' : IiiIiiIIII ( )
+elif i111IIIIiI == 'testapk' : notify . apkInstaller ( 'SPMC' )
+if 82 - 82: OoooooooOO / OOoooooO * i11IiIiiIIIII * O0 . oO0
+elif i111IIIIiI == 'guide' : TvGuide ( )
+if 21 - 21: II111iiii + Ooo0O
+elif i111IIIIiI == 'recreateaddon' : ReCreate_Addon_ini ( )
+elif i111IIIIiI == 'getlistplay' : Get_List_playlinks ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'resolve' : RESOLVER ( OOOoO000 )
+elif i111IIIIiI == 'streams' : Streams_Menu ( )
+elif i111IIIIiI == 'liveevent' : Live_Events ( oO0o00oOOooO0 )
+elif i111IIIIiI == 'addonopen' : I1ii11iIi11i . openSettings ( sys . argv [ 0 ] )
 xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) )
 # dd678faae9ac167bc83abf78e5cb2f3f0688d3a3
