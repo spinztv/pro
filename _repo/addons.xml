@@ -74,7 +74,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.spinzstrictlyhd" name="Strictly HD" version="1.0.2" provider-name="@LuciferOnKodi, SpezC">
+<addon id="plugin.video.spinzstrictlyhd" name="Strictly HD" version="1.0.3" provider-name="@LuciferOnKodi, SpezC">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
