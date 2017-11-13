@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.22" provider-name="@LuciferOnKodi, SpezC">
+<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.23" provider-name="@LuciferOnKodi, SpezC">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
@@ -15,7 +15,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary>Your one-stop shop for cartoons</summary>
-    <description>Whether you're young or old, everyone's watched cartoons at one point in their life. This multi-source add-on provides cartoons both new and old to suit everyone's taste.[CR][CR]Top-notch artwork courtesy of jokstergfx, thanks bud. Thank you @LuciferOnKodi for allowing us to keep these adodns alive</description>
+    <description>Whether you're young or old, everyone's watched cartoons at one point in their life. This multi-source add-on provides cartoons both new and old to suit everyone's taste.[CR][CR]Top-notch artwork courtesy of jokstergfx, thanks bud.</description>
     <disclaimer>I do not own, nor host any content provided within this add-on. All links are gathered from publicly available resources.</disclaimer>
     <language>english</language>
     <platform>all</platform>

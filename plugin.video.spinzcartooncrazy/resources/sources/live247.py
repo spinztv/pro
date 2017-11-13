@@ -32,9 +32,7 @@ def get_url(**kwargs):
     
 def STREAMS(link=None):
     if link is None:
-        link = base64.b64decode('aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20veW91dHViZS92My9zZWFyY2g/'
-                                'cGFydD1zbmlwcGV0JmV2ZW50VHlwZT1saXZlJnR5cGU9dmlkZW8mcT0yNC83'
-                                'JTIwY2FydG9vbiZyZWdpb25Db2RlPXt9Jm1heFJlc3VsdHM9NTAma2V5PXt9').format(region, key)
+        link = base64.b64decode('aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20veW91dHViZS92My9zZWFyY2g/cGFydD1zbmlwcGV0JmV2ZW50VHlwZT1jb21wbGV0ZWQmdHlwZT12aWRlbyZxPTI0LzclMjBjYXJ0b29uJnJlZ2lvbkNvZGU9e30mbWF4UmVzdWx0cz01MCZrZXk9e30=').format(region, key)
     req = requests.get(link, headers=headers)
     if req.status_code == 200:
         res = json.loads(req.text)
@@ -54,9 +52,7 @@ def STREAMS(link=None):
             next_page = res.get('nextPageToken')
             if next_page:
                 list_item = xbmcgui.ListItem(label='[COLOR yellow]Next Page >>>[/COLOR]')
-                call = base64.b64decode('aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20veW91dHViZS92My9zZWFyY2g/'
-                                        'cGFydD1zbmlwcGV0JmV2ZW50VHlwZT1saXZlJnR5cGU9dmlkZW8mcT0yNC83'
-                                        'JTIwY2FydG9vbiZyZWdpb25Db2RlPXt9Jm1heFJlc3VsdHM9NTAma2V5PXt9').format(region, key)
+                call = base64.b64decode('aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20veW91dHViZS92My9zZWFyY2g/cGFydD1zbmlwcGV0JmV2ZW50VHlwZT1jb21wbGV0ZWQmdHlwZT12aWRlbyZxPTI0LzclMjBjYXJ0b29uJnJlZ2lvbkNvZGU9e30mbWF4UmVzdWx0cz01MCZrZXk9e30=').format(region, key)
                 url = get_url(source='Live247',endpoint=call+'&pageToken='+next_page)
                 xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
         xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_NONE)

@@ -147,7 +147,7 @@ def MAIN_MENU():
    # list_item = xbmcgui.ListItem(label='Requested Titles')
    # list_item.setArt({'fanart':fanart,'thumb':requestedtitles})
    # url = get_url(source='RequestedTitles')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+   #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='[COLOR yellow]Universal Search[/COLOR]')
     list_item.setArt({'fanart':fanart,'thumb':universalsearch})
