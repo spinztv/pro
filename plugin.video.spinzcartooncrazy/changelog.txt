@@ -52,3 +52,6 @@ Fixed Icons in Repo
 
 V1.0.23
 Updated The 24/7 Section
+
+V1.0.24
+Added new icons

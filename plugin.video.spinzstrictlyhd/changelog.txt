@@ -3,3 +3,6 @@ Initial Release
 
 V1.0.2
 Initial release after Spinz Takeover
+
+V1.0.3
+Added new icons
