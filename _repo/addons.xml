@@ -1,35 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.25" provider-name="@LuciferOnKodi, SpezC">
+<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.3.4" provider-name="Spez">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.beautifulsoup" version="3.2.1"/>
-	<import addon="plugin.video.youtube" version="5.3.12"/>
-	<import addon="repository.SpinzTV" />
-	<import addon="script.module.urlresolver" version="3.0.0"/>
-	<import addon="script.module.requests" version="2.9.1"/>
-	<import addon="script.module.futures" version="2.2.0"/>
+    <import addon="script.module.requests" />
   </requires>
-  <extension point="xbmc.python.pluginsource" library="addon.py">
-    <provides>video</provides>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
   </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary>Your one-stop shop for cartoons</summary>
-    <description>Whether you're young or old, everyone's watched cartoons at one point in their life. This multi-source add-on provides cartoons both new and old to suit everyone's taste.[CR][CR]Top-notch artwork courtesy of jokstergfx, thanks bud.</description>
-    <disclaimer>I do not own, nor host any content provided within this add-on. All links are gathered from publicly available resources.</disclaimer>
-    <language>english</language>
+    <summary lang="en">SpinzTV Wizard</summary>
+    <description lang="en">Spinz-TV Wizard</description>
+    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
-    <license>GNU General Public License v3.0</license>
-    <forum></forum>
-    <website></website>
-    <email>spinzflix@gmail.com</email>
-    <source>https://github.com/spinztv/pro/tree/master/_repo/repository.SpinzTV</source>
-    <news></news>
-    <assets>
-        <icon>icon.png</icon>
-        <fanart>fanart.jpg</fanart>
-        <screenshot></screenshot>
-    </assets>
   </extension>
 </addon>
 
@@ -55,18 +39,48 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="3.0" provider-name="MikkM">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.addon.common" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="init.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
-    <platform>all</platform>
-  </extension>
+<addon id="plugin.video.spinzflix" name="SpinzFlix" version="1.2" provider-name="midraal, SpezC">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0" />
+        <import addon="script.module.nanscrapers" version="0.5.5" />
+        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
+        <import addon="script.module.beautifulsoup" version="3.2.1" />
+        <import addon="script.module.requests" version="2.9.1" />
+        <import addon="script.module.addon.common" version="2.0.0" />
+        <import addon="script.module.xmltodict" version="0.9.0" />
+        <!--<import addon="script.module.web-pdb" version="1.0"/>-->
+        <import addon="script.module.urlresolver" version="1.2.0" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en"></summary>
+        <description lang="en">STV TEST</description>
+        <platform>all</platform>
+        <website>www.noobsandnerds.com</website>
+        <video_guide>xtOqLY5PJDY</video_guide>
+    </extension>
+</addon>
+
+<addon id="script.module.urlresolver" name="URLResolver" version="4.0.09" provider-name="Eldorado, tknorris, jsergio">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="plugin.video.youtube" optional="true" />
+		<import addon="script.module.python.twitch" optional="true" />
+		<import addon="script.module.cryptopy" version="1.2.6" optional="true" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
+		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
+        <source>https://github.com/jsergio123/script.module.urlresolver</source>
+	</extension>
 </addon>
 
 <addon id="plugin.video.youtube" name="YouTube" version="5.4.5" provider-name="bromix">
@@ -127,29 +141,18 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.spinzflix" name="STV TEST" version="1.1" provider-name="midraal, SpezC">
-    <requires>
-        <import addon="xbmc.python" version="2.19.0" />
-        <import addon="script.module.nanscrapers" version="0.5.5" />
-        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
-        <import addon="script.module.beautifulsoup" version="3.2.1" />
-        <import addon="script.module.requests" version="2.9.1" />
-        <import addon="script.module.addon.common" version="2.0.0" />
-        <import addon="script.module.xmltodict" version="0.9.0" />
-        <!--<import addon="script.module.web-pdb" version="1.0"/>-->
-        <import addon="script.module.urlresolver" version="1.2.0" />
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>audio video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en"></summary>
-        <description lang="en">STV TEST</description>
-        <platform>all</platform>
-        <website>www.noobsandnerds.com</website>
-        <video_guide>xtOqLY5PJDY</video_guide>
-    </extension>
+<addon id="plugin.video.spinz" name="Spinz-TV Pro" version="3.0" provider-name="MikkM">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="init.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <platform>all</platform>
+  </extension>
 </addon>
 
 <addon id="plugin.video.urbankingz" name="Urban Empire" version="1.1" provider-name="The Real UrbanKingz">
@@ -177,7 +180,40 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.spinzstrictlyhd" name="Strictly HD" version="1.0.4" provider-name="@LuciferOnKodi, SpezC">
+<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.25" provider-name="@LuciferOnKodi, SpezC">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.beautifulsoup" version="3.2.1"/>
+	<import addon="plugin.video.youtube" version="5.3.12"/>
+	<import addon="repository.SpinzTV" />
+	<import addon="script.module.urlresolver" version="3.0.0"/>
+	<import addon="script.module.requests" version="2.9.1"/>
+	<import addon="script.module.futures" version="2.2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Your one-stop shop for cartoons</summary>
+    <description>Whether you're young or old, everyone's watched cartoons at one point in their life. This multi-source add-on provides cartoons both new and old to suit everyone's taste.[CR][CR]Top-notch artwork courtesy of jokstergfx, thanks bud.</description>
+    <disclaimer>I do not own, nor host any content provided within this add-on. All links are gathered from publicly available resources.</disclaimer>
+    <language>english</language>
+    <platform>all</platform>
+    <license>GNU General Public License v3.0</license>
+    <forum></forum>
+    <website></website>
+    <email>spinzflix@gmail.com</email>
+    <source>https://github.com/spinztv/pro/tree/master/_repo/repository.SpinzTV</source>
+    <news></news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+        <screenshot></screenshot>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="plugin.video.spinzstrictlyhd" name="Spinz Strictly HD" version="1.0.5" provider-name="@LuciferOnKodi, SpezC">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>
@@ -207,41 +243,5 @@
         <screenshot></screenshot>
     </assets>
   </extension>
-</addon>
-
-<addon id="plugin.program.SpinzTV" name="[B][COLOR deepskyblue]SpinzTV Wizard[/B][/COLOR]" version="1.3.4" provider-name="Spez">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.requests" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.service" library="startup.py" start="startup" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">SpinzTV Wizard</summary>
-    <description lang="en">Spinz-TV Wizard</description>
-    <disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="script.module.urlresolver" name="URLResolver" version="4.0.09" provider-name="Eldorado, tknorris, jsergio">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0" />
-		<import addon="plugin.video.youtube" optional="true" />
-		<import addon="script.module.python.twitch" optional="true" />
-		<import addon="script.module.cryptopy" version="1.2.6" optional="true" />
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
-	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
-		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
-		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
-		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
-		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
-        <source>https://github.com/jsergio123/script.module.urlresolver</source>
-	</extension>
 </addon>
 </addons>
