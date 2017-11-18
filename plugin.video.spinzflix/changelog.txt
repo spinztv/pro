@@ -3,3 +3,6 @@ Initial Release
 
 V1.2
 Fixed Name
+
+V1.3
+Changed xml.py to fix bug
