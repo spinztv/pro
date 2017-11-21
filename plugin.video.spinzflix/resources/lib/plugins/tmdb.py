@@ -49,7 +49,12 @@
 
     <dir>
       <title>TMDB Top Rated</title>
-      <tmdb>tv/top-rated</tmdb>
+      <tmdb>tv/top_rated</tmdb>
+    </dir>
+
+    <dir>
+      <title>TMDB Airing Today</title>
+      <tmdb>tv/today</tmdb>
     </dir>
 
     <dir>
@@ -196,13 +201,18 @@ def tmdb(url):
                 page = int(last)
             if not response:
                 response = tmdbsimple.TV().popular(page=page)
-        if url.startswith("tv/top_rated"):
+        elif url.startswith("tv/top_rated"):
             last = url.split("/")[-1]
             if last.isdigit():
                 page = int(last)
             if not response:
                 response = tmdbsimple.TV().top_rated(page=page)
-
+        elif url.startswith("tv/today"):
+            last = url.split("/")[-1]
+            if last.isdigit():
+                page = int(last)
+            if not response:
+                response = tmdbsimple.TV().airing_today(page=page)
         for item in response["results"]:
             xml += get_show_xml(item)
     elif url.startswith("list"):
@@ -286,11 +296,11 @@ def get_movie_xml(item):
     if summary:
         summary = remove_non_ascii(summary)
     if item["poster_path"]:
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + item["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
     else:
         thumbnail = ""
     if item.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + item["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
     xml = "<item>" \
@@ -317,11 +327,11 @@ def get_show_xml(item):
     tmdb_id = item["id"]
     summary = remove_non_ascii(item["overview"])
     if item["poster_path"]:
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + item["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
     else:
         thumbnail = ""
     if item.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + item["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
     xml = "<dir>"\
@@ -343,11 +353,11 @@ def get_show_xml(item):
 def get_season_xml(item, tmdb_id, year, tvtitle):
     season = item["season_number"]
     if item["poster_path"]:
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + item["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
     else:
         thumbnail = ""
     if item.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + item["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
     xml = "<dir>"\
@@ -370,11 +380,11 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
     episode = item["episode_number"]
     premiered = item["air_date"]
     if item["still_path"]:
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + item["still_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["still_path"]
     else:
         thumbnail = ""
     if item.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + item["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
     summary = remove_non_ascii(item["overview"])
@@ -404,7 +414,10 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
 @route(mode='tmdb_tv_show', args=["url"])
 def tmdb_tv_show(url):
     response = fetch_from_db(url)
-    tmdb_id, year, tvtitle = url.replace("tmdb_id", "").split(",")
+    splitted = url.replace("tmdb_id", "").split(",")
+    tmdb_id = splitted[0]
+    year = splitted[1]
+    tvtitle = ",".join(splitted[2:])
     if not response:
         response = tmdbsimple.TV(tmdb_id).info()
         save_to_db(response, url)
@@ -419,7 +432,11 @@ def tmdb_tv_show(url):
 @route(mode='tmdb_season', args=["url"])
 def tmdb_season(url):
     response = fetch_from_db(url)
-    tmdb_id, season, year, tvtitle = url.replace("tmdb_id", "").split(",")
+    splitted = url.replace("tmdb_id", "").split(",")
+    tmdb_id = splitted[0]
+    season = splitted[1]
+    year = splitted[2]
+    tvtitle = ",".join(splitted[3:])
     if not response:
         response = tmdbsimple.TV_Seasons(tmdb_id, season).info()
         save_to_db(response, url)

@@ -6,3 +6,6 @@ Fixed Name
 
 V1.3
 Changed xml.py to fix bug
+
+V1.4
+Updated TMDB to show now airing

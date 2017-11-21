@@ -24,8 +24,8 @@ import __builtin__
 root_xml_url = "http://stvmc.net/stv/main.xml"  # url of the root xml file
 __builtin__.tvdb_api_key = "F28386B374CD30AF"  # tvdb api key
 __builtin__.tmdb_api_key = "c1935caceb7875775ddc15fd3ce21b43"  # tmdb api key
-__builtin__.trakt_client_id = "dda4ca71df0c52741d710c04cb6632c59a1b2d949f006f41ab4c21550c66bda0"  # trakt client id
-__builtin__.trakt_client_secret = "487dbc020aa602520e13edf4609af19f56ce83d79de71bc5701e9d8989ecc22b"  # trakt client secret
+__builtin__.trakt_client_id = "a862dfbb39d2c7b202c0c0eda51f26be1db239b90b1df270cae2399286a2797a"  # trakt client id
+__builtin__.trakt_client_secret = "650d567ce608da47ec1984b047fc8179b510f68d15e601303aa8a2774ee81503"  # trakt client secret
 __builtin__.search_db_location = "http://stvmc.net/stv/search.db"  # location of search db
 
 import os
