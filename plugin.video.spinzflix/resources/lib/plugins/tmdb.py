@@ -76,6 +76,11 @@
       <title>Bryan Cranston Movies TMDB</title>
       <tmdb>person/movies/17419</tmdb>
     </dir>
+
+    <dir>
+      <title>Search TMDB</title>
+      <tmdb>search</tmdb>
+    </dir>
 """
 
 import pickle
@@ -136,6 +141,7 @@ class TMDB(Plugin):
                 'season': "0",
                 'episode': "0",
                 'info': {},
+                "imdb": item.get("imdb", "0"),
                 'year': item.get("year", ""),
                 'context': get_context_items(item),
                 "summary": item.get("summary", None)
@@ -158,6 +164,7 @@ class TMDB(Plugin):
                 'season': str(season),
                 'episode': "0",
                 'info': {},
+                "imdb": item.get("imdb", "0"),
                 'year': item.get("year", ""),
                 'context': {},
                 "summary": item.get("summary", None)
@@ -273,6 +280,42 @@ def tmdb(url):
 
         for item in response["parts"]:
             xml += get_movie_xml(item)
+    elif url.startswith("search"):
+        if url == "search":
+            term = koding.Keyboard("Search For")
+            url = "search/%s" % term
+        split_url = url.split("/")
+        if len(split_url) == 2:
+            url += "/1"
+            split_url.append(1)
+        page = int(split_url[-1])
+        term = split_url[-2]
+        response = tmdbsimple.Search().multi(query=term, page=page)
+
+        for item in response["results"]:
+            if item["media_type"] == "movie":
+                xml += get_movie_xml(item)
+            elif item["media_type"] == "tv":
+                xml += get_show_xml(item)
+            elif item["media_type"] == "person":
+                name = item["name"]
+                person_id = item["id"]
+                thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["profile_path"]
+                xml += "<dir>\n"\
+                       "\t<title>%s Shows TMDB</title>\n"\
+                       "\t<tmdb>person/shows/%s</tmdb>\n"\
+                       "\t<thumbnail>%s</thumbnail>\n"\
+                       "</dir>\n\n" % (name.capitalize(),
+                                       person_id,
+                                       thumbnail)
+
+                xml += "<dir>\n"\
+                       "\t<title>%s Movies TMDB</title>\n"\
+                       "\t<tmdb>person/movies/%s</tmdb>\n"\
+                       "\t<thumbnail>%s</thumbnail>\n"\
+                       "\t</dir>\n\n" % (name.capitalize(),
+                                         person_id,
+                                         thumbnail)
 
     save_to_db(response, url)
     if page < response.get("total_pages", 0):
@@ -292,9 +335,14 @@ def tmdb(url):
 def get_movie_xml(item):
     title = remove_non_ascii(item["title"])
     year = item["release_date"].split("-")[0]
-    summary = item.get("overview", "")
-    if summary:
-        summary = remove_non_ascii(summary)
+    tmdb_id = item["id"]
+    url = "tmdb_imdb({0})".format(tmdb_id)
+    imdb = fetch_from_db(url)
+    if not imdb:
+        imdb = item.get("imdb_id", "")
+        if not imdb:
+            imdb = tmdbsimple.Movies(tmdb_id).info()["imdb_id"]
+        save_to_db(imdb, url)
     if item["poster_path"]:
         thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
     else:
@@ -306,6 +354,7 @@ def get_movie_xml(item):
     xml = "<item>" \
           "<title>%s</title>" \
           "<meta>" \
+          "<imdb>%s</imdb>"\
           "<content>movie</content>" \
           "<title>%s</title>" \
           "<year>%s</year>" \
@@ -316,8 +365,7 @@ def get_movie_xml(item):
           "</link>" \
           "<thumbnail>%s</thumbnail>" \
           "<fanart>%s</fanart>" \
-          "<summary>%s</summary>"\
-          "</item>" % (title, title, year, thumbnail, fanart, summary)
+          "</item>" % (title, imdb, title, year, thumbnail, fanart)
     return xml
 
 
@@ -325,7 +373,6 @@ def get_show_xml(item):
     title = remove_non_ascii(item["name"])
     year = item["first_air_date"].split("-")[0]
     tmdb_id = item["id"]
-    summary = remove_non_ascii(item["overview"])
     if item["poster_path"]:
         thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
     else:
@@ -334,9 +381,19 @@ def get_show_xml(item):
         fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
+    if tmdb_id:
+        url = "tmdb_imdb({0})".format(tmdb_id)
+        imdb = fetch_from_db(url)
+        if not imdb:
+            imdb = tmdbsimple.TV(tmdb_id).external_ids()['imdb_id']
+            save_to_db(imdb, url)
+    else:
+        imdb = "0"
+
     xml = "<dir>"\
           "<title>%s</title>"\
           "<meta>"\
+          "<imdb>%s</imdb>"\
           "<content>tvshow</content>"\
           "<tvshowtitle>%s</tvshowtitle>"\
           "<year>%s</year>"\
@@ -344,9 +401,8 @@ def get_show_xml(item):
           "<link>tmdb_tv_show(%s, %s, %s)</link>"\
           "<thumbnail>%s</thumbnail>" \
           "<fanart>%s</fanart>"\
-          "<summary>%s</summary>"\
-          "</dir>" % (title, title, year, tmdb_id, year, title,
-                      thumbnail, fanart, summary)
+          "</dir>" % (title, imdb, title, year, tmdb_id, year, title,
+                      thumbnail, fanart)
     return xml
 
 
@@ -360,17 +416,27 @@ def get_season_xml(item, tmdb_id, year, tvtitle):
         fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
+    if tmdb_id:
+        url = "tmdb_imdb({0})".format(tmdb_id)
+        imdb = fetch_from_db(url)
+        if not imdb:
+            imdb = tmdbsimple.TV(tmdb_id).external_ids()['imdb_id']
+            save_to_db(imdb, url)
+    else:
+        imdb = "0"
+
     xml = "<dir>"\
           "<title>Season %s</title>"\
           "<meta>"\
+          "<imdb>%s</imdb>"\
           "<content>season</content>"\
           "<season>%s</season>"\
           "</meta>"\
           "<thumbnail>%s</thumbnail>"\
           "<fanart>%s</fanart>"\
           "<link>tmdb_season(%s,%s, %s, %s)</link>"\
-          "</dir>" % (season, season, thumbnail, fanart, tmdb_id, season, year,
-                      tvtitle)
+          "</dir>" % (season, imdb, season, thumbnail, fanart, tmdb_id,
+                      season, year, tvtitle)
     return xml
 
 
@@ -378,6 +444,14 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
     title = remove_non_ascii(item["name"])
     season = item["season_number"]
     episode = item["episode_number"]
+    if tmdb_id:
+        url = "tmdb_imdb({0})".format(tmdb_id)
+        imdb = fetch_from_db(url)
+        if not imdb:
+            imdb = tmdbsimple.TV(tmdb_id).external_ids()['imdb_id']
+            save_to_db(imdb, url)
+    else:
+        imdb = "0"
     premiered = item["air_date"]
     if item["still_path"]:
         thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["still_path"]
@@ -387,10 +461,10 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
         fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
     else:
         fanart = ""
-    summary = remove_non_ascii(item["overview"])
     xml = "<item>"\
           "<title>%s</title>"\
           "<meta>"\
+          "<imdb>%s</imdb>"\
           "<content>episode</content>"\
           "<tvshowtitle>%s</tvshowtitle>"\
           "<year>%s</year>"\
@@ -405,9 +479,8 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
           "</link>"\
           "<thumbnail>%s</thumbnail>"\
           "<fanart>%s</fanart>"\
-          "<summary>%s</summary>"\
-          "</item>" % (title, tvtitle, year, title,
-                       premiered, season, episode, thumbnail, fanart, summary)
+          "</item>" % (title, imdb, tvtitle, year, title,
+                       premiered, season, episode, thumbnail, fanart)
     return xml
 
 

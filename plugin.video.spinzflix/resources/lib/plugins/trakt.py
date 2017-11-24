@@ -81,11 +81,18 @@
       <title>Bryan Cranston shows Trakt</title>
       <trakt>https://api.trakt.tv/people/bryan-cranston/shows</trakt>
     </dir>
+
+    <dir>
+      <title>Search Trakt</title>
+      <trakt>search</trakt>
+    </dir>
 """
 
 import __builtin__
 import pickle
 import time
+import urlparse
+import urllib
 
 import requests
 
@@ -103,7 +110,7 @@ from unidecode import unidecode
 
 CACHE_TIME = 3600  # change to wanted cache time in seconds
 CACHE_TMDB_TIME = 3600 * 24 * 30
-SKIP_TMDB_INFO = True
+SKIP_TMDB_INFO = False
 
 TRAKT_API_KEY = __builtin__.trakt_client_id
 TRAKT_SECRET = __builtin__.trakt_client_secret
@@ -115,6 +122,7 @@ class Trakt(Plugin):
     name = "trakt"
 
     def process_item(self, item_xml):
+        item_xml = remove_non_ascii(item_xml)
         if "<trakt>" in item_xml:
             item = JenItem(item_xml)
             result_item = {
@@ -130,7 +138,7 @@ class Trakt(Plugin):
                 'episode': "0",
                 'info': {},
                 'year': "0",
-                'context': get_context_items(item),
+                'context': {},
                 "summary": item.get("summary", None)
             }
             result_item["properties"] = {'fanart_image': result_item["fanart"]}
@@ -152,7 +160,7 @@ class Trakt(Plugin):
                 'episode': "0",
                 'info': {},
                 'year': item.get("year", ""),
-                'context': get_context_items(item),
+                'context': {},
                 "summary": item.get("summary", None)
             }
             result_item["properties"] = {'fanart_image': result_item["fanart"]}
@@ -211,6 +219,9 @@ class Trakt(Plugin):
 
 @route(mode='trakt', args=["url"])
 def trakt(url):
+    if url == "search":
+        term = koding.Keyboard("Search For")
+        url = "https://api.trakt.tv/search/movie,show,person,list?query=%s" % term
     headers = {
         'Content-Type': 'application/json',
         'trakt-api-version': '2',
@@ -223,10 +234,24 @@ def trakt(url):
                 headers['Authorization'] = 'Bearer ' + auth
             else:
                 return ""
+    pages = None
     response = fetch_from_db(url)
+
     if not response:
-        response = requests.get(url, headers=headers).json()
+        response = requests.get(url, headers=headers)
+        response_headers = response.headers
+        response = response.json()
+        page = response_headers.get("X-Pagination-Page", "")
+        if page:
+            pages = response_headers.get("X-Pagination-Page-Count")
+            response = (response, pages)
+
         save_to_db(response, url)
+
+    if type(response) == tuple:  # paginated
+        pages = response[1]
+        response = response[0]
+
     xml = ""
     if type(response) == dict:
         if "people" in url:
@@ -239,13 +264,15 @@ def trakt(url):
 
     elif type(response) == list:
         for item in response:
-            if "lists" in url:
+            if "/search/" in url:
+                    xml += get_search_xml(item)
+            elif "lists" in url:
                 if "items" not in url and "likes" not in url:
                     user_id = url.split("/")[4]
                     xml += get_lists_xml(item, user_id)
                 if "likes/lists" in url:
                     xml += get_likes_xml(item)
-            if "movie" in item:
+            elif "movie" in item:
                 xml += get_movie_xml(item["movie"])
             elif "show" in item:
                 xml += get_show_xml(item["show"])
@@ -254,13 +281,39 @@ def trakt(url):
                     xml += get_movie_xml(item)
                 elif "shows" in url and "season" not in url:
                     xml += get_show_xml(item)
+    if pages:
+        splitted = url.split("?")
+        if len(splitted) > 1:
+            args = urlparse.parse_qs(splitted[1])
+            page = int(args.get("page", [1])[0])
+            if not args.get("page", ""):
+                args["page"] = 2
+            else:
+                args["page"] = str(page + 1)
+            next_url = "%s?%s" % (splitted[0], urllib.urlencode(args))
+        else:
+            page = 1
+            next_url = urlparse.urljoin(splitted[0], "?page=2")
+
+        xml += "<dir>\n"\
+               "\t<title>Next Page >></title>\n"\
+               "\t<trakt>%s</trakt>\n"\
+               "\t<summary>Go To Page %s</summary>\n"\
+               "</dir>" % (next_url, page + 1)
+    xml = remove_non_ascii(xml)
+
     jenlist = JenList(xml)
     display_list(jenlist.get_list(), jenlist.get_content_type())
 
 
 @route(mode='trakt_tv_show', args=["url"])
 def trakt_tv_show(trakt_id):
-    trakt_id, year, tvtitle, tmdb = trakt_id.replace("trakt_id", "").split(",")
+    splitted = trakt_id.replace("trakt_id", "").split(",")
+    trakt_id = splitted[0]
+    year = splitted[1]
+    tvtitle = ",".join(splitted[2:-2])
+    tmdb = splitted[-2]
+    imdb = splitted[-1]
     url = "https://api.trakt.tv/shows/%s/seasons" % trakt_id
     headers = {
         'Content-Type': 'application/json',
@@ -274,14 +327,21 @@ def trakt_tv_show(trakt_id):
     xml = ""
     if type(response) == list:
         for item in response:
-            xml += get_season_xml(item, trakt_id, year, tvtitle, tmdb)
+            xml += get_season_xml(item, trakt_id, year, tvtitle, tmdb, imdb)
+        xml = remove_non_ascii(xml)
         jenlist = JenList(xml)
         display_list(jenlist.get_list(), jenlist.get_content_type())
 
 
 @route(mode='trakt_season', args=["url"])
 def trakt_season(slug):
-    trakt_id, season, year, tvtitle, tmdb = slug.replace("trakt_id", "").split(",")
+    splitted = slug.replace("trakt_id", "").split(",")
+    trakt_id = splitted[0]
+    season = splitted[1]
+    year = splitted[2]
+    tvtitle = ",".join(splitted[3:-2])
+    tmdb = splitted[-2]
+    imdb = splitted[-1]
     url = "https://api.trakt.tv/shows/%s/seasons/%s?extended=full"
     url = url % (trakt_id, season)
     headers = {
@@ -292,11 +352,12 @@ def trakt_season(slug):
     response = fetch_from_db(url)
     if not response:
         response = requests.get(url, headers=headers).json()
-        save_to_db(response)
+        save_to_db(response, url)
     xml = ""
     if type(response) == list:
         for item in response:
-            xml += get_episode_xml(item, trakt_id, year, tvtitle, tmdb)
+            xml += get_episode_xml(item, trakt_id, year, tvtitle, tmdb, imdb)
+        xml = remove_non_ascii(xml)
         jenlist = JenList(xml)
         display_list(jenlist.get_list(), jenlist.get_content_type())
 
@@ -311,17 +372,17 @@ def get_movie_xml(item):
     tmdb = item["ids"]["tmdb"]
     info = fetch_from_db("tmdb/%s/movie" % (tmdb))
     if not info:
-        if not SKIP_TMDB_INFO:
+        if not SKIP_TMDB_INFO and tmdb:
             info = tmdbsimple.Movies(tmdb).info()
             save_to_db(info, "tmdb/%s/movie" % (tmdb))
         else:
             info = {}
     if info.get("poster_path"):
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + info["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + info["poster_path"]
     else:
         thumbnail = ""
     if info.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + info["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + info["backdrop_path"]
     else:
         fanart = ""
     xml = "<item>" \
@@ -352,17 +413,17 @@ def get_show_xml(item):
     tmdb = item["ids"]["tmdb"]
     info = fetch_from_db("tmdb/%s/show" % (tmdb))
     if not info:
-        if not SKIP_TMDB_INFO:
+        if not SKIP_TMDB_INFO and tmdb:
             info = tmdbsimple.TV(tmdb).info()
             save_to_db(info, "tmdb/%s" % (tmdb))
         else:
             info = {}
     if info.get("poster_path", ""):
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + info["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + info["poster_path"]
     else:
         thumbnail = ""
     if info.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + info["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + info["backdrop_path"]
     else:
         fanart = ""
     xml = "<dir>"\
@@ -373,68 +434,69 @@ def get_show_xml(item):
           "<tvshowtitle>%s</tvshowtitle>"\
           "<year>%s</year>"\
           "</meta>"\
-          "<link>trakt_tv_show(%s, %s, %s, %s)</link>"\
+          "<link>trakt_tv_show(%s, %s, %s, %s, %s)</link>"\
           "<thumbnail>%s</thumbnail>" \
           "<fanart>%s</fanart>" \
           "</dir>" % (title, imdb, title, year, trakt_id, year, title, tmdb,
-                      thumbnail, fanart)
+                      imdb, thumbnail, fanart)
     return xml
 
 
-def get_season_xml(item, trakt_id, year, tvtitle, tmdb):
+def get_season_xml(item, trakt_id, year, tvtitle, tmdb, imdb):
+    imdb = imdb.lstrip()
     season = item["number"]
     if season == 0:
         return ""
     info = fetch_from_db("tmdb/%s/%s" % (tmdb, season))
     if not info:
-        if not SKIP_TMDB_INFO:
+        if not SKIP_TMDB_INFO and tmdb:
             info = tmdbsimple.TV_Seasons(tmdb, season).info()
             save_to_db(info, "tmdb/%s/%s" % (tmdb, season))
         else:
             info = {}
     if info.get("poster_path", ""):
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + info["poster_path"]
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + info["poster_path"]
     else:
         thumbnail = ""
     if info.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + info["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + info["backdrop_path"]
     else:
         fanart = ""
     xml = "<dir>"\
           "<title>Season %s</title>"\
           "<meta>"\
+          "<imdb>%s</imdb>"\
           "<content>season</content>"\
           "<season>%s</season>"\
           "</meta>"\
-          "<link>trakt_season(%s,%s, %s, %s, %s)</link>"\
+          "<link>trakt_season(%s,%s, %s, %s, %s, %s)</link>"\
           "<thumbnail>%s</thumbnail>" \
           "<fanart>%s</fanart>" \
-          "</dir>" % (season, season, trakt_id, season, year, tvtitle, tmdb,
-                      thumbnail, fanart)
+          "</dir>" % (season, imdb, season, trakt_id, season, year,
+                      tvtitle, tmdb,
+                      imdb, thumbnail, fanart)
     return xml
 
 
-def get_episode_xml(item, trakt_id, year, tvtitle, tmdb):
+def get_episode_xml(item, trakt_id, year, tvtitle, tmdb, imdb):
+    imdb = imdb.lstrip()
     title = item["title"]
-    imdb = item["ids"]["imdb"]
-    if not imdb:
-        return ""
     premiered = item["first_aired"].split("T")[0]
     season = item["season"]
     episode = item["number"]
     info = fetch_from_db("tmdb/%s/%s/%s" % (tmdb, season, episode))
     if not info:
-        if not SKIP_TMDB_INFO:
+        if not SKIP_TMDB_INFO and tmdb:
             info = tmdbsimple.TV_Episodes(tmdb, season, episode).info()
             save_to_db(info, "tmdb/%s/%s/%s" % (tmdb, season, episode))
         else:
             info = {}
-    if info["still_path"]:
-        thumbnail = "https://image.tmdb.org/t/p/w342/" + info["still_path"]
+    if info.get("still_path", ""):
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + info["still_path"]
     else:
         thumbnail = ""
     if info.get("backdrop_path", ""):
-        fanart = "https://image.tmdb.org/t/p/w342/" + info["backdrop_path"]
+        fanart = "https://image.tmdb.org/t/p/w1280/" + info["backdrop_path"]
     else:
         fanart = ""
     xml = "<item>"\
@@ -454,10 +516,11 @@ def get_episode_xml(item, trakt_id, year, tvtitle, tmdb):
           "<sublink>searchsd</sublink>"\
           "</link>"\
           "<thumbnail>%s</thumbnail>" \
-          "<fanart>%s</fanart>" \
-          "</item>" % (title, imdb, tvtitle, year, title,
-                       premiered, season, episode,
-                       thumbnail, fanart)
+          "<fanart>%s</fanart>" % (
+              title, imdb, tvtitle, year, title,
+              premiered, season, episode,
+              thumbnail, fanart)
+    xml += "</item>"
     return xml
 
 
@@ -486,10 +549,46 @@ def get_likes_xml(item):
     return xml
 
 
+def get_search_xml(item):
+    xml = ""
+    itemtype = item["type"]
+    if itemtype == "movie":
+        xml += get_movie_xml(item["movie"])
+    elif itemtype == "show":
+        xml += get_show_xml(item["show"])
+    elif itemtype == "list":
+        userslug = item["list"]["user"]["ids"]["slug"]
+        username = item["list"]["user"]["username"]
+        listname = item["list"]["name"]
+        title = "%s's %s List" % (username.capitalize(), listname.capitalize())
+        slug = item["list"]["ids"]["slug"]
+        xml += "<dir>\n"\
+               "\t<title>%s</title>\n"\
+               "\t<trakt>https://api.trakt.tv/users/%s/lists/%s/items</trakt>\n"\
+               "</dir>\n\n" % (title, userslug, slug)
+
+    elif itemtype == "person":
+        name = item["person"]["name"]
+        slug = item["person"]["ids"]["slug"]
+        xml += "<dir>\n"\
+               "\t<title>%s Movies Trakt</title>\n"\
+               "\t<trakt>https://api.trakt.tv/people/%s/movies</trakt>\n"\
+               "</dir>\n\n" % (name, slug)
+
+        xml += "<dir>\n"\
+               "\t<title>%s Shows Trakt</title>\n"\
+               "\t<trakt>https://api.trakt.tv/people/%s/shows</trakt>\n"\
+               "</dir>\n\n" % (name, slug)
+    return xml
+
+
 def authenticate():
     addon = xbmcaddon.Addon()
     access_token = addon.getSetting("TRAKT_ACCESS_TOKEN")
     if access_token:
+        expires = addon.getSetting("TRAKT_EXPIRES_AT")
+        if time.time() > expires:
+            return trakt_refresh_token()
         return access_token
     values = {
         "client_id": TRAKT_API_KEY
@@ -538,8 +637,30 @@ def authenticate():
     return None
 
 
+def trakt_refresh_token():
+    addon = xbmcaddon.Addon()
+    refresh_token = addon.getSetting("TRAKT_REFRESH_TOKEN")
+    data = {
+        "client_id": TRAKT_API_KEY,
+        "client_secret": TRAKT_SECRET,
+        "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token
+    }
+    response = requests.post('https://api.trakt.tv/oauth/token',
+                             data=data).json()
+    if response:
+        expires_at = time.time() + 60*60*24*30
+        addon.setSetting("TRAKT_EXPIRES_AT", str(expires_at))
+        addon.setSetting("TRAKT_ACCESS_TOKEN",
+                         response["access_token"])
+        addon.setSetting("TRAKT_REFRESH_TOKEN",
+                         response["refresh_token"])
+        return response["access_token"]
+
+
 def remove_non_ascii(text):
-    return unidecode(text)
+    return unidecode(unicode(text))
 
 
 def save_to_db(item, url):

@@ -9,3 +9,6 @@ Changed xml.py to fix bug
 
 V1.4
 Updated TMDB to show now airing
+
+V1.5
+Search TMDb and Trakt, Movies by Genre
