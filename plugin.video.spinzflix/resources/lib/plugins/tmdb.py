@@ -38,6 +38,16 @@
     </dir>
 
     <dir>
+      <title>2014</title>
+      <tmdb>year/movies/2014</tmdb>
+    </dir>
+
+    <dir>
+      <title>TMDB Army Movies</title>
+      <tmdb>keyword/movies/6092</tmdb>
+    </dir>
+
+    <dir>
       <title>TMDB Star Wars Collection</title>
       <tmdb>collection/10</tmdb>
     </dir>
@@ -62,6 +72,16 @@
       <tmdb>genre/shows/16</tmdb>
     </dir>
 
+	<dir>
+		<title>ABC</title>
+		<tmdb>network/shows/2</tmdb>
+	</dir>
+
+    <dir>
+      <title>TMDB King Shows</title>
+      <tmdb>keyword/shows/13084</tmdb>
+    </dir>
+
     <dir>
       <title>TMDB List: Animal Kingdom</title>
       <tmdb>list/13488</tmdb>
@@ -83,6 +103,7 @@
     </dir>
 """
 
+import __builtin__
 import pickle
 import time
 
@@ -96,7 +117,7 @@ from resources.lib.util.xml import JenItem, JenList, display_list
 from unidecode import unidecode
 
 
-CACHE_TIME = 3600  # change to wanted cache time in seconds
+CACHE_TIME = 0  # change to wanted cache time in seconds
 
 addon_fanart = xbmcaddon.Addon().getAddonInfo('fanart')
 addon_icon = xbmcaddon.Addon().getAddonInfo('icon')
@@ -176,160 +197,249 @@ class TMDB(Plugin):
 
 @route(mode='tmdb', args=["url"])
 def tmdb(url):
-    xml = ""
     page = 1
-    response = fetch_from_db(url)
-    if url.startswith("movies"):
-        if url.startswith("movies/popular"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.Movies().popular(page=page)
-        if url.startswith("movies/now_playing"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.Movies().now_playing(page=page)
-        if url.startswith("movies/top_rated"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.Movies().top_rated(page=page)
+    try:
+        xml, __builtin__.content_type = fetch_from_db(url) or (None, None)
+    except Exception:
+        xml, __builtin__.content_type = None, None
+    if not xml:
+        content = "files"
+        xml = ""
+        response = None
+        if url.startswith("movies"):
+            if url.startswith("movies/popular"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.Movies().popular(page=page)
+            if url.startswith("movies/now_playing"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.Movies().now_playing(page=page)
+            if url.startswith("movies/top_rated"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.Movies().top_rated(page=page)
 
-        for item in response["results"]:
-            xml += get_movie_xml(item)
-    elif url.startswith("tv"):
-        if url.startswith("tv/popular"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.TV().popular(page=page)
-        elif url.startswith("tv/top_rated"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.TV().top_rated(page=page)
-        elif url.startswith("tv/today"):
-            last = url.split("/")[-1]
-            if last.isdigit():
-                page = int(last)
-            if not response:
-                response = tmdbsimple.TV().airing_today(page=page)
-        for item in response["results"]:
-            xml += get_show_xml(item)
-    elif url.startswith("list"):
-        list_id = url.split("/")[-1]
-        if not response:
-            response = tmdbsimple.Lists(list_id).info()
-        for item in response["items"]:
-            if "title" in item:
+            for item in response["results"]:
                 xml += get_movie_xml(item)
-            elif "name" in item:
+                content = "movies"
+        elif url.startswith("tv"):
+            if url.startswith("tv/popular"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.TV().popular(page=page)
+            elif url.startswith("tv/top_rated"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.TV().top_rated(page=page)
+            elif url.startswith("tv/today"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.TV().airing_today(page=page)
+            for item in response["results"]:
                 xml += get_show_xml(item)
-    elif url.startswith("person"):
-        split_url = url.split("/")
-        person_id = split_url[-1]
-        media = split_url[-2]
-        if media == "movies":
+                content = "tvshows"
+        elif url.startswith("list"):
+            list_id = url.split("/")[-1]
             if not response:
-                response = tmdbsimple.People(person_id).movie_credits()
-        elif media == "shows":
-            if not response:
-                response = tmdbsimple.People(person_id).tv_credits()
+                response = tmdbsimple.Lists(list_id).info()
+            for item in response["items"]:
+                if "title" in item:
+                    xml += get_movie_xml(item)
+                    content = "movies"
+                elif "name" in item:
+                    xml += get_show_xml(item)
+                    content = "tvshows"
+        elif url.startswith("person"):
+            split_url = url.split("/")
+            person_id = split_url[-1]
+            media = split_url[-2]
+            if media == "movies":
+                if not response:
+                    response = tmdbsimple.People(person_id).movie_credits()
+            elif media == "shows":
+                if not response:
+                    response = tmdbsimple.People(person_id).tv_credits()
 
-        for job in response:
-            if job == "id":
-                continue
-            for item in response[job]:
+            for job in response:
+                if job == "id":
+                    continue
+                for item in response[job]:
+                    if media == "movies":
+                        xml += get_movie_xml(item)
+                        content = "movies"
+                    elif media == "shows":
+                        xml += get_show_xml(item)
+                        content = "tvshows"
+        elif url.startswith("genre"):
+            split_url = url.split("/")
+            if len(split_url) == 3:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            genre_id = split_url[-2]
+            media = split_url[-3]
+            if media == "movies":
+                if not response:
+                    response = tmdbsimple.Discover().movie(with_genres=genre_id,
+                                                           page=page)
+            elif media == "shows":
+                if not response:
+                    response = tmdbsimple.Discover().tv(with_genres=genre_id,
+                                                        page=page)
+
+            for item in response["results"]:
                 if media == "movies":
                     xml += get_movie_xml(item)
+                    content = "movies"
                 elif media == "shows":
                     xml += get_show_xml(item)
-    elif url.startswith("genre"):
-        split_url = url.split("/")
-        if len(split_url) == 3:
-            url += "/1"
-            split_url.append(1)
-        page = int(split_url[-1])
-        genre_id = split_url[-2]
-        media = split_url[-3]
-        if media == "movies":
-            if not response:
-                response = tmdbsimple.Discover().movie(with_genres=genre_id,
-                                                       page=page)
-        elif media == "shows":
-            if not response:
-                response = tmdbsimple.Discover().tv(with_genres=genre_id,
-                                                    page=page)
-
-        for item in response["results"]:
+                    content = "tvshows"
+        elif url.startswith("year"):
+            split_url = url.split("/")
+            if len(split_url) == 3:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            release_year = split_url[-2]
+            media = split_url[-3]
             if media == "movies":
-                xml += get_movie_xml(item)
+                if not response:
+                    response = tmdbsimple.Discover().movie(primary_release_year=release_year,
+                                                           page=page)
+            for item in response["results"]:
+                if media == "movies":
+                    xml += get_movie_xml(item)
+                    content = "movies"
+        elif url.startswith("network"):
+            split_url = url.split("/")
+            if len(split_url) == 3:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            network_id = split_url[-2]
+            media = split_url[-3]
+            if media == "shows":
+                if not response:
+                    response = tmdbsimple.Discover().tv(with_networks=network_id,
+                                                        page=page)
+            for item in response["results"]:
+                if media == "shows":
+                    xml += get_show_xml(item)
+                    content = "tvshows"
+        elif url.startswith("company"):
+            split_url = url.split("/")
+            if len(split_url) == 3:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            company_id = split_url[-2]
+            media = split_url[-3]
+            if media == "movies":
+                if not response:
+                    response = tmdbsimple.Discover().movie(with_companies=company_id,
+                                                           page=page)
+            for item in response["results"]:
+                if media == "movies":
+                    xml += get_movie_xml(item)
+                    content = "movies"
+        elif url.startswith("keyword"):
+            split_url = url.split("/")
+            if len(split_url) == 3:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            keyword_id = split_url[-2]
+            media = split_url[-3]
+            if media == "movies":
+                if not response:
+                    response = tmdbsimple.Discover().movie(with_keywords=keyword_id,
+                                                           page=page)
             elif media == "shows":
-                xml += get_show_xml(item)
-    elif url.startswith("collection"):
-        split_url = url.split("/")
-        collection_id = split_url[-1]
-        if not response:
-            response = tmdbsimple.Collections(collection_id).info()
+                if not response:
+                    response = tmdbsimple.Discover().tv(with_keywords=keyword_id,
+                                                        page=page)
 
-        for item in response["parts"]:
-            xml += get_movie_xml(item)
-    elif url.startswith("search"):
-        if url == "search":
-            term = koding.Keyboard("Search For")
-            url = "search/%s" % term
-        split_url = url.split("/")
-        if len(split_url) == 2:
-            url += "/1"
-            split_url.append(1)
-        page = int(split_url[-1])
-        term = split_url[-2]
-        response = tmdbsimple.Search().multi(query=term, page=page)
+            for item in response["results"]:
+                if media == "movies":
+                    xml += get_movie_xml(item)
+                    content = "movies"
+                elif media == "shows":
+                    xml += get_show_xml(item)
+                    content = "tvshows"
+        elif url.startswith("collection"):
+            split_url = url.split("/")
+            collection_id = split_url[-1]
+            if not response:
+                response = tmdbsimple.Collections(collection_id).info()
 
-        for item in response["results"]:
-            if item["media_type"] == "movie":
+            for item in response["parts"]:
                 xml += get_movie_xml(item)
-            elif item["media_type"] == "tv":
-                xml += get_show_xml(item)
-            elif item["media_type"] == "person":
-                name = item["name"]
-                person_id = item["id"]
-                thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["profile_path"]
-                xml += "<dir>\n"\
-                       "\t<title>%s Shows TMDB</title>\n"\
-                       "\t<tmdb>person/shows/%s</tmdb>\n"\
-                       "\t<thumbnail>%s</thumbnail>\n"\
-                       "</dir>\n\n" % (name.capitalize(),
-                                       person_id,
-                                       thumbnail)
+                content = "movies"
+        elif url.startswith("search"):
+            if url == "search":
+                term = koding.Keyboard("Search For")
+                url = "search/%s" % term
+            split_url = url.split("/")
+            if len(split_url) == 2:
+                url += "/1"
+                split_url.append(1)
+            page = int(split_url[-1])
+            term = split_url[-2]
+            response = tmdbsimple.Search().multi(query=term, page=page)
 
-                xml += "<dir>\n"\
-                       "\t<title>%s Movies TMDB</title>\n"\
-                       "\t<tmdb>person/movies/%s</tmdb>\n"\
-                       "\t<thumbnail>%s</thumbnail>\n"\
-                       "\t</dir>\n\n" % (name.capitalize(),
-                                         person_id,
-                                         thumbnail)
+            for item in response["results"]:
+                if item["media_type"] == "movie":
+                    xml += get_movie_xml(item)
+                elif item["media_type"] == "tv":
+                    xml += get_show_xml(item)
+                elif item["media_type"] == "person":
+                    name = item["name"]
+                    person_id = item["id"]
+                    thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["profile_path"]
+                    xml += "<dir>\n"\
+                           "\t<title>%s Shows TMDB</title>\n"\
+                           "\t<tmdb>person/shows/%s</tmdb>\n"\
+                           "\t<thumbnail>%s</thumbnail>\n"\
+                           "</dir>\n\n" % (name.capitalize(),
+                                           person_id,
+                                           thumbnail)
 
-    save_to_db(response, url)
-    if page < response.get("total_pages", 0):
-        base = url.split("/")
-        if base[-1].isdigit():
-            base = base[:-1]
-        next_url = "/".join(base) + "/" + str(page + 1)
-        xml += "<dir>"\
-               "<title>Next Page >></title>"\
-               "<tmdb>%s</tmdb>"\
-               "<summary>Go To Page %s</summary>"\
-               "</dir>" % (next_url, page + 1)
+                    xml += "<dir>\n"\
+                           "\t<title>%s Movies TMDB</title>\n"\
+                           "\t<tmdb>person/movies/%s</tmdb>\n"\
+                           "\t<thumbnail>%s</thumbnail>\n"\
+                           "\t</dir>\n\n" % (name.capitalize(),
+                                             person_id,
+                                             thumbnail)
+
+        if page < response.get("total_pages", 0):
+            base = url.split("/")
+            if base[-1].isdigit():
+                base = base[:-1]
+            next_url = "/".join(base) + "/" + str(page + 1)
+            xml += "<dir>"\
+                   "<title>Next Page >></title>"\
+                   "<tmdb>%s</tmdb>"\
+                   "<summary>Go To Page %s</summary>"\
+                   "</dir>" % (next_url, page + 1)
+        __builtin__.content_type = content
+        save_to_db((xml, __builtin__.content_type), url)
+
     jenlist = JenList(xml)
-    display_list(jenlist.get_list(), jenlist.get_content_type())
+    display_list(jenlist.get_list(), __builtin__.content_type)
 
 
 def get_movie_xml(item):
@@ -385,8 +495,11 @@ def get_show_xml(item):
         url = "tmdb_imdb({0})".format(tmdb_id)
         imdb = fetch_from_db(url)
         if not imdb:
-            imdb = tmdbsimple.TV(tmdb_id).external_ids()['imdb_id']
-            save_to_db(imdb, url)
+            try:
+                imdb = tmdbsimple.TV(tmdb_id).external_ids()['imdb_id']
+                save_to_db(imdb, url)
+            except:
+                imdb = "0"
     else:
         imdb = "0"
 
@@ -486,37 +599,39 @@ def get_episode_xml(item, tmdb_id, year, tvtitle):
 
 @route(mode='tmdb_tv_show', args=["url"])
 def tmdb_tv_show(url):
-    response = fetch_from_db(url)
-    splitted = url.replace("tmdb_id", "").split(",")
-    tmdb_id = splitted[0]
-    year = splitted[1]
-    tvtitle = ",".join(splitted[2:])
-    if not response:
+    xml = fetch_from_db(url)
+    if not xml:
+        xml = ""
+        splitted = url.replace("tmdb_id", "").split(",")
+        tmdb_id = splitted[0]
+        year = splitted[1]
+        tvtitle = ",".join(splitted[2:])
         response = tmdbsimple.TV(tmdb_id).info()
-        save_to_db(response, url)
-    seasons = response["seasons"]
-    xml = ""
-    for season in seasons:
-        xml += get_season_xml(season, tmdb_id, year, tvtitle)
+        seasons = response["seasons"]
+        xml = ""
+        for season in seasons:
+            xml += get_season_xml(season, tmdb_id, year, tvtitle)
+        save_to_db(xml, url)
     jenlist = JenList(xml)
     display_list(jenlist.get_list(), jenlist.get_content_type())
 
 
 @route(mode='tmdb_season', args=["url"])
 def tmdb_season(url):
-    response = fetch_from_db(url)
-    splitted = url.replace("tmdb_id", "").split(",")
-    tmdb_id = splitted[0]
-    season = splitted[1]
-    year = splitted[2]
-    tvtitle = ",".join(splitted[3:])
-    if not response:
+    xml = fetch_from_db(url)
+    if not xml:
+        xml = ""
+        splitted = url.replace("tmdb_id", "").split(",")
+        tmdb_id = splitted[0]
+        season = splitted[1]
+        year = splitted[2]
+        tvtitle = ",".join(splitted[3:])
         response = tmdbsimple.TV_Seasons(tmdb_id, season).info()
-        save_to_db(response, url)
-    episodes = response["episodes"]
-    xml = ""
-    for episode in episodes:
-        xml += get_episode_xml(episode, tmdb_id, year, tvtitle)
+        episodes = response["episodes"]
+        xml = ""
+        for episode in episodes:
+            xml += get_episode_xml(episode, tmdb_id, year, tvtitle)
+        save_to_db(xml, url)
     jenlist = JenList(xml)
     display_list(jenlist.get_list(), jenlist.get_content_type())
 
@@ -526,6 +641,7 @@ def remove_non_ascii(text):
 
 
 def save_to_db(item, url):
+    koding.reset_db()
     koding.Remove_From_Table(
         "tmdb_plugin",
         {
@@ -535,12 +651,13 @@ def save_to_db(item, url):
     koding.Add_To_Table("tmdb_plugin",
                         {
                             "url": url,
-                            "item": pickle.dumps(item),
+                            "item": pickle.dumps(item).replace("\"", "'"),
                             "created": time.time()
                         })
 
 
 def fetch_from_db(url):
+    koding.reset_db()
     tmdb_plugin_spec = {
         "columns": {
             "url": "TEXT",
@@ -559,7 +676,7 @@ def fetch_from_db(url):
         if not match["item"]:
             return None
         created_time = match["created"]
-        if created_time and float(created_time) <= time.time() + CACHE_TIME:
+        if created_time and float(created_time) + CACHE_TIME >= time.time():
             match_item = match["item"].replace("'", "\"")
             try:
                 match_item = match_item.encode('ascii', 'ignore')
