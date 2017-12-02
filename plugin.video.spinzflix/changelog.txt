@@ -13,7 +13,7 @@ Updated TMDB to show now airing
 V1.5
 Search TMDb and Trakt, Movies by Genre
 
-V1.6
+V1.7
 Updated TMDB, Trakt, Sources
 Added the ability for movies my production company,
 movies by year,
