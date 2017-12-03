@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.spinzflix" name="SpinzFlix" version="1.7" provider-name="midraal, SpezC">
+<addon id="plugin.video.spinzflix" name="SpinzFlix" version="1.8" provider-name="midraal, SpezC">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.nanscrapers" version="0.5.5" />
@@ -17,9 +17,10 @@
     <extension point="xbmc.service" library="service.py" start="[login|startup]" />
     <extension point="xbmc.addon.metadata">
         <summary lang="en"></summary>
-        <description lang="en">STV TEST</description>
+        <description lang="en">SpinzFlix Video Addon Powered By Jen</description>
+        <disclaimer>I do not own, nor host any content provided within this add-on. All links are gathered from publicly available resources.</disclaimer>
         <platform>all</platform>
-        <website>www.noobsandnerds.com</website>
-        <video_guide>xtOqLY5PJDY</video_guide>
+        <website>http://stvmc.net</website>
+        <video_guide></video_guide>
     </extension>
 </addon>

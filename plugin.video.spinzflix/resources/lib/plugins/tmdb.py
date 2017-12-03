@@ -17,86 +17,128 @@
 
 
     Usage Examples:
+	Returns The TMDB Popular Movies List
     <dir>
       <title>TMDB Popular</title>
       <tmdb>movies/popular</tmdb>
     </dir>
+	
+	Returns Upcoming Movies Then Trailers For The Movies.  Second Tag Must Be movie/upcoming
+	<dir>
+      <title>TMDB Upcoming</title>
+      <tmdb>movie/upcoming</tmdb>
+      <summary>Shows Trailers For Upcoming Movies</summary>
+    </dir>
 
+	Returns A List Of Now Playing Movies
     <dir>
       <title>TMDB Now Playing</title>
       <tmdb>movies/now_playing</tmdb>
     </dir>
 
+	Returns A List Of TMDB Top Rated Movies
     <dir>
       <title>TMDB Top Rated</title>
       <tmdb>movies/top_rated</tmdb>
     </dir>
 
+	Returns A List Of Movies By A Specific Genre.  Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Action Movies</title>
       <tmdb>genre/movies/28</tmdb>
     </dir>
 
+	Returns A List Of Movies By Specific Years. Must Change Year At The End Of The Second Tag
     <dir>
-      <title>2014</title>
+      <title>Movies Released In 2014</title>
       <tmdb>year/movies/2014</tmdb>
     </dir>
 
+	Returns A List Of Movies By Production Companies. Must Change Id At The End Of The Second Tag
+	<dir>
+		<title>Pixar Animation</title>
+		<tmdb>company/movies/3</tmdb>
+	</dir>
+
+	Returns A List Of Movies By A Specific Keyword. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Army Movies</title>
       <tmdb>keyword/movies/6092</tmdb>
     </dir>
 
+	Returns A List Of A Specific Collection. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Star Wars Collection</title>
       <tmdb>collection/10</tmdb>
     </dir>
 
+	Returns The TMDB Popular TV Shows List
     <dir>
       <title>TMDB Popular</title>
       <tmdb>tv/popular</tmdb>
     </dir>
 
+	Returns The TMDB Top Rated TV Shows List
     <dir>
       <title>TMDB Top Rated</title>
       <tmdb>tv/top_rated</tmdb>
     </dir>
 
+	Returns A List Of Shows Airing Today
     <dir>
       <title>TMDB Airing Today</title>
       <tmdb>tv/today</tmdb>
     </dir>
 
+	Returns A List Of Shows By Genre. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Animation Shows</title>
       <tmdb>genre/shows/16</tmdb>
     </dir>
 
+	Returns A List Of TV Shows By Network. Must Change Id At The End Of The Second Tag
 	<dir>
 		<title>ABC</title>
 		<tmdb>network/shows/2</tmdb>
 	</dir>
 
+	Returns A List By A Specific Keyword. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB King Shows</title>
       <tmdb>keyword/shows/13084</tmdb>
     </dir>
 
+	Returns A Specific TMDB List. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB List: Animal Kingdom</title>
       <tmdb>list/13488</tmdb>
     </dir>
 
+	Returns The TMDB Popular People List.  Results Show Only Movie Titles Currently
+	<dir>
+      <title>Popular People</title>
+      <tmdb>people/popular</tmdb>
+	</dir>
+
+	Returns A List Of Shows By A Person. Must Change Id At The End Of The Second Tag
     <dir>
       <title>Bryan Cranston Shows TMDB</title>
       <tmdb>person/shows/17419</tmdb>
     </dir>
 
+	Returns A List Of Movies By A Person.  Must Change Id At The End Of The Second Tag
     <dir>
       <title>Bryan Cranston Movies TMDB</title>
       <tmdb>person/movies/17419</tmdb>
     </dir>
 
+	Returns Movie Trailers For Any Movies You Want.  You Must Change The Id At The End Of The Second Tag 
+   <dir>
+      <title>Star Wars: The Last Jedi TRAILER</title>
+      <tmdb>trailer/181808</tmdb>
+    </dir>
+
+	Returns A List Of Items Searched For From TMDB
     <dir>
       <title>Search TMDB</title>
       <tmdb>search</tmdb>
@@ -229,6 +271,26 @@ def tmdb(url):
             for item in response["results"]:
                 xml += get_movie_xml(item)
                 content = "movies"
+        elif url.startswith("people"):
+            if url.startswith("people/popular"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.People().popular(page=page)
+            for item in response["results"]:
+                xml += get_person_xml(item)
+                content = "movies"
+        elif url.startswith("movie"):
+            if url.startswith("movie/upcoming"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.Movies().upcoming(page=page)
+            for item in response["results"]:
+                xml += get_trailer_xml(item)
+                content = "movies"
         elif url.startswith("tv"):
             if url.startswith("tv/popular"):
                 last = url.split("/")[-1]
@@ -262,6 +324,14 @@ def tmdb(url):
                 elif "name" in item:
                     xml += get_show_xml(item)
                     content = "tvshows"
+        elif url.startswith("trailer"):
+            movie_id = url.split("/")[-1]
+            if not response:
+                response = tmdbsimple.Movies(movie_id).videos()
+            for item in response["results"]:
+                if "type" in item:
+                    xml += get_trailer_video_xml(item)
+                    content = "movies"
         elif url.startswith("person"):
             split_url = url.split("/")
             person_id = split_url[-1]
@@ -444,8 +514,14 @@ def tmdb(url):
 
 def get_movie_xml(item):
     title = remove_non_ascii(item["title"])
-    year = item["release_date"].split("-")[0]
     tmdb_id = item["id"]
+    
+    if not "release_date" in item:
+		year = ""
+    else:
+		year = item["release_date"].split("-")[0]
+		if not year:
+			year = tmdbsimple.Movies(tmdb_id).info()["release_date"]
     url = "tmdb_imdb({0})".format(tmdb_id)
     imdb = fetch_from_db(url)
     if not imdb:
@@ -478,6 +554,61 @@ def get_movie_xml(item):
           "</item>" % (title, imdb, title, year, thumbnail, fanart)
     return xml
 
+def get_trailer_xml(item):
+    title = remove_non_ascii(item["title"])
+    tmdb_id = item["id"]
+    url = "tmdb_imdb({0})".format(tmdb_id)
+    summary = remove_non_ascii(item["overview"])
+    if item["poster_path"]:
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["poster_path"]
+    else:
+        thumbnail = ""
+    if item["backdrop_path"]:
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["backdrop_path"]
+    else:
+        fanart = ""
+    xml = "<dir>" \
+          "<title>%s</title>" \
+          "<tmdb>trailer/%s</tmdb>"\
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" \
+          "<summary>%s</summary>" \
+          "</dir>" % (title, tmdb_id, thumbnail, fanart, summary)
+    return xml
+
+def get_trailer_video_xml(item):
+    title = remove_non_ascii(item["name"])
+    tmdb_id = item["id"]
+    key = item["key"]
+    url = "tmdb_imdb({0})".format(tmdb_id)
+   
+    xml = "<item>" \
+          "<title>%s</title>" \
+          "<link>https://www.youtube.com/watch?v=%s&feature=youtube</link>"\
+          "<summary>%s</summary>" \
+          "</item>" % (title, key, title)
+    return xml
+
+def get_person_xml(item):
+    title = remove_non_ascii(item["name"])
+    tmdb_id = item["id"]
+    url = "tmdb_imdb({0})".format(tmdb_id)
+    if item["profile_path"]:
+        thumbnail = "https://image.tmdb.org/t/p/w1280/" + item["profile_path"]
+    else:
+        thumbnail = ""
+    if item["profile_path"]:
+        fanart = "https://image.tmdb.org/t/p/w1280/" + item["profile_path"]
+    else:
+        fanart = ""
+    xml = "<dir>" \
+          "<title>%s</title>" \
+          "<tmdb>person/movies/%s</tmdb>"\
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" \
+          "<summary>%s</summary>" \
+          "</dir>" % (title, tmdb_id, thumbnail, fanart, title)
+    return xml
 
 def get_show_xml(item):
     title = remove_non_ascii(item["name"])

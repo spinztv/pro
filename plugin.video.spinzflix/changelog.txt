@@ -18,3 +18,7 @@ Updated TMDB, Trakt, Sources
 Added the ability for movies my production company,
 movies by year,
 tvshows by network
+
+V1.8
+Upcoming movies
+Scrape TMDB popular people list

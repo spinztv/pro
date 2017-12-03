@@ -21,7 +21,7 @@ import __builtin__
 # CONFIGURATION VARIABLES
 # -----------------------
 # change these to suit your addons
-root_xml_url = "http://stvmc.net/stv/main.xml"  # url of the root xml file
+root_xml_url = "" #"http://stvmc.net/stv/main.xml"  # url of the root xml file
 __builtin__.tvdb_api_key = "F28386B374CD30AF"  # tvdb api key
 __builtin__.tmdb_api_key = "c1935caceb7875775ddc15fd3ce21b43"  # tmdb api key
 __builtin__.trakt_client_id = "a862dfbb39d2c7b202c0c0eda51f26be1db239b90b1df270cae2399286a2797a"  # trakt client id
