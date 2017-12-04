@@ -22,3 +22,6 @@ tvshows by network
 V1.8
 Upcoming movies
 Scrape TMDB popular people list
+
+V2.0
+Shows Airing Now Added

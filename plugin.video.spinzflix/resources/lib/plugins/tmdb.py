@@ -17,128 +17,134 @@
 
 
     Usage Examples:
-	Returns The TMDB Popular Movies List
+    Returns The TMDB Popular Movies List
     <dir>
       <title>TMDB Popular</title>
       <tmdb>movies/popular</tmdb>
     </dir>
-	
-	Returns Upcoming Movies Then Trailers For The Movies.  Second Tag Must Be movie/upcoming
-	<dir>
+
+    Returns Upcoming Movies Then Trailers For The Movies.  Second Tag Must Be movie/upcoming
+    <dir>
       <title>TMDB Upcoming</title>
       <tmdb>movie/upcoming</tmdb>
       <summary>Shows Trailers For Upcoming Movies</summary>
     </dir>
 
-	Returns A List Of Now Playing Movies
+    Returns A List Of Now Playing Movies
     <dir>
       <title>TMDB Now Playing</title>
       <tmdb>movies/now_playing</tmdb>
     </dir>
 
-	Returns A List Of TMDB Top Rated Movies
+    Returns A List Of TMDB Top Rated Movies
     <dir>
       <title>TMDB Top Rated</title>
       <tmdb>movies/top_rated</tmdb>
     </dir>
 
-	Returns A List Of Movies By A Specific Genre.  Must Change Id At The End Of The Second Tag
+    Returns A List Of Movies By A Specific Genre.  Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Action Movies</title>
       <tmdb>genre/movies/28</tmdb>
     </dir>
 
-	Returns A List Of Movies By Specific Years. Must Change Year At The End Of The Second Tag
+    Returns A List Of Movies By Specific Years. Must Change Year At The End Of The Second Tag
     <dir>
       <title>Movies Released In 2014</title>
       <tmdb>year/movies/2014</tmdb>
     </dir>
 
-	Returns A List Of Movies By Production Companies. Must Change Id At The End Of The Second Tag
-	<dir>
-		<title>Pixar Animation</title>
-		<tmdb>company/movies/3</tmdb>
-	</dir>
+    Returns A List Of Movies By Production Companies. Must Change Id At The End Of The Second Tag
+    <dir>
+        <title>Pixar Animation</title>
+        <tmdb>company/movies/3</tmdb>
+    </dir>
 
-	Returns A List Of Movies By A Specific Keyword. Must Change Id At The End Of The Second Tag
+    Returns A List Of Movies By A Specific Keyword. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Army Movies</title>
       <tmdb>keyword/movies/6092</tmdb>
     </dir>
 
-	Returns A List Of A Specific Collection. Must Change Id At The End Of The Second Tag
+    Returns A List Of A Specific Collection. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Star Wars Collection</title>
       <tmdb>collection/10</tmdb>
     </dir>
 
-	Returns The TMDB Popular TV Shows List
+    Returns The TMDB Popular TV Shows List
     <dir>
       <title>TMDB Popular</title>
       <tmdb>tv/popular</tmdb>
     </dir>
 
-	Returns The TMDB Top Rated TV Shows List
+    Returns The TMDB Top Rated TV Shows List
     <dir>
       <title>TMDB Top Rated</title>
       <tmdb>tv/top_rated</tmdb>
     </dir>
 
-	Returns A List Of Shows Airing Today
+    Returns A List Of Shows Airing Today
     <dir>
       <title>TMDB Airing Today</title>
       <tmdb>tv/today</tmdb>
     </dir>
 
-	Returns A List Of Shows By Genre. Must Change Id At The End Of The Second Tag
+    Returns A List Of Shows Airing In The Next 7 Days
+    <dir>
+      <title>TMDB On The Air</title>
+      <tmdb>tv/on_the_air</tmdb>
+    </dir>
+
+    Returns A List Of Shows By Genre. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB Animation Shows</title>
       <tmdb>genre/shows/16</tmdb>
     </dir>
 
-	Returns A List Of TV Shows By Network. Must Change Id At The End Of The Second Tag
-	<dir>
-		<title>ABC</title>
-		<tmdb>network/shows/2</tmdb>
-	</dir>
+    Returns A List Of TV Shows By Network. Must Change Id At The End Of The Second Tag
+    <dir>
+        <title>ABC</title>
+        <tmdb>network/shows/2</tmdb>
+    </dir>
 
-	Returns A List By A Specific Keyword. Must Change Id At The End Of The Second Tag
+    Returns A List By A Specific Keyword. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB King Shows</title>
       <tmdb>keyword/shows/13084</tmdb>
     </dir>
 
-	Returns A Specific TMDB List. Must Change Id At The End Of The Second Tag
+    Returns A Specific TMDB List. Must Change Id At The End Of The Second Tag
     <dir>
       <title>TMDB List: Animal Kingdom</title>
       <tmdb>list/13488</tmdb>
     </dir>
 
-	Returns The TMDB Popular People List.  Results Show Only Movie Titles Currently
-	<dir>
+    Returns The TMDB Popular People List.  Results Show Only Movie Titles Currently
+    <dir>
       <title>Popular People</title>
       <tmdb>people/popular</tmdb>
-	</dir>
+    </dir>
 
-	Returns A List Of Shows By A Person. Must Change Id At The End Of The Second Tag
+    Returns A List Of Shows By A Person. Must Change Id At The End Of The Second Tag
     <dir>
       <title>Bryan Cranston Shows TMDB</title>
       <tmdb>person/shows/17419</tmdb>
     </dir>
 
-	Returns A List Of Movies By A Person.  Must Change Id At The End Of The Second Tag
+    Returns A List Of Movies By A Person.  Must Change Id At The End Of The Second Tag
     <dir>
       <title>Bryan Cranston Movies TMDB</title>
       <tmdb>person/movies/17419</tmdb>
     </dir>
 
-	Returns Movie Trailers For Any Movies You Want.  You Must Change The Id At The End Of The Second Tag 
+    Returns Movie Trailers For Any Movies You Want.  You Must Change The Id At The End Of The Second Tag
    <dir>
       <title>Star Wars: The Last Jedi TRAILER</title>
       <tmdb>trailer/181808</tmdb>
     </dir>
 
-	Returns A List Of Items Searched For From TMDB
+    Returns A List Of Items Searched For From TMDB
     <dir>
       <title>Search TMDB</title>
       <tmdb>search</tmdb>
@@ -159,7 +165,7 @@ from resources.lib.util.xml import JenItem, JenList, display_list
 from unidecode import unidecode
 
 
-CACHE_TIME = 0  # change to wanted cache time in seconds
+CACHE_TIME = 300  # change to wanted cache time in seconds
 
 addon_fanart = xbmcaddon.Addon().getAddonInfo('fanart')
 addon_icon = xbmcaddon.Addon().getAddonInfo('icon')
@@ -310,6 +316,12 @@ def tmdb(url):
                     page = int(last)
                 if not response:
                     response = tmdbsimple.TV().airing_today(page=page)
+            elif url.startswith("tv/on_the_air"):
+                last = url.split("/")[-1]
+                if last.isdigit():
+                    page = int(last)
+                if not response:
+                    response = tmdbsimple.TV().on_the_air(page=page)
             for item in response["results"]:
                 xml += get_show_xml(item)
                 content = "tvshows"
@@ -515,13 +527,13 @@ def tmdb(url):
 def get_movie_xml(item):
     title = remove_non_ascii(item["title"])
     tmdb_id = item["id"]
-    
+
     if not "release_date" in item:
-		year = ""
+        year = ""
     else:
-		year = item["release_date"].split("-")[0]
-		if not year:
-			year = tmdbsimple.Movies(tmdb_id).info()["release_date"]
+        year = item["release_date"].split("-")[0]
+        if not year:
+            year = tmdbsimple.Movies(tmdb_id).info()["release_date"]
     url = "tmdb_imdb({0})".format(tmdb_id)
     imdb = fetch_from_db(url)
     if not imdb:
@@ -581,7 +593,7 @@ def get_trailer_video_xml(item):
     tmdb_id = item["id"]
     key = item["key"]
     url = "tmdb_imdb({0})".format(tmdb_id)
-   
+
     xml = "<item>" \
           "<title>%s</title>" \
           "<link>https://www.youtube.com/watch?v=%s&feature=youtube</link>"\
