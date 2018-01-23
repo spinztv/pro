@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.25" provider-name="@LuciferOnKodi, SpezC">
+<addon id="plugin.video.spinzcartooncrazy" name="Spinz Cartoon Crazy" version="1.0.26" provider-name="@LuciferOnKodi, SpezC">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.beautifulsoup" version="3.2.1"/>

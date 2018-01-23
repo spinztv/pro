@@ -55,3 +55,6 @@ Updated The 24/7 Section
 
 V1.0.24
 Added new icons
+
+V1.0.26
+Removed dead sections to start update

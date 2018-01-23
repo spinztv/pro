@@ -45,10 +45,10 @@ def MAIN_MENU():
     universalsearch = xbmc.translatePath(path+'resources/images/Universal Search.png')
     allucsearch = xbmc.translatePath(path+'resources/images/Alluc Search.png')
     
-    list_item = xbmcgui.ListItem(label='9Anime')
-    list_item.setArt({'fanart':fanart,'thumb':icon})
-    url = get_url(source='9Anime')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='9Anime') # Entire site changed. Need to redo the links page
+    #list_item.setArt({'fanart':fanart,'thumb':icon})
+    #url = get_url(source='9Anime')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='9Cartoon')
     list_item.setArt({'fanart':fanart,'thumb':ninecartoon})
@@ -65,45 +65,45 @@ def MAIN_MENU():
     url = get_url(source='AnimeWow')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='B99')
-    list_item.setArt({'fanart':fanart,'thumb':bninetynine})
-    url = get_url(source='B99')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='B99') #B99 has a 403 error.  Seems to be an issue with Kodi since no headers are used
+    #list_item.setArt({'fanart':fanart,'thumb':bninetynine})
+    #url = get_url(source='B99')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='CartoonCrazy')
     list_item.setArt({'fanart':fanart,'thumb':cartooncrazy})
     url = get_url(source='CartoonCrazy')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='CartoonsOn')
-    list_item.setArt({'fanart':fanart,'thumb':cartoonson})
-    url = get_url(source='CartoonsOn')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='CartoonsOn') # Will not open anything past main menu 
+    #list_item.setArt({'fanart':fanart,'thumb':cartoonson})
+    #url = get_url(source='CartoonsOn')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='GoStream')
     list_item.setArt({'fanart':fanart,'thumb':gostream})
     url = get_url(source='GoStream')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='KimCartoon')
+    list_item = xbmcgui.ListItem(label='KimCartoon')  # Works except images
     list_item.setArt({'fanart':fanart,'thumb':kimcartoon})
     url = get_url(source='KimCartoon')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='KissCartoon Eu')
-    list_item.setArt({'fanart':fanart,'thumb':kisscartooneu})
-    url = get_url(source='KissCartoonEu')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='KissCartoon Eu')# No sections open
+    #list_item.setArt({'fanart':fanart,'thumb':kisscartooneu})
+    #url = get_url(source='KissCartoonEu')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='KissCartoon So')
-    list_item.setArt({'fanart':fanart,'thumb':kisscartoonso})
-    url = get_url(source='KissCartoonSo')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='KissCartoon So')# Section doesnt open at all
+    #list_item.setArt({'fanart':fanart,'thumb':kisscartoonso})
+    #url = get_url(source='KissCartoonSo')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='KissCartoon Io')
-    list_item.setArt({'fanart':fanart,'thumb':kisscartoonio})
-    url = get_url(source='KissCartoonIo')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='KissCartoon Io')# Wont grab stream
+    #list_item.setArt({'fanart':fanart,'thumb':kisscartoonio})
+    #url = get_url(source='KissCartoonIo')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='KissPanda')
     list_item.setArt({'fanart':fanart,'thumb':kisspanda})
@@ -120,39 +120,41 @@ def MAIN_MENU():
     url = get_url(source='ToonGet')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='TheSeriesOnline')
-    list_item.setArt({'fanart':fanart,'thumb':theseriesonline})
-    url = get_url(source='TheSeriesOnline')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='TheSeriesOnline')# No sections inside open
+    #list_item.setArt({'fanart':fanart,'thumb':theseriesonline})
+    #url = get_url(source='TheSeriesOnline')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='WatchCartoonOnline')
-    list_item.setArt({'fanart':fanart,'thumb':watchcartoononline})
-    url = get_url(source='WatchCartoonOnline')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='WatchCartoonOnline')# No stream selections come up
+    #list_item.setArt({'fanart':fanart,'thumb':watchcartoononline})
+    #url = get_url(source='WatchCartoonOnline')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='WatchCartoonsOnline')
-    list_item.setArt({'fanart':fanart,'thumb':watchcartoonsonline})
-    url = get_url(source='WatchCartoonsOnline')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='WatchCartoonsOnline') #error for image source not allowing play
+    #list_item.setArt({'fanart':fanart,'thumb':watchcartoonsonline})
+    #url = get_url(source='WatchCartoonsOnline')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='WatchCartoons')
-    list_item.setArt({'fanart':fanart,'thumb':icon})
-    url = get_url(source='WatchCartoons')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='WatchCartoons')# Will not grab stream
+    #list_item.setArt({'fanart':fanart,'thumb':icon})
+    #url = get_url(source='WatchCartoons')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
 
     list_item = xbmcgui.ListItem(label='Live 24/7 Channels')
     list_item.setArt({'fanart':fanart,'thumb':twentyfourseven})
     url = get_url(source='Live247')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-   # list_item = xbmcgui.ListItem(label='Requested Titles')
-   # list_item.setArt({'fanart':fanart,'thumb':requestedtitles})
-   # url = get_url(source='RequestedTitles')
-   #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    
+    #list_item = xbmcgui.ListItem(label='Requested Titles')
+    #list_item.setArt({'fanart':fanart,'thumb':requestedtitles})
+    #url = get_url(source='RequestedTitles')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
     list_item = xbmcgui.ListItem(label='[COLOR yellow]Universal Search[/COLOR]')
     list_item.setArt({'fanart':fanart,'thumb':universalsearch})
     url = get_url(source='Search',search='Universal')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    
     list_item = xbmcgui.ListItem(label='[COLOR yellow]Alluc Search[/COLOR]')
     list_item.setArt({'fanart':fanart,'thumb':allucsearch})
     url = get_url(source='Search',search='Alluc')
