@@ -1,5 +1,5 @@
-# Addon Name: Jen Unleashed
-# Addon id: plugin.video.jen.unleased
+# Addon Name: spinzflix
+# Addon id: plugin.video.spinzflix
 # Addon Provider: Team Jen
 msgid ""
 msgstr ""
@@ -775,7 +775,7 @@ msgstr "הכנס סרט לתור"
 
 msgctxt "#30048"
 msgid "View set for %s"
-msgstr "תצוגהמוגדרת עבור %s"
+msgstr "תצוגה מוגדרת עבור %s"
 
 msgctxt "#30049"
 msgid "Trailer"
