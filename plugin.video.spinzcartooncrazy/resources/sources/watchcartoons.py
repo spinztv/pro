@@ -46,17 +46,19 @@ def MAIN_MENU():
     list_item.setArt({'thumb':icon,'fanart':fanart})
     url = get_url(source='WatchCartoons', endpoint=base+'ongoing/')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    '''
+    These two sections are not playing any video one the website.
     
-    list_item = xbmcgui.ListItem(label='Cartoon List')
-    list_item.setArt({'thumb':icon,'fanart':fanart})
-    url = get_url(source='WatchCartoons', endpoint=base+'content/list/')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    #list_item = xbmcgui.ListItem(label='Cartoon List')
+    #list_item.setArt({'thumb':icon,'fanart':fanart})
+    #url = get_url(source='WatchCartoons', endpoint=base+'content/list/')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    list_item = xbmcgui.ListItem(label='Movie List')
-    list_item.setArt({'thumb':icon,'fanart':fanart})
-    url = get_url(source='WatchCartoons', endpoint=base+'movies/')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-    
+    #list_item = xbmcgui.ListItem(label='Movie List')
+    #list_item.setArt({'thumb':icon,'fanart':fanart})
+    #url = get_url(source='WatchCartoons', endpoint=base+'movies/')
+    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    '''
     list_item = xbmcgui.ListItem(label='By Genre')
     list_item.setArt({'thumb':icon,'fanart':fanart})
     url = get_url(source='WatchCartoons', endpoint=base+'content/genre/')

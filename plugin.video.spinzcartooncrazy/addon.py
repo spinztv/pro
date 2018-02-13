@@ -43,7 +43,7 @@ def MAIN_MENU():
     twentyfourseven = xbmc.translatePath(path+'resources/images/Live 24_7 Channels.png')
    # requestedtitles = xbmc.translatePath(path+'resources/images/Requested Titles.png')
     universalsearch = xbmc.translatePath(path+'resources/images/Universal Search.png')
-    allucsearch = xbmc.translatePath(path+'resources/images/Alluc Search.png')
+   # allucsearch = xbmc.translatePath(path+'resources/images/Alluc Search.png')
     
     #list_item = xbmcgui.ListItem(label='9Anime') # Entire site changed. Need to redo the links page
     #list_item.setArt({'fanart':fanart,'thumb':icon})
@@ -135,31 +135,21 @@ def MAIN_MENU():
     #url = get_url(source='WatchCartoonsOnline')
     #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
     
-    #list_item = xbmcgui.ListItem(label='WatchCartoons')# Will not grab stream
-    #list_item.setArt({'fanart':fanart,'thumb':icon})
-    #url = get_url(source='WatchCartoons')
-    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
+    list_item = xbmcgui.ListItem(label='WatchCartoons') # Removed Cartoon and Movie List. Not Working on Website
+    list_item.setArt({'fanart':fanart,'thumb':icon})
+    url = get_url(source='WatchCartoons')
+    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
 
     list_item = xbmcgui.ListItem(label='Live 24/7 Channels')
     list_item.setArt({'fanart':fanart,'thumb':twentyfourseven})
     url = get_url(source='Live247')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-    
-    #list_item = xbmcgui.ListItem(label='Requested Titles')
-    #list_item.setArt({'fanart':fanart,'thumb':requestedtitles})
-    #url = get_url(source='RequestedTitles')
-    #xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-    
+        
     list_item = xbmcgui.ListItem(label='[COLOR yellow]Universal Search[/COLOR]')
     list_item.setArt({'fanart':fanart,'thumb':universalsearch})
     url = get_url(source='Search',search='Universal')
     xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-    
-    list_item = xbmcgui.ListItem(label='[COLOR yellow]Alluc Search[/COLOR]')
-    list_item.setArt({'fanart':fanart,'thumb':allucsearch})
-    url = get_url(source='Search',search='Alluc')
-    xbmcplugin.addDirectoryItem(_handle, url, list_item, True)
-    
+        
     xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_NONE)
     xbmcplugin.endOfDirectory(_handle)
 

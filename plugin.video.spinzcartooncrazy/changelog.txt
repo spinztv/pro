@@ -58,3 +58,6 @@ Added new icons
 
 V1.0.26
 Removed dead sections to start update
+
+V1.0.27
+Fixed Watch Cartoons Online and removed some other dead links
